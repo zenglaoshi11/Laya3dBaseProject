@@ -24,5 +24,7 @@ export default class USER {
     public static fromImgid:any;
     public static fromAppid:any;
 
+    public static adCount: number;//视频广告次数
+
 }
 StorageMgr.getLocalUserData();

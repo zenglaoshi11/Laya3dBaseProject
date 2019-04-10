@@ -1,8 +1,8 @@
-import CONFIG from "../../../models/CONFIG";
-import SoundMgr from "../../../mgrCommon/SoundMgr";
-import GameMgr from "../../../mgr3d/GameMgr";
-import ViewMgr from "../../../mgrCommon/ViewMgr";
-import MainView from "../../../views/MainView";
+import CONFIG from "../../models/CONFIG";
+import SoundMgr from "../../mgrCommon/SoundMgr";
+import GameMgr from "../../mgr3d/GameMgr";
+import ViewMgr from "../../mgrCommon/ViewMgr";
+import MainView from "../../views/MainView";
 
 export default class Launch extends Laya.Script {
     private toProcess: number = 1;
@@ -109,9 +109,12 @@ export default class Launch extends Laya.Script {
             Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
         }
         SoundMgr.instance.playBGM();
-        GameMgr.instance.init(scene);
+
+        scene.addComponent(GameMgr);
+        Laya.stage.addChild(scene);
+
         ViewMgr.instance.openView({
-            viewName: "MainScene.scene",
+            viewName: "MainView.scene",
             clas: MainView,
             closeAll: true,
         })

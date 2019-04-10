@@ -2,7 +2,7 @@ import MyUtils from "../tools/MyUtils";
 import StorageMgr from "../mgrCommon/StorageMgr";
 
 export default class CONFIG {
-    public static releasePlatform = "";//根据不同平台
+    public static releasePlatform = "";//发布平台 wx fb
     public static myAppid = "wxbe9fe00281505169";
     public static configs: any = null;
     public static language:string = "cn";
@@ -17,13 +17,18 @@ export default class CONFIG {
     public static isLog: boolean = true; //是否开启日志
     public static isSound: boolean;
     public static isVirbort: boolean;
-    public static sysCtrlInfo: any = {};//系统控制信息
+    public static ctrlInfo: any = {};//游戏控制信息
+    public static systemInfo: any = {};//设备系统信息
+
+    public static bannerVideoId:string = "adunit-7c4449f9f6fcafbb";
+    public static rewardedVideoId:string = "adunit-df0311118e2452c6";
 
     public static initLocal(){
         CONFIG.isSound = StorageMgr.getLocalSound();
         CONFIG.isVirbort = StorageMgr.getLocalVirbort();
         if (Laya.Browser.onMiniGame) {
             this.releasePlatform = "wx";
+            this.systemInfo = wx.getSystemInfoSync();
         }
     }
 

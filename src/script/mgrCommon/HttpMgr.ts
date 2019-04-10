@@ -10,7 +10,7 @@ export default class HttpMgr extends Laya.Script {
     private constructor() {
         super();
     }
-    
+    //登陆
     public login(_d:any): void {
         this._http.request({
             url: 'userLogin.action', data: _d, callback: (res) => {
@@ -38,7 +38,7 @@ export default class HttpMgr extends Laya.Script {
         this._http.request({
 			url: 'getSystemParamList.action', data: { nowVersion: CONFIG.version }, callback: (res) => {
 				if (res.code == 0) {
-					CONFIG.sysCtrlInfo = {
+					CONFIG.ctrlInfo = {
 						isConverge: res.isConverge, //聚合开关
 						isShare: res.isShare,
 						isVideo: res.isVideo,
@@ -54,5 +54,14 @@ export default class HttpMgr extends Laya.Script {
 
     public statisticsPost(_d){
         this._http.requestStatistics(_d);
+    }
+
+    public videoErrorCallback(){
+        this._http.request({
+            url: 'videoCallback.action', callback: (res) => {
+                if(res.code == 0){
+                    USER.adCount = res.adCount;    
+                }
+        }});
     }
 }

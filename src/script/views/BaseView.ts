@@ -5,13 +5,17 @@ export default class BaseView extends Laya.Script {
     protected _data;
     protected _isClick;
 
-    onEnable(): void {
+    onAwake(): void {
         //删除时自动释放
         (this.owner as Laya.View).autoDestroyAtClosed = true;
+    }
+
+    onEnable(): void {
         this.addEvent();
     }
 
     onDisable(): void {
+        this.removeEvent();
     }
     
     public openView(data?: any): void {
@@ -27,7 +31,6 @@ export default class BaseView extends Laya.Script {
     }
 
     public closeView(_d:any = null) {
-        this.removeEvent();
         var _viewName:string = (this.owner as Laya.View).url;
         if(_d.notDestroy){
             ViewMgr.instance.hideView(_viewName);
