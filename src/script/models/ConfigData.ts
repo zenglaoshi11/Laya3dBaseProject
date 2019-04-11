@@ -8,7 +8,7 @@ export default class ConfigData {
     public static language:string = "cn";
     public static languageData: any = null;
 
-    public static version = "104";
+    public static version = "100";
     public static jsonVersion = "100";
     public static serverUrl: string = "https://xcx.biaocr.com/funny_frog/";
     public static jsonVersionUrl: string = "https://p.doguane.cn/20190404/m_04171926352321.json";

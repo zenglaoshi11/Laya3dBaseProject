@@ -1,7 +1,7 @@
 import CONFIG from "../models/CONFIG";
 
 export default class SoundMgr {
-    public static instance: SoundMgr = new SoundMgr();
+    public static readonly instance: SoundMgr = new SoundMgr();
     private bgm:any;
     private constructor() {
     }

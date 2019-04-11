@@ -1,7 +1,7 @@
-import CONFIG from "../models/CONFIG";
 import MyPlatform from "../platform/MyPlatform";
 import WX from "../platform/wx/WX";
 import FB from "../platform/fb/FB";
+import ConfigData from "../models/ConfigData";
 
 export default class PlatformMgr extends Laya.Script {
     public static readonly instance: PlatformMgr = new PlatformMgr();
@@ -9,7 +9,7 @@ export default class PlatformMgr extends Laya.Script {
 
     private constructor() {
         super();
-        switch(CONFIG.releasePlatform){
+        switch(ConfigData.releasePlatform){
             case "wx":
                 this._ptInstance = new WX() as MyPlatform;
                 break;

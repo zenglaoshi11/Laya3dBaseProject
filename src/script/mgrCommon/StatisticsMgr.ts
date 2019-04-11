@@ -3,7 +3,7 @@ import USER from "../models/USER";
 import CONFIG from "../models/CONFIG";
 
 export default class StatisticsMgr {
-    public static instance: StatisticsMgr = new StatisticsMgr();
+    public static readonly instance: StatisticsMgr = new StatisticsMgr();
     private constructor() {
     }
  

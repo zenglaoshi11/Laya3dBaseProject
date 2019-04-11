@@ -82,7 +82,7 @@ export default class ADManage{
     }
 
 
-    public ShowVideo(caller: any, callBackSuc: Function, callBackFail: Function) {
+    public showVideo(caller: any, callBackSuc: Function, callBackFail: Function) {
         if (!this.isInited) {
             return;
         }
@@ -103,11 +103,11 @@ export default class ADManage{
         }
     }
 
-    public ShowBannerAd_HOME() {
+    public showBannerAdHome() {
         if (!Laya.Browser.onMiniGame||!this.isInited) {
             return;
         }
-        this.DestoryAllBannerAd();
+        this.destoryAllBannerAd();
         let screenW = ConfigData.systemInfo.windowWidth;
         let _width = Laya.stage.width / 2 - 140;
         let screenH = ConfigData.systemInfo.windowHeight;
@@ -119,7 +119,7 @@ export default class ADManage{
             }
         }
         if (!this.bannerHome) {
-            this.DestroyBannerAd_Home();
+            this.destroyBannerAdHome();
             this.bannerHome = window["wx"].createBannerAd({
                 adUnitId: ConfigData.bannerVideoId,
                 style: {
@@ -153,11 +153,11 @@ export default class ADManage{
         }
     }
 
-    public ShowBannerAd_Other() {
+    public showBannerAdOther() {
         if (!Laya.Browser.onMiniGame||!this.isInited) {
             return;
         }
-        this.DestoryAllBannerAd();
+        this.destoryAllBannerAd();
         let screenW = ConfigData.systemInfo.windowWidth;
         let _width = screenW;
         let screenH = ConfigData.systemInfo.windowHeight;
@@ -169,7 +169,7 @@ export default class ADManage{
             }
         }   
         if (!this.bannerOther) {
-            this.DestroyBannerAd_Other();
+            this.destroyBannerAdOther();
             this.bannerOther = window["wx"].createBannerAd({
                 adUnitId: ConfigData.bannerVideoId,
                 style: {
@@ -202,7 +202,7 @@ export default class ADManage{
         if (!Laya.Browser.onMiniGame||!this.isInited) {
             return;
         }
-        this.DestoryAllBannerAd();
+        this.destoryAllBannerAd();
         let screenW = ConfigData.systemInfo.windowWidth;
         let _width = screenW;
         let screenH = ConfigData.systemInfo.windowHeight;
@@ -214,7 +214,7 @@ export default class ADManage{
             }
         }
         if (!this.bannerClassicEnd) {
-            this.DestroyBannerAd_ClassicEnd();
+            this.destroyBannerAdClassicEnd();
             this.bannerClassicEnd = window["wx"].createBannerAd({
                 adUnitId: 'adunit-dcacf7fd6e654b4d',
                 style: {
@@ -241,7 +241,7 @@ export default class ADManage{
         }
     }
 
-    public DestroyBannerAd_Home() {
+    public destroyBannerAdHome() {
         this.bannerHomeIsHide = true;
         if (this.bannerHome) {
             this.preBannerTime_Home = 0;
@@ -254,7 +254,7 @@ export default class ADManage{
         }
     }
 
-    public DestroyBannerAd_Other() {
+    public destroyBannerAdOther() {
         this.bannerOtherIsHide = true;
         if (this.bannerOther) {
             this.preBannerTime_Other = 0;
@@ -268,7 +268,7 @@ export default class ADManage{
     }
 
 
-    public DestroyBannerAd_ClassicEnd() {
+    public destroyBannerAdClassicEnd() {
         this.bannerClassicEndIsHide = true;
         if (this.bannerClassicEnd) {
             this.preBannerTime_ClassicEnd = 0;
@@ -281,10 +281,10 @@ export default class ADManage{
         }
     }
 
-    public DestoryAllBannerAd() {
-        this.DestroyBannerAd_Home();
-        this.DestroyBannerAd_Other();
-        this.DestroyBannerAd_ClassicEnd();
+    public destoryAllBannerAd() {
+        this.destroyBannerAdHome();
+        this.destroyBannerAdOther();
+        this.destroyBannerAdClassicEnd();
     }
 
 
