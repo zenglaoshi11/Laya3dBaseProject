@@ -4,7 +4,7 @@ import GameMgr from "../../mgr3d/GameMgr";
 import ViewMgr from "../../mgrCommon/ViewMgr";
 import MainView from "../../views/MainView";
 
-export default class Launch extends Laya.Script {
+export default class WXLaunch extends Laya.Script {
     private toProcess: number = 1;
     private progress: number = 0;
     private proLabel: Laya.Label;

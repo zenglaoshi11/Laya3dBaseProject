@@ -1,4 +1,4 @@
-export default class Launch extends Laya.Script {
+export default class FBLaunch extends Laya.Script {
     
     constructor() { super(); }
     
