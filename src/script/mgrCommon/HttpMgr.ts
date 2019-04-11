@@ -1,7 +1,7 @@
 import MyUtils from "../tools/MyUtils";
 import StorageMgr from "./StorageMgr";
 import USER from "../models/USER";
-import CONFIG from "../models/CONFIG";
+import ConfigData from "../models/ConfigData";
 import Http from "../tools/Http";
 
 export default class HttpMgr {
@@ -35,9 +35,9 @@ export default class HttpMgr {
     //开关配制
     public getSystemConfig(): void {
         this._http.request({
-			url: 'getSystemParamList.action', data: { nowVersion: CONFIG.version }, callback: (res) => {
+			url: 'getSystemParamList.action', data: { nowVersion: ConfigData.version }, callback: (res) => {
 				if (res.code == 0) {
-					CONFIG.ctrlInfo = {
+					ConfigData.ctrlInfo = {
 						isConverge: res.isConverge, //聚合开关
 						isShare: res.isShare,
 						isVideo: res.isVideo,

@@ -1,5 +1,5 @@
 import MyUtils from "../tools/MyUtils";
-import USER from "../models/USER";
+import UserData from "../models/UserData";
 
 export default class StorageMgr {
     
@@ -59,27 +59,27 @@ export default class StorageMgr {
 
     public static saveUserData(){
         let _d = {
-            sessionId:USER.sessionId,
-            openId:USER.openId,
-            score:USER.score,
-            exp:USER.exp,
-            level:USER.level,
+            sessionId:UserData.sessionId,
+            openId:UserData.openId,
+            score:UserData.score,
+            exp:UserData.exp,
+            level:UserData.level,
         }
         StorageMgr.setStorage({key:"userData",val:_d});
     }
 
     public static getLocalUserData(){
-        if(USER.isLogin){
+        if(UserData.isLogin){
             return;
         }
         let _d = StorageMgr.getStorage("userData");
         if(!MyUtils.isNull(_d)){
             _d = JSON.parse(_d);
-            USER.sessionId = _d.sessionId;
-            USER.openId = _d.openId;
-            USER.score = _d.score;
-            USER.exp = _d.exp;
-            USER.level = _d.level;
+            UserData.sessionId = _d.sessionId;
+            UserData.openId = _d.openId;
+            UserData.score = _d.score;
+            UserData.exp = _d.exp;
+            UserData.level = _d.level;
         }
     }
 }

@@ -1,5 +1,5 @@
 import MyUtils from "../tools/MyUtils";
-import CONFIG from "../models/CONFIG";
+import ConfigData from "../models/ConfigData";
 import USER from "../models/USER";
 import HttpMgr from "./HttpMgr";
 
@@ -35,7 +35,7 @@ export default class ADManage{
         if (!Laya.Browser.onMiniGame) {
             return;
         }
-        if (CONFIG.systemInfo.SDKVersion && MyUtils.CompareVersion(CONFIG.systemInfo.SDKVersion, "2.0.4") >= 0) {
+        if (ConfigData.systemInfo.SDKVersion && MyUtils.CompareVersion(ConfigData.systemInfo.SDKVersion, "2.0.4") >= 0) {
             this.isInited = true;
             this.initVedioCom();
         }
@@ -47,7 +47,7 @@ export default class ADManage{
     public initVedioCom() {
         let self = this;
         if (this.isInited) {
-            this.rewardedVideoAd = window["wx"].createRewardedVideoAd({ adUnitId: CONFIG.rewardedVideoId });
+            this.rewardedVideoAd = window["wx"].createRewardedVideoAd({ adUnitId: ConfigData.rewardedVideoId });
             if (this.rewardedVideoAd == undefined) {
                 return;
             }
@@ -108,9 +108,9 @@ export default class ADManage{
             return;
         }
         this.DestoryAllBannerAd();
-        let screenW = CONFIG.systemInfo.windowWidth;
+        let screenW = ConfigData.systemInfo.windowWidth;
         let _width = Laya.stage.width / 2 - 140;
-        let screenH = CONFIG.systemInfo.windowHeight;
+        let screenH = ConfigData.systemInfo.windowHeight;
         this.bannerHomeIsHide = false;
         if(Laya.timer.currTimer - this.preBannerTime_Home > 30000){
             if(this.bannerHome){
@@ -121,7 +121,7 @@ export default class ADManage{
         if (!this.bannerHome) {
             this.DestroyBannerAd_Home();
             this.bannerHome = window["wx"].createBannerAd({
-                adUnitId: CONFIG.bannerVideoId,
+                adUnitId: ConfigData.bannerVideoId,
                 style: {
                     left: 0,
                     top: screenH - 100,
@@ -158,9 +158,9 @@ export default class ADManage{
             return;
         }
         this.DestoryAllBannerAd();
-        let screenW = CONFIG.systemInfo.windowWidth;
+        let screenW = ConfigData.systemInfo.windowWidth;
         let _width = screenW;
-        let screenH = CONFIG.systemInfo.windowHeight;
+        let screenH = ConfigData.systemInfo.windowHeight;
         this.bannerOtherIsHide = false;
         if(Laya.timer.currTimer - this.preBannerTime_Other > 30000){
             if(this.bannerOther){
@@ -171,7 +171,7 @@ export default class ADManage{
         if (!this.bannerOther) {
             this.DestroyBannerAd_Other();
             this.bannerOther = window["wx"].createBannerAd({
-                adUnitId: CONFIG.bannerVideoId,
+                adUnitId: ConfigData.bannerVideoId,
                 style: {
                     left: 0,
                     top: screenH - 100,
@@ -203,9 +203,9 @@ export default class ADManage{
             return;
         }
         this.DestoryAllBannerAd();
-        let screenW = CONFIG.systemInfo.windowWidth;
+        let screenW = ConfigData.systemInfo.windowWidth;
         let _width = screenW;
-        let screenH = CONFIG.systemInfo.windowHeight;
+        let screenH = ConfigData.systemInfo.windowHeight;
         this.bannerClassicEndIsHide = false;
         if(Laya.timer.currTimer - this.preBannerTime_Other > 30000){
             if(this.bannerClassicEnd){
@@ -245,7 +245,7 @@ export default class ADManage{
         this.bannerHomeIsHide = true;
         if (this.bannerHome) {
             this.preBannerTime_Home = 0;
-            if(CONFIG.ctrlInfo.is_banner == 1){
+            if(ConfigData.ctrlInfo.is_banner == 1){
                 this.bannerHome.destroy();
                 this.bannerHome = null;
             }else{
@@ -258,7 +258,7 @@ export default class ADManage{
         this.bannerOtherIsHide = true;
         if (this.bannerOther) {
             this.preBannerTime_Other = 0;
-            if(CONFIG.ctrlInfo.is_banner == 1){
+            if(ConfigData.ctrlInfo.is_banner == 1){
                 this.bannerOther.destroy();
                 this.bannerOther = null;
             }else{
@@ -272,7 +272,7 @@ export default class ADManage{
         this.bannerClassicEndIsHide = true;
         if (this.bannerClassicEnd) {
             this.preBannerTime_ClassicEnd = 0;
-            if(CONFIG.ctrlInfo.is_banner == 1){
+            if(ConfigData.ctrlInfo.is_banner == 1){
                 this.bannerClassicEnd.destroy();
                 this.bannerClassicEnd = null;
             }else{
