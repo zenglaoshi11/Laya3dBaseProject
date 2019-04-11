@@ -1,8 +1,8 @@
 import MyUtils from "../tools/MyUtils";
-import CONFIG from "../model/CONFIG";
-import USER from "../model/USER";
+import ConfigData from "../models/ConfigData";
+import UserData from "../models/UserData";
 
-export default class Http {
+export default class HttpUtils {
     public request(_d) {
         var meth = _d.meth || "post"
         var data = _d.data || {};
@@ -11,7 +11,7 @@ export default class Http {
             _d.url.indexOf("http://") > -1) {
             url = _d.url;
         } else {
-            url = CONFIG.serverUrl + _d.url;
+            url = ConfigData.serverUrl + _d.url;
         }
         var completeDel = (res) => {
             if (_d.callback) {
@@ -24,9 +24,9 @@ export default class Http {
                 _d.fail(res);
             }
         };
-        if(USER.sessionId){
-            data.sessionId = USER.sessionId;
-            // console.log("sessionId：" + USER.sessionId);
+        if(UserData.sessionId){
+            data.sessionId = UserData.sessionId;
+            // console.log("sessionId：" + UserData.sessionId);
         }
         var xhr: Laya.HttpRequest = new Laya.HttpRequest();
         xhr.once(Laya.Event.COMPLETE, this, completeDel);
@@ -42,7 +42,7 @@ export default class Http {
             _d.url.indexOf("http://") > -1) {
             url = _d.url;
         } else {
-            url = CONFIG.statisticsUrl + _d.url;
+            url = ConfigData.statisticsUrl + _d.url;
         }
         // var completeDel = (res) => {
         //     if (_d.callback) {
@@ -55,9 +55,9 @@ export default class Http {
         //         _d.fail(res);
         //     }
         // };
-        if(USER.sessionId){
-            data.sessionId = USER.sessionId;
-            // console.log("sessionId：" + USER.sessionId);
+        if(UserData.sessionId){
+            data.sessionId = UserData.sessionId;
+            // console.log("sessionId：" + UserData.sessionId);
         }
         var xhr: Laya.HttpRequest = new Laya.HttpRequest();
         // xhr.once(Laya.Event.COMPLETE, this, completeDel);

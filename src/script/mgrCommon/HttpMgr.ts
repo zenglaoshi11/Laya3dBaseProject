@@ -2,11 +2,11 @@ import MyUtils from "../tools/MyUtils";
 import StorageMgr from "./StorageMgr";
 import USER from "../models/USER";
 import ConfigData from "../models/ConfigData";
-import Http from "../tools/Http";
+import HttpUtils from "../tools/HttpUtils";
 
 export default class HttpMgr {
     public static readonly instance: HttpMgr = new HttpMgr();
-    private _http:Http = new Http();
+    private _http:HttpUtils = new HttpUtils();
     private constructor() {
     }
     //登陆
