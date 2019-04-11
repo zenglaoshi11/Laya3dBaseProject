@@ -1,9 +1,9 @@
 import MyPlatform from "../MyPlatform";
-import MyUtils from "../../MyUtils";
-import USER from "../../../models/USER";
-import HttpMgr from "../../../mgrCommon/HttpMgr";
+import UserData from "../../models/UserData";
+import HttpMgr from "../../mgrCommon/HttpMgr";
+import MyUtils from "../../tools/MyUtils";
 
-export default class WXMgr extends MyPlatform {
+export default class WXAPI extends MyPlatform {
     constructor() {
         super();
         this._launch = window["wx"].getLaunchOptionsSync();
@@ -19,7 +19,7 @@ export default class WXMgr extends MyPlatform {
     doLogin(_data){
         window["wx"].login({
             success: (res) => {
-                USER.code = res.code;
+                UserData.code = res.code;
                 //登录接口
                 var launch = this.getLaunchData();
                 var _d: any = {}
@@ -27,10 +27,10 @@ export default class WXMgr extends MyPlatform {
                 if(launch.query){
                     _d.inviteId = launch.query.invite_uid || '';
                     _d.channelId = launch.query.channel || "";
-                    USER.fromAppid = launch.query.cur_share_id||"";
+                    UserData.fromAppid = launch.query.cur_share_id||"";
                 }
                 if(launch.referrerInfo){
-                    USER.fromImgid = launch.referrerInfo.appId;
+                    UserData.fromImgid = launch.referrerInfo.appId;
                 }
                 _d.success = _data.success;
                 _d.fail = _data.fail;

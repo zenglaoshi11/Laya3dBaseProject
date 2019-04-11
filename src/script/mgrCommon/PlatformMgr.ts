@@ -1,7 +1,7 @@
 import MyPlatform from "../platform/MyPlatform";
-import WX from "../platform/wx/WX";
-import FB from "../platform/fb/FB";
 import ConfigData from "../models/ConfigData";
+import WXAPI from "../platform/wx/WXAPI";
+import FBAPI from "../platform/fb/FBAPI";
 
 export default class PlatformMgr extends Laya.Script {
     public static readonly instance: PlatformMgr = new PlatformMgr();
@@ -11,11 +11,11 @@ export default class PlatformMgr extends Laya.Script {
         super();
         switch(ConfigData.releasePlatform){
             case "wx":
-                this._ptInstance = new WX() as MyPlatform;
+                this._ptInstance = new WXAPI() as MyPlatform;
                 break;
             case "fb":
                 //new fb的管理类
-                this._ptInstance = new FB() as MyPlatform;
+                this._ptInstance = new FBAPI() as MyPlatform;
                 break;
         }
     }

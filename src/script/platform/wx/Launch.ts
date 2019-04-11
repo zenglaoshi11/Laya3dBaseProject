@@ -1,4 +1,4 @@
-import CONFIG from "../../models/CONFIG";
+import ConfigData from "../../models/ConfigData";
 import SoundMgr from "../../mgrCommon/SoundMgr";
 import GameMgr from "../../mgr3d/GameMgr";
 import ViewMgr from "../../mgrCommon/ViewMgr";
@@ -17,25 +17,25 @@ export default class Launch extends Laya.Script {
             var xhr: Laya.HttpRequest = new Laya.HttpRequest();
             xhr.once(Laya.Event.COMPLETE, this, (data)=>{
                 if(data && typeof data != "string" && typeof data == "object"){
-                    if(CONFIG.jsonVersion != data.vision){
+                    if(ConfigData.jsonVersion != data.vision){
                         xhr = new Laya.HttpRequest();
                         xhr.once(Laya.Event.COMPLETE, this, (res)=>{
                             if(res && typeof res != "string" && typeof res == "object"){
-                                CONFIG.initConfigData(res,true);
+                                ConfigData.initConfigData(res,true);
                             }
                         });
                         xhr.send(data.path,null,"get","json",["Content-Type", "application/json"]);
                     }
                 }
             });
-            xhr.send(CONFIG.jsonVersionUrl,null,"get","json",["Content-Type", "application/json"]);
+            xhr.send(ConfigData.jsonVersionUrl,null,"get","json",["Content-Type", "application/json"]);
         }
 
         var group: Laya.Node = this.owner.getChildByName("progressGroup");
         this.pro = group.getChildByName("progress") as Laya.Image;
         this.proLabel = group.getChildByName("proLabel") as Laya.Label;
         this.tipLable = this.owner.getChildByName("tipBg").getChildByName("lbl_tip") as Laya.Label;
-        this.tipLable.text = CONFIG.getLaunchTipMsg();
+        this.tipLable.text = ConfigData.getLaunchTipMsg();
         this.loadRes();
     }
 
@@ -43,7 +43,7 @@ export default class Launch extends Laya.Script {
         var resource: Array<any> = [
             { url: "res/atlas/rank.atlas", type: Laya.Loader.ATLAS },
             { url: "res/json/config.json", type: Laya.Loader.JSON },
-            { url: "res/json/" + CONFIG.language + ".json", type: Laya.Loader.JSON },
+            { url: "res/json/" + ConfigData.language + ".json", type: Laya.Loader.JSON },
         ];
         var self = this;
         if (Laya.Browser.onMiniGame) {
@@ -92,11 +92,11 @@ export default class Launch extends Laya.Script {
 
     private loadResComplete() {
         //本地游戏数据配置
-        CONFIG.initConfigData(
+        ConfigData.initConfigData(
             Laya.Loader.getRes("res/json/config.json"),
         );
         //语言文件
-        CONFIG.languageData = Laya.Loader.getRes("res/json/" + CONFIG.language + ".json");
+        ConfigData.languageData = Laya.Loader.getRes("res/json/" + ConfigData.language + ".json");
         Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
         // this.On3DResLoadComplete();
     }

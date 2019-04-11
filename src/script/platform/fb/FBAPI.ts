@@ -1,6 +1,6 @@
 import MyPlatform from "../MyPlatform";
 
-export default class FB extends MyPlatform {
+export default class FBAPI extends MyPlatform {
  
     constructor() { super(); }
  

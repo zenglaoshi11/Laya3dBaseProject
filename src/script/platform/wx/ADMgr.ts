@@ -1,10 +1,9 @@
-import MyUtils from "../tools/MyUtils";
-import ConfigData from "../models/ConfigData";
-import USER from "../models/USER";
-import HttpMgr from "./HttpMgr";
+import MyUtils from "../../tools/MyUtils";
+import ConfigData from "../../models/ConfigData";
+import HttpMgr from "../../mgrCommon/HttpMgr";
 
-export default class ADManage{
-    public static readonly instance: ADManage = new ADManage();
+export default class ADMgr{
+    public static readonly instance: ADMgr = new ADMgr();
     private constructor() {
     }
     private bannerHome: any;
@@ -52,6 +51,7 @@ export default class ADManage{
                 return;
             }
             this.rewardedVideoAd.onLoad(() => {
+                console.log("rewardedVideo onload");
                 self.hasAd = true;
             });
             this.rewardedVideoAd.onError(err => {
@@ -95,6 +95,7 @@ export default class ADManage{
             this.rewardedVideoAd.show();
         }
         else {
+            
             this.rewardedVideoAd.load()
                 .then(() => {
                     self.rewardedVideoAd.show();
