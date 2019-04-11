@@ -1,10 +1,10 @@
 import CONFIG from "../models/CONFIG";
-import MyPlatform from "../tools/platform/MyPlatform";
-import WX from "../tools/platform/wx/WX";
-import FB from "../tools/platform/fb/FB";
+import MyPlatform from "../platform/MyPlatform";
+import WX from "../platform/wx/WX";
+import FB from "../platform/fb/FB";
 
 export default class PlatformMgr extends Laya.Script {
-    public static instance: PlatformMgr = new PlatformMgr();
+    public static readonly instance: PlatformMgr = new PlatformMgr();
     private _ptInstance:MyPlatform;
 
     private constructor() {

@@ -1,11 +1,10 @@
-import USER from "../model/USER";
 import HttpMgr from "./HttpMgr";
-import CONFIG from "../model/CONFIG";
+import USER from "../models/USER";
+import CONFIG from "../models/CONFIG";
 
-export default class StatisticsMgr extends Laya.Script {
+export default class StatisticsMgr {
     public static instance: StatisticsMgr = new StatisticsMgr();
     private constructor() {
-        super();
     }
  
     //登陆统计

@@ -4,11 +4,10 @@ import USER from "../models/USER";
 import CONFIG from "../models/CONFIG";
 import Http from "../tools/Http";
 
-export default class HttpMgr extends Laya.Script {
-    public static instance: HttpMgr = new HttpMgr();
+export default class HttpMgr {
+    public static readonly instance: HttpMgr = new HttpMgr();
     private _http:Http = new Http();
     private constructor() {
-        super();
     }
     //登陆
     public login(_d:any): void {

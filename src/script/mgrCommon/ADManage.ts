@@ -3,10 +3,9 @@ import CONFIG from "../models/CONFIG";
 import USER from "../models/USER";
 import HttpMgr from "./HttpMgr";
 
-export default class ADManage extends Laya.Script {
+export default class ADManage{
     public static readonly instance: ADManage = new ADManage();
     private constructor() {
-        super();
     }
     private bannerHome: any;
     private bannerOther: any;

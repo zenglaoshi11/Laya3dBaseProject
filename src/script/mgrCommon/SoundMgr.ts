@@ -1,10 +1,9 @@
-import CONFIG from "../model/CONFIG";
+import CONFIG from "../models/CONFIG";
 
 export default class SoundMgr {
     public static instance: SoundMgr = new SoundMgr();
     private bgm:any;
     private constructor() {
-        super();
     }
 
     public playSound(name: string): void {

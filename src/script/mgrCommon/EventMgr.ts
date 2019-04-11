@@ -2,7 +2,7 @@
 import EventDispatcher = laya.events.EventDispatcher;
 export default class EventMgr extends EventDispatcher {
     static eventDispatcher: EventDispatcher = new EventDispatcher();
-    public static instance: EventMgr = new EventMgr();;
+    public static readonly instance: EventMgr = new EventMgr();;
     private constructor() {
         super();
     }

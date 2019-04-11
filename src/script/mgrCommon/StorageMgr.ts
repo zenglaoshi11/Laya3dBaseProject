@@ -1,10 +1,7 @@
-import USER from "../model/USER";
 import MyUtils from "../tools/MyUtils";
+import USER from "../models/USER";
 
-export default class StorageMgr extends Laya.Script {
-
-    
-    constructor() { super(); }
+export default class StorageMgr {
     
     static setStorage(_d) {
         if (!Laya.Browser.onMiniGame) {
