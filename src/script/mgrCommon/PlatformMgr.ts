@@ -19,7 +19,6 @@ export default class PlatformMgr extends Laya.Script {
             case "wx":
                 PlatformMgr.ptAPI = new WXAPI();
                 PlatformMgr.ptAdMgr = new WXAdMgr;
-                PlatformMgr.ptAdMgr.init();
                 break;
             case "fb":
                 //new fb的管理类

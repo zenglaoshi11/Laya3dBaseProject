@@ -3,6 +3,8 @@ import StorageMgr from "./StorageMgr";
 import USER from "../models/USER";
 import ConfigData from "../models/ConfigData";
 import HttpUtils from "../tools/HttpUtils";
+import UserData from "../models/UserData";
+import EventMgr from "./EventMgr";
 
 export default class HttpMgr {
     public static readonly instance: HttpMgr = new HttpMgr();
@@ -45,10 +47,22 @@ export default class HttpMgr {
 						shareInfo: res.shareInfo,
 						isBanner:res.is_banner,//banner广告控制
 						adInfo: res.adInfo,
-					}
+                    }
 				}
-			}
-		})
+                EventMgr.instance.emit("getSystemParamListBack");
+			},fail:(res)=>{
+                EventMgr.instance.emit("getSystemParamListBack");
+            }
+		});
+    }
+
+    public updateUserInfo(){
+        this._http.request({
+            url: 'updateUserInfo.action', data: {
+                nickname:UserData.nickName,
+                headimgurl:UserData.avatarUrl,
+                sex:UserData.gender,
+            }});
     }
 
     public statisticsPost(_d){

@@ -27,6 +27,13 @@ export default class WXAdMgr{
     private preBannerTime_Other: any;
     private preBannerTime_ClassicEnd: any;
 
+    /**
+     *
+     */
+    constructor(){
+        this.init();
+    }
+
     public init() {
         if (!Laya.Browser.onMiniGame) {
             return;

@@ -14,6 +14,8 @@ export default class ConfigData {
     public static jsonVersionUrl: string = "https://p.doguane.cn/20190404/m_04171926352321.json";
     public static statisticsUrl:string = "https://log.zuancr.com/"
 
+    public static isCreateAuthorization:boolean = false; //是否创建了授权按钮
+    public static repeatAuthorization:boolean = false; //是否创建了授权按钮
     public static isLog: boolean = true; //是否开启日志
     public static isSound: boolean;
     public static isVirbort: boolean;
@@ -38,6 +40,10 @@ export default class ConfigData {
         }else if(!ConfigData.configs){
             ConfigData.configs = _d;
         }
+    }
+
+    public static getConfigData(configName: string): any {
+        return this.ctrlInfo[configName];
     }
 
     static getLaunchTipMsg() {

@@ -20,7 +20,7 @@ export default class StatisticsMgr {
     }
 
     //点击授权统计接口
-    public authorStatistics(type: number) {
+    public authorStatistics() {
         var _d: any = {
             action: "1006",
             from_appid:USER.fromAppid,

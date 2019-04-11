@@ -13,13 +13,13 @@ export default class HttpUtils {
         } else {
             url = ConfigData.serverUrl + _d.url;
         }
-        var completeDel = (res) => {
+        var completeFunc = (res) => {
             if (_d.callback) {
                 // console.log("url:" + url +" res:" + JSON.stringify(res));
                 _d.callback(res);
             }
         };
-        var errorDel = (res) => {
+        var errorFunc = (res) => {
             if (_d.fail)  {
                 _d.fail(res);
             }
@@ -29,8 +29,8 @@ export default class HttpUtils {
             // console.log("sessionId：" + UserData.sessionId);
         }
         var xhr: Laya.HttpRequest = new Laya.HttpRequest();
-        xhr.once(Laya.Event.COMPLETE, this, completeDel);
-        xhr.once(Laya.Event.ERROR, this, errorDel);
+        xhr.once(Laya.Event.COMPLETE, this, completeFunc);
+        xhr.once(Laya.Event.ERROR, this, errorFunc);
         xhr.send(url, JSON.stringify(data), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
     }
 
