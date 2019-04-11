@@ -49,6 +49,10 @@ export default class WXAPI {
         })
     }
 
+    getOffsetOpenDomain():any{
+        return this.offsetOpenDomain;
+    }
+
     getLaunchData():any{
         return this._launch;
     }

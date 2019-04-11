@@ -11,7 +11,6 @@ export default class PlatformMgr extends Laya.Script {
 
     private constructor() {
         super();
-       
     }
 
     static initPlatform(){

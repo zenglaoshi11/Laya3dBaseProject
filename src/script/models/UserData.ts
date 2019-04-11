@@ -13,6 +13,7 @@ export default class UserData {
     public static score: number = 0; //分数
     public static exp: number = 0;   //经验
     public static level: number = 1; //等级
+    public static index: number = 0; //排行
 
     public static diamond:number = 0;
     public static gold:number = 0;

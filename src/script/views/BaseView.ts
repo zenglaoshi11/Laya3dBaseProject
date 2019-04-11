@@ -1,5 +1,6 @@
 import MyUtils from "../tools/MyUtils";
 import ViewMgr from "../mgrCommon/ViewMgr";
+import PlatformMgr from "../mgrCommon/PlatformMgr";
 
 export default class BaseView extends Laya.Script {
     protected _data;
@@ -38,7 +39,7 @@ export default class BaseView extends Laya.Script {
             ViewMgr.instance.closeView(_viewName);
         }
         if(_viewName == "RankView.scene"){
-            MyUtils.hideAuthorizationCheck(true);
+            PlatformMgr.ptAPI.setAuthorizationCheck(true);
         }
         if (this._data && this._data.callback) {
             this._data.callback(_d)

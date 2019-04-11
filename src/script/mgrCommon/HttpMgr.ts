@@ -77,4 +77,15 @@ export default class HttpMgr {
                 }
         }});
     }
+
+    public getWorldRank(_d){
+        this._http.request({
+            url: 'getWorldRank.action',data: { page: 1, type: 1 }, callback: (res) => {
+                if(res.code == 0){
+                    if(_d.success){
+                        _d.success(res)
+                    }   
+                }
+        }});
+    }
 }
