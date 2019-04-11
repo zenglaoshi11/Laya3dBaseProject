@@ -2,10 +2,7 @@ import MyUtils from "../../tools/MyUtils";
 import ConfigData from "../../models/ConfigData";
 import HttpMgr from "../../mgrCommon/HttpMgr";
 
-export default class ADMgr{
-    public static readonly instance: ADMgr = new ADMgr();
-    private constructor() {
-    }
+export default class WXAdMgr{
     private bannerHome: any;
     private bannerOther: any;
     private bannerClassicEnd: any;
@@ -30,7 +27,7 @@ export default class ADMgr{
     private preBannerTime_Other: any;
     private preBannerTime_ClassicEnd: any;
 
-    public Init() {
+    public init() {
         if (!Laya.Browser.onMiniGame) {
             return;
         }

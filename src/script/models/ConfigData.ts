@@ -74,4 +74,3 @@ export default class ConfigData {
         }
     }
 }
-ConfigData.initLocal();

@@ -1,7 +1,6 @@
-import MyPlatform from "../MyPlatform";
+export default class FBAPI {
+    public _launch:any = {};
 
-export default class FBAPI extends MyPlatform {
- 
-    constructor() { super(); }
+    constructor() { }
  
 }

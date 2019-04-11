@@ -27,4 +27,3 @@ export default class UserData {
     public static adCount: number;//视频广告次数
 
 }
-StorageMgr.getLocalUserData();

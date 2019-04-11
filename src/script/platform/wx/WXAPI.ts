@@ -1,17 +1,14 @@
-import MyPlatform from "../MyPlatform";
 import UserData from "../../models/UserData";
 import HttpMgr from "../../mgrCommon/HttpMgr";
 import MyUtils from "../../tools/MyUtils";
 
-export default class WXAPI extends MyPlatform {
+export default class WXAPI {
+    public _launch:any = {};
+
     constructor() {
-        super();
         this._launch = window["wx"].getLaunchOptionsSync();
     }
 
-    doLaunch(){
-        
-    }
      /*
         success 成功回调
         fail 失败回调

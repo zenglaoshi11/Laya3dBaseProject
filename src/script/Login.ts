@@ -1,11 +1,12 @@
-import USER from "./models/USER";
-import CONFIG from "./models/CONFIG";
+import ConfigData from "./models/ConfigData";
 import HttpMgr from "./mgrCommon/HttpMgr";
 import StorageMgr from "./mgrCommon/StorageMgr";
 import StatisticsMgr from "./mgrCommon/StatisticsMgr";
 import PlatformMgr from "./mgrCommon/PlatformMgr";
+import UserData from "./models/UserData";
+import EventMgr from "./mgrCommon/EventMgr";
 
-export default class Login {
+export default class Login extends Laya.Script{
 	login() {
 		HttpMgr.instance.getSystemConfig();
 		this.loginFun();
@@ -13,8 +14,8 @@ export default class Login {
 
 	loginFun() {
 		var self = this;
-		if (CONFIG.releasePlatform) {
-			PlatformMgr.instance.doLogin({
+		if (ConfigData.releasePlatform) {
+			PlatformMgr.ptAPI.doLogin({
 				success:Laya.Handler.create(this,this.loginSuccess,null,true),
 				fail:Laya.Handler.create(this,this.loginFun,null,true)
 			});
@@ -30,29 +31,30 @@ export default class Login {
 
 	loginSuccess(data) {
 		if (data) {
-			USER.isLogin = true;
-			USER.userId = data.userId;
-			USER.nickName = data.nikename;
-			USER.avatarUrl = data.headImage;
-			USER.diamond = data.userMoney;
-			USER.channelId = data.channelId;
-			USER.level = data.level;
-			USER.score = data.score;
-			USER.openId = data.openid;
-			USER.isNew = data.isNewUser;
-			USER.exp = data.nowExp;
+			UserData.isLogin = true;
+			UserData.userId = data.userId;
+			UserData.nickName = data.nikename;
+			UserData.avatarUrl = data.headImage;
+			UserData.diamond = data.userMoney;
+			UserData.channelId = data.channelId;
+			UserData.level = data.level;
+			UserData.score = data.score;
+			UserData.openId = data.openid;
+			UserData.isNew = data.isNewUser;
+			UserData.exp = data.nowExp;
 			//缓存用户信息到本地
 			StorageMgr.saveUserData();
 			//上传排行数据
-			PlatformMgr.instance.uploadRankDate({
+			PlatformMgr.ptAPI.uploadRankDate({
 				level: data.level || 0,
 				score: data.score || 0,
 			});
 			//上传统计
 			StatisticsMgr.instance.loginStatisticsPost();
 		}
+		// EventMgr.instance.emit("loginSuccess");
+		this.destroy();
 	}
 
 }
-new Login().login();
 
