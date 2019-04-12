@@ -3,6 +3,7 @@ import SoundMgr from "../../mgrCommon/SoundMgr";
 import GameMgr from "../../mgr3d/GameMgr";
 import ViewMgr from "../../mgrCommon/ViewMgr";
 import MainView from "../../views/MainView";
+import MyUtils from "../../tools/MyUtils";
 
 export default class WXLaunch extends Laya.Script {
     private toProcess: number = 1;
@@ -11,6 +12,14 @@ export default class WXLaunch extends Laya.Script {
     private tipLable: Laya.Label;
     private pro: Laya.Image;
     private scene3dUrl:string = "LayaScene_Eatitup/Conventional/Eatitup.ls"
+
+    getLaunchTipMsg() {
+        let tips = [
+            "按住屏幕舌头会伸长哦",
+            "敲好玩，值得等待，呱~"
+        ]
+        return tips[MyUtils.random(0, tips.length - 1)];
+    }
 
     onEnable(): void {
         if (Laya.Browser.onMiniGame) {
@@ -35,7 +44,7 @@ export default class WXLaunch extends Laya.Script {
         this.pro = group.getChildByName("progress") as Laya.Image;
         this.proLabel = group.getChildByName("proLabel") as Laya.Label;
         this.tipLable = this.owner.getChildByName("tipBg").getChildByName("lbl_tip") as Laya.Label;
-        this.tipLable.text = ConfigData.getLaunchTipMsg();
+        this.tipLable.text = this.getLaunchTipMsg();
         this.loadRes();
     }
 
@@ -103,7 +112,7 @@ export default class WXLaunch extends Laya.Script {
 
     private On3DResLoadComplete(scene?: Laya.Scene3D) {
         this.updateProgress(1);
-        Laya.Scene.open("uiViews/MainScene.scene", true);
+        
         if (Laya.Browser.onMiniGame) { 
             // console.log("子域加载res/atlas/rank.atlas");
             Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
@@ -112,12 +121,7 @@ export default class WXLaunch extends Laya.Script {
 
         scene.addComponent(GameMgr);
         Laya.stage.addChild(scene);
-
-        ViewMgr.instance.openView({
-            viewName: "MainView.scene",
-            clas: MainView,
-            closeAll: true,
-        })
+        Laya.Scene.open("MainScene.scene");
     }
 
     /**

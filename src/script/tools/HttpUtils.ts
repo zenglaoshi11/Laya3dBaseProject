@@ -18,11 +18,15 @@ export default class HttpUtils {
                 // console.log("url:" + url +" res:" + JSON.stringify(res));
                 _d.callback(res);
             }
+            _d.callback = null;
+            _d = null;
         };
         var errorFunc = (res) => {
             if (_d.fail)  {
                 _d.fail(res);
             }
+            _d.fail = null;
+            _d = null;
         };
         if(UserData.sessionId){
             data.sessionId = UserData.sessionId;
@@ -37,13 +41,8 @@ export default class HttpUtils {
     public requestStatistics(_d) {
         var meth = _d.meth || "post"
         var data = _d.data || {};
-        var url = "";
-        if (_d.url.indexOf("https://") > -1 ||
-            _d.url.indexOf("http://") > -1) {
-            url = _d.url;
-        } else {
-            url = ConfigData.statisticsUrl + _d.url;
-        }
+        _d.url = _d.url || ""
+        var url = ConfigData.statisticsUrl + _d.url;
         // var completeDel = (res) => {
         //     if (_d.callback) {
         //         // console.log("url:" + url +" res:" + JSON.stringify(res));

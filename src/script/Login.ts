@@ -44,16 +44,17 @@ export default class Login extends Laya.Script{
 			UserData.exp = data.nowExp;
 			//缓存用户信息到本地
 			StorageMgr.saveUserData();
-			//上传排行数据
-			PlatformMgr.ptAPI.uploadRankDate({
-				level: data.level || 0,
-				score: data.score || 0,
-			});
+			if(PlatformMgr.ptAPI){
+				//上传排行数据
+				PlatformMgr.ptAPI.uploadRankDate({
+					level: data.level || 0,
+					score: data.score || 0,
+				});
+			}
 			//上传统计
 			StatisticsMgr.instance.loginStatisticsPost();
 		}
 		// EventMgr.instance.emit("loginSuccess");
-		this.destroy();
 	}
 
 }

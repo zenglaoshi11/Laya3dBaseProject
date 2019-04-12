@@ -38,7 +38,7 @@ export default class WXAdMgr{
         if (!Laya.Browser.onMiniGame) {
             return;
         }
-        if (ConfigData.systemInfo.SDKVersion && MyUtils.CompareVersion(ConfigData.systemInfo.SDKVersion, "2.0.4") >= 0) {
+        if (ConfigData.systemInfo.SDKVersion && MyUtils.compareVersion(ConfigData.systemInfo.SDKVersion, "2.0.4") >= 0) {
             this.isInited = true;
             this.initVedioCom();
         }
@@ -203,7 +203,7 @@ export default class WXAdMgr{
         
     }
 
-    public ShowBannerAd_ClassicEnd() {
+    public showBannerAdClassicEnd() {
         if (!Laya.Browser.onMiniGame||!this.isInited) {
             return;
         }

@@ -5,20 +5,95 @@ import ConfigData from "../../models/ConfigData";
 import EventMgr from "../../mgrCommon/EventMgr";
 import StatisticsMgr from "../../mgrCommon/StatisticsMgr";
 import MyLog from "../../tools/MyLog";
+import SoundMgr from "../../mgrCommon/SoundMgr";
+import ViewMgr from "../../mgrCommon/ViewMgr";
+import ConvergeAdView from "../../views/ConvergeAdView";
 
 export default class WXAPI {
     public _launch:any = {};
     private btns = [];
     private offsetOpenDomain: Laya.Vector2;
+    private stime = 0;
+    private shareBackArgs = {};
+    private caller = null;
+    private shareBack;
 
     constructor() {
         this._launch = window["wx"].getLaunchOptionsSync();
+        
         EventMgr.instance.once("getSystemParamListBack",this,()=>{
             this.showShareMenu();
         });
         this.setOpenDomainOffset();
+
+        window["wx"].onShow((res) => {
+            var shareTicket = res.shareTicket;
+            var query = res.query || {};
+            if (shareTicket != undefined && query.avatarUrlGroup
+                && query.nickNameGroup) {
+                // if(CONFIG.config.init){
+                // 	MyUtils.showGroupRank({
+                // 		shareTicket:shareTicket,
+                // 		avatarUrlGroup:query.avatarUrlGroup,
+                // 		nickNameGroup:query.nickNameGroup
+                // 	})
+                // }else{
+                // 	CONFIG.config.groupRankData = {
+                // 		shareTicket:shareTicket,
+                // 		avatarUrlGroup:query.avatarUrlGroup,
+                // 		nickNameGroup:query.nickNameGroup
+                // 	}
+                // }
+            } else {
+                var _d: any = this.shareBackArgs || {};
+                let self = this;
+                let time = Laya.Browser.now() - this.stime;
+                if (Laya.Browser.now() - this.stime > 2000) {
+                    _d.success = true;
+                    if (this.shareBack && this.caller) {
+                        this.shareBack.call(this.caller, _d);
+                    }
+                    this.shareBack = null;
+                } else {
+                    _d.success = false;
+                    if (this.shareBack && this.caller) {
+                        this.shareBack.call(this.caller, _d);
+                    }
+                    this.shareBack = null;
+                }
+            }
+            //播放音乐 切到后台背景音乐消失需要重新播放
+            SoundMgr.instance.playBGM();
+
+            //聚合页面
+            let isHideAD = false;
+            if(this.shareBackArgs){
+                isHideAD = this.shareBackArgs["hideAD"];
+            }
+            Laya.timer.frameOnce(1,this,()=>{
+                let gameOverView = ViewMgr.instance.getView("GameOver.scene");
+                let convergeAdView = ViewMgr.instance.getView("ConvergeAd.scene");
+                if (!isHideAD && ConfigData.ctrlInfo.isConverge == 1 && gameOverView && !convergeAdView) {
+                    ViewMgr.instance.openView({
+                        viewName: "ConvergeAd.scene",
+                        clas: ConvergeAdView,
+                        closeAll: false,
+                    });
+                }
+            })
+            this.shareBackArgs = {};
+        })
+        window["wx"].onHide(() => {
+            this.stime = Laya.Browser.now();
+        });
     }
 
+
+    onGoShare(res) {
+        this.caller = res.caller;
+        this.shareBack = res.callback;
+        this.shareBackArgs = res.args || {};
+    }
      /*
         success 成功回调
         fail 失败回调
@@ -138,12 +213,7 @@ export default class WXAPI {
             return;
         }
         if (_d.callback) {
-            var shareData: any = {
-                caller: _d.caller,
-                callback: _d.callback,
-                args: _d.args,
-            }
-            EventMgr.instance.emit("go-share", shareData);
+            this.onGoShare(_d);
         }
         if (!ConfigData.getConfigData("shareInfo")) {
             return;
@@ -154,9 +224,10 @@ export default class WXAPI {
     }
 
     public navigateToMiniProgram(_d) {
-        if (!_d || !Laya.Browser.onMiniGame) {
+        if (!_d || !_d.appId || !Laya.Browser.onMiniGame) {
             return;
         }
+        StatisticsMgr.instance.navigateToMiniProgramStatistics(_d);
         window["wx"].navigateToMiniProgram({
             appId: _d.appid,
             path: _d.path,
@@ -164,8 +235,21 @@ export default class WXAPI {
                 foo: 'bar',
             },
             // envVersion: 'develop',
-            success(res) {
-                StatisticsMgr.instance.navigateToMiniProgramStatistics(_d);
+            complete:(res)=> {
+                if(_d.complete){
+                    _d.complete();
+                }
+                _d.complete = null;
+            },
+            fail:(res)=> {
+                window["wx"].showToast({title:"跳转失败"});
+                if(_d.fail){
+                    _d.fail();
+                }
+                _d.fail = null;
+            },
+            success:(res)=> {
+                StatisticsMgr.instance.navigateToMiniProgramBackStatistics(_d);
                 if (_d.callback) {
                     _d.callback("success");
                 }

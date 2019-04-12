@@ -1,3 +1,5 @@
+import ConfigData from "../models/ConfigData";
+
 export default class MyUtils {
 
     public static isNull(obj: any): boolean {
@@ -51,7 +53,7 @@ export default class MyUtils {
         if (!Laya.Browser.onMiniGame) {
             return
         }
-        let info = wx.getSystemInfoSync();
+        let info = ConfigData.systemInfo;
         let Y = 60;
         if (info.statusBarHeight < 20) { //18
             Y += 10;

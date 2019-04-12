@@ -46,15 +46,6 @@ export default class ConfigData {
         return this.ctrlInfo[configName];
     }
 
-    static getLaunchTipMsg() {
-        // let tips = [
-        //     "按住屏幕舌头会伸长哦",
-        //     "敲好玩，值得等待，呱~"
-        // ]
-        let tips = this.languageData.tips;
-        return tips[MyUtils.random(0, tips.length - 1)];
-    }
-
     /**设置声音 */
     static setSound(str) {
         if (!str || str.length <= 0) {
@@ -78,5 +69,21 @@ export default class ConfigData {
             StorageMgr.setLocalVirbort("1");
             ConfigData.isVirbort = false;
         }
+    }
+
+    public static getADData(adId) {
+        let srt = this.getConfigData("adInfo");
+        if(MyUtils.isNull(srt)){
+            return;
+        }
+        let adInfos = JSON.parse(srt);
+        let array = [];
+        for (let i = 0; i < adInfos.length; i++) {
+            let adInfo = adInfos[i];
+            if (adInfo.position == adId) {
+                array.push(adInfo);
+            }
+        }
+        return array;
     }
 }
