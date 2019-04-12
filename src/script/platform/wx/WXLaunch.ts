@@ -121,7 +121,7 @@ export default class WXLaunch extends Laya.Script {
 
         scene.addComponent(GameMgr);
         Laya.stage.addChild(scene);
-        Laya.Scene.open("MainScene.scene");
+        Laya.Scene.open("MainView.scene");
     }
 
     /**

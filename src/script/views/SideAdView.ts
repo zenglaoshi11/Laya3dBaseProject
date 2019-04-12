@@ -3,7 +3,7 @@ import UserData from "../models/UserData";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
 import StatisticsMgr from "../mgrCommon/StatisticsMgr";
 
-export default class PromotionAnimation extends Laya.Script {
+export default class SideAdView extends Laya.Script {
     private isClick = false;
     private toLinks = "";
     private toAppId = "";
@@ -118,7 +118,6 @@ export default class PromotionAnimation extends Laya.Script {
         }
         this.isClick = true;
         var _d: any = {
-            my_appid: ConfigData.myAppid,
             my_uuid: this.thePosition,
             to_appid: this.toAppId,
 
