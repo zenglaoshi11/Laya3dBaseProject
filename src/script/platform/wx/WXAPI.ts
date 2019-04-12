@@ -31,20 +31,9 @@ export default class WXAPI {
             var query = res.query || {};
             if (shareTicket != undefined && query.avatarUrlGroup
                 && query.nickNameGroup) {
-                // if(CONFIG.config.init){
-                // 	MyUtils.showGroupRank({
-                // 		shareTicket:shareTicket,
-                // 		avatarUrlGroup:query.avatarUrlGroup,
-                // 		nickNameGroup:query.nickNameGroup
-                // 	})
-                // }else{
-                // 	CONFIG.config.groupRankData = {
-                // 		shareTicket:shareTicket,
-                // 		avatarUrlGroup:query.avatarUrlGroup,
-                // 		nickNameGroup:query.nickNameGroup
-                // 	}
-                // }
+                //在这做群排行的弹框
             } else {
+                //分享回调
                 var _d: any = this.shareBackArgs || {};
                 let self = this;
                 let time = Laya.Browser.now() - this.stime;
@@ -65,15 +54,17 @@ export default class WXAPI {
             //播放音乐 切到后台背景音乐消失需要重新播放
             SoundMgr.instance.playBGM();
 
-            //聚合页面
-            let isHideAD = false;
+            //聚合广告页面
+            //控制结束页面的分享，不显示聚合广告页面
+            let notShowAd = false;
             if(this.shareBackArgs){
-                isHideAD = this.shareBackArgs["hideAD"];
+                notShowAd = this.shareBackArgs["notShowAd"];
             }
             Laya.timer.frameOnce(1,this,()=>{
+                //只在结束界面显示聚合广告页面
                 let gameOverView = ViewMgr.instance.getView("GameOver.scene");
                 let convergeAdView = ViewMgr.instance.getView("ConvergeAd.scene");
-                if (!isHideAD && ConfigData.ctrlInfo.isConverge == 1 && gameOverView && !convergeAdView) {
+                if (!notShowAd && ConfigData.ctrlInfo.isConverge == 1 && gameOverView && !convergeAdView) {
                     ViewMgr.instance.openView({
                         viewName: "ConvergeAd.scene",
                         clas: ConvergeAdView,

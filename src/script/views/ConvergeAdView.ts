@@ -29,8 +29,6 @@ export default class ConvergeAdView extends BaseView {
         this.adList = anchorS.getChildByName("List") as Laya.List;
         this.adList.vScrollBarSkin = '';
         this.adList.selectEnable = true;
-        this.adList.renderHandler = new laya.utils.Handler(this, this.onRender);
-        this.adList.mouseHandler = new laya.utils.Handler(this, this.onMouse);
 
         PlatformMgr.ptAdMgr.instance.showBannerAdOther();
     }
@@ -40,6 +38,8 @@ export default class ConvergeAdView extends BaseView {
     }
     
     public addEvent() {
+        this.adList.renderHandler = new Laya.Handler(this, this.onRender);
+        this.adList.mouseHandler = new Laya.Handler(this, this.onClickItem);
         this.againChallengeBtn.on(Laya.Event.CLICK, this, this.onClickHome);
         this.shareBtn.on(Laya.Event.CLICK, this, this.onClickShare);
         this.HomeBtn.on(Laya.Event.CLICK, this, this.onClickHome);
@@ -47,6 +47,8 @@ export default class ConvergeAdView extends BaseView {
 
     public removeEvent() {
         super.removeEvent();
+        this.adList.renderHandler = null;
+        this.adList.mouseHandler = null;
         this.againChallengeBtn.off(Laya.Event.CLICK, this, this.onClickHome);
         this.shareBtn.off(Laya.Event.CLICK, this, this.onClickShare);
         this.HomeBtn.off(Laya.Event.CLICK, this, this.onClickHome);
@@ -113,7 +115,7 @@ export default class ConvergeAdView extends BaseView {
     /**
     * 单个 box 点击事件
     */
-    private onMouse(e: Laya.Event, index: number): void {
+    private onClickItem(e: Laya.Event, index: number): void {
         if (e.type == Laya.Event.CLICK) {
             if ((e.target) instanceof Laya.Box) {
                 let obj = {
