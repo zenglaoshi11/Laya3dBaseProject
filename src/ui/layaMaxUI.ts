@@ -2,12 +2,3 @@
 import View=Laya.View;
 import Dialog=Laya.Dialog;
 import Scene=Laya.Scene;
-export module ui.test {
-    export class TestSceneUI extends Scene {
-        constructor(){ super()}
-        createChildren():void {
-            super.createChildren();
-            this.loadScene("test/TestScene");
-        }
-    }
-}

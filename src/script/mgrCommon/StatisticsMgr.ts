@@ -1,6 +1,6 @@
 import HttpMgr from "./HttpMgr";
-import USER from "../models/USER";
-import CONFIG from "../models/CONFIG";
+import UserData from "../models/UserData";
+import ConfigData from "../models/ConfigData";
 
 export default class StatisticsMgr {
     public static readonly instance: StatisticsMgr = new StatisticsMgr();
@@ -11,10 +11,10 @@ export default class StatisticsMgr {
     public loginStatisticsPost(){
         var _d:any = {
             action:"1005",
-            from_appid:USER.fromAppid,
-            from_imgid:USER.fromImgid,
-            code:USER.code,
-            isnew:USER.isNew ? 1 : 0,
+            from_appid:UserData.fromAppid,
+            from_imgid:UserData.fromImgid,
+            code:UserData.code,
+            isnew:UserData.isNew ? 1 : 0,
         }
         this.statisticsPost(_d);
     }
@@ -23,10 +23,10 @@ export default class StatisticsMgr {
     public authorStatistics() {
         var _d: any = {
             action: "1006",
-            from_appid:USER.fromAppid,
-            from_imgid:USER.fromImgid,
-            code:USER.code,
-            isnew:USER.isNew ? 1 : 0,
+            from_appid:UserData.fromAppid,
+            from_imgid:UserData.fromImgid,
+            code:UserData.code,
+            isnew:UserData.isNew ? 1 : 0,
         }
         this.statisticsPost(_d);
     }
@@ -81,9 +81,9 @@ export default class StatisticsMgr {
     //统计
     private statisticsPost(_data:any){
         let _d: any = {
-            channel: USER.channelId,
-            my_appid: CONFIG.myAppid,
-            openid: USER.openId,
+            channel: UserData.channelId,
+            my_appid: ConfigData.myAppid,
+            openid: UserData.openId,
         }
         for (const key in _data) {
             if (_data.hasOwnProperty(key)) {

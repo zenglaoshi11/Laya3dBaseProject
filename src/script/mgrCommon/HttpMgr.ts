@@ -1,6 +1,5 @@
 import MyUtils from "../tools/MyUtils";
 import StorageMgr from "./StorageMgr";
-import USER from "../models/USER";
 import ConfigData from "../models/ConfigData";
 import HttpUtils from "../tools/HttpUtils";
 import UserData from "../models/UserData";
@@ -16,15 +15,15 @@ export default class HttpMgr {
         this._http.request({
             url: 'userLogin.action', data: _d, callback: (res) => {
                 if (res.code == 0) {
-                    USER.sessionId = res.sessionId;
-                    StorageMgr.saveSession(USER.sessionId);
+                    UserData.sessionId = res.sessionId;
+                    StorageMgr.saveSession(UserData.sessionId);
                     if(_d.success){
                         _d.success(res)
                     }
                 }else{
                     // sessionId 过期
                     StorageMgr.saveSession("");
-                    USER.sessionId = "";
+                    UserData.sessionId = "";
                     if(_d.fail){
                         _d.fail(res)
                     }
@@ -73,7 +72,7 @@ export default class HttpMgr {
         this._http.request({
             url: 'videoCallback.action', callback: (res) => {
                 if(res.code == 0){
-                    USER.adCount = res.adCount;    
+                    UserData.adCount = res.adCount;    
                 }
         }});
     }

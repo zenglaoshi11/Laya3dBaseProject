@@ -1,4 +1,4 @@
-import CONFIG from "../models/CONFIG";
+import ConfigData from "../models/ConfigData";
 
 export default class SoundMgr {
     public static readonly instance: SoundMgr = new SoundMgr();
@@ -7,7 +7,7 @@ export default class SoundMgr {
     }
 
     public playSound(name: string): void {
-        if (!CONFIG.isSound) {
+        if (!ConfigData.isSound) {
             return;
         }
         let url = "res/sound/" + name + ".mp3";
@@ -27,7 +27,7 @@ export default class SoundMgr {
     }
 
     public playBGM(){
-        if (!CONFIG.isSound) {
+        if (!ConfigData.isSound) {
             return;
         }
         let url = "res/sound/bgm.mp3";
