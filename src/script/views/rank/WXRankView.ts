@@ -10,7 +10,6 @@ export default class RankView extends BaseView {
 
     private friendBtn:Laya.Image;
     private worldBtn:Laya.Image;
-    private closeBtn:Laya.Image;
     
     private worldRank:Laya.Image;
     private worldData:Array<any>;

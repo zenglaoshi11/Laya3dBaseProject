@@ -10,19 +10,17 @@ import EventMgr from "../mgrCommon/EventMgr";
 export default class ConvergeAdView extends BaseView {
     private appid = "";//需要调转的APPID
     private adList: Laya.List;
-    private againChallengeBtn: Laya.Button;
-    private shareBtn: Laya.Button;
-    private HomeBtn: Laya.Button;
+    private againChallengeBtn: Laya.Image;
 
     onAwake(){
-        this.HomeBtn = this.owner.getChildByName("btn_close") as Laya.Button;
-        MyUtils.autoScreenSize([this.HomeBtn]);
+        this.homeBtn = this.owner.getChildByName("btn_close") as Laya.Image;
+        MyUtils.autoScreenSize([this.homeBtn]);
         let anchorS = this.owner.getChildByName("anchorS") as Laya.Image;
         let offsetY:number = PlatformMgr.ptAPI.getOffsetOpenDomain();
         anchorS.y = anchorS.y + offsetY;
 
-        this.shareBtn = anchorS.getChildByName("shareBtn") as Laya.Button;
-        this.againChallengeBtn = anchorS.getChildByName("btn_again") as Laya.Button;
+        this.shareBtn = anchorS.getChildByName("shareBtn") as Laya.Image;
+        this.againChallengeBtn = anchorS.getChildByName("btn_again") as Laya.Image;
 
         this.againChallengeBtn.y = this.againChallengeBtn.y + offsetY;
 
@@ -42,7 +40,7 @@ export default class ConvergeAdView extends BaseView {
         this.adList.mouseHandler = new Laya.Handler(this, this.onClickItem);
         this.againChallengeBtn.on(Laya.Event.CLICK, this, this.onClickHome);
         this.shareBtn.on(Laya.Event.CLICK, this, this.onClickShare);
-        this.HomeBtn.on(Laya.Event.CLICK, this, this.onClickHome);
+        this.homeBtn.on(Laya.Event.CLICK, this, this.onClickHome);
     }
 
     public removeEvent() {
@@ -51,16 +49,16 @@ export default class ConvergeAdView extends BaseView {
         this.adList.mouseHandler = null;
         this.againChallengeBtn.off(Laya.Event.CLICK, this, this.onClickHome);
         this.shareBtn.off(Laya.Event.CLICK, this, this.onClickShare);
-        this.HomeBtn.off(Laya.Event.CLICK, this, this.onClickHome);
+        this.homeBtn.off(Laya.Event.CLICK, this, this.onClickHome);
     }
 
     public openView(data?: any) {
         super.openView(data);
-        this.HomeBtn.visible = false;
+        this.homeBtn.visible = false;
 
         let info = ConfigData.systemInfo;
         var y = 50 + (info.statusBarHeight > 20 ? 74 : 0);
-        this.HomeBtn.y = y;
+        this.homeBtn.y = y;
 
         let allll = [];
         if (this.adList.array == null) {
@@ -70,8 +68,8 @@ export default class ConvergeAdView extends BaseView {
         this.adList.refresh();//刷新数据源
         this.adList.scrollTo(0); //第一个显示的 位置
         Laya.timer.once(1000, this, () => {
-            if (this && this.HomeBtn) {
-                this.HomeBtn.visible = true;
+            if (this && this.homeBtn) {
+                this.homeBtn.visible = true;
             }
         })
     }

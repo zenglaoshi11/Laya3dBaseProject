@@ -97,9 +97,7 @@ export default class WXAdMgr{
         if (this.hasAd) {
             this.hasAd = false;
             this.rewardedVideoAd.show();
-        }
-        else {
-            
+        }else {
             this.rewardedVideoAd.load()
                 .then(() => {
                     self.rewardedVideoAd.show();
@@ -108,7 +106,14 @@ export default class WXAdMgr{
         }
     }
 
-    public showBannerAdHome() {
+    public loadBannerAdHome() {
+        if (!Laya.Browser.onMiniGame||!this.isInited) {
+            return;
+        }
+        this.showBannerAdHome(true)
+    }
+
+    public showBannerAdHome(onlyLoad?:boolean) {
         if (!Laya.Browser.onMiniGame||!this.isInited) {
             return;
         }
@@ -152,6 +157,9 @@ export default class WXAdMgr{
             //     this.bannerHome.show();
             // })
             this.preBannerTime_Home = Laya.timer.currTimer;
+        }
+        if(onlyLoad){
+            return;
         }
         if (this.bannerHome != undefined) {
             this.bannerHome.show();

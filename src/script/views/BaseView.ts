@@ -5,6 +5,10 @@ import PlatformMgr from "../mgrCommon/PlatformMgr";
 export default class BaseView extends Laya.Script {
     protected _data;
     protected _isClick;
+    protected shareBtn: Laya.Image;
+    protected homeBtn: Laya.Image;
+    protected okBtn: Laya.Image;
+    protected closeBtn: Laya.Image;
 
     onAwake(): void {
         //删除时自动释放
