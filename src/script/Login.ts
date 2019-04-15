@@ -9,8 +9,12 @@ import EventMgr from "./mgrCommon/EventMgr";
 export default class Login extends Laya.Script{
 	login() {
 		HttpMgr.instance.getSystemConfig();
+		HttpMgr.instance.getRemoteJson((res)=>{
+			ConfigData.initConfigData(res,true);
+		});
 		this.loginFun();
 	}
+	
 
 	loginFun() {
 		var self = this;

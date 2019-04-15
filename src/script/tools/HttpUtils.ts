@@ -63,4 +63,26 @@ export default class HttpUtils {
         // xhr.once(Laya.Event.ERROR, this, errorDel);
         xhr.send(url, "param=" + JSON.stringify(data), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
     }
+
+    //拿线上游戏的json配制
+	getRemoteJson(_callback) {
+		var xhr: Laya.HttpRequest = new Laya.HttpRequest();
+		xhr.once(Laya.Event.COMPLETE, this, (data)=>{
+			if(data && typeof data != "string" && typeof data == "object"){
+				if(ConfigData.jsonVersion != data.vision){
+					xhr = new Laya.HttpRequest();
+					xhr.once(Laya.Event.COMPLETE, this, (res)=>{
+						if(res && typeof res != "string" && typeof res == "object"){
+                            if(_callback){
+                                _callback(res);
+                            }
+						}
+					});
+					xhr.send(data.path,null,"get","json",["Content-Type", "application/json"]);
+				}
+			}
+		});
+		xhr.send(ConfigData.jsonVersionUrl,null,"get","json",["Content-Type", "application/json"]);
+
+	}
 }

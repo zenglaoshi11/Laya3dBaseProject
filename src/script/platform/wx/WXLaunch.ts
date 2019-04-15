@@ -22,24 +22,6 @@ export default class WXLaunch extends Laya.Script {
     }
 
     onEnable(): void {
-        if (Laya.Browser.onMiniGame) {
-            var xhr: Laya.HttpRequest = new Laya.HttpRequest();
-            xhr.once(Laya.Event.COMPLETE, this, (data)=>{
-                if(data && typeof data != "string" && typeof data == "object"){
-                    if(ConfigData.jsonVersion != data.vision){
-                        xhr = new Laya.HttpRequest();
-                        xhr.once(Laya.Event.COMPLETE, this, (res)=>{
-                            if(res && typeof res != "string" && typeof res == "object"){
-                                ConfigData.initConfigData(res,true);
-                            }
-                        });
-                        xhr.send(data.path,null,"get","json",["Content-Type", "application/json"]);
-                    }
-                }
-            });
-            xhr.send(ConfigData.jsonVersionUrl,null,"get","json",["Content-Type", "application/json"]);
-        }
-
         var group: Laya.Node = this.owner.getChildByName("progressGroup");
         this.pro = group.getChildByName("progress") as Laya.Image;
         this.proLabel = group.getChildByName("proLabel") as Laya.Label;

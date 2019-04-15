@@ -33,6 +33,11 @@ export default class HttpMgr {
         })
     }
 
+    //拿线上游戏的json配制
+	getRemoteJson(_callback) {
+		this._http.getRemoteJson(_callback);
+	}
+
     //开关配制
     public getSystemConfig(): void {
         this._http.request({

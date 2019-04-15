@@ -3,6 +3,7 @@ import ButtonAnim from "./script/views/ButtonAnim"
 import ConvergeAdView from "./script/views/ConvergeAdView"
 import ListLoopView from "./script/views/ListLoopView"
 import GameOverView from "./script/views/GameOverView"
+import GoldenEggView from "./script/views/GoldenEggView"
 import WXLaunch from "./script/platform/wx/WXLaunch"
 import MainView from "./script/views/MainView"
 import SideAdView from "./script/views/SideAdView"
@@ -31,6 +32,7 @@ export default class GameConfig{
         reg("script/views/ConvergeAdView.ts",ConvergeAdView);
         reg("script/views/ListLoopView.ts",ListLoopView);
         reg("script/views/GameOverView.ts",GameOverView);
+        reg("script/views/GoldenEggView.ts",GoldenEggView);
         reg("script/platform/wx/WXLaunch.ts",WXLaunch);
         reg("script/views/MainView.ts",MainView);
         reg("script/views/SideAdView.ts",SideAdView);
