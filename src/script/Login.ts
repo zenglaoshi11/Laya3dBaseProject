@@ -20,8 +20,8 @@ export default class Login extends Laya.Script{
 		var self = this;
 		if (ConfigData.releasePlatform) {
 			PlatformMgr.ptAPI.doLogin({
-				success:Laya.Handler.create(this,this.loginSuccess,null,true),
-				fail:Laya.Handler.create(this,this.loginFun,null,true)
+				success:this.loginSuccess,
+				fail:this.loginFun
 			});
 		} else {
 			var _d: any = {}

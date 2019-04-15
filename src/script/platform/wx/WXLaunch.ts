@@ -11,7 +11,7 @@ export default class WXLaunch extends Laya.Script {
     private proLabel: Laya.Label;
     private tipLable: Laya.Label;
     private pro: Laya.Image;
-    private scene3dUrl:string = "LayaScene_Eatitup/Conventional/Eatitup.ls"
+    private scene3dUrl:string = "res3d/Conventional/Eatitup.ls"
 
     getLaunchTipMsg() {
         let tips = [
@@ -54,7 +54,7 @@ export default class WXLaunch extends Laya.Script {
                             }));
                         },
                         fail: (res) => {
-                            // 分包加载失败通过 fail 回调
+                            // 分包加载失败通过 fail 回调时强行重新加载资源，这样才能进游戏
                             this.loadRes();
                         }
                     });
@@ -95,10 +95,9 @@ export default class WXLaunch extends Laya.Script {
     private On3DResLoadComplete(scene?: Laya.Scene3D) {
         this.updateProgress(1);
         
-        if (Laya.Browser.onMiniGame) { 
-            // console.log("子域加载res/atlas/rank.atlas");
-            Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
-        }
+        // if (Laya.Browser.onMiniGame) { 
+        //     Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
+        // }
         SoundMgr.instance.playBGM();
 
         scene.addComponent(GameMgr);

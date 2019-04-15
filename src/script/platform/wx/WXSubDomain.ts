@@ -23,4 +23,18 @@ export default class WXSubDomain {
             this.WXOpenDataView.postMsg({ type: "openFriendRank" });
         })
     }
+
+    closeGameOverRank(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "closeGameOverRank" });
+    }
+
+    openGameOverRank(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "openGameOverRank" });
+    }
 }

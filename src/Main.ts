@@ -12,14 +12,16 @@ class Main {
 		Laya.stage.screenMode = GameConfig.screenMode;
 		//兼容微信不支持加载scene后缀场景
 		Laya.URL.exportSceneToJson = GameConfig.exportSceneToJson;
-
+		
 		//打开调试面板（通过IDE设置调试模式，或者url地址增加debug=true参数，均可打开调试面板）
 		if (GameConfig.debug || Laya.Utils.getQueryString("debug") == "true") Laya.enableDebugPanel();
 		if (GameConfig.physicsDebug && Laya["PhysicsDebugDraw"]) Laya["PhysicsDebugDraw"].enable();
 		if (GameConfig.stat) Laya.Stat.show();
 		Laya.alertGlobalError = true;
-		
+		// window["des"]();
 		MyInit.init();
+
+		// des
 
 		//激活资源版本控制，version.json由IDE发布功能自动生成，如果没有也不影响后续流程
 		// Laya.ResourceVersion.enable("version.json", Laya.Handler.create(this, this.onVersionLoaded), Laya.ResourceVersion.FILENAME_VERSION);
@@ -34,7 +36,7 @@ class Main {
 	onConfigLoaded(): void {
 		//加载IDE指定的场景
 		let res: Array<any> = [
-			{ url: "common/loading.atlas", type: Laya.Loader.ATLAS },
+			{ url: "loading/loading.atlas", type: Laya.Loader.ATLAS },
 		];
 		//startScene 应该设置为launch页面
 		Laya.loader.load(res, Laya.Handler.create(this, () => {
