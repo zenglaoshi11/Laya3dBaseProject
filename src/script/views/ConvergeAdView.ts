@@ -54,10 +54,7 @@ export default class ConvergeAdView extends BaseView {
     public openView(data?: any) {
         super.openView(data);
         this.homeBtn.visible = false;
-
-        let info = ConfigData.systemInfo;
-        var y = 50 + (info.statusBarHeight > 20 ? 74 : 0);
-        this.homeBtn.y = y;
+        MyUtils.autoScreenSize([this.homeBtn]);
 
         let allll = [];
         if (this.adList.array == null) {

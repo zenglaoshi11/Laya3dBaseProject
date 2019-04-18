@@ -1,6 +1,8 @@
 {
+    "x":0,
     "type":"Scene",
     "selectedBox":2,
+    "selecteID":7,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#ffffff","height":1344},
     "nodeParent":-1,
@@ -13,6 +15,7 @@
     "compId":2,
     "child":[
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,bg",
             "props":{"top":-210,"skin":"common/black_bg.png","sizeGrid":"1,1,1,1","right":-200,"name":"bg","left":-200,"bottom":-200,"alpha":0.9},
@@ -26,156 +29,98 @@
                 ]
         },
         {
-            "type":"Image",
-            "searchKey":"Image,anchorS",
-            "props":{"name":"anchorS","centerY":-30,"centerX":0},
+            "x":15,
+            "type":"List",
+            "searchKey":"List,List",
+            "props":{"y":20,"x":30,"spaceY":14,"spaceX":30,"repeatY":5,"repeatX":2,"name":"List"},
             "nodeParent":2,
-            "label":"anchorS",
+            "label":"List",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":14,
+            "compId":15,
             "child":[
                 {
-                    "type":"Image",
-                    "searchKey":"Image,shareBtn",
-                    "props":{"width":110,"right":-345,"name":"shareBtn","height":50,"centerY":-454,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":14,
-                    "label":"shareBtn",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":11,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":25,"x":25,"skin":"common/icon_share.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":11,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":12,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "searchKey":"Label",
-                            "props":{"y":20,"x":74,"width":56,"valign":"middle","text":"分享","height":32,"fontSize":28,"font":"Microsoft YaHei","color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},
-                            "nodeParent":11,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "type":"List",
-                    "searchKey":"List,List",
-                    "props":{"y":-419,"x":-345,"width":690,"spaceY":30,"spaceX":30,"repeatY":3,"repeatX":2,"name":"List","height":696},
-                    "nodeParent":14,
-                    "label":"List",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":15,
-                    "child":[
-                        {
-                            "type":"Box",
-                            "searchKey":"Box",
-                            "props":{"y":0,"x":0,"renderType":"render"},
-                            "nodeParent":15,
-                            "label":"Box",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":false,
-                            "hasChild":true,
-                            "compId":17,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "searchKey":"Image,img",
-                                    "props":{"width":330,"name":"img","height":212},
-                                    "nodeParent":17,
-                                    "label":"img",
-                                    "isDirectory":false,
-                                    "isAniNode":false,
-                                    "hasChild":false,
-                                    "compId":16,
-                                    "child":[
-                                        ]
-                                }]
-                        }]
-                },
-                {
-                    "type":"Label",
-                    "searchKey":"Label",
-                    "props":{"text":"猜你喜欢","left":-346,"fontSize":32,"font":"Microsoft YaHei","color":"#FDB539","centerY":-454,"bold":true,"align":"center"},
-                    "nodeParent":14,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Button",
-                    "searchKey":"Button,btn_again",
-                    "props":{"x":0,"width":300,"top":310,"stateNum":"1","skin":"Hesucceeds/anniu-play@2x.png","name":"btn_again","height":94,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":14,
-                    "label":"btn_again",
+                    "x":30,
+                    "type":"Box",
+                    "searchKey":"Box",
+                    "props":{"y":0,"x":0,"renderType":"render"},
+                    "nodeParent":15,
+                    "label":"Box",
                     "isOpen":true,
                     "isDirectory":true,
-                    "isAniNode":true,
+                    "isAniNode":false,
                     "hasChild":true,
-                    "compId":23,
+                    "compId":17,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":23,"x":46,"skin":"Hesucceeds/anniu_zaici@2x.png"},
-                            "nodeParent":23,
-                            "label":"Image",
+                            "searchKey":"Image,img",
+                            "props":{"width":330,"name":"img","height":252},
+                            "nodeParent":17,
+                            "label":"img",
                             "isDirectory":false,
-                            "isAniNode":true,
+                            "isAniNode":false,
                             "hasChild":false,
-                            "compId":24,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Script",
-                            "source":"src/script/views/ButtonAnim.ts",
-                            "searchKey":"Script,ButtonAnim",
-                            "props":{},
-                            "nodeParent":23,
-                            "label":"ButtonAnim",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":28,
+                            "compId":16,
                             "child":[
                                 ]
                         }]
                 }]
         },
         {
+            "x":15,
             "type":"Button",
-            "searchKey":"Button,btn_close",
-            "props":{"y":85,"width":160,"stateNum":"1","skin":"rank/anniu-fanhui@2x.png","name":"btn_close","left":30,"height":70,"anchorY":0.5,"anchorX":0.5},
+            "searchKey":"Button,btnOK",
+            "props":{"x":375,"width":300,"stateNum":"1","skin":"Hesucceeds/anniu-play@2x.png","name":"btnOK","height":94,"bottom":14,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":2,
-            "label":"btn_close",
-            "isOpen":true,
+            "label":"btnOK",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":23,
+            "child":[
+                {
+                    "type":"Image",
+                    "searchKey":"Image",
+                    "props":{"y":23,"x":46,"skin":"Hesucceeds/anniu_zaici@2x.png"},
+                    "nodeParent":23,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/views/ButtonAnim.ts",
+                    "searchKey":"Script,ButtonAnim",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":23,
+                    "label":"ButtonAnim",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":28,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "searchKey":"Button,homeBtn",
+            "props":{"y":55,"width":160,"stateNum":"1","skin":"rank/anniu-fanhui@2x.png","name":"homeBtn","left":30,"height":70,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":2,
+            "label":"homeBtn",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -212,6 +157,7 @@
                 }]
         },
         {
+            "x":15,
             "type":"Script",
             "switchAble":true,
             "source":"src/script/views/ConvergeAdView.ts",
