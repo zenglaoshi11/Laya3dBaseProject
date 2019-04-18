@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
+    "selecteID":21,
     "searchKey":"View",
     "props":{"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0,"autoDestroyAtClosed":true},
     "nodeParent":-1,
-    "maxID":33,
+    "maxID":34,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -32,7 +32,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,logo,logo",
-            "props":{"var":"logo","name":"logo","centerY":-421,"centerX":0},
+            "props":{"var":"logo","skin":"loading/icon_qingwa@2x.png","name":"logo","centerY":-421,"centerX":0},
             "nodeParent":1,
             "label":"logo",
             "isDirectory":false,
@@ -49,13 +49,14 @@
             "props":{"x":366,"name":"progressGroup","centerY":360},
             "nodeParent":1,
             "label":"progressGroup",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":9,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,probg",
                     "props":{"y":-9,"x":-241,"width":500,"skin":"loading/loading_2@2x.png","sizeGrid":"5,5,5,5","name":"probg","height":18},
@@ -69,6 +70,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,progress",
                     "props":{"y":-9,"x":-241,"width":10,"skin":"loading/loading_1@2x.png","sizeGrid":"5,5,5,5","name":"progress","height":18},
@@ -83,6 +85,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,proLabel",
                     "props":{"y":-54,"x":-78,"text":"资源加载中...","name":"proLabel","height":30,"fontSize":30,"font":"SimHei","color":"#ffffff","centerX":19},
@@ -100,7 +103,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,tipBg",
-            "props":{"y":662,"x":160,"width":430,"skin":"common/tiao@2x.png","sizeGrid":"8,8,8,8","name":"tipBg","height":43},
+            "props":{"y":661,"x":160,"width":430,"skin":"loading/tiao@2x.png","sizeGrid":"8,8,8,8","name":"tipBg","height":43},
             "nodeParent":1,
             "label":"tipBg",
             "isOpen":true,
@@ -113,7 +116,7 @@
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image",
-                    "props":{"y":3,"x":15,"skin":"loading/icon_qingwa@2x.png"},
+                    "props":{"y":2,"x":15,"skin":"loading/icon_qingwa@2x.png"},
                     "nodeParent":21,
                     "label":"Image",
                     "isDirectory":false,
@@ -137,97 +140,6 @@
                     "compId":24,
                     "child":[
                         ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image",
-            "props":{"y":145,"x":121,"skin":"common/logo@2x.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":25,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,eye1",
-                    "props":{"y":87,"x":384,"skin":"common/yangj@2x.png","name":"eye1"},
-                    "nodeParent":25,
-                    "label":"eye1",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":27,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,eye2",
-                    "props":{"y":88,"x":384,"skin":"common/yangj_2@2x.png","name":"eye2"},
-                    "nodeParent":25,
-                    "label":"eye2",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":26,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,1",
-                    "props":{"y":60,"x":478,"skin":"common/qipao.png","scaleY":0.6,"scaleX":0.6,"name":"1"},
-                    "nodeParent":25,
-                    "label":"1",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":30,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,2",
-                    "props":{"y":32,"x":493,"skin":"common/qipao.png","scaleY":0.7,"scaleX":0.7,"name":"2"},
-                    "nodeParent":25,
-                    "label":"2",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":29,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,3",
-                    "props":{"y":-1,"x":507,"skin":"common/qipao.png","name":"3"},
-                    "nodeParent":25,
-                    "label":"3",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":28,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
                 }]
         },
         {

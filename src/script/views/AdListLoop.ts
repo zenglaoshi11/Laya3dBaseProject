@@ -9,7 +9,8 @@ enum Direction {
 	LEFT = 0,
 	RIGHT = 1,
 }
-export default class ListLoopView extends Laya.Script {
+
+export default class AdListLoop extends Laya.Script {
 	public _cells: Array<any>;
 	private _cellWidth: number;
 	private _spaceX: number;
@@ -20,11 +21,18 @@ export default class ListLoopView extends Laya.Script {
 	private endPosX: number;
 	private startTime: number;
 	private speedTime: number;
+
 	constructor() {
 		super();
 		this._cellWidth = 101;
 		this._spaceX = 20;
 		this.speedTime = 500;
+	}
+
+	init(_d){
+		this._cellWidth = _d._cellWidth || 101;
+		this._spaceX = _d._spaceX || 20;
+		this.speedTime = _d.speedTime || 500;
 	}
 
 	start(adInfos) {
@@ -40,9 +48,9 @@ export default class ListLoopView extends Laya.Script {
 			let image: Laya.Image = new Laya.Image();
 			this.owner.addChild(image);
 			if (isOffset) {
-				image.pos((i - 1) * (101 + 20), 0);
+				image.pos((i - 1) * (this._cellWidth + this._spaceX), 0);
 			} else {
-				image.pos((i) * (101 + 20), 0);
+				image.pos((i) * (this._cellWidth + this._spaceX), 0);
 			}
 			image.width = 101;
 			image.height = 128;

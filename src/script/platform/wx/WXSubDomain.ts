@@ -24,17 +24,59 @@ export default class WXSubDomain {
         })
     }
 
-    closeGameOverRank(): void {
+    openGameOver(): void {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
-        this.wxOpenDataView.postMsg({ type: "closeGameOverRank" });
+        this.wxOpenDataView.postMsg({ type: "openGameOver" });
     }
 
-    openGameOverRank(): void {
+    closeGameOver(): void {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
-        this.wxOpenDataView.postMsg({ type: "openGameOverRank" });
+        this.wxOpenDataView.postMsg({ type: "closeGameOver" });
+    }
+
+    openSurpassOther(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "openSurpassOther" });
+    }
+
+    closeSurpassOther(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "closeSurpassOther" });
+    }
+
+    openGoingSurpassOther(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "openGoingSurpassOther" });
+    }
+
+    closeGoingSurpassOther(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "closeGoingSurpassOther" });
+    }
+
+    openProvocationOther(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "openProvocationOther" });
+    }
+
+    closeProvocationOther(): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "closeProvocationOther" });
     }
 }

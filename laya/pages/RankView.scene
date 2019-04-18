@@ -1,8 +1,6 @@
 {
-    "x":0,
     "type":"View",
-    "selectedBox":3,
-    "selecteID":45,
+    "selectedBox":2,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
@@ -15,10 +13,9 @@
     "compId":2,
     "child":[
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,BG",
-            "props":{"top":-200,"skin":"common/mask1.png","right":-200,"name":"BG","left":-200,"bottom":-200,"alpha":0.8},
+            "props":{"top":-200,"skin":"common/black_bg.png","right":-200,"name":"BG","left":-200,"bottom":-200,"alpha":0.8},
             "nodeParent":2,
             "label":"BG",
             "isDirectory":false,
@@ -29,7 +26,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btn_close,btn_close",
             "props":{"y":86,"width":160,"var":"btn_close","stateNum":"1","skin":"rank/anniu-fanhui@2x.png","name":"btn_close","left":43,"height":62,"anchorY":0.5,"anchorX":0.5},
@@ -42,7 +38,6 @@
             "compId":3,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":15,"x":60,"width":40,"skin":"common/fanhui@2x.png","height":32},
@@ -56,7 +51,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/views/ButtonAnim.ts",
@@ -74,7 +68,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,anchorS",
             "props":{"width":561,"name":"anchorS","height":791,"centerY":0,"centerX":0},
@@ -470,7 +463,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"WXOpenDataViewer",
             "searchKey":"WXOpenDataViewer,WXOpenDataView",
             "props":{"y":272,"x":95,"width":561,"name":"WXOpenDataView","iconSign":"wx","height":791},
@@ -485,7 +477,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Script",
             "switchAble":true,
             "source":"src/script/views/rank/WXRankView.ts",

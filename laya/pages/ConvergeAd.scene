@@ -1,8 +1,6 @@
 {
-    "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":7,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#ffffff","height":1344},
     "nodeParent":-1,
@@ -15,10 +13,9 @@
     "compId":2,
     "child":[
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,bg",
-            "props":{"top":-210,"skin":"common/mask1.png","sizeGrid":"1,1,1,1","right":-200,"name":"bg","left":-200,"bottom":-200,"alpha":0.9},
+            "props":{"top":-210,"skin":"common/black_bg.png","sizeGrid":"1,1,1,1","right":-200,"name":"bg","left":-200,"bottom":-200,"alpha":0.9},
             "nodeParent":2,
             "label":"bg",
             "isDirectory":false,
@@ -29,7 +26,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,anchorS",
             "props":{"name":"anchorS","centerY":-30,"centerX":0},
@@ -42,7 +38,6 @@
             "compId":14,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,shareBtn",
                     "props":{"width":110,"right":-345,"name":"shareBtn","height":50,"centerY":-454,"anchorY":0.5,"anchorX":0.5},
@@ -82,7 +77,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,List",
                     "props":{"y":-419,"x":-345,"width":690,"spaceY":30,"spaceX":30,"repeatY":3,"repeatX":2,"name":"List","height":696},
@@ -122,7 +116,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label",
                     "props":{"text":"猜你喜欢","left":-346,"fontSize":32,"font":"Microsoft YaHei","color":"#FDB539","centerY":-454,"bold":true,"align":"center"},
@@ -136,7 +129,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_again",
                     "props":{"x":0,"width":300,"top":310,"stateNum":"1","skin":"Hesucceeds/anniu-play@2x.png","name":"btn_again","height":94,"anchorY":0.5,"anchorX":0.5},
@@ -149,7 +141,6 @@
                     "compId":23,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":23,"x":46,"skin":"Hesucceeds/anniu_zaici@2x.png"},
@@ -163,7 +154,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "source":"src/script/views/ButtonAnim.ts",
                             "searchKey":"Script,ButtonAnim",
@@ -180,7 +170,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btn_close",
             "props":{"y":85,"width":160,"stateNum":"1","skin":"rank/anniu-fanhui@2x.png","name":"btn_close","left":30,"height":70,"anchorY":0.5,"anchorX":0.5},
@@ -193,7 +182,6 @@
             "compId":7,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":15,"x":60,"width":40,"skin":"common/fanhui@2x.png","height":32},
@@ -207,7 +195,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/views/ButtonAnim.ts",
@@ -225,7 +212,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Script",
             "switchAble":true,
             "source":"src/script/views/ConvergeAdView.ts",

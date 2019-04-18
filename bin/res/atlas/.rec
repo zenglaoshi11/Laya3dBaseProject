@@ -1,16 +1,31 @@
 D .
 D common
+P 413BDD1C black_bg.png
+P A61A7C11 btn_yellow.png
 P DA2ACE1A fanhui@2x.png
 P 231380D4 icon_share.png
 P 84A3D156 jindut-2@2x.png
 P 6FC20860 logo@2x.png
 P 6AF51ABE mask.png
-P 413BDD1C mask1.png
 P 189DC571 qipao.png
 P 9E6195BB tiao@2x.png
 P 4898FD02 wa@2x.png
 P 248684B5 yangj@2x.png
 P 5F9ED73A yangj_2@2x.png
+D goldenEgg
+P CB876AC8 bar01.png
+P 33D8A469 bar01_length.png
+P 5A2D46E9 bar02.png
+P D8C60BAF btn_close.png
+P A5DF9E53 img_chuizi.png
+P AB5091C3 img_dizuo.png
+P 66B1FD46 img_zi.png
+P 93C8DF33 jindan02.png
+P CBCCD17F quan.png
+P 96AC23C5 shou.png
+P 6AD1EC46 title01.png
+P 84F88252 title02.png
+P 8F605F57 zi01.png
 D Hesucceeds
 P FB6916B9 anniu-play@2x.png
 P CB20E72E anniu_guan@2x.png
@@ -40,6 +55,7 @@ P C15A78A8 icon_qingwa@2x.png
 P E99B3EC7 loading_1@2x.png
 P B5EA5105 loading_2@2x.png
 R 5C776E0F loding.jpg
+P 9E6195BB tiao@2x.png
 D mainview
 P 576B01CA anniu-phb@2x.png
 P 6AC84D70 anniu-yq@2x.png

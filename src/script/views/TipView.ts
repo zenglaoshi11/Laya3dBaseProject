@@ -3,7 +3,6 @@ import BaseView from "./BaseView";
 export default class TipView extends  BaseView {
     private tipLbl:Laya.Label;
     
-    
     onAwake(): void {
         super.onAwake();
         this.tipLbl = this.owner.getChildByName("image").getChildByName("Label") as Laya.Label;

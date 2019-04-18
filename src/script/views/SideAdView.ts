@@ -15,7 +15,6 @@ export default class SideAdView extends Laya.Script {
 
     private img:Laya.Image;
 
-
     constructor() { super(); }
     onAwake() {
         this.owner.on(Laya.Event.CLICK, this, this.jumpOtherGame);
@@ -92,7 +91,6 @@ export default class SideAdView extends Laya.Script {
                 }));
             }));
         }));
-
     }
 
     public adAnim(): void {
@@ -109,8 +107,6 @@ export default class SideAdView extends Laya.Script {
         }));
 
     }
-
-
 
     jumpOtherGame() {
         if (this.isClick) {

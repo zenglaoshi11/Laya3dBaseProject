@@ -1,8 +1,4 @@
-(function(window,document,Laya){
-var DES = function(str){
-    console.log(str,"DESDESDESDES")
+var des = function(){
+    console.log("DES DES")
 }
-return DES;
-
-
-})(window,document,Laya);
+window.des = des;

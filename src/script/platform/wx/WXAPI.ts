@@ -383,4 +383,8 @@ export default class WXAPI {
             window["wx"].vibrateLong();
         }
     }
+
+    public openCustomerServiceConversation(){
+        window["wx"].openCustomerServiceConversation();
+    }
 }

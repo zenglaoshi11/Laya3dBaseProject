@@ -32,10 +32,11 @@ export default class BaseView extends Laya.Script {
     }
 
     public removeEvent() {
+        this._isClick = null;
         Laya.timer.clearAll(this);
     }
 
-    public closeView(_d:any = null) {
+    public closeView(_d?:any) {
         var _viewName:string = (this.owner as Laya.View).url;
         if(_d.notDestroy){
             ViewMgr.instance.hideView(_viewName);
