@@ -1,10 +1,13 @@
 import MyUtils from "../tools/MyUtils";
 import BaseView from "../views/BaseView";
+import EventMgr from "./EventMgr";
 
 export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();
-    constructor() { }
     private viewDic: any = {};
+
+    private constructor() {
+    }
 
     public openView(_d): void {
         let self = this;
