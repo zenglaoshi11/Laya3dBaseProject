@@ -1,9 +1,8 @@
 import BaseView from "./BaseView";
 import TipView from "./TipView";
-import MainView from "./MainView";
 import MyUtils from "../tools/MyUtils";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
-import ConfigData from "../models/ConfigData";
+import ConfigData, { MAINBTNSTYPE } from "../models/ConfigData";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import EventMgr from "../mgrCommon/EventMgr";
 
@@ -77,8 +76,7 @@ export default class ConvergeAdView extends BaseView {
     public onClickHome() {
         this.closeView();
         ViewMgr.instance.openView({
-            viewName: "MainView.scene",
-            clas: MainView,
+            viewName: ConfigData.mainBtnsType == MAINBTNSTYPE.LANDSCAPE ? "MainViewLandscape.scene" ? "MainViewVertical.scene",
             closeAll: true,
         });
         EventMgr.instance.emit("goHome");

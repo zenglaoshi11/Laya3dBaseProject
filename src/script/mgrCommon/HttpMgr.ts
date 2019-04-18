@@ -52,6 +52,9 @@ export default class HttpMgr {
 						isBanner:res.is_banner,//banner广告控制
 						adInfo: res.adInfo,
                     }
+                    if(res.is_banner){
+                        ConfigData.mainAdMy = null;
+                    }
 				}
                 EventMgr.instance.emit("getSystemParamListBack");
 			},fail:(res)=>{

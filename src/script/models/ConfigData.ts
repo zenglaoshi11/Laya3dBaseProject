@@ -1,7 +1,15 @@
 import MyUtils from "../tools/MyUtils";
 import StorageMgr from "../mgrCommon/StorageMgr";
 
+export enum MAINBTNSTYPE {
+    LANDSCAPE = 0,
+    VERTICAL
+}
+
 export default class ConfigData {
+    public static mainBtnsType:number = 0; //主页按钮排列方式使用哪种
+    public static mainAdMy:boolean;     //是否开启自己做的主页的广告条
+
     public static releasePlatform = "";//发布平台 wx fb
     public static myAppid = "wxbe9fe00281505169";
     public static configs: any = null;
@@ -24,6 +32,7 @@ export default class ConfigData {
 
     public static bannerVideoId:string = "adunit-7c4449f9f6fcafbb";
     public static rewardedVideoId:string = "adunit-df0311118e2452c6";
+
 
     public static initLocal(){
         ConfigData.isSound = StorageMgr.getLocalSound();
