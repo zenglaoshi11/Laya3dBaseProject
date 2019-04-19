@@ -46,7 +46,8 @@ export default class MainViewVertical extends BaseView {
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
-        PlatformMgr.ptAdMgr.showBannerAdHome();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.showBannerAdHome();
     }
 
     public addEvent() {
@@ -101,7 +102,8 @@ export default class MainViewVertical extends BaseView {
                 }
             },
         };
-        PlatformMgr.ptAPI.shareAppMessage(_d,1);
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.shareAppMessage(_d,1);
     }
 
     private serviceClick() {
@@ -112,7 +114,8 @@ export default class MainViewVertical extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        PlatformMgr.ptAPI.openCustomerServiceConversation();
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.openCustomerServiceConversation();
     }
 
     private rankClick() {
@@ -133,8 +136,10 @@ export default class MainViewVertical extends BaseView {
         if (this._isClick) {
             return;
         }
-        PlatformMgr.ptAPI.destoryAuthorization();
-        PlatformMgr.ptAdMgr.destoryAllBannerAd();
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.destoryAuthorization();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.destoryAllBannerAd();
         this._isClick = true;
         Laya.timer.once(500, this, () => {
             this._isClick = null;

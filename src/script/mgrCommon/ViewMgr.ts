@@ -1,12 +1,29 @@
 import MyUtils from "../tools/MyUtils";
 import BaseView from "../views/BaseView";
 import EventMgr from "./EventMgr";
+import ConfigData, { MAINBTNSTYPE } from "../models/ConfigData";
 
 export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();
     private viewDic: any = {};
 
+    private events = ["goHome"];
+
     private constructor() {
+    }
+
+    init(){
+        for (let index = 0; index < this.events.length; index++) {
+            EventMgr.instance.onEvent(this.events[index],this,this[this.events[index]]);
+        }
+    }
+    
+    private goHome(res){
+        let viewName = ConfigData.mainBtnsType == MAINBTNSTYPE.LANDSCAPE ? "MainLandscape.scene" : "MainVertical.scene";
+        ViewMgr.instance.openView({
+            viewName: viewName,
+            closeAll: true,
+        });
     }
 
     public openView(_d): void {

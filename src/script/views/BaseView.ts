@@ -43,8 +43,9 @@ export default class BaseView extends Laya.Script {
         }else{
             ViewMgr.instance.closeView(_viewName);
         }
-        if(_viewName == "RankView.scene"){
-            PlatformMgr.ptAPI.setAuthorizationCheck(true);
+        if(_viewName == "Rank.scene"){
+            if(PlatformMgr.ptAPI)
+                PlatformMgr.ptAPI.setAuthorizationCheck(true);
         }
         if (this._data && this._data.callback) {
             this._data.callback(_d)

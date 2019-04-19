@@ -2,8 +2,8 @@ import ConfigData from "../../models/ConfigData";
 import SoundMgr from "../../mgrCommon/SoundMgr";
 import GameMgr from "../../mgr3d/GameMgr";
 import ViewMgr from "../../mgrCommon/ViewMgr";
-import MainView from "../../views/MainView";
 import MyUtils from "../../tools/MyUtils";
+import EventMgr from "../../mgrCommon/EventMgr";
 
 export default class WXLaunch extends Laya.Script {
     private toProcess: number = 1;
@@ -100,9 +100,9 @@ export default class WXLaunch extends Laya.Script {
         // }
         SoundMgr.instance.playBGM();
 
-        scene.addComponent(GameMgr);
-        Laya.stage.addChild(scene);
-        Laya.Scene.open("MainView.scene");
+        // scene.addComponent(GameMgr);
+        // Laya.stage.addChild(scene);
+        EventMgr.instance.emit("goHome");
     }
 
     /**

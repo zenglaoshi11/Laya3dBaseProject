@@ -1,7 +1,8 @@
 {
+    "x":0,
     "type":"View",
-    "selectedBox":3,
-    "selecteID":53,
+    "selectedBox":112,
+    "selecteID":113,
     "searchKey":"View",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -14,6 +15,7 @@
     "compId":2,
     "child":[
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,Mask",
             "props":{"top":-200,"skin":"common/black_bg.png","right":-200,"name":"Mask","left":-200,"bottom":-200,"alpha":0.8},
@@ -28,6 +30,7 @@
                 ]
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,anchorUp",
             "props":{"y":-1,"x":375,"name":"anchorUp"},
@@ -375,6 +378,7 @@
                 }]
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,anchor",
             "props":{"y":557,"right":0,"name":"anchor","mouseThrough":true,"left":0,"height":900,"anchorX":0.5},
@@ -387,6 +391,7 @@
             "compId":114,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_again",
                     "props":{"y":384,"x":375,"width":300,"stateNum":"1","skin":"Hesucceeds/anniu-play@2x.png","name":"btn_again","height":94,"anchorY":0.5,"anchorX":0.5},
@@ -399,6 +404,7 @@
                     "compId":43,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":23,"x":46,"skin":"Hesucceeds/anniu_zaici@2x.png"},
@@ -412,6 +418,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/script/views/ButtonAnim.ts",
@@ -429,6 +436,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_home",
                     "props":{"y":384,"x":116,"width":80,"stateNum":"1","skin":"Hesucceeds/icon_shouye@2x.png","name":"btn_home","height":115,"anchorY":0.5,"anchorX":0.5},
@@ -441,6 +449,7 @@
                     "compId":3,
                     "child":[
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/script/views/ConvergeAdView.ts",
@@ -458,6 +467,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_next",
                     "props":{"y":384,"x":375,"width":300,"stateNum":"1","skin":"Hesucceeds/anniu-play@2x.png","name":"btn_next","height":94,"anchorY":0.5,"anchorX":0.5},
@@ -470,6 +480,7 @@
                     "compId":5,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":25,"x":64,"skin":"Hesucceeds/anniu_guan@2x.png"},
@@ -483,6 +494,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/script/views/ButtonAnim.ts",
@@ -500,6 +512,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_fight",
                     "props":{"y":384,"x":629,"width":90,"stateNum":"1","skin":"Hesucceeds/icon_tz@2x.png","name":"btn_fight","height":116,"anchorY":0.5,"anchorX":0.5},
@@ -512,6 +525,7 @@
                     "compId":4,
                     "child":[
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/script/views/ButtonAnim.ts",
@@ -529,6 +543,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,img_ADBg",
                     "props":{"y":137,"x":50,"width":650,"skin":"Hesucceeds/kuan-phb@2x.png","name":"img_ADBg","height":160},
@@ -541,6 +556,7 @@
                     "compId":8,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"skin":"Hesucceeds/xia_game.png"},
@@ -554,6 +570,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "searchKey":"Label",
                             "props":{"y":29,"x":17.5,"wordWrap":true,"width":27,"text":"猜你喜欢","height":106,"fontSize":26,"color":"#ffffff"},
@@ -567,6 +584,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,ADPanel",
                             "props":{"y":17,"width":561,"name":"ADPanel","height":131,"centerX":25},
@@ -579,22 +597,7 @@
                             "compId":112,
                             "child":[
                                 {
-                                    "type":"Script",
-                                    "switchAble":true,
-                                    "source":"src/script/views/ListLoopView.ts",
-                                    "searchKey":"Script,ListLoopView",
-                                    "removeAble":true,
-                                    "props":{},
-                                    "nodeParent":112,
-                                    "label":"ListLoopView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":113,
-                                    "child":[
-                                        ]
-                                },
-                                {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,ADPanel",
                                     "props":{"y":0,"x":0,"width":561,"skin":"common/black_bg.png","renderType":"mask","name":"ADPanel","height":131},
@@ -614,6 +617,7 @@
                 }]
         },
         {
+            "x":15,
             "type":"Script",
             "switchAble":true,
             "source":"src/script/views/GameOverView.ts",

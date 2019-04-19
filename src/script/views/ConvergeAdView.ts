@@ -21,12 +21,13 @@ export default class ConvergeAdView extends BaseView {
         this.adList = this.owner.getChildByName("list") as Laya.List;
         this.adList.vScrollBarSkin = '';
         this.adList.selectEnable = true;
-
-        PlatformMgr.ptAdMgr.instance.showBannerAdOther();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.showBannerAdOther();
     }
 
     onDisable(){
-        PlatformMgr.ptAdMgr.instance.destoryAllBannerAd();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.destoryAllBannerAd();
     }
     
     public addEvent() {
@@ -63,11 +64,6 @@ export default class ConvergeAdView extends BaseView {
 
     public onClickHome() {
         this.closeView();
-        let viewName = ConfigData.mainBtnsType == MAINBTNSTYPE.LANDSCAPE ? "MainViewLandscape.scene" : "MainViewVertical.scene";
-        ViewMgr.instance.openView({
-            viewName: viewName,
-            closeAll: true,
-        });
         EventMgr.instance.emit("goHome");
     }
 
@@ -86,7 +82,8 @@ export default class ConvergeAdView extends BaseView {
                     path: this.adList.array[index].toLinks,
                     appid: this.adList.array[index].appid,
                 };
-                PlatformMgr.ptAPI.navigateToMiniProgram(obj);
+                if(PlatformMgr.ptAPI)
+                    PlatformMgr.ptAPI.navigateToMiniProgram(obj);
             }
         }
     }

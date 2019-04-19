@@ -1,11 +1,12 @@
 {
+    "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":94,
+    "selecteID":150,
     "searchKey":"View",
     "props":{"y":528,"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":145,
+    "maxID":151,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -14,32 +15,7 @@
     "compId":2,
     "child":[
         {
-            "type":"Image",
-            "searchKey":"Image,diamond",
-            "props":{"y":86,"x":47,"width":50,"skin":"gameview/zhuans@2x.png","name":"diamond","height":49,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":2,
-            "label":"diamond",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":3,
-            "child":[
-                {
-                    "type":"FontClip",
-                    "searchKey":"FontClip,ftc_diamond",
-                    "props":{"y":12,"x":65,"width":90,"value":"2222","spaceX":-6,"skin":"gameview/shuzi_xiao@2x.png","sheet":"0123456789","scaleY":0.6,"scaleX":0.6,"name":"ftc_diamond","height":26},
-                    "nodeParent":3,
-                    "label":"ftc_diamond",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ]
-                }]
-        },
-        {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,probg",
             "props":{"y":81,"x":374,"width":256,"skin":"gameview/icon-progress5@2x.png","sizeGrid":"11,8,10,8","name":"probg","height":38,"anchorY":0.5,"anchorX":0.5},
@@ -122,6 +98,7 @@
             "$HIDDEN":false
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,img_bigger",
             "props":{"y":985,"x":394,"visible":false,"skin":"gameview/sice up.png","name":"img_bigger"},
@@ -135,6 +112,7 @@
                 ]
         },
         {
+            "x":15,
             "type":"FontClip",
             "searchKey":"FontClip,ftc_box_num",
             "props":{"y":288,"visible":false,"value":"0","skin":"gameview/baox_shuzi1@2x.png","sheet":"0123456789","scaleY":0.8,"scaleX":0.8,"name":"ftc_box_num","centerX":0,"anchorY":0.5,"anchorX":0.5},
@@ -148,6 +126,7 @@
                 ]
         },
         {
+            "x":15,
             "type":"FontClip",
             "searchKey":"FontClip,ftc_game_num",
             "props":{"value":"0","skin":"gameview/baox_shuzi2@2x.png","sheet":"0123456789","scaleY":0.8,"scaleX":0.8,"name":"ftc_game_num","centerY":500,"centerX":0,"anchorY":0.5,"anchorX":0.5},
@@ -161,18 +140,20 @@
                 ]
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,perfect",
             "props":{"y":256,"x":283,"width":182,"visible":false,"skin":"gameview/perfect.png","name":"perfect","height":50},
             "nodeParent":2,
             "label":"perfect",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":29,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":5,"x":91,"skin":"gameview/perfect_x.png"},
@@ -186,6 +167,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"FontClip",
                     "searchKey":"FontClip,num",
                     "props":{"y":5,"x":132,"value":"1","skin":"gameview/perfect_shuzi@2x.png","sheet":"0123456789","scaleY":0.7,"scaleX":0.7,"name":"num"},
@@ -200,6 +182,7 @@
                 }]
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,mouseTouch",
             "props":{"y":0,"x":0,"top":0,"right":0,"name":"mouseTouch","left":0,"bottom":0},
@@ -213,6 +196,7 @@
                 ]
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,TestPos",
             "props":{"y":86.5,"x":22,"width":50,"visible":false,"skin":"gameview/zhuans@2x.png","name":"TestPos","height":49},
@@ -227,6 +211,7 @@
                 ]
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,region",
             "props":{"y":560,"x":195,"width":555,"visible":true,"name":"region","height":467},
@@ -241,6 +226,7 @@
                 ]
         },
         {
+            "x":15,
             "type":"Image",
             "searchKey":"Image,BeginnerGuide",
             "props":{"y":220,"x":168,"top":0,"right":0,"name":"BeginnerGuide","mouseThrough":true,"left":0,"bottom":0},
@@ -308,180 +294,74 @@
                 }]
         },
         {
-            "type":"Script",
-            "switchAble":true,
-            "source":"src/script/views/GameView.ts",
-            "searchKey":"Script,GameView",
-            "removeAble":true,
-            "props":{"y":0,"x":0},
+            "x":15,
+            "type":"Text",
+            "searchKey":"Text",
+            "props":{"y":175,"x":574,"text":"超越","fontSize":36,"color":"#000000"},
             "nodeParent":2,
-            "label":"GameView",
+            "label":"Text",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":15,
+            "compId":146,
             "child":[
                 ]
         },
         {
-            "type":"Button",
-            "searchKey":"Button,btn_energy",
-            "props":{"y":797,"x":27,"width":100,"stateNum":"1","name":"btn_energy","height":100},
+            "x":15,
+            "type":"WXOpenDataViewer",
+            "searchKey":"WXOpenDataViewer,surpassOther",
+            "props":{"y":221,"x":580,"width":60,"name":"surpassOther","iconSign":"wx","height":60},
             "nodeParent":2,
-            "label":"btn_energy",
+            "label":"surpassOther",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":145,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"WXOpenDataViewer",
+            "searchKey":"WXOpenDataViewer,provocationOther",
+            "props":{"y":196,"x":47,"width":60,"name":"provocationOther","iconSign":"wx","height":60},
+            "nodeParent":2,
+            "label":"provocationOther",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":147,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,provocationOtherBg",
+            "props":{"y":193,"x":124,"width":200,"texture":"gameview/zhuans@2x.png","name":"provocationOtherBg","height":60},
+            "nodeParent":2,
+            "label":"provocationOtherBg",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":132,
+            "compId":150,
             "child":[
                 {
-                    "type":"Image",
-                    "searchKey":"Image,img_energy",
-                    "props":{"y":2,"x":2,"width":96,"skin":"gameview/fang-hui@2x.png","name":"img_energy","height":96},
-                    "nodeParent":132,
-                    "label":"img_energy",
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,provocationOtherText",
+                    "props":{"y":13,"x":0,"width":448,"text":"挑衅","name":"provocationOtherText","height":36,"fontSize":36,"color":"#E6E6E6"},
+                    "nodeParent":150,
+                    "label":"provocationOtherText",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":133,
+                    "compId":148,
                     "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "searchKey":"Image,progress",
-                    "props":{"y":97,"x":50,"width":95,"skin":"gameview/fang-2@2x.png","rotation":180,"name":"progress","anchorX":0.5},
-                    "nodeParent":132,
-                    "label":"progress",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":135,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "searchKey":"Image,kaung",
-                    "props":{"y":0,"x":-3,"width":105,"skin":"gameview/fang-kuan2@2x.png","sizeGrid":"10,10,10,10","name":"kaung","height":105},
-                    "nodeParent":132,
-                    "label":"kaung",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":134,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "searchKey":"Image,lightning",
-                    "props":{"y":53,"x":52,"skin":"gameview/icon-shand-1a@2x.png","scaleY":0.9,"scaleX":0.9,"name":"lightning","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":132,
-                    "label":"lightning",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":137,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "searchKey":"Image,anim1",
-                    "props":{"y":50,"x":50,"width":100,"name":"anim1","height":100,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":132,
-                    "label":"anim1",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":138,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "searchKey":"Image,lightning1",
-                            "props":{"y":53,"x":48,"visible":false,"skin":"gameview/icon-shand-2c@2x.png","scaleY":0.8200000000000001,"scaleX":0.8200000000000001,"name":"lightning1","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":138,
-                            "label":"lightning1",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":139,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image,lightning2",
-                            "props":{"y":53,"x":48,"visible":true,"skin":"gameview/icon-shand-2a@2x.png","scaleY":0.96,"scaleX":0.96,"name":"lightning2","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":138,
-                            "label":"lightning2",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":140,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "searchKey":"Image,kaung",
-                            "props":{"y":50,"x":50,"width":105,"skin":"gameview/shangdian_kuoshan@2x.png","scaleY":1.06,"scaleX":1.06,"name":"kaung","height":105,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":138,
-                            "label":"kaung",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":141,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":true
-                },
-                {
-                    "type":"Image",
-                    "searchKey":"Image,anim2",
-                    "props":{"y":50,"x":50,"width":100,"name":"anim2","height":100,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":132,
-                    "label":"anim2",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":142,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "searchKey":"Image,lightning2",
-                            "props":{"y":50,"x":53,"visible":true,"skin":"gameview/icon-shand-1b@2x.png","rotation":-15,"name":"lightning2","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":142,
-                            "label":"lightning2",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":143,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":true
-                }],
-            "$HIDDEN":false
+                        ]
+                }]
         }],
     "animations":[
         {

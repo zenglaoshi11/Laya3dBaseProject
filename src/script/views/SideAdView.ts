@@ -120,7 +120,8 @@ export default class SideAdView extends Laya.Script {
             path:this.toLinks,
             appId:this.toAppId,
         };
-        PlatformMgr.ptAPI.navigateToMiniProgram(_d);
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.navigateToMiniProgram(_d);
         this.clickedAd();
     }
 

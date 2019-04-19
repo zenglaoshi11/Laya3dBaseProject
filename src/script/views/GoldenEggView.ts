@@ -19,7 +19,9 @@ export default class GoldenEggView extends BaseView{
 		});
 		
 		let anchorS = this.owner.getChildByName("anchorS") as Laya.Image;
-		let offsetY:number = PlatformMgr.ptAPI.getOffsetOpenDomain();
+		let offsetY:number = 0;
+		if(PlatformMgr.ptAPI)
+			offsetY = PlatformMgr.ptAPI.getOffsetOpenDomain();
 		anchorS.y = anchorS.y + offsetY;
 		this.okBtn = anchorS.getChildByName("okBtn") as Laya.Image;
 
@@ -35,7 +37,8 @@ export default class GoldenEggView extends BaseView{
 
 	openView(_d){
 		super.openView(_d);
-		PlatformMgr.ptAdMgr.loadBannerAdHome();
+		if(PlatformMgr.ptAdMgr)
+			PlatformMgr.ptAdMgr.loadBannerAdHome();
 	}
 
 	btnClick():void{
@@ -65,7 +68,8 @@ export default class GoldenEggView extends BaseView{
 
 	close():void{
 		super.closeView();
-		PlatformMgr.ptAdMgr.showBannerAdHome();
+		if(PlatformMgr.ptAdMgr)
+			PlatformMgr.ptAdMgr.showBannerAdHome();
 	}
 
 }

@@ -5,10 +5,12 @@ export default class VibrateMgr {
    
     
     vibrateShort(): void {
-        PlatformMgr.ptAPI.vibrateShort();
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.vibrateShort();
     }
 
     vibrateLong(): void {
-        PlatformMgr.ptAPI.vibrateLong();
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.vibrateLong();
     }
 }
