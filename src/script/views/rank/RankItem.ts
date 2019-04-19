@@ -1,37 +1,39 @@
 import MyUtils from "../../tools/MyUtils";
 
-export default class RankItem extends Laya.Box {
+export default class RankItem extends Laya.Script {
     private bgImg: Laya.Image;
     private rankImg: Laya.Image;
-    private rankLbl: Laya.Label;
+    private rankLab: Laya.Label;
 
     private avatarImg: Laya.Image;
-    private nameLbl: Laya.Label;
+    private nameLab: Laya.Label;
 
-    private scoreIconImg: Laya.Image;
-    private score: Laya.Label;
+    private scoreLab: Laya.Label;
 
     constructor() { 
         super(); 
-        this.bgImg = this.getChildByName("imgBg") as Laya.Image;
-        this.rankImg = this.getChildByName("rankImg") as Laya.Image;
-        this.rankLbl = this.getChildByName("rankLbl") as Laya.Label;
+    }
+    
+    onAwake(){
+        this.bgImg = this.owner.getChildByName("imgBg") as Laya.Image;
+        this.rankImg = this.owner.getChildByName("rankImg") as Laya.Image;
+        this.rankLab = this.owner.getChildByName("rankLab") as Laya.Label;
+    
+        this.avatarImg = this.owner.getChildByName("avatarImg") as Laya.Image;
+        this.nameLab = this.owner.getChildByName("nameLab") as Laya.Label;
+    
+        this.scoreLab = this.owner.getChildByName("scoreLab") as Laya.Label;
 
-        this.avatarImg = this.getChildByName("avatarImg") as Laya.Image;
-        this.nameLbl = this.getChildByName("lblName") as Laya.Label;
-
-        this.scoreIconImg = this.getChildByName("scoreIconImg") as Laya.Image;
-        this.score = this.getChildByName("score") as Laya.Label;
     }
 
     updateItem(itemData){
         this.rankImg.active = false;
-        this.rankLbl.text = itemData.index;
+        this.rankLab.text = itemData.index;
         switch(itemData.index){
             case 1:
             case 2:
             case 3:
-                this.rankLbl.text = "";
+                this.rankLab.text = "";
                 this.rankImg.skin = "rank/"+ itemData.index +".png";
                 this.rankImg.active = true;
             break;
@@ -41,10 +43,13 @@ export default class RankItem extends Laya.Box {
             let avatarUrl = itemData.headImage.replace("/132", "/46");
             this.avatarImg.skin = avatarUrl;
         }
-        let name = itemData.user_nickname.length > 6 ? itemData.user_nickname.substr(0, 8) : itemData.user_nickname;
-        this.nameLbl.text = name!=""?name:"神秘玩家";
+        let name = itemData.nickname.length > 6 ? itemData.nickname.substr(0, 8) : itemData.nickname;
+        this.nameLab.text = name!=""?name:"神秘玩家";
 
-        this.score.text = itemData.score;
+        this.scoreLab.text = itemData.score;
     }
 
+    clean(){
+        this.owner.active = false;
+    }
 }

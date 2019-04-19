@@ -5,6 +5,7 @@ import GameOverView from "./script/views/GameOverView"
 import WXLaunch from "./script/platform/wx/WXLaunch"
 import MainViewLandscape from "./script/views/MainViewLandscape"
 import MainViewVertical from "./script/views/MainViewVertical"
+import RankItem from "./script/views/rank/RankItem"
 import WXRankView from "./script/views/rank/WXRankView"
 import TipView from "./script/views/TipView"
 /*
@@ -32,6 +33,7 @@ export default class GameConfig{
         reg("script/platform/wx/WXLaunch.ts",WXLaunch);
         reg("script/views/MainViewLandscape.ts",MainViewLandscape);
         reg("script/views/MainViewVertical.ts",MainViewVertical);
+        reg("script/views/rank/RankItem.ts",RankItem);
         reg("script/views/rank/WXRankView.ts",WXRankView);
         reg("script/views/TipView.ts",TipView);
     }

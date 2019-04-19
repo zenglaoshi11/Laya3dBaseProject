@@ -3,6 +3,7 @@ import ViewMgr from "../mgrCommon/ViewMgr";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
 
 export default class BaseView extends Laya.Script {
+    public isMyBaseView:boolean = true
     protected _data;
     protected _isClick;
     protected shareBtn: Laya.Image;
@@ -38,7 +39,7 @@ export default class BaseView extends Laya.Script {
 
     public closeView(_d?:any) {
         var _viewName:string = (this.owner as Laya.View).url;
-        if(_d.notDestroy){
+        if(_d && _d.notDestroy){
             ViewMgr.instance.hideView(_viewName);
         }else{
             ViewMgr.instance.closeView(_viewName);

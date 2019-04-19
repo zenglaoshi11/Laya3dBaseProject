@@ -6,7 +6,7 @@ import EventMgr from "../mgrCommon/EventMgr";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import SoundMgr from "../mgrCommon/SoundMgr";
 
-export default class MainViewVertical extends BaseView {
+export default class MainViewLandscape extends BaseView {
     private btnSound:Laya.Button;
     private btnVirbort:Laya.Button;
     private soundOpen: Laya.Image;
@@ -137,7 +137,7 @@ export default class MainViewVertical extends BaseView {
             this._isClick = null;
         });
         ViewMgr.instance.openView({
-            viewName: "RankView.scene",
+            viewName: "Rank.scene",
             closeAll: false,
         });
     }
@@ -166,9 +166,4 @@ export default class MainViewVertical extends BaseView {
         super.removeEvent();
     }
 
-    onEnable(): void {
-    }
-
-    onDisable(): void {
-    }
 }

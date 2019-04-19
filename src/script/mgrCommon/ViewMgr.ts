@@ -35,16 +35,27 @@ export default class ViewMgr {
             this.viewDic = {};
         }
         if (MyUtils.isNull(this.viewDic[url])) {
-            Laya.Scene.open(url, closeAll, Laya.Handler.create(this, function (owner: Laya.Scene) {
-                if (!MyUtils.isNull(cls)) {
-                    let component: BaseView = owner.getComponent(cls) as BaseView;
-                    component.openView(_d.data);
-                    self.viewDic[url] = component;
+            Laya.Scene.open(url, closeAll, Laya.Handler.create(this, function (owner: any) {
+                self.viewDic[url] = owner;
+                let coms = owner._components;
+                for (let index = 0; index < coms.length; index++) {
+                    const element = coms[index];
+                    if(element.isMyBaseView){
+                        element.openView(_d.data);
+                        break;
+                    }
                 }
             }));
         } else {
-            let component: BaseView = this.viewDic[url] as BaseView;
-            component.openView(_d.data);
+            let owner = this.viewDic[url];
+            let coms = owner._components;
+            for (let index = 0; index < coms.length; index++) {
+                const element = coms[index];
+                if(element.isMyBaseView){
+                    element.openView(_d.data);
+                    break;
+                }
+            }
         }
     }
 
@@ -52,9 +63,7 @@ export default class ViewMgr {
         if (MyUtils.isNull(this.viewDic[viewName])) {
             return;
         }
-        let scene: BaseView = this.viewDic[viewName] as BaseView;
-        scene.owner.destroy();
-        scene.destroy();
+        this.viewDic[viewName].destroy();
         this.viewDic[viewName] = null;
     }
 
@@ -62,12 +71,11 @@ export default class ViewMgr {
         if (MyUtils.isNull(this.viewDic[viewName])) {
             return;
         }
-        let scene: BaseView = this.viewDic[viewName] as BaseView;
-        scene.owner.active = false;
+        this.viewDic[viewName].active = false;
     }
 
     public getView(viewName: string){
-        let view:BaseView = this.viewDic[viewName];
+        let view = this.viewDic[viewName];
         if (!MyUtils.isNull(view)) {
             return view;
         }

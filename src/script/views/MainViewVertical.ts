@@ -127,7 +127,7 @@ export default class MainViewVertical extends BaseView {
             this._isClick = null;
         });
         ViewMgr.instance.openView({
-            viewName: "RankView.scene",
+            viewName: "Rank.scene",
             closeAll: false,
         });
     }
@@ -154,11 +154,5 @@ export default class MainViewVertical extends BaseView {
 
     public removeEvent() {
         super.removeEvent();
-    }
-
-    onEnable(): void {
-    }
-
-    onDisable(): void {
     }
 }
