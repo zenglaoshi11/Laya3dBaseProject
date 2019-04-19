@@ -3,6 +3,7 @@ import MyInit from "./script/MyInit";
 class Main {
 	constructor() {
 		//根据IDE设置初始化引擎
+		Laya.isWXPosMsg = true;
 		Laya.isWXOpenDataContext = false;
 		if (window["Laya3D"]) Laya3D.init(GameConfig.width, GameConfig.height);
 		else Laya.init(GameConfig.width, GameConfig.height, Laya["WebGL"]);

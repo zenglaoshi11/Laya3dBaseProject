@@ -19,9 +19,9 @@ export default class WXSubDomain {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
-        Laya.timer.frameOnce(1, this, function () {
-            this.WXOpenDataView.postMsg({ type: "openFriendRank" });
-        })
+        // Laya.timer.frameOnce(1, this, ()=> {
+            this.wxOpenDataView.postMsg({ type: "openFriendRank" });
+        // })
     }
 
     openGameOver(): void {

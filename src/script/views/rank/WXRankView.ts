@@ -76,7 +76,7 @@ export default class RankView extends BaseView {
                 this.worldData = res.rank;
                 this.selfRankData = {
                     index : res.myIndex,
-                    user_nickname:UserData.nickName,
+                    nickname:UserData.nickName,
                     headImage:UserData.avatarUrl,
                     score:UserData.score
                 }

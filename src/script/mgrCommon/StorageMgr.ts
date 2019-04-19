@@ -77,9 +77,9 @@ export default class StorageMgr {
             _d = JSON.parse(_d);
             UserData.sessionId = _d.sessionId;
             UserData.openId = _d.openId;
-            UserData.score = _d.score;
+            UserData.score = _d.score || 0;
             UserData.exp = _d.exp;
-            UserData.level = _d.level;
+            UserData.level = _d.level || 0;
         }
     }
 }

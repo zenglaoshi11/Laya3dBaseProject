@@ -95,9 +95,9 @@ export default class WXLaunch extends Laya.Script {
     private On3DResLoadComplete(scene?: Laya.Scene3D) {
         this.updateProgress(1);
         
-        // if (Laya.Browser.onMiniGame) { 
-        //     Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
-        // }
+        if (Laya.Browser.onMiniGame) {
+            Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
+        }
         SoundMgr.instance.playBGM();
 
         // scene.addComponent(GameMgr);
