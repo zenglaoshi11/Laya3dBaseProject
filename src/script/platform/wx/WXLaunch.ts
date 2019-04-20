@@ -34,7 +34,7 @@ export default class WXLaunch extends Laya.Script {
         var resource: Array<any> = [
             { url: "res/atlas/rank.atlas", type: Laya.Loader.ATLAS },
             { url: "res/json/config.json", type: Laya.Loader.JSON },
-            { url: "res/json/" + ConfigData.language + ".json", type: Laya.Loader.JSON },
+            { url: "res/language/" + ConfigData.language + ".json", type: Laya.Loader.JSON },
         ];
         var self = this;
         if (Laya.Browser.onMiniGame) {
@@ -118,7 +118,7 @@ export default class WXLaunch extends Laya.Script {
             this.pro.width = 500;
             Laya.timer.frameOnce(2, this, () => {
                 this.owner.destroy();
-                Laya.loader.clearRes("res/atlas/loading.atlas");
+                Laya.loader.clearRes("loading/loading.atlas");
                 this.destroy();
             })
 
