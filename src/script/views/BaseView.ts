@@ -27,6 +27,7 @@ export default class BaseView extends Laya.Script {
     public openView(data?: any): void {
         (this.owner as Laya.View).height = Laya.stage.height;
         this._data = data || {};
+        this.owner.active = true;
     }
 
     public addEvent() {

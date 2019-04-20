@@ -20,7 +20,7 @@ export default class ViewMgr {
     
     private goHome(res){
         let viewName = ConfigData.mainBtnsType == MAINBTNSTYPE.LANDSCAPE ? "MainLandscape.scene" : "MainVertical.scene";
-        ViewMgr.instance.openView({
+        this.openView({
             viewName: viewName,
             closeAll: true,
         });

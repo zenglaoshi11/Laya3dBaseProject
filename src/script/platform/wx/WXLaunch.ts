@@ -24,8 +24,8 @@ export default class WXLaunch extends Laya.Script {
     onEnable(): void {
         var group: Laya.Node = this.owner.getChildByName("progressGroup");
         this.pro = group.getChildByName("progress") as Laya.Image;
-        this.proLabel = group.getChildByName("proLabel") as Laya.Label;
-        this.tipLable = this.owner.getChildByName("tipBg").getChildByName("lbl_tip") as Laya.Label;
+        this.proLabel = group.getChildByName("proLab") as Laya.Label;
+        this.tipLable = this.owner.getChildByName("tipBg").getChildByName("tipLab") as Laya.Label;
         this.tipLable.text = this.getLaunchTipMsg();
         this.loadRes();
     }
@@ -82,6 +82,7 @@ export default class WXLaunch extends Laya.Script {
     }
 
     private loadResComplete() {
+        
         //本地游戏数据配置
         ConfigData.initConfigData(
             Laya.Loader.getRes("res/json/config.json"),
@@ -100,8 +101,8 @@ export default class WXLaunch extends Laya.Script {
         }
         SoundMgr.instance.playBGM();
 
-        // scene.addComponent(GameMgr);
-        // Laya.stage.addChild(scene);
+        scene.addComponent(GameMgr);
+        Laya.stage.addChildAt(scene,0);
         EventMgr.instance.emit("goHome");
     }
 
