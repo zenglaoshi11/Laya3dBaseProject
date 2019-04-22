@@ -30,7 +30,7 @@ export default class ViewMgr {
         let self = this;
         let url = _d.viewName;
         let cls = _d.cls;
-        let closeAll = _d.closeAll;
+        let closeAll = _d.closeAll || false;
         if (closeAll) {
             this.viewDic = {};
         }
