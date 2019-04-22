@@ -8,6 +8,7 @@ import MyLog from "../../tools/MyLog";
 import SoundMgr from "../../mgrCommon/SoundMgr";
 import ViewMgr from "../../mgrCommon/ViewMgr";
 import ConvergeAdView from "../../views/ConvergeAdView";
+import WXSubDomain from "./WXSubDomain";
 
 export default class WXAPI {
     public _launch:any = {};

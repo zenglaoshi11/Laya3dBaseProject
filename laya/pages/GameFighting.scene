@@ -2,10 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
+    "selecteID":147,
     "searchKey":"Scene",
     "props":{"y":528,"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":151,
+    "maxID":152,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -231,13 +232,14 @@
             "props":{"y":220,"x":168,"top":0,"right":0,"name":"BeginnerGuide","mouseThrough":true,"left":0,"bottom":0},
             "nodeParent":2,
             "label":"BeginnerGuide",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":94,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,BeginnerGuide",
                     "props":{"y":287,"x":168,"width":414,"skin":"gameview/help_kuan@2x.png","name":"BeginnerGuide","height":250},
@@ -250,6 +252,7 @@
                     "compId":90,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":34,"x":54,"skin":"gameview/help.png"},
@@ -264,6 +267,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,quan",
                     "props":{"y":1078,"x":375,"skin":"gameview/shou_dianji@2x.png","scaleY":1.09,"scaleX":1.09,"name":"quan","anchorY":0.5,"anchorX":0.5},
@@ -278,6 +282,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,hand",
                     "props":{"y":1078,"x":371,"skin":"gameview/shou@2x.png","scaleY":1.02,"scaleX":1.02,"name":"hand","anchorY":0,"anchorX":0},
@@ -324,7 +329,7 @@
             "x":15,
             "type":"WXOpenDataViewer",
             "searchKey":"WXOpenDataViewer,provocationOther",
-            "props":{"y":196,"x":47,"width":60,"name":"provocationOther","iconSign":"wx","height":60},
+            "props":{"y":196,"x":47,"width":750,"name":"provocationOther","iconSign":"wx","height":60},
             "nodeParent":2,
             "label":"provocationOther",
             "isDirectory":false,
@@ -336,31 +341,20 @@
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite,provocationOtherBg",
-            "props":{"y":193,"x":124,"width":200,"texture":"gameview/zhuans@2x.png","name":"provocationOtherBg","height":60},
+            "type":"Script",
+            "switchAble":true,
+            "source":"src/script/views/GameFighting.ts",
+            "searchKey":"Script,GameFighting",
+            "removeAble":true,
+            "props":{},
             "nodeParent":2,
-            "label":"provocationOtherBg",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"GameFighting",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":150,
+            "hasChild":false,
+            "compId":151,
             "child":[
-                {
-                    "x":30,
-                    "type":"Text",
-                    "searchKey":"Text,provocationOtherText",
-                    "props":{"y":13,"x":0,"width":448,"text":"挑衅","name":"provocationOtherText","height":36,"fontSize":36,"color":"#E6E6E6"},
-                    "nodeParent":150,
-                    "label":"provocationOtherText",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":148,
-                    "child":[
-                        ]
-                }]
+                ]
         }],
     "animations":[
         {

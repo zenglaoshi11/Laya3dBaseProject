@@ -39,13 +39,13 @@ export default class Login extends Laya.Script{
 			UserData.userId = data.userId;
 			UserData.nickName = data.nikename;
 			UserData.avatarUrl = data.headImage;
-			UserData.diamond = data.userMoney;
+			UserData.diamond = data.userMoney || 0;
 			UserData.channelId = data.channelId;
-			UserData.level = data.level;
-			UserData.score = data.score;
+			UserData.level = data.level || 0;
+			UserData.score = data.score || 0;
 			UserData.openId = data.openid;
 			UserData.isNew = data.isNewUser;
-			UserData.exp = data.nowExp;
+			UserData.exp = data.nowExp || 0;
 			//缓存用户信息到本地
 			StorageMgr.saveUserData();
 			if(PlatformMgr.ptAPI){

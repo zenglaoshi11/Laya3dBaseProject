@@ -146,10 +146,6 @@ export default class MainViewVertical extends BaseView {
         });
 
         EventMgr.instance.emit("gameStart");
-        ViewMgr.instance.openView({
-            viewName: "GameFighting.scene",
-            closeAll: true,
-        });
     }
 
     public removeEvent() {

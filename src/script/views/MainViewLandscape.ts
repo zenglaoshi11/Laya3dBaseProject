@@ -1,10 +1,11 @@
 import BaseView from "./BaseView";
-import ConfigData from "../models/ConfigData";
+import ConfigData, { SORTTYPE } from "../models/ConfigData";
 import MyUtils from "../tools/MyUtils";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
 import EventMgr from "../mgrCommon/EventMgr";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import SoundMgr from "../mgrCommon/SoundMgr";
+import GameFighting from "./GameFighting";
 
 export default class MainViewLandscape extends BaseView {
     private btnSound:Laya.Button;
@@ -20,6 +21,9 @@ export default class MainViewLandscape extends BaseView {
     private btnCollect:Laya.Button;
 
     private btnStart:Laya.Button;
+
+    private gameFighting:Laya.Scene;
+    private gameFightingCom:GameFighting;
 
     constructor() { 
         super(); 
@@ -48,23 +52,36 @@ export default class MainViewLandscape extends BaseView {
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
+
+        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
+            Laya.stage.addChild(scene);
+            this.gameFighting = scene;
+            this.gameFightingCom = scene.getComponent(GameFighting);
+             scene.visible = false;
+        }))
         if(PlatformMgr.ptAdMgr)
             PlatformMgr.ptAdMgr.showBannerAdHome();
-    }
+    }  
 
     public addEvent() {
         this.btnSound.on(Laya.Event.CLICK, this, this.soundBtnClick);
         this.btnVirbort.on(Laya.Event.CLICK, this, this.virbortBtnClick);
         
-        this.btnInvite.on(Laya.Event.CLICK, this, this.inviteClick);
-        this.btnService.on(Laya.Event.CLICK, this, this.serviceClick);
         this.btnRank.on(Laya.Event.CLICK, this, this.rankClick);
+        this.btnService.on(Laya.Event.CLICK, this, this.serviceClick);
+        this.btnInvite.on(Laya.Event.CLICK, this, this.inviteClick);
         this.btnCollect.on(Laya.Event.CLICK, this, this.collectClick);
 
         this.btnStart.on(Laya.Event.CLICK, this, this.startClick);
     }
     
     private collectClick() {
+        // this.gameFightingCom.openProvocationOther(SORTTYPE.ENDLESS);
+        
+        ViewMgr.instance.openView({
+            viewName: "Resurgence.scene",
+        });
+        return;
         ViewMgr.instance.openView({
             viewName: "Collect.scene",
             closeAll: true,

@@ -1,7 +1,4 @@
 export default class WXSubDomain {
-    public static readonly instance: WXSubDomain = new WXSubDomain();
-    private constructor() {
-    }
     private wxOpenDataView: Laya.WXOpenDataViewer;
     
     setOpenView(_v): void {
@@ -38,11 +35,11 @@ export default class WXSubDomain {
         this.wxOpenDataView.postMsg({ type: "closeGameOver" });
     }
 
-    openSurpassOther(): void {
+    openSurpassOther(_d): void {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
-        this.wxOpenDataView.postMsg({ type: "openSurpassOther" });
+        this.wxOpenDataView.postMsg({ type: "openSurpassOther" ,data:_d});
     }
 
     closeSurpassOther(): void {
@@ -52,11 +49,11 @@ export default class WXSubDomain {
         this.wxOpenDataView.postMsg({ type: "closeSurpassOther" });
     }
 
-    openGoingSurpassOther(): void {
+    openGoingSurpassOther(_d): void {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
-        this.wxOpenDataView.postMsg({ type: "openGoingSurpassOther" });
+        this.wxOpenDataView.postMsg({ type: "openGoingSurpassOther" ,data:_d});
     }
 
     closeGoingSurpassOther(): void {
@@ -66,11 +63,11 @@ export default class WXSubDomain {
         this.wxOpenDataView.postMsg({ type: "closeGoingSurpassOther" });
     }
 
-    openProvocationOther(): void {
+    openProvocationOther(_d): void {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
-        this.wxOpenDataView.postMsg({ type: "openProvocationOther" });
+        this.wxOpenDataView.postMsg({ type: "openProvocationOther" ,data:_d});
     }
 
     closeProvocationOther(): void {

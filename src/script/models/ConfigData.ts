@@ -6,6 +6,11 @@ export enum MAINBTNSTYPE {
     VERTICAL
 }
 
+export enum SORTTYPE {
+    LEVEL = 0,
+    ENDLESS
+}
+
 export default class ConfigData {
     public static mainBtnsType:number = 0; //主页按钮排列方式使用哪种
     public static mainAdMy:boolean;     //是否开启自己做的主页的广告条

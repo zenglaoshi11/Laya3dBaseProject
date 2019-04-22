@@ -38,22 +38,26 @@ export default class ViewMgr {
             Laya.Scene.open(url, closeAll, Laya.Handler.create(this, function (owner: any) {
                 self.viewDic[url] = owner;
                 let coms = owner._components;
-                for (let index = 0; index < coms.length; index++) {
-                    const element = coms[index];
-                    if(element.isMyBaseView){
-                        element.openView(_d.data);
-                        break;
+                if(coms){
+                    for (let index = 0; index < coms.length; index++) {
+                        const element = coms[index];
+                        if(element.isMyBaseView){
+                            element.openView(_d.data);
+                            break;
+                        }
                     }
                 }
             }));
         } else {
             let owner = this.viewDic[url];
             let coms = owner._components;
-            for (let index = 0; index < coms.length; index++) {
-                const element = coms[index];
-                if(element.isMyBaseView){
-                    element.openView(_d.data);
-                    break;
+            if(coms){
+                for (let index = 0; index < coms.length; index++) {
+                    const element = coms[index];
+                    if(element.isMyBaseView){
+                        element.openView(_d.data);
+                        break;
+                    }
                 }
             }
         }
@@ -71,7 +75,7 @@ export default class ViewMgr {
         if (MyUtils.isNull(this.viewDic[viewName])) {
             return;
         }
-        this.viewDic[viewName].active = false;
+        (this.viewDic[viewName] as Laya.View).visible = false;
     }
 
     public getView(viewName: string){

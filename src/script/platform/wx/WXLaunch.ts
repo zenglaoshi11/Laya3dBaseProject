@@ -89,8 +89,8 @@ export default class WXLaunch extends Laya.Script {
         );
         //语言文件
         ConfigData.languageData = Laya.Loader.getRes("res/json/" + ConfigData.language + ".json");
-        Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
-        // this.On3DResLoadComplete();
+        // Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
+        this.On3DResLoadComplete();
     }
 
     private On3DResLoadComplete(scene?: Laya.Scene3D) {
@@ -101,8 +101,8 @@ export default class WXLaunch extends Laya.Script {
         }
         SoundMgr.instance.playBGM();
 
-        scene.addComponent(GameMgr);
-        Laya.stage.addChildAt(scene,0);
+        // scene.addComponent(GameMgr);
+        // Laya.stage.addChildAt(scene,0);
         EventMgr.instance.emit("goHome");
     }
 

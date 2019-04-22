@@ -4819,18 +4819,6 @@ var WXOpenDataViewer=(function(_super){
 		this._$4__texture=null;
 		WXOpenDataViewer.__super.call(this);
 		this._width=this._height=200;
-		// var tex=new Texture();
-		// if (Laya["Texture2D"]){
-		// 	tex.bitmap=new Laya["Texture2D"]();
-		// 	this.texture=tex;
-		// 	}else {
-		// 	throw new Error("WXOpenDataViewer:webgl not found!");
-		// }
-	}
-
-	__class(WXOpenDataViewer,'laya.ui.WXOpenDataViewer',_super);
-	var __proto=WXOpenDataViewer.prototype;
-	__proto.onEnable=function(){
 		var tex=new Texture();
 		if (Laya["Texture2D"]){
 			tex.bitmap=new Laya["Texture2D"]();
@@ -4838,12 +4826,16 @@ var WXOpenDataViewer=(function(_super){
 			}else {
 			throw new Error("WXOpenDataViewer:webgl not found!");
 		}
+	}
+
+	__class(WXOpenDataViewer,'laya.ui.WXOpenDataViewer',_super);
+	var __proto=WXOpenDataViewer.prototype;
+	__proto.onEnable=function(){
 		this.postMsg({type:"display",rate:Laya.stage.frameRate});
 		if (window.wx && window.sharedCanvas)Laya.timer.frameLoop(1,this,this._onLoop);
 	}
 
 	__proto.onDisable=function(){
-		this.texture.bitmap.destroy();
 		this.postMsg({type:"undisplay"});
 		Laya.timer.clear(this,this._onLoop);
 	}

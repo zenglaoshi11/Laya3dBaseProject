@@ -27,15 +27,16 @@ export default class RankItem extends Laya.Script {
     }
 
     updateItem(itemData){
-        this.rankImg.active = false;
-        this.rankLab.text = itemData.index;
+        this.owner.active = true;
+        this.rankImg.visible = false;
+        this.rankLab.text = itemData.index|| "未上榜";
         switch(itemData.index){
             case 1:
             case 2:
             case 3:
                 this.rankLab.text = "";
                 this.rankImg.skin = "rank/"+ itemData.index +".png";
-                this.rankImg.active = true;
+                this.rankImg.visible = true;
             break;
         }
 
@@ -43,8 +44,7 @@ export default class RankItem extends Laya.Script {
             let avatarUrl = itemData.headImage.replace("/132", "/46");
             this.avatarImg.skin = avatarUrl;
         }
-        let name = itemData.nickname.length > 6 ? itemData.nickname.substr(0, 8) : itemData.nickname;
-        this.nameLab.text = name!=""?name:"神秘玩家";
+        this.nameLab.text = itemData.nickname ? itemData.nickname : "神秘玩家";
 
         this.scoreLab.text = itemData.score;
     }
