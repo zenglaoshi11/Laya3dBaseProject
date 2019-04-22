@@ -18,7 +18,6 @@ export default class Resurgence extends BaseView {
     }
      
     openGoingSurpassOther(_type): void {
-        (this.owner as Laya.Scene).visible = true;
         this.goingSurpassOther.visible = true;
         PlatformMgr.subDomain.setOpenView(this.goingSurpassOther);
         PlatformMgr.subDomain.openGoingSurpassOther(_type);

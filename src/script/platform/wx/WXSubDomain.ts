@@ -21,11 +21,11 @@ export default class WXSubDomain {
         // })
     }
 
-    openGameOver(): void {
+    openGameOver(_d): void {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
-        this.wxOpenDataView.postMsg({ type: "openGameOver" });
+        this.wxOpenDataView.postMsg({ type: "openGameOver" ,data:_d});
     }
 
     closeGameOver(): void {

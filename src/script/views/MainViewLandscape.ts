@@ -79,7 +79,7 @@ export default class MainViewLandscape extends BaseView {
         // this.gameFightingCom.openProvocationOther(SORTTYPE.ENDLESS);
         
         ViewMgr.instance.openView({
-            viewName: "Resurgence.scene",
+            viewName: "GameOverEndless.scene",
         });
         return;
         ViewMgr.instance.openView({

@@ -2,6 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
+    "selecteID":152,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -614,23 +615,6 @@
                             "$HIDDEN":false
                         }]
                 }]
-        },
-        {
-            "x":15,
-            "type":"Script",
-            "switchAble":true,
-            "source":"src/script/views/GameOverView.ts",
-            "searchKey":"Script,GameOverView",
-            "removeAble":true,
-            "props":{},
-            "nodeParent":2,
-            "label":"GameOverView",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":152,
-            "child":[
-                ]
         }],
     "animations":[
         {

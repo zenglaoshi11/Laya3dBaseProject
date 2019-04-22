@@ -2,7 +2,7 @@
 import ButtonAnim from "./script/views/ButtonAnim"
 import ConvergeAdView from "./script/views/ConvergeAdView"
 import GameFighting from "./script/views/GameFighting"
-import GameOverView from "./script/views/GameOverView"
+import GameOverEndless from "./script/views/GameOverEndless"
 import GoldenEggView from "./script/views/GoldenEggView"
 import WXLaunch from "./script/platform/wx/WXLaunch"
 import MainViewLandscape from "./script/views/MainViewLandscape"
@@ -33,7 +33,7 @@ export default class GameConfig{
         reg("script/views/ButtonAnim.ts",ButtonAnim);
         reg("script/views/ConvergeAdView.ts",ConvergeAdView);
         reg("script/views/GameFighting.ts",GameFighting);
-        reg("script/views/GameOverView.ts",GameOverView);
+        reg("script/views/GameOverEndless.ts",GameOverEndless);
         reg("script/views/GoldenEggView.ts",GoldenEggView);
         reg("script/platform/wx/WXLaunch.ts",WXLaunch);
         reg("script/views/MainViewLandscape.ts",MainViewLandscape);
