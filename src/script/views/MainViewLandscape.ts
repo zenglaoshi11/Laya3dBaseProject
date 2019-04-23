@@ -6,6 +6,7 @@ import EventMgr from "../mgrCommon/EventMgr";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import SoundMgr from "../mgrCommon/SoundMgr";
 import GameFighting from "./GameFighting";
+import AdListLoop from "./AdListLoop";
 
 export default class MainViewLandscape extends BaseView {
     private btnSound:Laya.Button;
@@ -26,6 +27,7 @@ export default class MainViewLandscape extends BaseView {
     private gameFighting:Laya.Scene;
     private gameFightingCom:GameFighting;
 
+    private adPlane:AdListLoop;
     constructor() { 
         super(); 
     }
@@ -55,6 +57,9 @@ export default class MainViewLandscape extends BaseView {
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
         let scene = this.owner.getChildByName("gameFighting") as Laya.Scene;
+
+        this.adPlane = this.owner.getChildByName("ADPlane").getComponent(AdListLoop);
+
         this.gameFighting = scene;
         this.gameFightingCom = scene.getComponent(GameFighting);
         scene.visible = false;
@@ -71,6 +76,10 @@ export default class MainViewLandscape extends BaseView {
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }
+
+        Laya.timer.frameOnce(2,this,()=>{
+            this.adPlane.start(ConfigData.getAdData(1003));
+        })
     }  
 
     public addEvent() {

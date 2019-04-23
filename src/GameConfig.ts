@@ -7,6 +7,7 @@ import GameOverEndless from "./script/views/GameOverEndless"
 import GoldenEggView from "./script/views/GoldenEggView"
 import WXLaunch from "./script/platform/wx/WXLaunch"
 import MainViewLandscape from "./script/views/MainViewLandscape"
+import AdListLoop from "./script/views/AdListLoop"
 import MainViewVertical from "./script/views/MainViewVertical"
 import RankItem from "./script/views/rank/RankItem"
 import WXRankView from "./script/views/rank/WXRankView"
@@ -39,6 +40,7 @@ export default class GameConfig{
         reg("script/views/GoldenEggView.ts",GoldenEggView);
         reg("script/platform/wx/WXLaunch.ts",WXLaunch);
         reg("script/views/MainViewLandscape.ts",MainViewLandscape);
+        reg("script/views/AdListLoop.ts",AdListLoop);
         reg("script/views/MainViewVertical.ts",MainViewVertical);
         reg("script/views/rank/RankItem.ts",RankItem);
         reg("script/views/rank/WXRankView.ts",WXRankView);
