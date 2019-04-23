@@ -82,8 +82,9 @@ export default class MainViewLandscape extends BaseView {
 
         Laya.timer.frameOnce(2,this,()=>{
             this.adPlane.init({
-                itemWidth: 130,
-                itemHeight:156
+                _cellWidth: 130,
+                _cellHeight:156,
+                _spaceX:23
             });
             this.adPlane.start(ConfigData.getAdData(1003));
         })

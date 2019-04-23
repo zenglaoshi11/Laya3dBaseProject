@@ -76,6 +76,11 @@ export default class MainViewVertical extends BaseView {
         }
 
         Laya.timer.frameOnce(2,this,()=>{
+            this.adPlane.init({
+                _cellWidth: 130,
+                _cellHeight:156,
+                _spaceX:23
+            });
             this.adPlane.start(ConfigData.getAdData(1003));
         })
     }
