@@ -35,17 +35,17 @@ export default class RankView extends BaseView {
         
         this.friendBtn = node.getChildByName("friendBtn") as Laya.Image;
         this.worldBtn = node.getChildByName("worldBtn") as Laya.Image;
-        this.selectFriendRank = node.getChildByName("selectFriendRank") as Laya.Image;
         this.normalFriendRank = node.getChildByName("normalFriendRank") as Laya.Image;
-        this.selectWorldRank = node.getChildByName("selectWorldRank") as Laya.Image;
         this.normalWorldRank = node.getChildByName("normalWorldRank") as Laya.Image;
-
-        let offset = {y:0};
-        if(PlatformMgr.ptAPI)
-            offset = PlatformMgr.ptAPI.getOffsetOpenDomain()
-        this.wxOpenDataView.y = this.wxOpenDataView.y  + offset.y/2;
         
-        PlatformMgr.subDomain.setOpenView(this.wxOpenDataView);
+        this.selectFriendRank = this.normalFriendRank.getChildByName("selectFriendRank") as Laya.Image;
+        this.selectWorldRank = this.normalWorldRank.getChildByName("selectWorldRank") as Laya.Image;
+
+        
+        this.wxOpenDataView.y = this.wxOpenDataView.y  + this.offset.y/2;
+        if(PlatformMgr.subDomain){
+            PlatformMgr.subDomain.setOpenView(this.wxOpenDataView);
+        }
         
         this.worldRankList = node.getChildByName("worldRankList") as Laya.List;
         this.worldRankList.array = [];
@@ -98,18 +98,14 @@ export default class RankView extends BaseView {
     }
 
     worldRankClick(): any {
-        // if (this.worldRankList.active)
-        //     return;
         this.wxOpenDataView.visible = false;
-
         this.selectFriendRank.visible = false;
-        this.normalFriendRank.visible = true;
         this.selectWorldRank.visible = true;
-        this.normalWorldRank.visible = false;
         this.worldRankList.visible = true;
         this.selfRankSprite.visible = true
-
-        PlatformMgr.subDomain.closeFriendRank();
+        if(PlatformMgr.subDomain){
+            PlatformMgr.subDomain.closeFriendRank();
+        }
         if(this.worldData){
             this.setWorldRankDta();
         }else{
@@ -118,19 +114,15 @@ export default class RankView extends BaseView {
     }
 
     friendRankClick(): any {
-        // if (!Laya.Browser.onMiniGame || this.wxOpenDataView.active)
-        //     return;
         this.wxOpenDataView.visible = true;
-
         this.selectFriendRank.visible = true;
-        this.normalFriendRank.visible = false;
         this.selectWorldRank.visible = false;
-        this.normalWorldRank.visible = true;
         this.worldRankList.visible = false;
         this.selfRankSprite.visible = false
-
         //打开子域排行榜 TODO
-        PlatformMgr.subDomain.openFriendRank();
+        if(PlatformMgr.subDomain){
+            PlatformMgr.subDomain.openFriendRank();
+        }
     }
 
     public removeEvent() {

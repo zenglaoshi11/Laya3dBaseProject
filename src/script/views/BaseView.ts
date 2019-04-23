@@ -10,10 +10,12 @@ export default class BaseView extends Laya.Script {
     protected homeBtn: Laya.Image;
     protected okBtn: Laya.Image;
     protected closeBtn: Laya.Image;
-
+    protected offset = {y:0};
     onAwake(): void {
         //删除时自动释放
         (this.owner as Laya.View).autoDestroyAtClosed = true;
+        if(PlatformMgr.ptAPI)
+            this.offset = PlatformMgr.ptAPI.getOffsetOpenDomain();
     }
 
     onEnable(): void {

@@ -18,6 +18,7 @@ export default class SoundMgr {
                 sound.src = "res/sound/" + name + ".mp3";
                 sound.onEnded(() => {
                     laya.utils.Pool.recover(name, sound);
+                    sound.offEnded();
                 })
             }
             sound.play();
