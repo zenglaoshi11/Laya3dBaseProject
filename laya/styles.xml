@@ -1,3 +1,5 @@
 <res>
    <item name="goldenEgg/title01.png" type="Sprite" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="numberFonts/img_levelNumber.png" type="Image" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="rank/bg_gosuperpass.png" type="Sprite" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
 </res>

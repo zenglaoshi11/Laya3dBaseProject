@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":94,
-    "selecteID":90,
+    "selectedBox":2,
+    "selecteID":164,
     "searchKey":"Scene",
     "props":{"y":528,"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -41,48 +41,6 @@
             "compId":43,
             "child":[
                 ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,FightImage",
-            "props":{"y":252,"x":46,"width":66,"visible":false,"skin":"beyond/img_fightHead.png","name":"FightImage","height":66},
-            "nodeParent":2,
-            "label":"FightImage",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":85,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,LabelFight",
-                    "props":{"y":0,"x":78,"width":380,"skin":"beyond/bg_fight.png","sizeGrid":"14,5,18,24","name":"LabelFight","height":62},
-                    "nodeParent":85,
-                    "label":"LabelFight",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":162,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "searchKey":"Label",
-                            "props":{"y":18,"x":30,"width":224,"text":"好友排行榜最强一定是我的！","height":26,"fontSize":26,"color":"#E6E6E6"},
-                            "nodeParent":162,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":163,
-                            "child":[
-                                ]
-                        }]
-                }]
         },
         {
             "x":15,
@@ -244,7 +202,7 @@
             "x":15,
             "type":"WXOpenDataViewer",
             "searchKey":"WXOpenDataViewer,provocationOther",
-            "props":{"y":196,"x":47,"width":750,"name":"provocationOther","iconSign":"wx","height":60},
+            "props":{"y":252,"x":0,"width":750,"name":"provocationOther","iconSign":"wx","height":62},
             "nodeParent":2,
             "label":"provocationOther",
             "isDirectory":false,
@@ -275,18 +233,17 @@
         {
             "x":15,
             "type":"Image",
-            "searchKey":"Image",
-            "props":{"y":96,"x":128},
+            "searchKey":"Image,progress",
+            "props":{"y":96,"x":128,"name":"progress"},
             "nodeParent":2,
-            "label":"Image",
-            "isOpen":true,
+            "label":"progress",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":164,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":25,"x":5,"width":482,"skin":"guide/bg_progress.png","height":14},
@@ -300,7 +257,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":26,"x":3,"width":240,"skin":"guide/bg_progressCurrent.png","sizeGrid":"5,5,5,5","height":12},
@@ -314,7 +270,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":0,"x":0,"width":70,"skin":"guide/img_currentLevel.png","height":70},
@@ -329,7 +284,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":-1,"x":423,"skin":"guide/img_nextLevel.png"},
@@ -343,7 +297,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label",
                     "props":{"y":17,"x":438,"width":32,"text":"16","height":22,"fontSize":28,"color":"#000000"},
@@ -357,7 +310,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label",
                     "props":{"y":18,"x":17,"width":32,"text":"15","height":22,"fontSize":28,"color":"#FFFFFF"},
