@@ -32,20 +32,19 @@ export default class RankItem extends Laya.Script {
         this.rankLab.text = itemData.index|| "未上榜";
         switch(itemData.index){
             case 1:
-            case 2:
-            case 3:
+            // case 2:
+            // case 3:
                 this.rankLab.text = "";
                 this.rankImg.skin = "rank/"+ itemData.index +".png";
                 this.rankImg.visible = true;
             break;
         }
-
+        this.avatarImg.skin = "common/default_head.png"; //默认头像
         if (!MyUtils.isNull(itemData.headImage)&&itemData.headImage!="youke") {
             let avatarUrl = itemData.headImage.replace("/132", "/46");
             this.avatarImg.skin = avatarUrl;
         }
         this.nameLab.text = itemData.nickname ? itemData.nickname : "神秘玩家";
-
         this.scoreLab.text = itemData.score;
     }
 
