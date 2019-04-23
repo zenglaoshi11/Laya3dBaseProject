@@ -40,3 +40,7 @@ bin/res/atlas/guide.png
 bin/res/atlas/loading.atlas
 bin/res/atlas/loading.png
 bin/openSrc
+bin/res/atlas/game.atlas
+bin/res/atlas/game.png
+bin/res/atlas/goldenEgg.atlas
+bin/res/atlas/goldenEgg.png

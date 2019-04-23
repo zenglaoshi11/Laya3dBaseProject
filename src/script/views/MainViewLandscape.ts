@@ -54,6 +54,12 @@ export default class MainViewLandscape extends BaseView {
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
+        let scene = this.owner.getChildByName("gameFighting") as Laya.Scene;
+        this.gameFighting = scene;
+        this.gameFightingCom = scene.getComponent(GameFighting);
+        scene.visible = false;
+
+
         this.btnInvite.y += this.offset.y/2;
         this.btnService.y += this.offset.y/2;
         this.btnRank.y += this.offset.y/2;
@@ -62,12 +68,6 @@ export default class MainViewLandscape extends BaseView {
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
 
-        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
-            Laya.stage.addChild(scene);
-            this.gameFighting = scene;
-            this.gameFightingCom = scene.getComponent(GameFighting);
-            scene.visible = false;
-        }))
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }

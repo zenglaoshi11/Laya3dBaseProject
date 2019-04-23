@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":94,
+    "selecteID":95,
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":95,
+    "maxID":96,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -362,6 +362,21 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"GameFighting.scene",
+            "searchKey":"UIView,gameFighting",
+            "props":{"name":"gameFighting"},
+            "nodeParent":2,
+            "label":"gameFighting",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":95,
+            "child":[
+                ]
         }],
     "animations":[
         {

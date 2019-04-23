@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":14,
+    "selecteID":83,
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":83,
+    "maxID":84,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -161,7 +161,6 @@
             "compId":13,
             "child":[
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/views/ButtonAnim.ts",
@@ -178,7 +177,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite",
                     "props":{"texture":"mainview/bg_btn.png"},
@@ -192,7 +190,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,open",
                     "props":{"y":11,"x":8,"texture":"mainview/vibrate_open.png","name":"open"},
@@ -206,7 +203,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,close",
                     "props":{"y":11,"x":8,"texture":"mainview/vibrate_close.png","name":"close"},
@@ -234,7 +230,6 @@
             "compId":14,
             "child":[
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/views/ButtonAnim.ts",
@@ -251,7 +246,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite",
                     "props":{"y":0,"x":0,"texture":"mainview/bg_btn.png"},
@@ -265,7 +259,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,open",
                     "props":{"y":14,"x":12,"texture":"mainview/sound_open.png","name":"open"},
@@ -279,7 +272,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,close",
                     "props":{"y":13,"x":12,"texture":"mainview/sound_close.png","name":"close"},
@@ -322,6 +314,21 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":73,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"GameFighting.scene",
+            "searchKey":"UIView,gameFighting",
+            "props":{"name":"gameFighting"},
+            "nodeParent":2,
+            "label":"gameFighting",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":83,
             "child":[
                 ]
         }],
