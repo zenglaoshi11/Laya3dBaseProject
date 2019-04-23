@@ -1,2 +1,5 @@
 .laya
 release
+bin/fileconfig.json
+bin/js/bundle.js
+layaMaxUI.ts
