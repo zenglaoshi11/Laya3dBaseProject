@@ -33,7 +33,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,title",
-            "props":{"y":158,"x":92,"skin":"mainview/logo.png","name":"title"},
+            "props":{"y":158,"x":92,"skin":"loading/logo.png","name":"title"},
             "nodeParent":2,
             "label":"title",
             "isOpen":true,
