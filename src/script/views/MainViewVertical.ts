@@ -5,6 +5,7 @@ import PlatformMgr from "../mgrCommon/PlatformMgr";
 import EventMgr from "../mgrCommon/EventMgr";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import SoundMgr from "../mgrCommon/SoundMgr";
+import GameFighting from "./GameFighting";
 
 export default class MainViewVertical extends BaseView {
     private btnSound:Laya.Button;
@@ -20,6 +21,9 @@ export default class MainViewVertical extends BaseView {
     private btnRank:Laya.Button;
 
     private btnStart:Laya.Button;
+
+    private gameFighting:Laya.Scene;
+    private gameFightingCom:GameFighting;
 
     constructor() { 
         super(); 
@@ -52,6 +56,11 @@ export default class MainViewVertical extends BaseView {
         this.title = this.owner.getChildByName("title") as Laya.Image;
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
+
+        let scene = this.owner.getChildByName("gameFighting") as Laya.Scene;
+        this.gameFighting = scene;
+        this.gameFightingCom = scene.getComponent(GameFighting);
+        scene.visible = false;
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
         if(PlatformMgr.ptAdMgr){
