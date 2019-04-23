@@ -1,11 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
+    "selectedBox":3,
+    "selecteID":7,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#ffffff","height":1334,"centerY":0,"centerX":0},
     "nodeParent":-1,
-    "maxID":7,
+    "maxID":8,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -31,7 +32,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,image",
-            "props":{"y":639,"x":25,"width":700,"skin":"common/mask.png","sizeGrid":"10,10,10,10","name":"image","height":66},
+            "props":{"width":500,"skin":"common/bg_fenxiangshibai.png","sizeGrid":"16,16,16,16","name":"image","height":300,"centerY":0,"centerX":0},
             "nodeParent":2,
             "label":"image",
             "isOpen":true,
@@ -42,9 +43,23 @@
             "child":[
                 {
                     "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite",
+                    "props":{"y":58,"x":192,"texture":"common/img_warn.png"},
+                    "nodeParent":3,
+                    "label":"Sprite",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,Label",
-                    "props":{"y":13,"valign":"middle","text":"信息提示","name":"Label","fontSize":40,"color":"#ffffff","centerX":0,"bold":true,"align":"center"},
+                    "props":{"y":204,"x":54,"width":394,"valign":"middle","text":"分享失败，请分享到不同的群！","name":"Label","height":32,"fontSize":30,"color":"#ffffff","bold":true,"align":"center"},
                     "nodeParent":3,
                     "label":"Label",
                     "isDirectory":false,
@@ -52,7 +67,8 @@
                     "hasChild":false,
                     "compId":4,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 }]
         },
         {
