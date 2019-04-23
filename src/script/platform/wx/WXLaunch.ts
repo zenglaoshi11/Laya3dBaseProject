@@ -13,20 +13,10 @@ export default class WXLaunch extends Laya.Script {
     private pro: Laya.Image;
     private scene3dUrl:string = "res3d/Conventional/Eatitup.ls"
 
-    getLaunchTipMsg() {
-        let tips = [
-            "按住屏幕舌头会伸长哦",
-            "敲好玩，值得等待，呱~"
-        ]
-        return tips[MyUtils.random(0, tips.length - 1)];
-    }
-
     onEnable(): void {
         var group: Laya.Node = this.owner.getChildByName("progressGroup");
         this.pro = group.getChildByName("progress") as Laya.Image;
         this.proLabel = group.getChildByName("proLab") as Laya.Label;
-        this.tipLable = this.owner.getChildByName("tipBg").getChildByName("tipLab") as Laya.Label;
-        this.tipLable.text = this.getLaunchTipMsg();
         this.loadRes();
     }
 
