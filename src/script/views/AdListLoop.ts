@@ -58,9 +58,9 @@ export default class AdListLoop extends Laya.Script {
 			} else {
 				image.pos((i) * (this._cellWidth + this._spaceX), 0);
 			}
+			image.skin = adinfo.param;
 			image.width = this._cellWidth;
 			image.height = this._cellHeight;
-			image.skin = adinfo.param;
 			let index = i;		
 			image.on(Laya.Event.MOUSE_DOWN, this, function () {
 				self.startTime = Laya.timer.currTimer;

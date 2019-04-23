@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":84,
+    "selecteID":86,
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":86,
+    "maxID":87,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -346,6 +346,20 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image",
+            "props":{"skin":"mainview/bg_progressCurrent.png"},
+            "nodeParent":2,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":86,
+            "child":[
+                ]
         }],
     "animations":[
         {
