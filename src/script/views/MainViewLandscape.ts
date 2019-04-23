@@ -104,7 +104,7 @@ export default class MainViewLandscape extends BaseView {
         if(PlatformMgr.ptAdMgr){
             let self = this;
 
-            Laya.timer.frameOnce(2, this, function () {
+            Laya.timer.frameOnce(20, this, function () {
                 PlatformMgr.ptAPI.createAuthorizationButton({
                     x: self.btnStart.x,
                     y: self.btnStart.y +  self.btnStart.height - this.offset.y,
