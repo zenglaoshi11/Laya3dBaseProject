@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":13,
+    "selectedBox":12,
+    "selecteID":17,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#7a7575","height":1334},
     "nodeParent":-1,
@@ -27,7 +27,7 @@
             "compId":7,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -79,19 +79,20 @@
             "props":{"y":317,"x":229,"width":294,"skin":"Resurgence/bg_quan2.png","name":"progressBg","height":294},
             "nodeParent":2,
             "label":"progressBg",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":10,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,progressBg",
                     "props":{"y":0,"x":0,"width":294,"skin":"Resurgence/bg_quan1.png","name":"progressBg","height":294},
                     "nodeParent":10,
                     "label":"progressBg",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -126,6 +127,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,reviveCount",
                     "props":{"y":147,"x":147,"width":82,"text":"1","name":"reviveCount","height":162,"fontSize":174,"font":"SimHei","color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -185,7 +187,7 @@
                     "x":30,
                     "type":"Label",
                     "searchKey":"Label,skipBtn",
-                    "props":{"y":340,"x":-60,"underline":true,"text":"点击跳过","name":"skipBtn","fontSize":30,"font":"SimHei","color":"#ffffff"},
+                    "props":{"y":420,"x":-60,"underline":true,"text":"点击跳过","name":"skipBtn","fontSize":30,"font":"SimHei","color":"#ffffff"},
                     "nodeParent":12,
                     "label":"skipBtn",
                     "isDirectory":false,
