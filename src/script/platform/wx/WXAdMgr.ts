@@ -20,6 +20,7 @@ export default class WXAdMgr{
     private caller: any;
     private callBackSuc: Function;
     private callBackFail: Function;
+    private callBackErro:Function;
 
     public videoPlayedTimes: number;
 
@@ -62,6 +63,10 @@ export default class WXAdMgr{
             this.rewardedVideoAd.onError(err => {
                 self.hasAd = false;
                 HttpMgr.instance.videoErrorCallback();
+                if(this.callBackErro){
+                    this.callBackErro();
+                    return;
+                }
                 if (self.callBackSuc != null) {
                     self.callBackSuc(self.caller);
                 }
@@ -87,7 +92,7 @@ export default class WXAdMgr{
     }
 
 
-    public showVideo(caller: any, callBackSuc: Function, callBackFail: Function) {
+    public showVideo(caller: any, callBackSuc: Function, callBackFail: Function,callBackErro?:Function) {
         if (!this.isInited) {
             return;
         }
@@ -95,6 +100,7 @@ export default class WXAdMgr{
         this.caller = caller;
         this.callBackSuc = callBackSuc;
         this.callBackFail = callBackFail;
+        this.callBackErro = callBackErro;
         if (this.hasAd) {
             this.hasAd = false;
             this.rewardedVideoAd.show();
