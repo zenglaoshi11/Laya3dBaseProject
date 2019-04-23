@@ -6,6 +6,7 @@ import EventMgr from "../mgrCommon/EventMgr";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import SoundMgr from "../mgrCommon/SoundMgr";
 import GameFighting from "./GameFighting";
+import AdListLoop from "./AdListLoop";
 
 export default class MainViewLandscape extends BaseView {
     private btnSound:Laya.Button;
@@ -26,6 +27,7 @@ export default class MainViewLandscape extends BaseView {
     private gameFighting:Laya.Scene;
     private gameFightingCom:GameFighting;
 
+    private adPlane:AdListLoop;
     constructor() { 
         super(); 
     }
@@ -54,11 +56,16 @@ export default class MainViewLandscape extends BaseView {
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
-        let scene = this.owner.getChildByName("gameFighting") as Laya.Scene;
-        this.gameFighting = scene;
-        this.gameFightingCom = scene.getComponent(GameFighting);
-        scene.visible = false;
 
+        this.adPlane = this.owner.getChildByName("ADPlane").getComponent(AdListLoop);
+
+
+        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
+            this.gameFighting = scene;
+            this.gameFightingCom = scene.getComponent(GameFighting);
+            scene.visible = false;
+            this.gameFighting.active = false;
+        }))
 
         this.btnInvite.y += this.offset.y/2;
         this.btnService.y += this.offset.y/2;
@@ -71,6 +78,10 @@ export default class MainViewLandscape extends BaseView {
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }
+
+        Laya.timer.frameOnce(2,this,()=>{
+            this.adPlane.start(ConfigData.getAdData(1003));
+        })
     }  
 
     public addEvent() {
@@ -186,16 +197,12 @@ export default class MainViewLandscape extends BaseView {
             caller:this,
             callback:(res)=>{
                 if(!res.success){
-                    ViewMgr.instance.openView({
-                        viewName: "uiViews/TipView.scene",
-                        closeAll: false,
-                        data: "分享失败",
-                    });
+                    EventMgr.instance.emit("openTip","分享失败");
                 }
             },
         };
         if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.shareAppMessage(_d,1);
+            PlatformMgr.ptAPI.shareAppMessage(_d,0);
     }
 
     private serviceClick() {
@@ -236,12 +243,10 @@ export default class MainViewLandscape extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-
+        this.closeView();
         EventMgr.instance.emit("gameStart");
-        ViewMgr.instance.openView({
-            viewName: "GameFighting.scene",
-            closeAll: true,
-        });
+        this.gameFighting.visible = true;
+        this.gameFighting.active = true;
     }
 
     public removeEvent() {

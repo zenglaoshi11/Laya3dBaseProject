@@ -6,6 +6,7 @@ import EventMgr from "../mgrCommon/EventMgr";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import SoundMgr from "../mgrCommon/SoundMgr";
 import GameFighting from "./GameFighting";
+import AdListLoop from "./AdListLoop";
 
 export default class MainViewVertical extends BaseView {
     private btnSound:Laya.Button;
@@ -25,6 +26,8 @@ export default class MainViewVertical extends BaseView {
     private gameFighting:Laya.Scene;
     private gameFightingCom:GameFighting;
 
+    private adPlane:AdListLoop;
+
     constructor() { 
         super(); 
     }
@@ -39,6 +42,8 @@ export default class MainViewVertical extends BaseView {
         this.btnVirbort = this.owner.getChildByName("btnVirbort") as Laya.Button;
         this.virbortOpen = this.btnVirbort.getChildByName("open") as Laya.Image;
         this.virbortClose = this.btnVirbort.getChildByName("close") as Laya.Image;
+
+        this.adPlane = this.owner.getChildByName("ADPlane").getComponent(AdListLoop);
 
         this.soundClose.visible = !ConfigData.isSound;
         this.soundOpen.visible = ConfigData.isSound;
@@ -57,15 +62,21 @@ export default class MainViewVertical extends BaseView {
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
-        let scene = this.owner.getChildByName("gameFighting") as Laya.Scene;
-        this.gameFighting = scene;
-        this.gameFightingCom = scene.getComponent(GameFighting);
-        scene.visible = false;
+        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
+            this.gameFighting = scene;
+            this.gameFightingCom = scene.getComponent(GameFighting);
+            scene.visible = false;
+            this.gameFighting.active = false;
+        }))
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }
+
+        Laya.timer.frameOnce(2,this,()=>{
+            this.adPlane.start(ConfigData.getAdData(1003));
+        })
     }
 
     public addEvent() {
@@ -158,11 +169,7 @@ export default class MainViewVertical extends BaseView {
             caller:this,
             callback:(res)=>{
                 if(!res.success){
-                    ViewMgr.instance.openView({
-                        viewName: "uiViews/TipView.scene",
-                        closeAll: false,
-                        data: "分享失败",
-                    });
+                    EventMgr.instance.emit("openTip","分享失败");
                 }
             },
         };
@@ -208,8 +215,10 @@ export default class MainViewVertical extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-
         EventMgr.instance.emit("gameStart");
+        this.closeView();
+        this.gameFighting.visible = true;
+        this.gameFighting.active = true;
     }
 
     public removeEvent() {

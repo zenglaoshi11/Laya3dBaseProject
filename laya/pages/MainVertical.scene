@@ -6,7 +6,7 @@
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":84,
+    "maxID":90,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -302,6 +302,52 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "searchKey":"Image,ADPlane",
+            "props":{"width":752,"right":-1,"name":"ADPlane","left":-1,"height":131,"bottom":10},
+            "nodeParent":2,
+            "label":"ADPlane",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":87,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,ADMask",
+                    "props":{"y":0,"x":0,"visible":false,"skin":"common/black_bg.png","right":0,"name":"ADMask","left":0,"height":131},
+                    "nodeParent":87,
+                    "label":"ADMask",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":88,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/views/AdListLoop.ts",
+                    "searchKey":"Script,AdListLoop",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":87,
+                    "label":"AdListLoop",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":89,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
             "type":"Script",
             "switchAble":true,
             "source":"src/script/views/MainViewVertical.ts",
@@ -314,21 +360,6 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":73,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"GameFighting.scene",
-            "searchKey":"UIView,gameFighting",
-            "props":{"name":"gameFighting"},
-            "nodeParent":2,
-            "label":"gameFighting",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":83,
             "child":[
                 ]
         }],
