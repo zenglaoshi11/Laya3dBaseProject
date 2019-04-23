@@ -21,6 +21,10 @@ export default class ConvergeAd extends BaseView {
         this.adList = this.owner.getChildByName("list") as Laya.List;
         this.adList.vScrollBarSkin = '';
         this.adList.selectEnable = true;
+        this.adList.y = 20;
+        if(Laya.stage.height > 1334){
+            this.adList.y = 20 + (Laya.stage.height - 1334) / 2
+        }
         if(PlatformMgr.ptAdMgr)
             PlatformMgr.ptAdMgr.showBannerAdOther();
     }

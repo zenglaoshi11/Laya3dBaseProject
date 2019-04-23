@@ -13,33 +13,16 @@ export default class WXLaunch extends Laya.Script {
     private pro: Laya.Image;
     private scene3dUrl:string = "res3d/Conventional/Eatitup.ls"
 
-    getLaunchTipMsg() {
-        let tips = [
-            "按住屏幕舌头会伸长哦",
-            "敲好玩，值得等待，呱~"
-        ]
-        return tips[MyUtils.random(0, tips.length - 1)];
-    }
-
     onEnable(): void {
         var group: Laya.Node = this.owner.getChildByName("progressGroup");
         this.pro = group.getChildByName("progress") as Laya.Image;
         this.proLabel = group.getChildByName("proLab") as Laya.Label;
-        // this.tipLable = this.owner.getChildByName("tipBg").getChildByName("tipLab") as Laya.Label;
-        // this.tipLable.text = this.getLaunchTipMsg();
         this.loadRes();
     }
 
     private loadRes() {
         var resource: Array<any> = [
-            { url:"res/atlas/common.atlas",type:Laya.Loader.ATLAS},
-            { url:"res/atlas/game.atlas",type:Laya.Loader.ATLAS},
-            { url:"res/atlas/goldenEgg.atlas",type:Laya.Loader.ATLAS},
-            { url:"res/atlas/Hesucceeds.atlas",type:Laya.Loader.ATLAS},
-            { url:"res/atlas/mainview.atlas",type:Laya.Loader.ATLAS},
             { url: "res/atlas/rank.atlas", type: Laya.Loader.ATLAS },
-            { url:"res/atlas/Resurgence.atlas",type:Laya.Loader.ATLAS},
-
             { url: "res/json/config.json", type: Laya.Loader.JSON },
             { url: "res/language/" + ConfigData.language + ".json", type: Laya.Loader.JSON },
         ];
@@ -106,11 +89,10 @@ export default class WXLaunch extends Laya.Script {
         if (Laya.Browser.onMiniGame) {
             Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
         }
-        // SoundMgr.instance.playBGM();
+        SoundMgr.instance.playBGM();
 
         // scene.addComponent(GameMgr);
         // Laya.stage.addChildAt(scene,0);
-
         EventMgr.instance.emit("goHome");
     }
 

@@ -1,6 +1,7 @@
 import MyUtils from "../../tools/MyUtils";
 import ConfigData from "../../models/ConfigData";
 import HttpMgr from "../../mgrCommon/HttpMgr";
+import StatisticsMgr from "../../mgrCommon/StatisticsMgr";
 
 export default class WXAdMgr{
     private bannerHome: any;

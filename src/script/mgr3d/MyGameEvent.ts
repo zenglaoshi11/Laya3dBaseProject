@@ -1,7 +1,8 @@
 import EventMgr from "../mgrCommon/EventMgr";
+import StatisticsMgr from "../mgrCommon/StatisticsMgr";
 
 export default class MyGameEvent {
-    private events = ["test"];
+    private events = ["gameStart"];
 
     constructor() { 
         for (let index = 0; index < this.events.length; index++) {
@@ -9,7 +10,8 @@ export default class MyGameEvent {
         } 
      }
     
-    private test(res){
+    private gameStart(res){
+        StatisticsMgr.instance.startGameStatistics();
         console.log(res)
     }
 
