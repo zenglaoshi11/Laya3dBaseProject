@@ -53,12 +53,9 @@ export default class MainViewLandscape extends BaseView {
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
 
-        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
-            Laya.stage.addChild(scene);
-            this.gameFighting = scene;
-            this.gameFightingCom = scene.getComponent(GameFighting);
-             scene.visible = false;
-        }))
+        this.gameFighting = this.owner.getChildByName("gameFighting") as Laya.Scene;
+        this.gameFighting.visible = false;
+        
         if(PlatformMgr.ptAdMgr)
             PlatformMgr.ptAdMgr.showBannerAdHome();
     }  
@@ -79,7 +76,7 @@ export default class MainViewLandscape extends BaseView {
         // this.gameFightingCom.openProvocationOther(SORTTYPE.ENDLESS);
         
         ViewMgr.instance.openView({
-            viewName: "Resurgence.scene",
+            viewName: "ConvergeAd.scene",
         });
         return;
         ViewMgr.instance.openView({
