@@ -2,7 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":158,
-    "selecteID":4,
+    "selecteID":3,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -65,16 +65,17 @@
                     "props":{"y":173,"x":286,"width":128,"visible":true,"value":"105","skin":"numberFonts/img_levelNumber.png","sheet":"0123456789","scaleY":1,"scaleX":1,"name":"ftc_passNum","height":54,"align":"right"},
                     "nodeParent":119,
                     "label":"ftc_passNum",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":15,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,img_level",
-                            "props":{"y":0,"x":137,"width":46,"skin":"Hesucceeds/img_level.png","name":"img_level","height":58},
+                            "props":{"y":0,"x":137,"width":46,"skin":"game/img_level.png","name":"img_level","height":58},
                             "nodeParent":15,
                             "label":"img_level",
                             "isDirectory":false,
@@ -91,7 +92,7 @@
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image,img_pass",
-                    "props":{"y":282,"x":160,"skin":"Hesucceeds/img_succes.png","name":"img_pass"},
+                    "props":{"y":282,"x":160,"skin":"game/img_succes.png","name":"img_pass"},
                     "nodeParent":119,
                     "label":"img_pass",
                     "isDirectory":false,
@@ -100,13 +101,13 @@
                     "compId":17,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image,img_fail",
-                    "props":{"y":282,"x":160,"skin":"Hesucceeds/img_fail.png","name":"img_fail"},
+                    "props":{"y":282,"x":160,"skin":"game/img_fail.png","name":"img_fail"},
                     "nodeParent":119,
                     "label":"img_fail",
                     "isDirectory":false,
@@ -115,7 +116,7 @@
                     "compId":162,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
@@ -123,7 +124,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,img_ADBg",
-            "props":{"width":616,"skin":"Hesucceeds/bg_adLevel.png","sizeGrid":"8,8,8,8","name":"img_ADBg","height":412,"centerY":0.5,"centerX":0.5},
+            "props":{"width":616,"skin":"game/bg_adLevel.png","sizeGrid":"8,8,8,8","name":"img_ADBg","height":412,"centerY":0.5,"centerX":0.5},
             "nodeParent":2,
             "label":"img_ADBg",
             "isOpen":true,
@@ -136,7 +137,7 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,list_AD",
-                    "props":{"y":16,"x":20,"width":580,"var":"list_AD","height":382},
+                    "props":{"y":16,"x":20,"width":580,"var":"list_AD","repeatY":2,"repeatX":3,"height":382},
                     "nodeParent":8,
                     "label":"list_AD",
                     "isOpen":true,
@@ -179,7 +180,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_next",
-                    "props":{"y":958,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_next","height":80,"anchorY":0,"anchorX":0},
+                    "props":{"y":958,"x":226,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_next","anchorY":0,"anchorX":0},
                     "nodeParent":158,
                     "label":"btn_next",
                     "isOpen":false,
@@ -191,7 +192,7 @@
                         {
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"y":12.5,"x":61.5,"skin":"Hesucceeds/btn_playNext.png"},
+                            "props":{"y":26,"x":74,"skin":"game/btn_playNext.png"},
                             "nodeParent":5,
                             "label":"Image",
                             "isOpen":true,
@@ -202,13 +203,13 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_home",
-                    "props":{"y":950,"x":80,"width":92,"stateNum":"1","skin":"game/btn_backHome.png","name":"btn_home","height":92},
+                    "props":{"y":958,"x":80,"stateNum":"1","skin":"game/btn_backHome.png","name":"btn_home"},
                     "nodeParent":158,
                     "label":"btn_home",
                     "isOpen":true,
@@ -224,7 +225,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_again",
-                    "props":{"y":958,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_again","height":80,"anchorY":0,"anchorX":0},
+                    "props":{"y":958,"x":226,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_again","anchorY":0,"anchorX":0},
                     "nodeParent":158,
                     "label":"btn_again",
                     "isOpen":false,
@@ -236,7 +237,7 @@
                         {
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"y":12,"x":45,"skin":"game/btn_playAgain.png"},
+                            "props":{"y":27,"x":52,"skin":"game/btn_playAgain.png"},
                             "nodeParent":43,
                             "label":"Image",
                             "isDirectory":false,
@@ -246,13 +247,13 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_fight",
-                    "props":{"y":950,"x":572,"width":92,"stateNum":"1","skin":"game/btn_fight.png","name":"btn_fight","height":92,"anchorY":0,"anchorX":0},
+                    "props":{"y":958,"x":572,"stateNum":"1","skin":"game/btn_fight.png","name":"btn_fight","anchorY":0,"anchorX":0},
                     "nodeParent":158,
                     "label":"btn_fight",
                     "isOpen":true,
