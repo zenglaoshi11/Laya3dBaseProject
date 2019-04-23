@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":158,
-    "selecteID":3,
+    "selectedBox":2,
+    "selecteID":165,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":163,
+    "maxID":166,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -153,12 +153,26 @@
                             "props":{"width":184,"height":184},
                             "nodeParent":159,
                             "label":"Box",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":false,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":160,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"y":0,"x":0,"width":184,"height":184},
+                                    "nodeParent":160,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":165,
+                                    "child":[
+                                        ]
+                                }]
                         }]
                 }],
             "$HIDDEN":false
