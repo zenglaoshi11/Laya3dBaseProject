@@ -3,3 +3,13 @@ release
 bin/fileconfig.json
 bin/js/bundle.js
 layaMaxUI.ts
+bin/ConvergeAd.json
+bin/GameOverEndless.json
+bin/GameOverLevel.json
+bin/Tip.json
+bin/res/atlas/.rec
+bin/res/atlas/Hesucceeds.atlas
+bin/res/atlas/Hesucceeds.png
+bin/res/atlas/common.atlas
+bin/res/atlas/common.png
+bin/unpack.json

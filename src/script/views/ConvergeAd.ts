@@ -6,16 +6,16 @@ import ConfigData, { MAINBTNSTYPE } from "../models/ConfigData";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import EventMgr from "../mgrCommon/EventMgr";
 
-export default class ConvergeAdView extends BaseView {
+export default class ConvergeAd extends BaseView {
     private appid = "";//需要调转的APPID
     private adList: Laya.List;
 
     onAwake(){
-        this.homeBtn = this.owner.getChildByName("btn_close") as Laya.Image;
+        this.homeBtn = this.owner.getChildByName("homeBtn") as Laya.Image;
         MyUtils.autoScreenSize([this.homeBtn]);
 
-        this.shareBtn = this.owner.getChildByName("shareBtn") as Laya.Image;
-        this.okBtn = this.owner.getChildByName("btn_again") as Laya.Image;
+        // this.shareBtn = this.owner.getChildByName("shareBtn") as Laya.Image;
+        this.okBtn = this.owner.getChildByName("okBtn") as Laya.Image;
 
 
         this.adList = this.owner.getChildByName("list") as Laya.List;
@@ -50,7 +50,7 @@ export default class ConvergeAdView extends BaseView {
         this.homeBtn.visible = false;
         let allll = [];
         if (this.adList.array == null) {
-            allll = ConfigData.getADData(1004);
+            allll = ConfigData.getAdData(1004);
             this.adList.array = allll;
         }
         this.adList.refresh();//刷新数据源
