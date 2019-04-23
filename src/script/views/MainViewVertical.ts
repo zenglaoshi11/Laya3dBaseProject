@@ -67,6 +67,7 @@ export default class MainViewVertical extends BaseView {
             this.gameFightingCom = scene.getComponent(GameFighting);
             scene.visible = false;
             this.gameFighting.active = false;
+            Laya.stage.addChild(scene);
         }))
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);

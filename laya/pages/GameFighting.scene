@@ -1,10 +1,10 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":164,
-    "selecteID":165,
+    "selectedBox":2,
+    "selecteID":164,
     "searchKey":"Scene",
-    "props":{"y":528,"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
+    "props":{"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
     "maxID":172,
     "label":"Scene",
@@ -49,14 +49,13 @@
             "props":{"top":1,"right":0,"name":"BeginnerGuide","mouseThrough":true,"left":0,"bottom":0},
             "nodeParent":2,
             "label":"BeginnerGuide",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":94,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,moveBg",
                     "props":{"y":1077,"x":376,"width":532,"skin":"mainview/bg_guideMove.png","sizeGrid":"9,11,8,10","scaleY":1.09,"scaleX":1.09,"name":"moveBg","height":20,"anchorY":0.5,"anchorX":0.5},
@@ -69,7 +68,6 @@
                     "compId":92,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"x":78,"width":72,"skin":"mainview/img_move.png","height":20},
@@ -84,7 +82,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,BeginnerGuide",
                     "props":{"y":290,"x":168,"width":414,"skin":"mainview/img_guideInfo.png.png","name":"BeginnerGuide","height":250},
@@ -99,7 +96,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,hand",
                     "props":{"y":1070,"x":232,"width":84,"skin":"mainview/img_hand.png","scaleY":1.02,"scaleX":1.02,"name":"hand","height":92,"anchorY":0,"anchorX":0},
@@ -182,14 +178,13 @@
             "props":{"y":96,"x":128,"name":"progress"},
             "nodeParent":2,
             "label":"progress",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":164,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,progressBg",
                     "props":{"y":25,"x":5,"width":482,"skin":"mainview/bg_progress.png","name":"progressBg","height":14},
@@ -203,7 +198,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,progress",
                     "props":{"y":26,"x":3,"width":300,"skin":"mainview/bg_progressCurrent.png","sizeGrid":"5,5,5,5","name":"progress","height":12},
@@ -217,7 +211,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":0,"x":0,"width":70,"skin":"mainview/img_currentLevel.png","height":70},
@@ -232,7 +225,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":-1,"x":423,"skin":"mainview/img_nextLevel.png"},
@@ -246,7 +238,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,currLevelLab",
                     "props":{"y":18,"x":17,"width":32,"text":"15","name":"currLevelLab","height":22,"fontSize":28,"color":"#FFFFFF"},
@@ -260,7 +251,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,nextLevelLab",
                     "props":{"y":17,"x":438,"width":32,"text":"16","name":"nextLevelLab","height":22,"fontSize":28,"color":"#000000"},
