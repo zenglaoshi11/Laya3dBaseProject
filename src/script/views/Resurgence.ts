@@ -77,7 +77,6 @@ export default class Resurgence extends BaseView {
             let centerX = Laya.stage.width / 2;
             let randomX = MyUtils.random(centerX - 30, centerX + 30);
             this.btnJump.pos(randomX, randomY);
-
             Laya.timer.once(700, this, () => {
                 Laya.Tween.to(this.btnJump, { x: centerX, y: 420 }, 500, Laya.Ease.backOut, null, 500);
             });
