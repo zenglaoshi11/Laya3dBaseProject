@@ -85,7 +85,7 @@ export default class ConfigData {
         }
     }
 
-    public static getADData(adId) {
+    public static getAdData(adId) {
         let srt = this.getConfigData("adInfo");
         if(MyUtils.isNull(srt)){
             return;

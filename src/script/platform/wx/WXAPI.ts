@@ -7,7 +7,6 @@ import StatisticsMgr from "../../mgrCommon/StatisticsMgr";
 import MyLog from "../../tools/MyLog";
 import SoundMgr from "../../mgrCommon/SoundMgr";
 import ViewMgr from "../../mgrCommon/ViewMgr";
-import ConvergeAdView from "../../views/ConvergeAdView";
 import WXSubDomain from "./WXSubDomain";
 
 export default class WXAPI {
@@ -64,11 +63,10 @@ export default class WXAPI {
             Laya.timer.frameOnce(1,this,()=>{
                 //只在结束界面显示聚合广告页面
                 let gameOverView = ViewMgr.instance.getView("GameOver.scene");
-                let convergeAdView = ViewMgr.instance.getView("ConvergeAd.scene");
-                if (!notShowAd && ConfigData.ctrlInfo.isConverge == 1 && gameOverView && !convergeAdView) {
+                let convergeAd = ViewMgr.instance.getView("ConvergeAd.scene");
+                if (!notShowAd && ConfigData.ctrlInfo.isConverge == 1 && gameOverView && !convergeAd) {
                     ViewMgr.instance.openView({
                         viewName: "ConvergeAd.scene",
-                        clas: ConvergeAdView,
                         closeAll: false,
                     });
                 }

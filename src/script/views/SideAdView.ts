@@ -22,7 +22,7 @@ export default class SideAdView extends Laya.Script {
 
     public start(isAnim: boolean, isChange: boolean, thePosition: number) {
         Laya.Tween.clearAll(this);
-        let ads = ConfigData.getADData(thePosition);
+        let ads = ConfigData.getAdData(thePosition);
         if (!ads || ads.length <= 0) {
             (this.owner as Laya.Image).visible = false;
             return;
@@ -43,7 +43,7 @@ export default class SideAdView extends Laya.Script {
     }
 
     public startAnim() {
-        let adInfos = ConfigData.getADData(this.thePosition);
+        let adInfos = ConfigData.getAdData(this.thePosition);
         Laya.timer.loop(10000, this, () => {
             if (adInfos != null) { //这个位置的广告大于一 才会去切换  也就是说才会有动画
                 if (adInfos.length > 1) {
@@ -67,7 +67,7 @@ export default class SideAdView extends Laya.Script {
     }
 
     randomAD() {
-        let ads = ConfigData.getADData(this.thePosition);
+        let ads = ConfigData.getAdData(this.thePosition);
         if (ads) {
             var leng = ads.length;
             (this.owner as Laya.Image).skin = ads[this.nowidx].param;

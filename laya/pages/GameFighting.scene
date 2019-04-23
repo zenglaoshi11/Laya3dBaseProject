@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":94,
+    "selectedBox":94,
+    "selecteID":90,
     "searchKey":"Scene",
     "props":{"y":528,"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -49,13 +49,14 @@
             "props":{"y":252,"x":46,"width":66,"visible":false,"skin":"beyond/img_fightHead.png","name":"FightImage","height":66},
             "nodeParent":2,
             "label":"FightImage",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":85,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,LabelFight",
                     "props":{"y":0,"x":78,"width":380,"skin":"beyond/bg_fight.png","sizeGrid":"14,5,18,24","name":"LabelFight","height":62},
@@ -68,6 +69,7 @@
                     "compId":162,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "searchKey":"Label",
                             "props":{"y":18,"x":30,"width":224,"text":"好友排行榜最强一定是我的！","height":26,"fontSize":26,"color":"#E6E6E6"},
@@ -89,13 +91,14 @@
             "props":{"y":220,"x":168,"top":0,"right":0,"name":"BeginnerGuide","mouseThrough":true,"left":0,"bottom":0},
             "nodeParent":2,
             "label":"BeginnerGuide",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":94,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,moveBg",
                     "props":{"y":1078,"x":376,"width":532,"skin":"guide/bg_guideMove.png","sizeGrid":"9,11,8,10","scaleY":1.09,"scaleX":1.09,"name":"moveBg","height":20,"anchorY":0.5,"anchorX":0.5},
@@ -122,9 +125,10 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,BeginnerGuide",
-                    "props":{"y":287,"x":168,"width":414,"skin":"guide/img_guideInfo04.png","name":"BeginnerGuide","height":250},
+                    "props":{"y":287,"x":168,"width":414,"skin":"guide/img_guideInfo.png.png","name":"BeginnerGuide","height":250},
                     "nodeParent":94,
                     "label":"BeginnerGuide",
                     "isOpen":true,
@@ -136,6 +140,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,hand",
                     "props":{"y":1070,"x":232,"width":84,"skin":"guide/img_hand.png","scaleY":1.02,"scaleX":1.02,"name":"hand","height":92,"anchorY":0,"anchorX":0},
