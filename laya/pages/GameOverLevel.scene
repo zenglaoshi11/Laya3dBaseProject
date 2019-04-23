@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":119,
-    "selecteID":15,
+    "selectedBox":158,
+    "selecteID":4,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -27,7 +27,8 @@
             "hasChild":false,
             "compId":120,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -177,63 +178,17 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "searchKey":"Button,btn_again",
-                    "props":{"y":942,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_again","height":80,"anchorY":0,"anchorX":0},
-                    "nodeParent":158,
-                    "label":"btn_again",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":43,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "searchKey":"Image",
-                            "props":{"y":12,"x":45,"skin":"Hesucceeds/btn_playAgain.png"},
-                            "nodeParent":43,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":44,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "searchKey":"Button,btn_home",
-                    "props":{"y":934,"x":80,"width":92,"stateNum":"1","skin":"common/btn_backHome.png","name":"btn_home","height":92},
-                    "nodeParent":158,
-                    "label":"btn_home",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":3,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
                     "searchKey":"Button,btn_next",
-                    "props":{"y":940,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_next","height":80,"anchorY":0,"anchorX":0},
+                    "props":{"y":958,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_next","height":80,"anchorY":0,"anchorX":0},
                     "nodeParent":158,
                     "label":"btn_next",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":5,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":12.5,"x":61.5,"skin":"Hesucceeds/btn_playNext.png"},
@@ -252,8 +207,52 @@
                 {
                     "x":30,
                     "type":"Button",
+                    "searchKey":"Button,btn_home",
+                    "props":{"y":950,"x":80,"width":92,"stateNum":"1","skin":"common/btn_backHome.png","name":"btn_home","height":92},
+                    "nodeParent":158,
+                    "label":"btn_home",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":3,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,btn_again",
+                    "props":{"y":958,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_again","height":80,"anchorY":0,"anchorX":0},
+                    "nodeParent":158,
+                    "label":"btn_again",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":43,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "searchKey":"Image",
+                            "props":{"y":12,"x":45,"skin":"Hesucceeds/btn_playAgain.png"},
+                            "nodeParent":43,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":44,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
                     "searchKey":"Button,btn_fight",
-                    "props":{"y":938,"x":572,"width":92,"stateNum":"1","skin":"common/btn_fight.png","name":"btn_fight","height":92,"anchorY":0,"anchorX":0},
+                    "props":{"y":950,"x":572,"width":92,"stateNum":"1","skin":"common/btn_fight.png","name":"btn_fight","height":92,"anchorY":0,"anchorX":0},
                     "nodeParent":158,
                     "label":"btn_fight",
                     "isOpen":true,
