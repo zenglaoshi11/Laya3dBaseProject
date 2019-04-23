@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":19,
+    "selecteID":7,
     "searchKey":"View",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":45,
+    "maxID":48,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -52,7 +52,7 @@
             "props":{"name":"center","centerY":1,"centerX":0},
             "nodeParent":2,
             "label":"center",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -241,7 +241,7 @@
                             "x":45,
                             "type":"Image",
                             "searchKey":"Image,btn_again",
-                            "props":{"y":286,"x":-149,"var":"btn_again","skin":"common/btn_nomal.png","sizeGrid":"0,59,0,59"},
+                            "props":{"y":336,"x":9,"var":"btn_again","skin":"common/btn_nomal.png","sizeGrid":"0,59,0,59","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":38,
                             "label":"btn_again",
                             "isOpen":false,
@@ -262,35 +262,83 @@
                                     "compId":5,
                                     "child":[
                                         ]
+                                },
+                                {
+                                    "type":"Script",
+                                    "switchAble":true,
+                                    "source":"src/script/views/ButtonAnim.ts",
+                                    "searchKey":"Script,ButtonAnim",
+                                    "removeAble":true,
+                                    "props":{},
+                                    "nodeParent":4,
+                                    "label":"ButtonAnim",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":45,
+                                    "child":[
+                                        ]
                                 }]
                         },
                         {
                             "x":45,
                             "type":"Image",
                             "searchKey":"Image,btn_home",
-                            "props":{"y":283,"x":-295,"var":"btn_home","skin":"game/btn_backHome.png"},
+                            "props":{"y":337,"x":-247,"var":"btn_home","skin":"game/btn_backHome.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":38,
                             "label":"btn_home",
-                            "isDirectory":false,
+                            "isOpen":null,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":6,
                             "child":[
-                                ]
+                                {
+                                    "type":"Script",
+                                    "switchAble":true,
+                                    "source":"src/script/views/ButtonAnim.ts",
+                                    "searchKey":"Script,ButtonAnim",
+                                    "removeAble":true,
+                                    "props":{},
+                                    "nodeParent":6,
+                                    "label":"ButtonAnim",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":46,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
                             "x":45,
                             "type":"Image",
                             "searchKey":"Image,btn_fight",
-                            "props":{"y":283,"x":197,"var":"btn_fight","skin":"game/btn_fight.png"},
+                            "props":{"y":337,"x":252,"var":"btn_fight","skin":"game/btn_fight.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":38,
                             "label":"btn_fight",
-                            "isDirectory":false,
+                            "isOpen":null,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":7,
                             "child":[
-                                ]
+                                {
+                                    "type":"Script",
+                                    "switchAble":true,
+                                    "source":"src/script/views/ButtonAnim.ts",
+                                    "searchKey":"Script,ButtonAnim",
+                                    "removeAble":true,
+                                    "props":{},
+                                    "nodeParent":7,
+                                    "label":"ButtonAnim",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":47,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$HIDDEN":false
                 }],
