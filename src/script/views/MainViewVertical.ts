@@ -216,7 +216,7 @@ export default class MainViewVertical extends BaseView {
             this._isClick = null;
         });
         EventMgr.instance.emit("gameStart");
-        // this.sa
+        this.closeView();
         this.gameFighting.visible = true;
         this.gameFighting.active = true;
     }

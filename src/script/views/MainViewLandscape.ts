@@ -243,14 +243,10 @@ export default class MainViewLandscape extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-
+        this.closeView();
         EventMgr.instance.emit("gameStart");
-        // ViewMgr.instance.openView({
-        //     viewName: "GameFighting.scene",
-        //     closeAll: true,
-        // });
         this.gameFighting.visible = true;
-
+        this.gameFighting.active = true;
     }
 
     public removeEvent() {

@@ -3,11 +3,12 @@ import ButtonAnim from "./script/views/ButtonAnim"
 import ColletView from "./script/views/ColletView"
 import ConvergeAd from "./script/views/ConvergeAd"
 import GameFighting from "./script/views/GameFighting"
+import AdListLoop from "./script/views/AdListLoop"
 import GameOverEndless from "./script/views/GameOverEndless"
+import GameOverLevel from "./script/views/GameOverLevel"
 import GoldenEggView from "./script/views/GoldenEggView"
 import WXLaunch from "./script/platform/wx/WXLaunch"
 import MainViewLandscape from "./script/views/MainViewLandscape"
-import AdListLoop from "./script/views/AdListLoop"
 import MainViewVertical from "./script/views/MainViewVertical"
 import RankItem from "./script/views/rank/RankItem"
 import WXRankView from "./script/views/rank/WXRankView"
@@ -36,11 +37,12 @@ export default class GameConfig{
         reg("script/views/ColletView.ts",ColletView);
         reg("script/views/ConvergeAd.ts",ConvergeAd);
         reg("script/views/GameFighting.ts",GameFighting);
+        reg("script/views/AdListLoop.ts",AdListLoop);
         reg("script/views/GameOverEndless.ts",GameOverEndless);
+        reg("script/views/GameOverLevel.ts",GameOverLevel);
         reg("script/views/GoldenEggView.ts",GoldenEggView);
         reg("script/platform/wx/WXLaunch.ts",WXLaunch);
         reg("script/views/MainViewLandscape.ts",MainViewLandscape);
-        reg("script/views/AdListLoop.ts",AdListLoop);
         reg("script/views/MainViewVertical.ts",MainViewVertical);
         reg("script/views/rank/RankItem.ts",RankItem);
         reg("script/views/rank/WXRankView.ts",WXRankView);
