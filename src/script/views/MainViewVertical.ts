@@ -62,11 +62,12 @@ export default class MainViewVertical extends BaseView {
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
-        let scene = this.owner.getChildByName("gameFighting") as Laya.Scene;
-        this.gameFighting = scene;
-        this.gameFightingCom = scene.getComponent(GameFighting);
-        scene.visible = false;
-        scene.active = false;
+        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
+            this.gameFighting = scene;
+            this.gameFightingCom = scene.getComponent(GameFighting);
+            scene.visible = false;
+            this.gameFighting.active = false;
+        }))
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
         if(PlatformMgr.ptAdMgr){

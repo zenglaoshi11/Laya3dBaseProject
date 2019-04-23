@@ -56,15 +56,16 @@ export default class MainViewLandscape extends BaseView {
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
-        let scene = this.owner.getChildByName("gameFighting") as Laya.Scene;
 
         this.adPlane = this.owner.getChildByName("ADPlane").getComponent(AdListLoop);
 
-        this.gameFighting = scene;
-        this.gameFightingCom = scene.getComponent(GameFighting);
-        scene.visible = false;
-        this.gameFighting.active = false;
 
+        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
+            this.gameFighting = scene;
+            this.gameFightingCom = scene.getComponent(GameFighting);
+            scene.visible = false;
+            this.gameFighting.active = false;
+        }))
 
         this.btnInvite.y += this.offset.y/2;
         this.btnService.y += this.offset.y/2;

@@ -406,22 +406,6 @@
                     "child":[
                         ]
                 }]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"GameFighting.scene",
-            "searchKey":"UIView,gameFighting",
-            "props":{"name":"gameFighting"},
-            "nodeParent":2,
-            "label":"gameFighting",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":95,
-            "child":[
-                ],
-            "$HIDDEN":true
         }],
     "animations":[
         {
