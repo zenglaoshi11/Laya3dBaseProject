@@ -22,17 +22,24 @@ export default class AdListLoop extends Laya.Script {
 	private startTime: number;
 	private speedTime: number;
 
+	private itemWidth:number;
+	private itemHeight:number;
+
 	constructor() {
 		super();
 		this._cellWidth = 101;
 		this._spaceX = 20;
 		this.speedTime = 500;
+		this.itemWidth = 101;
+		this.itemHeight = 128;
 	}
 
 	init(_d){
 		this._cellWidth = _d._cellWidth || 101;
 		this._spaceX = _d._spaceX || 20;
 		this.speedTime = _d.speedTime || 500;
+		this.itemWidth = _d.itemWidth||101;
+		this.itemHeight = _d.itemHeight||128;
 	}
 
 	start(adInfos) {
@@ -52,8 +59,8 @@ export default class AdListLoop extends Laya.Script {
 			} else {
 				image.pos((i) * (this._cellWidth + this._spaceX), 0);
 			}
-			image.width = 101;
-			image.height = 128;
+			image.width = this.itemWidth;
+			image.height = this.itemHeight;
 			image.skin = adinfo.param;
 			let index = i;		
 			image.on(Laya.Event.MOUSE_DOWN, this, function () {
