@@ -63,6 +63,7 @@ export default class MainViewLandscape extends BaseView {
         this.gameFighting = scene;
         this.gameFightingCom = scene.getComponent(GameFighting);
         scene.visible = false;
+        this.gameFighting.active = false;
 
 
         this.btnInvite.y += this.offset.y/2;
@@ -195,16 +196,12 @@ export default class MainViewLandscape extends BaseView {
             caller:this,
             callback:(res)=>{
                 if(!res.success){
-                    ViewMgr.instance.openView({
-                        viewName: "uiViews/TipView.scene",
-                        closeAll: false,
-                        data: "分享失败",
-                    });
+                    EventMgr.instance.emit("openTip","分享失败");
                 }
             },
         };
         if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.shareAppMessage(_d,1);
+            PlatformMgr.ptAPI.shareAppMessage(_d,0);
     }
 
     private serviceClick() {
@@ -247,10 +244,12 @@ export default class MainViewLandscape extends BaseView {
         });
 
         EventMgr.instance.emit("gameStart");
-        ViewMgr.instance.openView({
-            viewName: "GameFighting.scene",
-            closeAll: true,
-        });
+        // ViewMgr.instance.openView({
+        //     viewName: "GameFighting.scene",
+        //     closeAll: true,
+        // });
+        this.gameFighting.visible = true;
+
     }
 
     public removeEvent() {

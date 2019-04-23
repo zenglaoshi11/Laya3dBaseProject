@@ -66,6 +66,7 @@ export default class MainViewVertical extends BaseView {
         this.gameFighting = scene;
         this.gameFightingCom = scene.getComponent(GameFighting);
         scene.visible = false;
+        scene.active = false;
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
         if(PlatformMgr.ptAdMgr){
@@ -167,11 +168,7 @@ export default class MainViewVertical extends BaseView {
             caller:this,
             callback:(res)=>{
                 if(!res.success){
-                    ViewMgr.instance.openView({
-                        viewName: "uiViews/TipView.scene",
-                        closeAll: false,
-                        data: "分享失败",
-                    });
+                    EventMgr.instance.emit("openTip","分享失败");
                 }
             },
         };
@@ -217,8 +214,10 @@ export default class MainViewVertical extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-
         EventMgr.instance.emit("gameStart");
+        // this.sa
+        this.gameFighting.visible = true;
+        this.gameFighting.active = true;
     }
 
     public removeEvent() {
