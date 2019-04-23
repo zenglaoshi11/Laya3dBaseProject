@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":158,
-    "selecteID":4,
+    "selectedBox":2,
+    "selecteID":170,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":163,
+    "maxID":172,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -62,19 +62,20 @@
                     "x":30,
                     "type":"FontClip",
                     "searchKey":"FontClip,ftc_passNum",
-                    "props":{"y":173,"x":286,"width":128,"visible":true,"value":"105","skin":"numberFonts/img_levelNumber.png","sheet":"0123456789","scaleY":1,"scaleX":1,"name":"ftc_passNum","height":54,"align":"right"},
+                    "props":{"y":173,"x":339,"width":41,"visible":true,"value":"1","skin":"numberFonts/img_levelNumber.png","sheet":"0123456789","scaleY":1,"scaleX":1,"name":"ftc_passNum","height":54,"align":"right"},
                     "nodeParent":119,
                     "label":"ftc_passNum",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":15,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,img_level",
-                            "props":{"y":0,"x":137,"width":46,"skin":"Hesucceeds/img_level.png","name":"img_level","height":58},
+                            "props":{"y":0,"x":46,"width":46,"skin":"Hesucceeds/img_level.png","name":"img_level","height":58},
                             "nodeParent":15,
                             "label":"img_level",
                             "isDirectory":false,
@@ -152,12 +153,26 @@
                             "props":{"width":184,"height":184},
                             "nodeParent":159,
                             "label":"Box",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":false,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":160,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image",
+                                    "props":{"width":184,"height":184},
+                                    "nodeParent":160,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":169,
+                                    "child":[
+                                        ]
+                                }]
                         }]
                 }],
             "$HIDDEN":false
@@ -166,7 +181,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,anchorDown",
-            "props":{"var":"anchorDown"},
+            "props":{"y":667,"x":375,"name":"anchorDown"},
             "nodeParent":2,
             "label":"anchorDown",
             "isOpen":true,
@@ -179,7 +194,7 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_next",
-                    "props":{"y":958,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_next","height":80,"anchorY":0,"anchorX":0},
+                    "props":{"y":291,"x":-149,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_next","height":80,"anchorY":0,"anchorX":0},
                     "nodeParent":158,
                     "label":"btn_next",
                     "isOpen":false,
@@ -208,23 +223,38 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_home",
-                    "props":{"y":950,"x":80,"width":92,"stateNum":"1","skin":"game/btn_backHome.png","name":"btn_home","height":92},
+                    "props":{"y":337,"x":-249,"width":92,"stateNum":"1","skin":"game/btn_backHome.png","name":"btn_home","height":108,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
                     "label":"btn_home",
-                    "isOpen":true,
-                    "isDirectory":false,
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":3,
                     "child":[
-                        ],
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/script/views/ButtonAnim.ts",
+                            "searchKey":"Script,ButtonAnim",
+                            "removeAble":true,
+                            "props":{},
+                            "nodeParent":3,
+                            "label":"ButtonAnim",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":166,
+                            "child":[
+                                ]
+                        }],
                     "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_again",
-                    "props":{"y":958,"x":226,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_again","height":80,"anchorY":0,"anchorX":0},
+                    "props":{"y":333,"x":1,"width":300,"stateNum":"1","skin":"common/btn_nomal.png","name":"btn_again","height":100,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
                     "label":"btn_again",
                     "isOpen":false,
@@ -236,13 +266,29 @@
                         {
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"y":12,"x":45,"skin":"game/btn_playAgain.png"},
+                            "props":{"y":24,"x":45,"skin":"game/btn_playAgain.png"},
                             "nodeParent":43,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":44,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/script/views/ButtonAnim.ts",
+                            "searchKey":"Script,ButtonAnim",
+                            "removeAble":true,
+                            "props":{},
+                            "nodeParent":43,
+                            "label":"ButtonAnim",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":167,
                             "child":[
                                 ]
                         }],
@@ -252,17 +298,49 @@
                     "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_fight",
-                    "props":{"y":950,"x":572,"width":92,"stateNum":"1","skin":"game/btn_fight.png","name":"btn_fight","height":92,"anchorY":0,"anchorX":0},
+                    "props":{"y":337,"x":252,"width":111,"stateNum":"1","skin":"game/btn_fight.png","name":"btn_fight","height":108,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
                     "label":"btn_fight",
-                    "isOpen":true,
-                    "isDirectory":false,
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":4,
                     "child":[
-                        ]
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/script/views/ButtonAnim.ts",
+                            "searchKey":"Script,ButtonAnim",
+                            "removeAble":true,
+                            "props":{},
+                            "nodeParent":4,
+                            "label":"ButtonAnim",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":168,
+                            "child":[
+                                ]
+                        }]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Script",
+            "switchAble":true,
+            "source":"src/script/views/GameOverLevel.ts",
+            "searchKey":"Script,GameOverLevel",
+            "removeAble":true,
+            "props":{},
+            "nodeParent":2,
+            "label":"GameOverLevel",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":171,
+            "child":[
+                ]
         }],
     "animations":[
         {
