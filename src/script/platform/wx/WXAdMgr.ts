@@ -68,14 +68,14 @@ export default class WXAdMgr{
             this.rewardedVideoAd.onClose(res => {
                 // 用户点击了【关闭广告】按钮
                 // 小于 2.1.0 的基础库版本，res 是一个 undefined
-                if (res && res.isEnded || res === undefined) {
+                if (res && res.isEnded || res === undefined){
+                    StatisticsMgr.instance.videoPlayOverAdStatistics(1);
                     // 正常播放结束，可以下发游戏奖励
                     self.videoPlayedTimes += 1;
                     if (self.callBackSuc != null) {
                         self.callBackSuc(self.caller);
                     }
-                }
-                else {
+                }else {
                     // 播放中途退出，不下发游戏奖励
                     if (self.callBackFail != null) {
                         self.callBackFail(self.caller);
@@ -90,6 +90,7 @@ export default class WXAdMgr{
         if (!this.isInited) {
             return;
         }
+        StatisticsMgr.instance.clickVideoStatistics(1);
         let self = this;
         this.caller = caller;
         this.callBackSuc = callBackSuc;
