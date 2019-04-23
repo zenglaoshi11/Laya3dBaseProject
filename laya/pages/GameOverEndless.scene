@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":32,
+    "selectedBox":25,
+    "selecteID":27,
     "searchKey":"View",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -18,7 +18,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image",
-            "props":{"top":1,"skin":"com/hei4.png","sizeGrid":"2,2,2,2","right":0,"left":0,"bottom":0,"alpha":0.75},
+            "props":{"top":1,"skin":"common/black_bg.png","sizeGrid":"2,2,2,2","right":0,"left":0,"bottom":0,"alpha":0.75},
             "nodeParent":2,
             "label":"Image",
             "isDirectory":false,
@@ -26,49 +26,8 @@
             "hasChild":false,
             "compId":37,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,leftTop",
-            "props":{"var":"leftTop","top":1,"left":0},
-            "nodeParent":2,
-            "label":"leftTop",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":16,
-            "child":[
-                {
-                    "type":"Image",
-                    "searchKey":"Image,img_back",
-                    "props":{"y":48,"x":17,"width":164,"visible":false,"var":"img_back","skin":"com/fanhui@2x.png","height":66},
-                    "nodeParent":16,
-                    "label":"img_back",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":17,
-                    "child":[
-                        {
-                            "type":"Sprite",
-                            "searchKey":"Sprite",
-                            "props":{"y":17,"x":66,"texture":"com/fanhui1@2x.png"},
-                            "nodeParent":17,
-                            "label":"Sprite",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":18,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                }]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -77,7 +36,7 @@
             "props":{"name":"center","centerY":1,"centerX":0},
             "nodeParent":2,
             "label":"center",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -102,7 +61,7 @@
                     "x":30,
                     "type":"FontClip",
                     "searchKey":"FontClip,clipScore",
-                    "props":{"y":-457,"x":-203,"width":400,"var":"clipScore","value":"291","skin":"com/jiesuan-shuzi@2x.png","sheet":"0123456789","align":"center"},
+                    "props":{"y":-457,"x":-203,"width":400,"var":"clipScore","value":"291","skin":"Hesucceeds/img_endnessNumber.png","sheet":"0123456789","align":"center"},
                     "nodeParent":19,
                     "label":"clipScore",
                     "isOpen":true,
@@ -118,19 +77,20 @@
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image",
-                    "props":{"y":-239,"x":-315,"width":630,"skin":"com/jiesuan_kuan@2x.png","height":296},
+                    "props":{"y":-239,"x":-315,"width":630,"height":296},
                     "nodeParent":19,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":11,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"y":-77,"x":0,"width":630,"skin":"com/jiesuan_shang@2x.png","height":83},
+                            "props":{"y":-77,"x":0,"width":630,"skin":"Hesucceeds/bg_rankTitle.png","sizeGrid":"12,11,17,8","height":83},
                             "nodeParent":11,
                             "label":"Image",
                             "isDirectory":false,
@@ -181,13 +141,14 @@
                     "props":{"y":-234,"x":-315,"width":631,"visible":false,"repeatY":1,"repeatX":3,"height":286},
                     "nodeParent":19,
                     "label":"List",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":24,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"renderType":"render"},
@@ -200,9 +161,10 @@
                             "compId":25,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,imgBg",
-                                    "props":{"y":0,"x":0,"width":210,"skin":"rank/jiesuan_kuan2@2x.png","name":"imgBg","height":279},
+                                    "props":{"y":0,"x":0,"width":210,"skin":"Hesucceeds/jiesuan_bg_txt.png","sizeGrid":"10,12,10,10","name":"imgBg","height":279},
                                     "nodeParent":25,
                                     "label":"imgBg",
                                     "isDirectory":false,
@@ -213,6 +175,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"FontClip",
                                     "searchKey":"FontClip,clipRank",
                                     "props":{"y":18,"x":86,"width":40,"value":"1","skin":"rank/jies-shuzi@2x.png","sheet":"0123456789","name":"clipRank","align":"center"},
@@ -227,6 +190,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Sprite",
                                     "searchKey":"Sprite,sptHead",
                                     "props":{"y":63,"x":55,"texture":"rank/tx-2.png","name":"sptHead"},
@@ -240,6 +204,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,lblName",
                                     "props":{"y":180,"x":30,"width":150,"text":"大虎","overflow":"hidden","name":"lblName","fontSize":22,"align":"center"},
@@ -253,6 +218,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"FontClip",
                                     "searchKey":"FontClip,clipScore",
                                     "props":{"y":224,"x":6,"width":200,"value":"2350","skin":"rank/jies-shuzi@2x.png","sheet":"0123456789","name":"clipScore","align":"center"},
@@ -266,7 +232,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -283,11 +249,11 @@
                     "child":[
                         {
                             "type":"Image",
-                            "searchKey":"Image,img_again",
-                            "props":{"y":1,"x":130,"width":307,"var":"img_again","skin":"com/anniu_paly2@2x.png","sizeGrid":"0,59,0,59","height":94},
+                            "searchKey":"Image,btn_again",
+                            "props":{"y":1,"x":130,"width":307,"var":"btn_again","skin":"common/btn_nomal.png","sizeGrid":"0,59,0,59","height":94},
                             "nodeParent":38,
-                            "label":"img_again",
-                            "isOpen":false,
+                            "label":"btn_again",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -296,7 +262,7 @@
                                 {
                                     "type":"Sprite",
                                     "searchKey":"Sprite",
-                                    "props":{"y":19,"x":49,"texture":"com/anniu_zaici@2x.png"},
+                                    "props":{"y":19,"x":49,"texture":"Hesucceeds/btn_playAgain.png"},
                                     "nodeParent":4,
                                     "label":"Sprite",
                                     "isDirectory":false,
@@ -309,10 +275,10 @@
                         },
                         {
                             "type":"Sprite",
-                            "searchKey":"Sprite,img_home",
-                            "props":{"y":0,"x":-33,"var":"img_home","texture":"com/anniu_zhuye@2x.png"},
+                            "searchKey":"Sprite,btn_home",
+                            "props":{"y":0,"x":-33,"var":"btn_home","texture":"common/btn_backHome.png"},
                             "nodeParent":38,
-                            "label":"img_home",
+                            "label":"btn_home",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -322,23 +288,24 @@
                         },
                         {
                             "type":"Sprite",
-                            "searchKey":"Sprite,img_share",
-                            "props":{"y":0,"x":515,"var":"img_share","texture":"com/anniu_tiaoz@2x.png"},
+                            "searchKey":"Sprite,btn_fight",
+                            "props":{"y":0,"x":515,"var":"btn_fight","texture":"common/btn_fight.png"},
                             "nodeParent":38,
-                            "label":"img_share",
+                            "label":"btn_fight",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":7,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image",
-                    "props":{"y":77,"x":-270,"width":586,"skin":"com/guangg@2x.png","height":163},
+                    "props":{"y":77,"x":-270,"width":586,"skin":"Hesucceeds/bg_adEndness.png","sizeGrid":"17,17,20,17","height":163},
                     "nodeParent":19,
                     "label":"Image",
                     "isDirectory":false,
@@ -353,7 +320,7 @@
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image",
-                    "props":{"y":77,"x":-315,"width":62,"skin":"com/guangg_zuo@2x.png","sizeGrid":"31,0,31,0","height":164},
+                    "props":{"y":77,"x":-315,"width":62,"skin":"Hesucceeds/img_adTitle.png","sizeGrid":"31,0,31,0","height":164},
                     "nodeParent":19,
                     "label":"Image",
                     "isDirectory":false,
@@ -424,20 +391,6 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "searchKey":"Label",
-                    "props":{"y":100.9,"x":-296,"text":"猜\\n你\\n喜\\n欢","fontSize":26,"color":"#ffffff"},
-                    "nodeParent":19,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":30,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Panel",
                     "searchKey":"Panel,ADPanel",
                     "props":{"y":96,"x":-243,"width":548,"var":"ADPanel","height":141},
@@ -449,7 +402,8 @@
                     "compId":36,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,

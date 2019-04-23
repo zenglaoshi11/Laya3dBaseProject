@@ -2,4 +2,3 @@
 import View=Laya.View;
 import Dialog=Laya.Dialog;
 import Scene=Laya.Scene;
-var REG: Function = Laya.ClassUtils.regClass;
