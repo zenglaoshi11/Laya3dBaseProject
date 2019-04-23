@@ -65,6 +65,7 @@ export default class MainViewLandscape extends BaseView {
             this.gameFightingCom = scene.getComponent(GameFighting);
             scene.visible = false;
             this.gameFighting.active = false;
+            Laya.stage.addChild(scene);
         }))
 
         this.btnInvite.y += this.offset.y/2;
