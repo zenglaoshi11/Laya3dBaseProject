@@ -38,7 +38,7 @@ export default class AdListLoop extends Laya.Script {
 		this._cellWidth = _d._cellWidth || 101;
 		this._spaceX = _d._spaceX || 20;
 		this.speedTime = _d.speedTime || 500;
-		this._cellHeight = _d.itemHeight||128;
+		this._cellHeight = _d._cellHeight||128;
 	}
 
 	start(adInfos) {
