@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":86,
+    "selecteID":87,
     "searchKey":"Scene",
     "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":87,
+    "maxID":88,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -358,6 +358,20 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":86,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image,addMinProgram",
+            "props":{"y":25,"x":215,"skin":"mainview/img_tjdxcx.png","name":"addMinProgram"},
+            "nodeParent":2,
+            "label":"addMinProgram",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":87,
             "child":[
                 ]
         }],

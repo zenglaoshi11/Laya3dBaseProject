@@ -196,6 +196,13 @@ export default class MainViewVertical extends BaseView {
     }
 
     public removeEvent() {
+        this.btnSound.off(Laya.Event.CLICK, this, this.soundBtnClick);
+        this.btnVirbort.off(Laya.Event.CLICK, this, this.virbortBtnClick);
+        
+        this.btnRank.off(Laya.Event.CLICK, this, this.btnRankFunc);
+        this.btnService.off(Laya.Event.CLICK, this, this.btnServiceFunc);
+        this.btnInvite.off(Laya.Event.CLICK, this, this.btnInviteFunc);
+        this.btnStart.off(Laya.Event.CLICK, this, this.btnStartFunc);
         super.removeEvent();
     }
 }

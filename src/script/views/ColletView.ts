@@ -3,21 +3,26 @@ import MyUtils from "../tools/MyUtils";
 import EventMgr from "../mgrCommon/EventMgr";
 
 export default class ColletView extends BaseView {
-    private topHand:Laya.Image;
-    
     constructor() { super(); }
     
     onAwake(): void {
         super.onAwake();
-        this.topHand = this.owner.getChildByName("topHand") as Laya.Image;
-        MyUtils.autoScreenSize([this.topHand]);
         this.addEvent();
     }
 
     addEvent():void{
-        (this.owner.getChildByName("btn_ok") as Laya.Image).on(Laya.Event.CLICK,this,()=>{
-            Laya.loader.clearRes("res/atlas/collet.atlas");
-            EventMgr.instance.emit("goHome");
-        })
+        this.okBtn.on(Laya.Event.CLICK,this,this.closeView);
+        super.addEvent();
+    }
+
+    closeView(){
+        super.closeView();
+        Laya.loader.clearRes("res/atlas/collet.atlas");
+        EventMgr.instance.emit("goHome");
+    }
+    
+    public removeEvent() {
+        this.okBtn.off(Laya.Event.CLICK,this,this.closeView);
+        super.removeEvent();
     }
 }

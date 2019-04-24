@@ -33,7 +33,14 @@ export default class GoldenEggView extends BaseView{
 	public addEvent() {
 		this.okBtn.on(Laya.Event.CLICK,this,this.btnClick);
 		this.closeBtn.on(Laya.Event.CLICK,this,this.closeView);
-	}
+		super.addEvent();
+    }
+    
+    public removeEvent() {
+		this.okBtn.off(Laya.Event.CLICK,this,this.btnClick);
+		this.closeBtn.off(Laya.Event.CLICK,this,this.closeView);
+        super.removeEvent();
+    }
 
 	openView(_d){
 		super.openView(_d);

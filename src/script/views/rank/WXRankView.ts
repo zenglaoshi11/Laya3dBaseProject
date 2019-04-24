@@ -68,6 +68,7 @@ export default class RankView extends BaseView {
     }
 
     public addEvent() {
+        super.addEvent();
         this.closeBtn.on(Laya.Event.CLICK, this, this.closeView);
         this.worldBtn.on(Laya.Event.CLICK, this, this.worldRankClick);
         this.friendBtn.on(Laya.Event.CLICK, this, this.friendRankClick);

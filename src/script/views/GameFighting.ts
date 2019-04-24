@@ -81,34 +81,40 @@ export default class GameFighting extends BaseView {
         this.progressNode.visible = !isEndLess;
     }
 
+    mouseTouchFun(){
+        this.dragBeginnerGuide.visible = false;
+    }
+
+    openResurgence(){
+        EventMgr.instance.emit("openResurgence");
+    }
+
+    openGameOver(){
+        EventMgr.instance.emit("openGameOver");
+        this.closeView();
+    }
+
     public addEvent() {
-        this.mouseTouch.on(Laya.Event.CLICK,this,()=>{
-            this.dragBeginnerGuide.visible = false;
-        })
+        super.addEvent();
+        this.mouseTouch.on(Laya.Event.CLICK,this,this.mouseTouchFun);
+        this.btnResurgence.on(Laya.Event.CLICK,this,this.openResurgence);
+        this.btnGameOver.on(Laya.Event.CLICK,this,this.openGameOver);
+        this.btnBeyond.on(Laya.Event.CLICK,this,this.openSurpassOther);
+        this.btnFight.on(Laya.Event.CLICK,this,this.openProvocationOther);
 
         EventMgr.instance.onEvent("updateScore",this,this.updataScore);
         EventMgr.instance.onEvent("updataProgress",this,this.updataProgress);
         EventMgr.instance.onEvent("updateLevel",this,this.updateLevel);
-
-
-        this.btnResurgence.on(Laya.Event.CLICK,this,()=>{
-            EventMgr.instance.emit("openResurgence");
-        })
-        this.btnGameOver.on(Laya.Event.CLICK,this,()=>{
-             this.closeView();
-            EventMgr.instance.emit("openGameOver");
-         })
-        this.btnBeyond.on(Laya.Event.CLICK,this,()=>{
-            //SORTTYPE.LEVEL
-            this.openSurpassOther(SORTTYPE.ENDLESS);
-        })
-        this.btnFight.on(Laya.Event.CLICK,this,()=>{
-            //SORTTYPE.LEVEL
-            this.openProvocationOther(SORTTYPE.ENDLESS);
-        })
     }
 
     public removeEvent() {
+        super.removeEvent();
+        this.mouseTouch.off(Laya.Event.CLICK,this,this.mouseTouchFun);
+        this.btnResurgence.off(Laya.Event.CLICK,this,this.openResurgence);
+        this.btnGameOver.off(Laya.Event.CLICK,this,this.openGameOver);
+        this.btnBeyond.off(Laya.Event.CLICK,this,this.openSurpassOther);
+        this.btnFight.off(Laya.Event.CLICK,this,this.openProvocationOther);
+
         EventMgr.instance.onOffEvent("updateScore",this,this.updataScore);
         EventMgr.instance.onOffEvent("updataProgress",this,this.updataProgress);
         EventMgr.instance.onOffEvent("updateLevel",this,this.updateLevel);

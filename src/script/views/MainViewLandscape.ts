@@ -75,6 +75,7 @@ export default class MainViewLandscape extends BaseView {
     }  
 
     public addEvent() {
+        super.addEvent();
         this.btnSound.on(Laya.Event.CLICK, this, this.soundBtnClick);
         this.btnVirbort.on(Laya.Event.CLICK, this, this.virbortBtnClick);
         
@@ -194,6 +195,15 @@ export default class MainViewLandscape extends BaseView {
     }
 
     public removeEvent() {
+        this.btnSound.off(Laya.Event.CLICK, this, this.soundBtnClick);
+        this.btnVirbort.off(Laya.Event.CLICK, this, this.virbortBtnClick);
+        
+        this.btnRank.off(Laya.Event.CLICK, this, this.btnRankFunc);
+        this.btnService.off(Laya.Event.CLICK, this, this.btnServiceFunc);
+        this.btnInvite.off(Laya.Event.CLICK, this, this.btnInviteFunc);
+        this.btnCollect.off(Laya.Event.CLICK, this, this.btnCollectFunc);
+
+        this.btnStart.off(Laya.Event.CLICK, this, this.btnStartFunc);
         super.removeEvent();
     }
 

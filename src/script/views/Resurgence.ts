@@ -43,6 +43,14 @@ export default class Resurgence extends BaseView {
         this.btnShare.on(Laya.Event.CLICK, this, this.shareClick);
         this.btnVideo.on(Laya.Event.CLICK, this, this.videoClick);
         this.btnJump.on(Laya.Event.CLICK, this, this.jumpClick);
+        super.addEvent();
+    }
+    
+    public removeEvent() {
+        this.btnShare.off(Laya.Event.CLICK, this, this.shareClick);
+        this.btnVideo.off(Laya.Event.CLICK, this, this.videoClick);
+        this.btnJump.off(Laya.Event.CLICK, this, this.jumpClick);
+        super.removeEvent();
     }
 
     countDown(): void {

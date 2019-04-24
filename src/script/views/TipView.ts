@@ -9,9 +9,13 @@ export default class TipView extends  BaseView {
     }
     
     public addEvent() {
-        this.owner.on(Laya.Event.CLICK,this,()=>{
-            this.closeView();
-        })
+        this.owner.on(Laya.Event.CLICK,this,this.closeView)
+        super.addEvent();
+    }
+    
+    public removeEvent() {
+        this.owner.off(Laya.Event.CLICK, this, this.closeView);
+        super.removeEvent();
     }
 
     openView(str?: any){

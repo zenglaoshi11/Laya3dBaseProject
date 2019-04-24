@@ -59,6 +59,7 @@ export default class GameOverEndless extends BaseView {
     }
 
     addEvent(){
+        super.addEvent();
         this.btnHome.on(Laya.Event.CLICK,this,this.goHome);
         this.btnAgain.on(Laya.Event.CLICK,this,this.goFighting);
         this.btnFight.on(Laya.Event.CLICK,this,this.goShare);

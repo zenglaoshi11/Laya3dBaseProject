@@ -11,17 +11,14 @@ export default class ConvergeAd extends BaseView {
     private adList: Laya.List;
 
     onAwake(){
-        this.homeBtn = this.owner.getChildByName("homeBtn") as Laya.Image;
         MyUtils.autoScreenSize([this.homeBtn]);
-
-        // this.shareBtn = this.owner.getChildByName("shareBtn") as Laya.Image;
-        this.okBtn = this.owner.getChildByName("okBtn") as Laya.Image;
-
 
         this.adList = this.owner.getChildByName("list") as Laya.List;
         this.adList.vScrollBarSkin = '';
         this.adList.selectEnable = true;
         this.adList.y = 20;
+        this.adList.renderHandler = new Laya.Handler(this, this.onRender);
+        this.adList.mouseHandler = new Laya.Handler(this, this.onClickItem);
         if(Laya.stage.height > 1334){
             this.adList.y = 20 + (Laya.stage.height - 1334) / 2
         }
@@ -35,16 +32,13 @@ export default class ConvergeAd extends BaseView {
     }
     
     public addEvent() {
-        this.adList.renderHandler = new Laya.Handler(this, this.onRender);
-        this.adList.mouseHandler = new Laya.Handler(this, this.onClickItem);
+        super.addEvent();
         this.okBtn.on(Laya.Event.CLICK, this, this.onClickHome);
         this.homeBtn.on(Laya.Event.CLICK, this, this.onClickHome);
     }
 
     public removeEvent() {
         super.removeEvent();
-        this.adList.renderHandler = null;
-        this.adList.mouseHandler = null;
         this.okBtn.off(Laya.Event.CLICK, this, this.onClickHome);
         this.homeBtn.off(Laya.Event.CLICK, this, this.onClickHome);
     }

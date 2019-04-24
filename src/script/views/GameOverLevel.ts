@@ -46,39 +46,46 @@ export default class GameOverLevel extends BaseView {
         this.adList.vScrollBarSkin = "";
         this.adData = ConfigData.getAdData(1005);
     }
-
-    addEvent(){
-        this.btnNext.on(Laya.Event.CLICK,this,()=>{
-            this.closeView();
-            //跳转到下一关 TODO
-            EventMgr.instance.emit("openFighting");
-        });
-
-        this.btnHome.on(Laya.Event.CLICK,this,()=>{
-            EventMgr.instance.emit("goHome");
-        });
-
-        this.btnAgain.on(Laya.Event.CLICK,this,()=>{
-            this.closeView();
-            //在玩一次 TODO
-            EventMgr.instance.emit("openFighting");
-        });
-
-        this.btnFight.on(Laya.Event.CLICK,this,()=>{
-            let _d = {
-                caller:this,
-                callback:(res)=>{
-                    if(!res.success){
-                        EventMgr.instance.emit("openTip","分享失败");
-                    }
-                },
-            };
-            if(PlatformMgr.ptAPI)
-                PlatformMgr.ptAPI.shareAppMessage(_d,0);
-        });
-
+    
+    goFighting(){
+        //再次挑战 TODO       
+        EventMgr.instance.emit("openFighting"); 
+        this.closeView();
     }
 
+    goHome(){
+        EventMgr.instance.emit("goHome");
+        this.closeView();
+    }
+
+    goShare(){
+        let _d = {
+            caller:this,
+            callback:(res)=>{
+                if(!res.success){
+                    EventMgr.instance.emit("openTip","分享失败");
+                }
+            },
+        };
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.shareAppMessage(_d,0);
+    }
+
+    addEvent(){
+        this.btnNext.on(Laya.Event.CLICK,this,this.goFighting);
+        this.btnHome.on(Laya.Event.CLICK,this,this.goHome);
+        this.btnAgain.on(Laya.Event.CLICK,this,this.goFighting);
+        this.btnFight.on(Laya.Event.CLICK,this,this.goShare);
+        super.addEvent();
+    }
+
+    public removeEvent() {
+        this.btnNext.off(Laya.Event.CLICK,this,this.goFighting);
+        this.btnHome.off(Laya.Event.CLICK,this,this.goHome);
+        this.btnAgain.off(Laya.Event.CLICK,this,this.goFighting);
+        this.btnFight.off(Laya.Event.CLICK,this,this.goShare);
+        super.removeEvent();
+    }
 
     openView(data?: any){
         super.openView(data);

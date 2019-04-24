@@ -6,14 +6,33 @@ export default class BaseView extends Laya.Script {
     public isMyBaseView:boolean = true
     protected _data;
     protected _isClick;
+
     protected shareBtn: Laya.Image;
     protected homeBtn: Laya.Image;
     protected okBtn: Laya.Image;
     protected closeBtn: Laya.Image;
+    
     protected offset = {y:0};
+    protected addMinProgram:Laya.Image;
+    private _speed:number = 1;
+    private _minX:number;
+    private _maxX:number;
+
     onAwake(): void {
         //删除时自动释放
         (this.owner as Laya.View).autoDestroyAtClosed = true;
+        this.addMinProgram = this.owner.getChildByName("addMinProgram") as Laya.Image;
+
+        this.okBtn = this.owner.getChildByName("okBtn") as Laya.Image;
+        this.closeBtn = this.owner.getChildByName("closeBtn") as Laya.Image;
+        this.homeBtn = this.owner.getChildByName("homeBtn") as Laya.Image;
+        this.shareBtn = this.owner.getChildByName("shareBtn") as Laya.Image;
+
+        if(this.addMinProgram){
+            MyUtils.autoScreenSize([this.addMinProgram]);
+            this._minX = Laya.stage.width / 2 - this.addMinProgram.width / 2;
+            this._maxX = Laya.stage.width / 2 + this.addMinProgram.width / 2;
+        }
         if(PlatformMgr.ptAPI)
             this.offset = PlatformMgr.ptAPI.getOffsetOpenDomain();
     }
@@ -33,10 +52,25 @@ export default class BaseView extends Laya.Script {
     }
 
     public addEvent() {
+        if(this.addMinProgram){
+            this._speed = -1;
+            Laya.timer.frameLoop(1, this, ()=>{
+                this.addMinProgram.x += this._speed;
+                if(this.addMinProgram.x <= this._minX){
+                    this._speed = 1;
+                    this.addMinProgram.x = this._minX;
+                }else if(this.addMinProgram.x >= this._maxX){
+                    this._speed = -1;
+                    this.addMinProgram.x = this._maxX;
+                }
+            });
+        }
     }
 
     public removeEvent() {
         this._isClick = null;
+        if(this.addMinProgram)
+            Laya.timer.clearAll(this.addMinProgram);
         Laya.timer.clearAll(this);
     }
 
