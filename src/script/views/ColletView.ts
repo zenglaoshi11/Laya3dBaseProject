@@ -16,6 +16,7 @@ export default class ColletView extends BaseView {
 
     addEvent():void{
         (this.owner.getChildByName("btn_ok") as Laya.Image).on(Laya.Event.CLICK,this,()=>{
+            Laya.loader.clearRes("res/atlas/collet.atlas");
             EventMgr.instance.emit("goHome");
         })
     }

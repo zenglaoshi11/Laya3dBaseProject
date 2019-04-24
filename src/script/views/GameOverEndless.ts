@@ -44,7 +44,8 @@ export default class GameOverEndless extends BaseView {
 
         this.btnAgain.on(Laya.Event.CLICK,this,()=>{
             this.closeView();
-            //再次挑战 TODO            
+            //再次挑战 TODO       
+            EventMgr.instance.emit("openFighting");     
         });
 
         this.btnFight.on(Laya.Event.CLICK,this,()=>{

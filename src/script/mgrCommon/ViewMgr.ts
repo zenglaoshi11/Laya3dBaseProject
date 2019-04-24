@@ -8,7 +8,7 @@ export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();
     private viewDic: any = {};
 
-    private events = ["goHome","openTip","openResurgence","openGameOver"];
+    private events = ["goHome","openTip","openResurgence","openGameOver","openFighting"];
 
     private constructor() {
     }
@@ -24,6 +24,15 @@ export default class ViewMgr {
         this.openView({
             viewName: viewName,
             closeAll: true,
+        });
+    }
+
+
+    private openFighting(res){
+        this.openView({
+            viewName: "GameFighting.scene",
+            closeAll: true,
+            data:res
         });
     }
 

@@ -52,10 +52,7 @@ export default class MainViewLandscape extends BaseView {
         this.btnCollect = this.owner.getChildByName("btnCollect") as Laya.Button;
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
-
-
         this.adPlane = this.owner.getChildByName("ADPlane").getComponent(AdListLoop);
-
         this.btnInvite.y += this.offset.y/2;
         this.btnService.y += this.offset.y/2;
         this.btnRank.y += this.offset.y/2;
@@ -67,7 +64,6 @@ export default class MainViewLandscape extends BaseView {
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }
-
         Laya.timer.frameOnce(2,this,()=>{
             this.adPlane.init({
                 _cellWidth: 130,
@@ -109,16 +105,12 @@ export default class MainViewLandscape extends BaseView {
     }
     
     private btnCollectFunc() {
-       
-        // this.gameFightingCom.openProvocationOther(SORTTYPE.ENDLESS);
-        // ViewMgr.instance.openView({
-        //     viewName: "Resurgence.scene",
-        // });
-        // return;
-        ViewMgr.instance.openView({
-            viewName: "Collect.scene",
-            closeAll: true,
-        });
+        Laya.loader.load({ url: "res/atlas/collet.atlas", type: Laya.Loader.ATLAS }, Laya.Handler.create(this, () => {
+            ViewMgr.instance.openView({
+                viewName: "Collect.scene",
+                closeAll: true,
+            });
+        }))
     }
 
     private virbortBtnClick() {
@@ -200,13 +192,8 @@ export default class MainViewLandscape extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        ViewMgr.instance.openView({
-            viewName:"GameFighting.scene",
-        })
+        EventMgr.instance.emit("openFighting");
         EventMgr.instance.emit("gameStart");
-        this.closeView({
-            notDestroy:true
-        });
     }
 
     public removeEvent() {

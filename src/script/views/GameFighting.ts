@@ -25,8 +25,6 @@ export default class GameFighting extends BaseView {
     //测试按钮
     private btnResurgence:Laya.Label;
     private btnGameOver:Laya.Label;
-    private btnAddScore:Laya.Label;
-    private btnAddLevel:Laya.Label;
 
 
     onAwake() {
@@ -58,8 +56,6 @@ export default class GameFighting extends BaseView {
         //测试
         this.btnResurgence = this.owner.getChildByName("Test").getChildByName("resurgence") as Laya.Label;
         this.btnGameOver = this.owner.getChildByName("Test").getChildByName("gameOver") as Laya.Label;
-        this.btnAddScore = this.owner.getChildByName("Test").getChildByName("addScore") as Laya.Label;
-        this.btnAddLevel = this.owner.getChildByName("Test").getChildByName("addLevel") as Laya.Label;
     }
 
     private FigerAnim(): void {
@@ -79,7 +75,7 @@ export default class GameFighting extends BaseView {
         // let isEndLess = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS;
         let isEndLess = false;
         this.score.visible = isEndLess
-        this.progress.visible = !isEndLess;
+        this.progressNode.visible = !isEndLess;
     }
 
     public addEvent() {
@@ -98,12 +94,6 @@ export default class GameFighting extends BaseView {
          this.btnGameOver.on(Laya.Event.CLICK,this,()=>{
              this.closeView();
             EventMgr.instance.emit("openGameOver");
-         })
-         this.btnAddScore.on(Laya.Event.CLICK,this,()=>[
-
-         ])
-         this.btnAddLevel.on(Laya.Event.CLICK,this,()=>{
-
          })
     }
 

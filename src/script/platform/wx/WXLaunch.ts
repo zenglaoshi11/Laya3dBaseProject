@@ -23,7 +23,7 @@ export default class WXLaunch extends Laya.Script {
     private loadRes() {
         var resource: Array<any> = [
             { url: "res/atlas/beyond.atlas", type: Laya.Loader.ATLAS },
-            { url: "res/atlas/collet.atlas", type: Laya.Loader.ATLAS },
+            // { url: "res/atlas/collet.atlas", type: Laya.Loader.ATLAS },
             { url: "res/atlas/common.atlas", type: Laya.Loader.ATLAS },
             { url: "res/atlas/convergeAd.atlas", type: Laya.Loader.ATLAS },
             { url: "res/atlas/game.atlas", type: Laya.Loader.ATLAS },

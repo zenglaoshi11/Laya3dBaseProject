@@ -50,6 +50,7 @@ export default class GameOverLevel extends BaseView {
         this.btnNext.on(Laya.Event.CLICK,this,()=>{
             this.closeView();
             //跳转到下一关 TODO
+            EventMgr.instance.emit("openFighting");
         });
 
         this.btnHome.on(Laya.Event.CLICK,this,()=>{
@@ -59,6 +60,7 @@ export default class GameOverLevel extends BaseView {
         this.btnAgain.on(Laya.Event.CLICK,this,()=>{
             this.closeView();
             //在玩一次 TODO
+            EventMgr.instance.emit("openFighting");
         });
 
         this.btnFight.on(Laya.Event.CLICK,this,()=>{
@@ -99,7 +101,6 @@ export default class GameOverLevel extends BaseView {
     onRender(cell: Laya.Box, index: number): any {
         let img = cell.getChildAt(0) as Laya.Image;
         img.skin = this.adData[index].param;
-        console.log("初始化render:",this.adData[index].param);
     }
 
     onSelect(e:Laya.Event, index): void {
