@@ -174,10 +174,7 @@ export default class MainViewLandscape extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        ViewMgr.instance.openView({
-            viewName: "Rank.scene",
-            closeAll: false,
-        });
+        EventMgr.instance.emit("openRank",{_type:SORTTYPE.ENDLESS}); 
     }
 
     private btnStartFunc() {

@@ -121,7 +121,7 @@ export default class RankView extends BaseView {
         this.selfRankSprite.visible = false
         //打开子域排行榜 TODO
         if(PlatformMgr.subDomain){
-            PlatformMgr.subDomain.openFriendRank();
+            PlatformMgr.subDomain.openFriendRank({_type:this._data._type});
         }
     }
 
@@ -131,8 +131,8 @@ export default class RankView extends BaseView {
         this.friendBtn.off(Laya.Event.CLICK, this, this.friendRankClick);
         super.removeEvent();
     }
-    public openView(){
-        super.openView();
+    public openView(_data?:any){
+        super.openView(_data);
         this.worldRankClick();
     }
 

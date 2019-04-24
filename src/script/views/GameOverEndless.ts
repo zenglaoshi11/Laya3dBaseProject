@@ -36,41 +36,47 @@ export default class GameOverEndless extends BaseView {
         this.ADPlane.start(ConfigData.getAdData(1003));
     }
 
-
-    addEvent(){
-        this.btnHome.on(Laya.Event.CLICK,this,()=>{
-            EventMgr.instance.emit("goHome");
-        });
-
-        this.btnAgain.on(Laya.Event.CLICK,this,()=>{
-            this.closeView();
-            //再次挑战 TODO       
-            EventMgr.instance.emit("openFighting");     
-        });
-
-        this.btnFight.on(Laya.Event.CLICK,this,()=>{
-            let _d = {
-                caller:this,
-                callback:(res)=>{
-                    if(!res.success){
-                        EventMgr.instance.emit("openTip","分享失败");
-                    }
-                },
-            };
-            if(PlatformMgr.ptAPI)
-                PlatformMgr.ptAPI.shareAppMessage(_d,0);
-        });
-
-        this.btnRank.on(Laya.Event.CLICK,this,()=>{
-            //打开排行榜
-            ViewMgr.instance.openView({
-                viewName: "Rank.scene",
-                closeAll: false,
-            });
-        });
-
+    goHome(){
+        EventMgr.instance.emit("goHome");
     }
 
+    goFighting(){
+        //再次挑战 TODO       
+        EventMgr.instance.emit("openFighting"); 
+    }
+
+    goShare(){
+        let _d = {
+            caller:this,
+            callback:(res)=>{
+                if(!res.success){
+                    EventMgr.instance.emit("openTip","分享失败");
+                }
+            },
+        };
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.shareAppMessage(_d,0);
+    }
+
+    addEvent(){
+        this.btnHome.on(Laya.Event.CLICK,this,this.goHome);
+        this.btnAgain.on(Laya.Event.CLICK,this,this.goFighting);
+        this.btnFight.on(Laya.Event.CLICK,this,this.goShare);
+        this.btnRank.on(Laya.Event.CLICK,this,this.openRank);
+    }
+
+    removeEvent(){
+        this.btnHome.off(Laya.Event.CLICK,this,this.goHome);
+        this.btnAgain.off(Laya.Event.CLICK,this,this.goFighting);
+        this.btnFight.off(Laya.Event.CLICK,this,this.goShare);
+        this.btnRank.off(Laya.Event.CLICK,this,this.openRank);
+        super.removeEvent();
+    }
+    
+    openRank(){
+         //打开排行榜
+        EventMgr.instance.emit("openRank",{_type:SORTTYPE.ENDLESS}); 
+    }
     
     openView(data?: any){
         super.openView(data);

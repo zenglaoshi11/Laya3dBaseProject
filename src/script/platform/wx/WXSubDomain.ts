@@ -12,12 +12,12 @@ export default class WXSubDomain {
         this.wxOpenDataView.postMsg({ type: "closeFriendRank" });
     }
 
-    openFriendRank(): void {
+    openFriendRank(_d): void {
         if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
             return;
         }
         // Laya.timer.frameOnce(1, this, ()=> {
-            this.wxOpenDataView.postMsg({ type: "openFriendRank" });
+            this.wxOpenDataView.postMsg({ type: "openFriendRank" ,data:_d});
         // })
     }
 

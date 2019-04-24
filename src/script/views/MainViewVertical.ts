@@ -1,5 +1,5 @@
 import BaseView from "./BaseView";
-import ConfigData from "../models/ConfigData";
+import ConfigData, { SORTTYPE } from "../models/ConfigData";
 import MyUtils from "../tools/MyUtils";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
 import EventMgr from "../mgrCommon/EventMgr";
@@ -176,10 +176,7 @@ export default class MainViewVertical extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        ViewMgr.instance.openView({
-            viewName: "Rank.scene",
-            closeAll: false,
-        });
+        EventMgr.instance.emit("openRank",{_type:SORTTYPE.ENDLESS}); 
     }
 
     private btnStartFunc() {
