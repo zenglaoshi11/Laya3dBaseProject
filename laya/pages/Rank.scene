@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":6,
-    "selecteID":19,
+    "selectedBox":38,
+    "selecteID":39,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
@@ -315,17 +315,16 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,worldRankList",
-                    "props":{"y":-388,"x":-280,"width":560,"spaceY":18,"name":"worldRankList","height":688,"elasticEnabled":true},
+                    "props":{"y":-388,"width":560,"spaceY":18,"name":"worldRankList","height":688,"elasticEnabled":true,"centerX":0},
                     "nodeParent":6,
                     "label":"worldRankList",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":19,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":0,"x":0,"renderType":"render"},
@@ -338,7 +337,6 @@
                             "compId":31,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,bg",
                                     "props":{"y":0,"x":0,"width":559,"skin":"rank/bg_item.png","sizeGrid":"8,10,9,10","name":"bg","height":82},
@@ -353,7 +351,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,rankImg",
                                     "props":{"y":10,"x":14,"width":51,"skin":"rank/img_rank1.png","sizeGrid":"0,0,0,0","name":"rankImg","height":61},
@@ -368,7 +365,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,avatarImg",
                                     "props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","sizeGrid":"0,0,0,0","name":"avatarImg","height":68},
@@ -383,7 +379,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,nameLab",
                                     "props":{"y":34,"x":162,"width":110,"text":"这是昵称","overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#000000"},
@@ -398,7 +393,6 @@
                                     "$LOCKED":true
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,rankLab",
                                     "props":{"y":44,"x":39,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":30,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -413,7 +407,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,scoreLab",
                                     "props":{"y":41,"x":538,"width":109,"valign":"middle","strokeColor":"#2c11f1","overflow":"visible","name":"scoreLab","height":40,"fontSize":28,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":1,"align":"right"},
@@ -428,7 +421,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Script",
                                     "switchAble":true,
                                     "source":"src/script/views/rank/RankItem.ts",
