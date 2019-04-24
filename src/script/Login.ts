@@ -8,7 +8,6 @@ import EventMgr from "./mgrCommon/EventMgr";
 
 export default class Login extends Laya.Script{
 	login() {
-		HttpMgr.instance.getSystemConfig();
 		HttpMgr.instance.getRemoteJson((res)=>{
 			ConfigData.initConfigData(res,true);
 		});
@@ -20,15 +19,19 @@ export default class Login extends Laya.Script{
 		var self = this;
 		if (ConfigData.releasePlatform) {
 			PlatformMgr.ptAPI.doLogin({
-				success:this.loginSuccess,
-				fail:this.loginFun
+				success:(_d)=>{
+					self.loginSuccess(_d);
+				},
+				fail:(_d)=>{
+					self.loginFun();
+				}
 			});
 		} else {
 			var _d: any = {}
 			_d.code = "123";
 			_d.inviteId = '';
 			_d.channelId = "";
-			_d.success = this.loginSuccess;
+			_d.success = self.loginSuccess;
 			HttpMgr.instance.login(_d)
 		}
 	}
@@ -46,6 +49,9 @@ export default class Login extends Laya.Script{
 			UserData.openId = data.openid;
 			UserData.isNew = data.isNewUser;
 			UserData.exp = data.nowExp || 0;
+
+			HttpMgr.instance.getSystemConfig();
+			
 			//缓存用户信息到本地
 			StorageMgr.saveUserData();
 			if(PlatformMgr.ptAPI){

@@ -15,14 +15,14 @@ export default class HttpMgr {
         this._http.request({
             url: 'userLogin.action', data: _d, callback: (res) => {
                 if (res.code == 0) {
-                    UserData.sessionId = res.sessionId;
-                    StorageMgr.saveSession(UserData.sessionId);
+                    if(res.sessionId){
+                        UserData.sessionId = res.sessionId;
+                    }
                     if(_d.success){
                         _d.success(res)
                     }
                 }else{
                     // sessionId 过期
-                    StorageMgr.saveSession("");
                     UserData.sessionId = "";
                     if(_d.fail){
                         _d.fail(res)
