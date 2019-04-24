@@ -1,13 +1,14 @@
 import MyUtils from "../tools/MyUtils";
 import BaseView from "../views/BaseView";
 import EventMgr from "./EventMgr";
-import ConfigData, { MAINBTNSTYPE } from "../models/ConfigData";
+import ConfigData, { MAINBTNSTYPE, SORTTYPE } from "../models/ConfigData";
+import GameMgr from "../mgr3d/GameMgr";
 
 export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();
     private viewDic: any = {};
 
-    private events = ["goHome","openTip"];
+    private events = ["goHome","openTip","openResurgence","openGameOver"];
 
     private constructor() {
     }
@@ -23,6 +24,25 @@ export default class ViewMgr {
         this.openView({
             viewName: viewName,
             closeAll: true,
+        });
+    }
+
+    //打开复活
+    private openResurgence(res){
+        this.openView({
+            viewName: "Resurgence.scene",
+            closeAll: true,
+            data:res
+        });
+    }
+
+    //打开结算
+    private openGameOver(res){
+        let viewName = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS ? "GameOverEndless":"GameOverLevel.scene";
+        this.openView({
+            viewName: viewName,
+            closeAll: true,
+            data:res
         });
     }
 

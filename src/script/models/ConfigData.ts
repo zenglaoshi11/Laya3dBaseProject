@@ -7,13 +7,19 @@ export enum MAINBTNSTYPE {
 }
 
 export enum SORTTYPE {
-    LEVEL = 0,
-    ENDLESS
+    LEVEL = 0,  //关卡模式
+    ENDLESS     //无尽模式
+}
+
+export enum OPERATINGTYPE{ //游戏操作方式
+    DRAGE = 0, //左右拖拽
+    TOUCH      //点击屏幕
 }
 
 export default class ConfigData {
-    public static mainBtnsType:number = MAINBTNSTYPE.LANDSCAPE; //主页按钮排列方式使用哪种
-    public static mainAdMy:boolean;     //是否开启自己做的主页的广告条
+    public static mainBtnsType:number = 1;  //主页按钮排列方式使用哪种
+    public static beginnerGuide:number = 1; //新手引导类型
+    public static mainAdMy:boolean;         //是否开启自己做的主页的广告条
 
     public static releasePlatform = "";//发布平台 wx fb
     public static myAppid = "wxbe9fe00281505169";

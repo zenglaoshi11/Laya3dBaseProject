@@ -72,7 +72,7 @@ export default class MainViewLandscape extends BaseView {
             this.adPlane.init({
                 _cellWidth: 130,
                 _cellHeight:156,
-                _spaceX:23
+                _spaceX:22
             });
             this.adPlane.start(ConfigData.getAdData(1003));
         })
