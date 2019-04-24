@@ -265,6 +265,7 @@ export default class WXAPI {
 
     public createAuthorizationButton(_data) {
         if (Laya.Browser.onMiniGame) {
+            let self = this;
             wx.getSetting({
                 success: function (res) {
                     if (res.authSetting && res.authSetting["scope.userInfo"]) {
@@ -275,16 +276,16 @@ export default class WXAPI {
                         let xb = (Laya.Browser.width / Laya.Browser.pixelRatio) / sWidth;
                         let yb = (Laya.Browser.height / Laya.Browser.pixelRatio) / sHeight;
                         let left = (_data.x - _data.width / 2) * xb;
-                        let top = (_data.y + this.offsetOpenDomain.y - _data.height / 2) * yb;
+                        let top = (_data.y + self.offsetOpenDomain.y - _data.height / 2) * yb;
                         let width = _data.width * xb;
                         let height = (_data.height) * yb;
-                        // let backgroundColor = "#ffffff";
+                        let backgroundColor = "#ffffff";
                         if (_data.isFull) {
                             left = 0;
-                            top = (_data.y + this.offsetOpenDomain.y / 2) * yb;
+                            top = (_data.y + self.offsetOpenDomain.y / 2) * yb;
                             width = width;
                             height = height;
-                            // backgroundColor = "#ff0703";
+                            backgroundColor = "#ff0703";
                         }
                         let button = window["wx"].createUserInfoButton({
                             type: 'text',
@@ -297,8 +298,8 @@ export default class WXAPI {
                                 // backgroundColor: backgroundColor,
                             },
                         });
-                        if (this.btns) {
-                            this.btns.push({ "button": button, "isFull": _data.isFull });
+                        if (self.btns) {
+                            self.btns.push({ "button": button, "isFull": _data.isFull });
                         }
                         button.onTap((res) => {
                             if (res && res.userInfo) {
@@ -309,22 +310,22 @@ export default class WXAPI {
                                 StatisticsMgr.instance.authorStatistics();
                                 HttpMgr.instance.updateUserInfo();
 
-                                if (this.btns) {
-                                    this.btns.forEach(element => {
+                                if (self.btns) {
+                                    self.btns.forEach(element => {
                                         if (element) {
                                             element.button.destroy();
                                         }
                                     });
                                 }
-                                this.btns = null;
+                                self.btns = null;
                                 button.destroy();
                                 if (_data.successBack) {
-                                    _data.successBack.method.call(_data.successBack.caller);
+                                    _data.successBack();
                                 }
                             } else {
-                                this.destoryAuthorization();
+                                self.destoryAuthorization();
                                 if (_data.failBack) {
-                                    _data.failBack.method.call(_data.failBack.caller);
+                                    _data.failBack();
                                 }
                             }
                         });

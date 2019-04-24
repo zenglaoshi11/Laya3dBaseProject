@@ -12,7 +12,7 @@ export enum SORTTYPE {
 }
 
 export default class ConfigData {
-    public static mainBtnsType:number = 1; //主页按钮排列方式使用哪种
+    public static mainBtnsType:number = MAINBTNSTYPE.LANDSCAPE; //主页按钮排列方式使用哪种
     public static mainAdMy:boolean;     //是否开启自己做的主页的广告条
 
     public static releasePlatform = "";//发布平台 wx fb

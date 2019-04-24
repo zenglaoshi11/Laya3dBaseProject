@@ -23,9 +23,6 @@ export default class MainViewVertical extends BaseView {
 
     private btnStart:Laya.Button;
 
-    private gameFighting:Laya.Scene;
-    private gameFightingCom:GameFighting;
-
     private adPlane:AdListLoop;
 
     constructor() { 
@@ -62,14 +59,6 @@ export default class MainViewVertical extends BaseView {
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
-        Laya.Scene.load("GameFighting.scene",Laya.Handler.create(this,(scene:Laya.Scene)=>{
-            this.gameFighting = scene;
-            this.gameFightingCom = scene.getComponent(GameFighting);
-            scene.visible = false;
-            this.gameFighting.active = false;
-            Laya.stage.addChild(scene);
-        }))
-
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
@@ -89,56 +78,40 @@ export default class MainViewVertical extends BaseView {
         this.btnSound.on(Laya.Event.CLICK, this, this.soundBtnClick);
         this.btnVirbort.on(Laya.Event.CLICK, this, this.virbortBtnClick);
         
-        this.btnInvite.on(Laya.Event.CLICK, this, this.inviteClick);
-        this.btnService.on(Laya.Event.CLICK, this, this.serviceClick);
-        this.btnRank.on(Laya.Event.CLICK, this, this.rankClick);
-
-        this.btnStart.on(Laya.Event.CLICK, this, this.startClick);
+        this.btnRank.on(Laya.Event.CLICK, this, this.btnRankFunc);
+        this.btnService.on(Laya.Event.CLICK, this, this.btnServiceFunc);
+        this.btnInvite.on(Laya.Event.CLICK, this, this.btnInviteFunc);
+        this.btnStart.on(Laya.Event.CLICK, this, this.btnStartFunc);
 
         if(PlatformMgr.ptAdMgr){
             let self = this;
-            PlatformMgr.ptAPI.createAuthorizationButton({
-                x: self.btnStart.x,
-                y: self.title.y +  self.title.height - self.offset.y,
-                isFull: true,
-                width: self.btnStart.width,
-                height: self.btnStart.height,
-                successBack: new Laya.Handler(self, self.startClick),
-                failBack: new Laya.Handler(self, self.startClick)
-            })
-            //这里需要延迟2帧，可能需要更多
-            Laya.timer.frameOnce(2,this,()=>{
-                PlatformMgr.ptAPI.createAuthorizationButton({
-                    x: self.btnInvite.x,
-                    y: self.btnInvite.y +  self.btnInvite.height - self.offset.y,
-                    isFull: true,
-                    width: this.btnInvite.width,
-                    height: this.btnInvite.height,
-                    successBack: new Laya.Handler(self, self.inviteClick),
-                    failBack: new Laya.Handler(self, self.inviteClick)
-                });
-
-                PlatformMgr.ptAPI.createAuthorizationButton({
-                    x: self.btnService.x,
-                    y: self.btnService.y +  self.btnService.height - self.offset.y,
-                    isFull: true,
-                    width: self.btnService.width,
-                    height: self.btnService.height,
-                    successBack: new Laya.Handler(self, self.serviceClick),
-                    failBack: new Laya.Handler(self, self.serviceClick)
-                });
-
-                PlatformMgr.ptAPI.createAuthorizationButton({
-                    x: self.btnRank.x,
-                    y: self.btnRank.y +  self.btnRank.height - self.offset.y,
-                    isFull: true,
-                    width: self.btnRank.width,
-                    height: self.btnRank.height,
-                    successBack: new Laya.Handler(self, self.rankClick),
-                    failBack: new Laya.Handler(self, self.rankClick)
-                });
-
-            })
+            Laya.timer.frameOnce(20, this, function () {
+                new Promise((resolve,reject) => {
+                    PlatformMgr.ptAPI.createAuthorizationButton({
+                        x: self.btnStart.x,
+                        y: self.btnStart.y - this.offset.y,
+                        width: self.btnStart.width,
+                        isFull:true,
+                        height: self.btnStart.height,
+                        successBack: self[self.btnStart.name+"Func"],
+                        failBack:  self[self.btnStart.name+"Func"]
+                    });
+                    resolve(resolve);
+                }).then(()=>{
+                    let arr = [self.btnRank,self.btnService,self.btnInvite];
+                    for (let index = 0; index < arr.length; index++) {
+                        const btn = arr[index];
+                        PlatformMgr.ptAPI.createAuthorizationButton({
+                            x: btn.x,
+                            y: btn.y - this.offset.y,
+                            width: btn.width,
+                            height: btn.height,
+                            successBack: self[btn.name+"Func"],
+                            failBack: self[btn.name+"Func"]
+                        });
+                    }
+                })
+            });
         }
     }
     
@@ -162,7 +135,7 @@ export default class MainViewVertical extends BaseView {
         }
     }
 
-    private inviteClick() {
+    private btnInviteFunc() {
         if (this._isClick) {
             return;
         }
@@ -183,7 +156,7 @@ export default class MainViewVertical extends BaseView {
             PlatformMgr.ptAPI.shareAppMessage(_d,1);
     }
 
-    private serviceClick() {
+    private btnServiceFunc() {
         if (this._isClick) {
             return;
         }
@@ -195,7 +168,7 @@ export default class MainViewVertical extends BaseView {
             PlatformMgr.ptAPI.openCustomerServiceConversation();
     }
 
-    private rankClick() {
+    private btnRankFunc() {
         if (this._isClick) {
             return;
         }
@@ -209,7 +182,7 @@ export default class MainViewVertical extends BaseView {
         });
     }
 
-    private startClick() {
+    private btnStartFunc() {
         if (this._isClick) {
             return;
         }
@@ -221,10 +194,13 @@ export default class MainViewVertical extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
+        ViewMgr.instance.openView({
+            viewName:"GameFighting.scene",
+        })
         EventMgr.instance.emit("gameStart");
-        this.closeView();
-        this.gameFighting.visible = true;
-        this.gameFighting.active = true;
+        this.closeView({
+            notDestroy:true
+        });
     }
 
     public removeEvent() {
