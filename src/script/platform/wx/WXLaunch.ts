@@ -98,6 +98,7 @@ export default class WXLaunch extends Laya.Script {
         this.updateProgress(1);
         
         if (Laya.Browser.onMiniGame) {
+            console.log("透传到子域");
             Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
         }
         SoundMgr.instance.playBGM();
