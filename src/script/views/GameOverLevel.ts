@@ -1,6 +1,7 @@
 import BaseView from "./BaseView";
 import EventMgr from "../mgrCommon/EventMgr";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
+import ConfigData from "../models/ConfigData";
 
 export default class GameOverLevel extends BaseView {
     private btnNext:Laya.Image;
@@ -39,10 +40,9 @@ export default class GameOverLevel extends BaseView {
 
 
         this.adList = this.owner.getChildByName("img_ADBg").getChildByName("list_AD") as Laya.List;
-        this.adList.array = [];
         this.adList.renderHandler = new Laya.Handler(this, this.onRender);
         this.adList.vScrollBarSkin = "";
-        this.adData = [];
+        this.adData = ConfigData.getAdData(1005);
     }
 
     addEvent(){
@@ -79,9 +79,8 @@ export default class GameOverLevel extends BaseView {
     openView(data?: any){
         super.openView(data);
         //需要获取广告
-        //this.adData
-        // this.adList.array = this.adData;
-        // this.adList.refresh()
+        this.adList.array = this.adData;
+        this.adList.refresh()
 
         let isPass = false; //是否通关 这里需要自己赋值
         this.imgFail.visible = !isPass;
