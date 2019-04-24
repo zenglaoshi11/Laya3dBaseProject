@@ -194,13 +194,8 @@ export default class MainViewVertical extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        ViewMgr.instance.openView({
-            viewName:"GameFighting.scene",
-        })
+        EventMgr.instance.emit("openFighting");
         EventMgr.instance.emit("gameStart");
-        this.closeView({
-            notDestroy:true
-        });
     }
 
     public removeEvent() {

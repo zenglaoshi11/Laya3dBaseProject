@@ -51,6 +51,7 @@ export default class GameOverLevel extends BaseView {
         this.btnNext.on(Laya.Event.CLICK,this,()=>{
             this.closeView();
             //跳转到下一关 TODO
+            EventMgr.instance.emit("openFighting");
         });
 
         this.btnHome.on(Laya.Event.CLICK,this,()=>{
@@ -60,6 +61,7 @@ export default class GameOverLevel extends BaseView {
         this.btnAgain.on(Laya.Event.CLICK,this,()=>{
             this.closeView();
             //在玩一次 TODO
+            EventMgr.instance.emit("openFighting");
         });
 
         this.btnFight.on(Laya.Event.CLICK,this,()=>{
@@ -86,7 +88,7 @@ export default class GameOverLevel extends BaseView {
         }
         //需要获取广告
         this.adList.array = this.adData;
-        this.adList.refresh()
+        this.adList.refresh();
 
         this.imgFail.visible = !data.isPass;
         this.imgPass.visible = data.isPass;

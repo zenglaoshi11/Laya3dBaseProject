@@ -44,7 +44,8 @@ export default class GameOverEndless extends BaseView {
 
         this.btnAgain.on(Laya.Event.CLICK,this,()=>{
             this.closeView();
-            //再次挑战 TODO            
+            //再次挑战 TODO       
+            EventMgr.instance.emit("openFighting");     
         });
 
         this.btnFight.on(Laya.Event.CLICK,this,()=>{
@@ -74,8 +75,11 @@ export default class GameOverEndless extends BaseView {
     openView(data?: any){
         super.openView(data);
         this.wxOpenData.visible = true;
-        PlatformMgr.subDomain.setOpenView(this.wxOpenData);
-        PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
-        this.score.value = GameMgr.instance.getGameData().score.toString();
+        if(PlatformMgr.subDomain){
+            PlatformMgr.subDomain.setOpenView(this.wxOpenData);
+            PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
+        }
+        // this.score.value = GameMgr.instance.getGameData().score.toString();
+        this.score.value = "0";
     }
 }

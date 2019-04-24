@@ -222,13 +222,14 @@
             "props":{"y":96,"x":128,"name":"progress"},
             "nodeParent":2,
             "label":"progress",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":164,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,progressBg",
                     "props":{"y":25,"x":5,"width":482,"skin":"mainview/bg_progress.png","name":"progressBg","height":14},
@@ -242,9 +243,10 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,progress",
-                    "props":{"y":26,"x":66,"width":361,"skin":"mainview/bg_progressCurrent.png","sizeGrid":"5,5,5,5","name":"progress","height":12},
+                    "props":{"y":26,"x":66,"width":0,"skin":"mainview/bg_progressCurrent.png","sizeGrid":"5,5,5,5","name":"progress","height":12},
                     "nodeParent":164,
                     "label":"progress",
                     "isDirectory":false,
@@ -255,6 +257,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":0,"x":0,"width":70,"skin":"mainview/img_currentLevel.png","height":70},
@@ -269,6 +272,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":-1,"x":423,"skin":"mainview/img_nextLevel.png"},
@@ -282,6 +286,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,currLevelLab",
                     "props":{"y":18,"x":17,"width":32,"text":"15","name":"currLevelLab","height":22,"fontSize":28,"color":"#FFFFFF"},
@@ -295,6 +300,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,nextLevelLab",
                     "props":{"y":17,"x":438,"width":32,"text":"16","name":"nextLevelLab","height":22,"fontSize":28,"color":"#000000"},
@@ -346,34 +352,6 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":180,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "searchKey":"Label,addScore",
-                    "props":{"y":-78,"x":-60,"underline":true,"text":"增加分数","name":"addScore","fontSize":30,"color":"#ffffff"},
-                    "nodeParent":178,
-                    "label":"addScore",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":181,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "searchKey":"Label,addLevel",
-                    "props":{"y":157,"x":-90,"underline":true,"text":"增加关卡进度","name":"addLevel","fontSize":30,"color":"#ffffff"},
-                    "nodeParent":178,
-                    "label":"addLevel",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":182,
                     "child":[
                         ]
                 }]

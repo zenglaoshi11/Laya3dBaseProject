@@ -178,7 +178,8 @@ export default class Resurgence extends BaseView {
 
     //打开结算界面
     openOver() {
-
+        this.closeView();
+        EventMgr.instance.emit("openGameOver");
     }
 
 }
