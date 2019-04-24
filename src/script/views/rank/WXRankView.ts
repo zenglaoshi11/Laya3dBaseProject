@@ -31,7 +31,7 @@ export default class RankView extends BaseView {
         super.onAwake();
         this.closeBtn = this.owner.getChildByName("btnClose") as Laya.Image;
         this.wxOpenDataView = this.owner.getChildByName("wxOpenDataView") as Laya.WXOpenDataViewer;
-        let node = this.owner.getChildByName("content")
+        let node = this.owner.getChildByName("content") as Laya.Image;
         
         this.friendBtn = node.getChildByName("friendBtn") as Laya.Image;
         this.worldBtn = node.getChildByName("worldBtn") as Laya.Image;
@@ -41,7 +41,7 @@ export default class RankView extends BaseView {
         this.selectFriendRank = this.normalFriendRank.getChildByName("selectFriendRank") as Laya.Image;
         this.selectWorldRank = this.normalWorldRank.getChildByName("selectWorldRank") as Laya.Image;
 
-        
+        node.y = node.y + this.offset.y/2;
         this.wxOpenDataView.y = this.wxOpenDataView.y  + this.offset.y/2;
         if(PlatformMgr.subDomain){
             PlatformMgr.subDomain.setOpenView(this.wxOpenDataView);
