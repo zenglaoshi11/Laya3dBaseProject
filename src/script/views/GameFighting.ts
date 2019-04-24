@@ -76,14 +76,17 @@ export default class GameFighting extends BaseView {
             Laya.timer.frameLoop(1, this, this.FigerAnim);
         }
         // console.log("getGameData:",GameMgr.instance.getGameData());
-
         // let isEndLess = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS;
-        let isEndLess = true;
+        let isEndLess = false;
         this.score.visible = isEndLess
         this.progress.visible = !isEndLess;
     }
 
     public addEvent() {
+        this.mouseTouch.on(Laya.Event.CLICK,this,()=>{
+            this.dragBeginnerGuide.visible = false;
+        })
+
         EventMgr.instance.onEvent("updateScore",this,this.updataScore);
         EventMgr.instance.onEvent("updataProgress",this,this.updataProgress);
         EventMgr.instance.onEvent("updateLevel",this,this.updateLevel);

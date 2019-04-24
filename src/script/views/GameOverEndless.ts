@@ -74,8 +74,11 @@ export default class GameOverEndless extends BaseView {
     openView(data?: any){
         super.openView(data);
         this.wxOpenData.visible = true;
-        PlatformMgr.subDomain.setOpenView(this.wxOpenData);
-        PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
-        this.score.value = GameMgr.instance.getGameData().score.toString();
+        if(PlatformMgr.subDomain){
+            PlatformMgr.subDomain.setOpenView(this.wxOpenData);
+            PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
+        }
+        // this.score.value = GameMgr.instance.getGameData().score.toString();
+        this.score.value = "0";
     }
 }

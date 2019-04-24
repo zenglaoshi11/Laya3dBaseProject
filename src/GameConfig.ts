@@ -5,6 +5,7 @@ import ConvergeAd from "./script/views/ConvergeAd"
 import GameFighting from "./script/views/GameFighting"
 import AdListLoop from "./script/views/AdListLoop"
 import GameOverEndless from "./script/views/GameOverEndless"
+import GameOverLevel from "./script/views/GameOverLevel"
 import GoldenEggView from "./script/views/GoldenEggView"
 import WXLaunch from "./script/platform/wx/WXLaunch"
 import MainViewLandscape from "./script/views/MainViewLandscape"
@@ -38,6 +39,7 @@ export default class GameConfig{
         reg("script/views/GameFighting.ts",GameFighting);
         reg("script/views/AdListLoop.ts",AdListLoop);
         reg("script/views/GameOverEndless.ts",GameOverEndless);
+        reg("script/views/GameOverLevel.ts",GameOverLevel);
         reg("script/views/GoldenEggView.ts",GoldenEggView);
         reg("script/platform/wx/WXLaunch.ts",WXLaunch);
         reg("script/views/MainViewLandscape.ts",MainViewLandscape);

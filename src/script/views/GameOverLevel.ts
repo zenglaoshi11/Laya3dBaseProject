@@ -34,6 +34,7 @@ export default class GameOverLevel extends BaseView {
 
         this.imgFail = anchorUp.getChildByName("img_fail") as Laya.Image;
         this.imgPass = anchorUp.getChildByName("img_pass") as Laya.Image;
+        this.passName = anchorUp.getChildByName("ftc_passNum") as Laya.FontClip;
 
         this.imgFail.visible = false;
         this.imgPass.visible = false;
@@ -42,7 +43,7 @@ export default class GameOverLevel extends BaseView {
         this.adList = this.owner.getChildByName("img_ADBg").getChildByName("list_AD") as Laya.List;
         this.adList.renderHandler = new Laya.Handler(this, this.onRender);
         this.adList.vScrollBarSkin = "";
-        this.adData = ConfigData.getAdData(1005);
+        this.adList.array = [];
     }
 
     addEvent(){
@@ -79,8 +80,9 @@ export default class GameOverLevel extends BaseView {
     openView(data?: any){
         super.openView(data);
         //需要获取广告
+        this.adData = ConfigData.getAdData(1003);
         this.adList.array = this.adData;
-        this.adList.refresh()
+        this.adList.refresh();
 
         let isPass = false; //是否通关 这里需要自己赋值
         this.imgFail.visible = !isPass;
@@ -92,13 +94,12 @@ export default class GameOverLevel extends BaseView {
         //适配 是数字和“关”字居中
         let length  = passName.toString().length - 1;
         this.passName.x = 339 + 24 * length;
-        
-
     }
 
     onRender(cell: Laya.Box, index: number): any {
         let img = cell.getChildAt(0) as Laya.Image;
-        img.skin = this.adData[index].skin;
+        img.skin = this.adData[index].param;
+        console.log("初始化render:",this.adData[index].param);
     }
 
     onSelect(e:Laya.Event, index): void {
