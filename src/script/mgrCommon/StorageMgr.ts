@@ -29,10 +29,6 @@ export default class StorageMgr {
         }
     }
 
-    public static saveSession(_s){
-        StorageMgr.setStorage({key:"sessionId",val:_s});
-    }
-
     public static getLocalVirbort(){
         return MyUtils.isNull(StorageMgr.getStorage("virbort"));
     }
@@ -54,8 +50,6 @@ export default class StorageMgr {
             val:str
         });
     }
-
-    
 
     public static saveUserData(){
         let _d = {

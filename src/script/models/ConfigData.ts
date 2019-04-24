@@ -17,7 +17,7 @@ export enum OPERATINGTYPE{ //游戏操作方式
 }
 
 export default class ConfigData {
-    public static mainBtnsType:number = 1;  //主页按钮排列方式使用哪种
+    public static mainBtnsType:number = 0;  //主页按钮排列方式使用哪种
     public static beginnerGuide:number = 0; //新手引导类型
     public static mainAdMy:boolean;         //是否开启自己做的主页的广告条
 
@@ -29,7 +29,8 @@ export default class ConfigData {
 
     public static version = "100";
     public static jsonVersion = "100";
-    public static serverUrl: string = "https://xcx.biaocr.com/funny_frog/";
+    // public static serverUrl: string = "https://xcx.biaocr.com/funny_frog/";
+    public static serverUrl: string = "http://192.168.1.164:8080/funny_frog/";
     public static jsonVersionUrl: string = "https://p.doguane.cn/20190404/m_04171926352321.json";
     public static statisticsUrl:string = "https://log.zuancr.com/"
 
