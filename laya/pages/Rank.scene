@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":6,
+    "selecteID":46,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
-    "maxID":57,
+    "maxID":65,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -73,20 +73,18 @@
             "compId":6,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,rankBg",
                     "props":{"y":-396,"x":-299,"width":598,"skin":"rank/bg.png","sizeGrid":"7,16,22,16","name":"rankBg","height":849},
                     "nodeParent":6,
                     "label":"rankBg",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":8,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":-86,"x":0,"width":600,"skin":"rank/bg_rankTitle.png","sizeGrid":"23,9,30,9","height":86},
@@ -102,20 +100,18 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,normalFriendRank",
                     "props":{"y":-453,"x":-177,"skin":"rank/img_friend.png","name":"normalFriendRank"},
                     "nodeParent":6,
                     "label":"normalFriendRank",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":11,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,selectFriendRank",
                             "props":{"y":0,"x":0,"skin":"rank/img_friend_select.png","name":"selectFriendRank"},
@@ -133,20 +129,18 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,normalWorldRank",
                     "props":{"y":-453,"x":43,"skin":"rank/img_world.png","name":"normalWorldRank"},
                     "nodeParent":6,
                     "label":"normalWorldRank",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":12,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,selectWorldRank",
                             "props":{"y":0,"x":0,"skin":"rank/img_world_select.png","name":"selectWorldRank"},
@@ -164,7 +158,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,friendBtn",
                     "props":{"y":-476,"x":-211.5,"width":187,"name":"friendBtn","height":75},
@@ -179,7 +172,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,worldBtn",
                     "props":{"y":-476,"x":2,"width":189,"name":"worldBtn","height":75},
@@ -194,7 +186,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,line",
                     "props":{"y":321,"x":-280,"width":559,"skin":"rank/img_line.png","name":"line"},
@@ -208,20 +199,18 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,selfRankItem",
                     "props":{"y":344,"x":-280,"width":559,"skin":"rank/bg_myItem.png","sizeGrid":"8,10,9,10","name":"selfRankItem","height":82},
                     "nodeParent":6,
                     "label":"selfRankItem",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":38,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,rankImg",
                             "props":{"y":10,"x":14,"width":51,"skin":"rank/img_rank1.png","sizeGrid":"0,0,0,0","name":"rankImg","height":61},
@@ -236,7 +225,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,rankLab",
                             "props":{"y":44,"x":39,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":30,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -250,7 +238,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,avatarImg",
                             "props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","sizeGrid":"0,0,0,0","name":"avatarImg","height":68},
@@ -265,7 +252,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,nameLab",
                             "props":{"y":31,"x":162,"width":110,"text":"这是昵称","overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#000000"},
@@ -279,7 +265,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,scoreLab",
                             "props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1关","strokeColor":"#2c11f1","overflow":"hidden","name":"scoreLab","height":40,"fontSize":28,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},
@@ -293,7 +278,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/script/views/rank/RankItem.ts",
@@ -312,20 +296,18 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,worldRankList",
                     "props":{"y":-388,"x":-280,"width":560,"spaceY":18,"name":"worldRankList","height":688},
                     "nodeParent":6,
                     "label":"worldRankList",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":19,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":0,"x":0,"renderType":"render"},
@@ -338,7 +320,6 @@
                             "compId":31,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,bg",
                                     "props":{"y":0,"x":0,"width":559,"skin":"rank/bg_item.png","sizeGrid":"8,10,9,10","name":"bg","height":82},
@@ -353,7 +334,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,rankImg",
                                     "props":{"y":10,"x":14,"width":51,"skin":"rank/img_rank1.png","sizeGrid":"0,0,0,0","name":"rankImg","height":61},
@@ -368,7 +348,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,avatarImg",
                                     "props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","sizeGrid":"0,0,0,0","name":"avatarImg","height":68},
@@ -383,7 +362,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,nameLab",
                                     "props":{"y":34,"x":162,"width":110,"text":"这是昵称","overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#000000"},
@@ -398,7 +376,6 @@
                                     "$LOCKED":true
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,rankLab",
                                     "props":{"y":44,"x":39,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":30,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -413,7 +390,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,scoreLab",
                                     "props":{"y":41,"x":538,"width":109,"valign":"middle","strokeColor":"#2c11f1","overflow":"visible","name":"scoreLab","height":40,"fontSize":28,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":1,"align":"right"},
@@ -428,7 +404,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Script",
                                     "switchAble":true,
                                     "source":"src/script/views/rank/RankItem.ts",
@@ -453,13 +428,13 @@
             "x":15,
             "type":"WXOpenDataViewer",
             "searchKey":"WXOpenDataViewer,wxOpenDataView",
-            "props":{"y":272,"x":95,"width":561,"name":"wxOpenDataView","iconSign":"wx","height":791},
+            "props":{"y":544,"x":190,"width":561,"name":"wxOpenDataView","iconSign":"wx","height":828},
             "nodeParent":2,
             "label":"wxOpenDataView",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":46,
+            "compId":57,
             "child":[
                 ],
             "$HIDDEN":true
