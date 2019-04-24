@@ -25,7 +25,8 @@ export default class GameFighting extends BaseView {
     //测试按钮
     private btnResurgence:Laya.Label;
     private btnGameOver:Laya.Label;
-
+    private btnBeyond:Laya.Label;
+    private btnFight:Laya.Label;
 
     onAwake() {
         super.onAwake();
@@ -56,6 +57,8 @@ export default class GameFighting extends BaseView {
         //测试
         this.btnResurgence = this.owner.getChildByName("Test").getChildByName("resurgence") as Laya.Label;
         this.btnGameOver = this.owner.getChildByName("Test").getChildByName("gameOver") as Laya.Label;
+        this.btnBeyond = this.owner.getChildByName("Test").getChildByName("beyond") as Laya.Label;
+        this.btnFight = this.owner.getChildByName("Test").getChildByName("fight") as Laya.Label;
     }
 
     private FigerAnim(): void {
@@ -91,10 +94,18 @@ export default class GameFighting extends BaseView {
         this.btnResurgence.on(Laya.Event.CLICK,this,()=>{
             EventMgr.instance.emit("openResurgence");
         })
-         this.btnGameOver.on(Laya.Event.CLICK,this,()=>{
+        this.btnGameOver.on(Laya.Event.CLICK,this,()=>{
              this.closeView();
             EventMgr.instance.emit("openGameOver");
          })
+        this.btnBeyond.on(Laya.Event.CLICK,this,()=>{
+            //SORTTYPE.LEVEL
+            this.openSurpassOther(SORTTYPE.ENDLESS);
+        })
+        this.btnFight.on(Laya.Event.CLICK,this,()=>{
+            //SORTTYPE.LEVEL
+            this.openProvocationOther(SORTTYPE.ENDLESS);
+        })
     }
 
     public removeEvent() {
@@ -117,7 +128,7 @@ export default class GameFighting extends BaseView {
         this.nextLevelLab.text = (num + 1).toString();
     }
 
-
+    //打开挑衅
     openProvocationOther(_type): void {
         this.provocationOther.visible = true;
         (this.owner as Laya.Scene).visible = true;
@@ -130,6 +141,7 @@ export default class GameFighting extends BaseView {
         PlatformMgr.subDomain.closeProvocationOther();
     }
 
+    //打开超越
     openSurpassOther(_type): void {
         this.surpassOther.visible = true;
         (this.owner as Laya.Scene).visible = true;

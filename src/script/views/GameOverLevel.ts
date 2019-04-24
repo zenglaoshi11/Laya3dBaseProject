@@ -97,7 +97,7 @@ export default class GameOverLevel extends BaseView {
 
         //适配 是数字和“关”字居中
         let length  = data.passNum.toString().length - 1;
-        this.passNum.x = 339 + 24 * length;
+        this.passNum.x = 246 + 26 * length;
         
 
     }

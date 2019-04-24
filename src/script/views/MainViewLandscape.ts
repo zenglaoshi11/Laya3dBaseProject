@@ -105,7 +105,7 @@ export default class MainViewLandscape extends BaseView {
     }
     
     private btnCollectFunc() {
-        Laya.loader.load({ url: "res/atlas/collet.atlas", type: Laya.Loader.ATLAS }, Laya.Handler.create(this, () => {
+        Laya.loader.load([{ url: "res/atlas/collet.atlas", type: Laya.Loader.ATLAS }], Laya.Handler.create(this, () => {
             ViewMgr.instance.openView({
                 viewName: "Collect.scene",
                 closeAll: true,

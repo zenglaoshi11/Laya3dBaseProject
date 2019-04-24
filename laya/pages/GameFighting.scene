@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":178,
-    "selecteID":182,
+    "selectedBox":2,
+    "selecteID":145,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":183,
+    "maxID":185,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -181,7 +181,8 @@
             "hasChild":false,
             "compId":145,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -345,13 +346,41 @@
                     "x":30,
                     "type":"Label",
                     "searchKey":"Label,gameOver",
-                    "props":{"y":85,"x":-75,"underline":true,"text":"跳转到结算","name":"gameOver","fontSize":30,"color":"#ffffff"},
+                    "props":{"y":69,"x":-75,"underline":true,"text":"跳转到结算","name":"gameOver","fontSize":30,"color":"#ffffff"},
                     "nodeParent":178,
                     "label":"gameOver",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":180,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "searchKey":"Label,beyond",
+                    "props":{"y":137,"x":-60,"underline":true,"text":"显示超越","name":"beyond","fontSize":30,"color":"#ffffff"},
+                    "nodeParent":178,
+                    "label":"beyond",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":183,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "searchKey":"Label,fight",
+                    "props":{"y":206,"x":-60,"underline":true,"text":"显示挑衅","name":"fight","fontSize":30,"color":"#ffffff"},
+                    "nodeParent":178,
+                    "label":"fight",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":184,
                     "child":[
                         ]
                 }]

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":37,
+    "selecteID":32,
     "searchKey":"View",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -368,7 +368,7 @@
             "x":15,
             "type":"WXOpenDataViewer",
             "searchKey":"WXOpenDataViewer,wxOpenData",
-            "props":{"y":435,"x":0,"width":750,"name":"wxOpenData","iconSign":"wx","height":286},
+            "props":{"y":435,"x":60,"width":630,"name":"wxOpenData","iconSign":"wx","height":286},
             "nodeParent":2,
             "label":"wxOpenData",
             "isDirectory":false,
@@ -377,7 +377,7 @@
             "compId":32,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         }],
     "animations":[
         {

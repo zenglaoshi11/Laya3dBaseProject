@@ -48,7 +48,7 @@ export default class ViewMgr {
     //打开结算
     private openGameOver(res){
         // let isEndLess = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS;
-        let isEndLess = false;
+        let isEndLess = true;
         let viewName =  isEndLess?"GameOverEndless.scene":"GameOverLevel.scene";
         this.openView({
             viewName: viewName,
@@ -60,7 +60,7 @@ export default class ViewMgr {
     private openTip(res){
         this.openView({
             viewName: "Tip.scene",
-            closeAll: true,
+            closeAll: false,
             data:res
         });
     }
