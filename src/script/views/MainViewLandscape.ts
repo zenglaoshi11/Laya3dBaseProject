@@ -254,6 +254,7 @@ export default class MainViewLandscape extends BaseView {
         EventMgr.instance.emit("gameStart");
         this.gameFighting.visible = true;
         this.gameFighting.active = true;
+        this.gameFightingCom.openView();
     }
 
     public removeEvent() {

@@ -30,7 +30,7 @@ export default class Resurgence extends BaseView {
         this.btnVideo = this.btnAnchor.getChildByName("videoBtn") as Laya.Image;
         this.btnJump = this.btnAnchor.getChildByName("skipBtn") as Laya.Label;
         let progressBg = this.owner.getChildByName("progressBg") as Laya.Image;
-        this.progressMask = (progressBg.getChildByName("progress") as Laya.Image).mask as Laya.Image;
+        this.progressMask = (progressBg.getChildByName("progressBg") as Laya.Image).mask as Laya.Image;
         this.progressMask.graphics.drawPie(149, 149, 149, -90, this.endAngle, "#ff0000");
         this.reviveCount = progressBg.getChildByName("reviveCount") as Laya.Label;
         this.btnAnchor.y = this.offset.y;
@@ -40,7 +40,7 @@ export default class Resurgence extends BaseView {
     }
 
     addEvent() {
-        this.shareBtn.on(Laya.Event.CLICK, this, this.shareClick);
+        this.btnShare.on(Laya.Event.CLICK, this, this.shareClick);
         this.btnVideo.on(Laya.Event.CLICK, this, this.videoClick);
         this.btnJump.on(Laya.Event.CLICK, this, this.jumpClick);
     }

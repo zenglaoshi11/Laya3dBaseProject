@@ -19,7 +19,6 @@ export default class GameMgr extends Laya.Script {
         this._scene3d = this.owner as Laya.Scene3D;
         this._camera = this.owner.getChildByName("Main Camera") as Laya.Camera;
         // this._camera.farPlane = 33; //可以考虑这样提高性能
-
         //是否需要开启雾
         // this._scene3d.enableFog = true;
         // //设置雾化的颜色
