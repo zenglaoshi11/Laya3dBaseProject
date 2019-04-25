@@ -82,7 +82,7 @@ export default class GameOverEndless extends BaseView {
                 console.log("openGameOver");
                 this.openGameOver();
             }
-        }); 
+        });
     }
     
     openView(data?: any){
