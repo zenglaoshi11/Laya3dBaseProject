@@ -118,7 +118,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,addMinProgram",
-            "props":{"y":23,"x":374,"skin":"mainview/img_tjdxcx.png","name":"addMinProgram","anchorX":0.5},
+            "props":{"y":49,"x":374,"skin":"mainview/img_tjdxcx.png","name":"addMinProgram","anchorY":0.5,"anchorX":0.5},
             "nodeParent":2,
             "label":"addMinProgram",
             "isDirectory":false,
