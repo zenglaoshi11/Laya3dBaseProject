@@ -52,6 +52,10 @@ export default class HttpMgr {
 						isBanner:res.is_banner,//banner广告控制
 						adInfo: res.adInfo,
                     }
+                    if(res.bannerAdIds)
+                        ConfigData.bannerAdIds = res.bannerAdIds.split(",");
+                    if(res.rewardedAdIds)
+                        ConfigData.rewardedAdIds = res.rewardedAdIds.split(",");
                     if(res.is_banner){
                         ConfigData.mainAdMy = null;
                     }

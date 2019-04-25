@@ -42,9 +42,8 @@ export default class ConfigData {
     public static ctrlInfo: any = {};//游戏控制信息
     public static systemInfo: any = {};//设备系统信息
 
-    public static bannerVideoId:string = "adunit-7c4449f9f6fcafbb";
-    public static rewardedVideoId:string = "adunit-df0311118e2452c6";
-
+    public static bannerAdIds = ["adunit-7c4449f9f6fcafbb"];
+    public static rewardedAdIds = ["adunit-df0311118e2452c6"];
 
     public static initLocal(){
         ConfigData.isSound = StorageMgr.getLocalSound();

@@ -52,7 +52,9 @@ export default class WXAdMgr{
     public initVedioCom() {
         let self = this;
         if (this.isInited) {
-            this.rewardedVideoAd = window["wx"].createRewardedVideoAd({ adUnitId: ConfigData.rewardedVideoId });
+            this.rewardedVideoAd = window["wx"].createRewardedVideoAd({ 
+                adUnitId: ConfigData.rewardedAdIds[MyUtils.random(0,ConfigData.rewardedAdIds.length - 1)],
+            });
             if (this.rewardedVideoAd == undefined) {
                 return;
             }
@@ -138,7 +140,7 @@ export default class WXAdMgr{
         if (!this.bannerHome) {
             this.destroyBannerAdHome();
             this.bannerHome = window["wx"].createBannerAd({
-                adUnitId: ConfigData.bannerVideoId,
+                adUnitId: ConfigData.bannerAdId[MyUtils.random(0,ConfigData.bannerAdId.length - 1)],
                 style: {
                     left: 0,
                     top: screenH - 100,
@@ -190,8 +192,8 @@ export default class WXAdMgr{
         }   
         if (!this.bannerOther) {
             this.destroyBannerAdOther();
-            this.bannerOther = window["wx"].createBannerAd({
-                adUnitId: ConfigData.bannerVideoId,
+            this.bannerOther = window["wx"].createBannerAd({ConfigData.bannerAdId[MyUtils.random(0,ConfigData.bannerAdId.length - 1)],
+                adUnitId: 
                 style: {
                     left: 0,
                     top: screenH - 100,
