@@ -24,7 +24,8 @@ export default class GameFighting extends BaseView {
 
     //测试按钮
     private btnResurgence: Laya.Label;
-    private btnGameOver: Laya.Label;
+    private gameOverScore: Laya.Label;
+    private gameOverLevel: Laya.Label;
     private btnBeyond: Laya.Label;
     private btnFight: Laya.Label;
 
@@ -51,7 +52,8 @@ export default class GameFighting extends BaseView {
 
         //测试
         this.btnResurgence = this.owner.getChildByName("Test").getChildByName("resurgence") as Laya.Label;
-        this.btnGameOver = this.owner.getChildByName("Test").getChildByName("gameOver") as Laya.Label;
+        this.gameOverScore = this.owner.getChildByName("Test").getChildByName("gameOverScore") as Laya.Label;
+        this.gameOverLevel = this.owner.getChildByName("Test").getChildByName("gameOverLevel") as Laya.Label;
         this.btnBeyond = this.owner.getChildByName("Test").getChildByName("beyond") as Laya.Label;
         this.btnFight = this.owner.getChildByName("Test").getChildByName("fight") as Laya.Label;
     }
@@ -84,15 +86,20 @@ export default class GameFighting extends BaseView {
         EventMgr.instance.emit("openResurgence");
     }
 
-    openGameOver() {
-        EventMgr.instance.emit("openGameOver");
+    openGameOverLevel() {
+        EventMgr.instance.emit("openGameOverLevel");
+    }
+
+    openGameOverScore() {
+        EventMgr.instance.emit("openGameOverScore");
     }
 
     public addEvent() {
         super.addEvent();
         this.mouseTouch.on(Laya.Event.CLICK, this, this.mouseTouchFun);
         this.btnResurgence.on(Laya.Event.CLICK, this, this.openResurgence);
-        this.btnGameOver.on(Laya.Event.CLICK, this, this.openGameOver);
+        this.gameOverScore.on(Laya.Event.CLICK, this, this.openGameOverScore);
+        this.gameOverLevel.on(Laya.Event.CLICK, this, this.openGameOverLevel);
         this.btnBeyond.on(Laya.Event.CLICK, this, this.openSurpassOther);
         this.btnFight.on(Laya.Event.CLICK, this, this.openProvocationOther);
 
@@ -105,7 +112,8 @@ export default class GameFighting extends BaseView {
         super.removeEvent();
         this.mouseTouch.off(Laya.Event.CLICK, this, this.mouseTouchFun);
         this.btnResurgence.off(Laya.Event.CLICK, this, this.openResurgence);
-        this.btnGameOver.off(Laya.Event.CLICK, this, this.openGameOver);
+        this.gameOverScore.off(Laya.Event.CLICK, this, this.openGameOverScore);
+        this.gameOverLevel.off(Laya.Event.CLICK, this, this.openGameOverLevel);
         this.btnBeyond.off(Laya.Event.CLICK, this, this.openSurpassOther);
         this.btnFight.off(Laya.Event.CLICK, this, this.openProvocationOther);
 

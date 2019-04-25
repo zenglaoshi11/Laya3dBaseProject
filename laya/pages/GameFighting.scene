@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":185,
+    "selectedBox":178,
+    "selecteID":180,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":186,
+    "maxID":187,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -345,14 +345,28 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "searchKey":"Label,gameOver",
-                    "props":{"y":69,"x":-75,"underline":true,"text":"跳转到结算","name":"gameOver","fontSize":30,"color":"#ffffff"},
+                    "searchKey":"Label,gameOverScore",
+                    "props":{"y":69,"x":-200,"underline":true,"text":"跳转到分数结算","name":"gameOverScore","fontSize":30,"color":"#ffffff"},
                     "nodeParent":178,
-                    "label":"gameOver",
+                    "label":"gameOverScore",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":180,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "searchKey":"Label,gameOverLevel",
+                    "props":{"y":70,"x":100,"underline":true,"text":"跳转到关卡结算","name":"gameOverLevel","fontSize":30,"color":"#ffffff"},
+                    "nodeParent":178,
+                    "label":"gameOverLevel",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":186,
                     "child":[
                         ]
                 },
