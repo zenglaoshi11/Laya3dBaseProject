@@ -44,21 +44,21 @@ export default class HttpMgr {
 			url: 'getSystemParamList.action', data: { nowVersion: ConfigData.version }, callback: (res) => {
 				if (res.code == 0) {
 					ConfigData.ctrlInfo = {
-						isConverge: res.isConverge, //聚合开关
-						isShare: res.isShare,
-						isVideo: res.isVideo,
-						isWudian:res.isWudian, //误点开关
+						// isConverge: res.isConverge, //聚合开关
+						isShare: res.fuhuoControl,
+						isWudian:res.positionControl, //误点开关
 						shareInfo: res.shareInfo,
-                        isBanner:res.is_banner,//banner广告控制
+                        mainAdMy:res.noAd,//banner广告控制 //是否开启自己做的主页的广告条
                         adInfo: res.adInfo,
+                        isGoldeggs:res.isGoldeggs,//砸金蛋开关
                         lateDelay:res.lateDelay,//误点延时
                     }
-                    if(res.bannerAdIds)
+                    if(res.bannerAdIds){
                         ConfigData.bannerAdIds = res.bannerAdIds.split(",");
-                    if(res.rewardedAdIds)
+                    }
+                    if(res.rewardedAdIds){
+                        ConfigData.ctrlInfo.isVideo = true; //是否有视屏复活
                         ConfigData.rewardedAdIds = res.rewardedAdIds.split(",");
-                    if(res.is_banner){
-                        ConfigData.mainAdMy = null;
                     }
 				}
                 EventMgr.instance.emit("getSystemParamListBack");
