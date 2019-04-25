@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":58,
-    "selecteID":59,
+    "selectedBox":2,
+    "selecteID":58,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#ffffff","height":1334},
     "nodeParent":-1,
@@ -63,7 +63,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,content",
-            "props":{"y":667,"x":375,"name":"content"},
+            "props":{"y":667,"x":375,"visible":true,"name":"content"},
             "nodeParent":2,
             "label":"content",
             "isOpen":true,
@@ -194,17 +194,16 @@
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image,selfRankItem",
-                    "props":{"y":351,"x":-280,"width":559,"skin":"rank/bg_myItem.png","sizeGrid":"8,10,9,10","name":"selfRankItem","height":82},
+                    "props":{"y":351,"x":-280,"width":559,"visible":false,"skin":"rank/bg_myItem.png","sizeGrid":"8,10,9,10","name":"selfRankItem","height":82},
                     "nodeParent":6,
                     "label":"selfRankItem",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":58,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,rankImg",
                             "props":{"y":5,"x":9,"width":61,"skin":"rank/img_rank1.png","name":"rankImg","height":73},
@@ -219,7 +218,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,rankLab",
                             "props":{"y":44,"x":39,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":30,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -233,7 +231,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,avatarImg",
                             "props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","sizeGrid":"0,0,0,0","name":"avatarImg","height":68},
@@ -248,7 +245,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,nameLab",
                             "props":{"y":31,"x":162,"width":110,"text":"这是昵称","overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#000000"},
@@ -262,7 +258,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,scoreLab",
                             "props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1关","strokeColor":"#2c11f1","overflow":"hidden","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},
@@ -276,7 +271,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/script/views/rank/RankItem.ts",
@@ -313,17 +307,16 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,worldRankList",
-                    "props":{"y":-388,"x":-280,"width":560,"spaceY":18,"name":"worldRankList","height":688,"elasticEnabled":true,"centerX":0},
+                    "props":{"y":-388,"x":-280,"width":560,"visible":false,"spaceY":18,"name":"worldRankList","height":688,"elasticEnabled":true,"centerX":0},
                     "nodeParent":6,
                     "label":"worldRankList",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":19,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box",
                             "props":{"y":0,"renderType":"render"},
@@ -336,7 +329,6 @@
                             "compId":31,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,bg",
                                     "props":{"y":0,"x":0,"width":560,"skin":"rank/bg_item.png","sizeGrid":"8,10,9,10","name":"bg","height":82},
@@ -351,7 +343,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,rankImg",
                                     "props":{"y":5,"x":9,"width":61,"skin":"rank/img_rank1.png","name":"rankImg","height":73},
@@ -366,7 +357,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,avatarImg",
                                     "props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","sizeGrid":"0,0,0,0","name":"avatarImg","height":68},
@@ -381,7 +371,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,nameLab",
                                     "props":{"y":34,"x":162,"width":110,"text":"这是昵称","overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#000000"},
@@ -396,7 +385,6 @@
                                     "$LOCKED":true
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,rankLab",
                                     "props":{"y":44,"x":39,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":30,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -411,7 +399,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,scoreLab",
                                     "props":{"y":41,"x":538,"width":109,"valign":"middle","strokeColor":"#2c11f1","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":1,"align":"right"},
@@ -426,7 +413,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Script",
                                     "switchAble":true,
                                     "source":"src/script/views/rank/RankItem.ts",
@@ -446,21 +432,6 @@
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"WXOpenDataViewer",
-            "searchKey":"WXOpenDataViewer,wxOpenDataView",
-            "props":{"y":279,"x":95,"width":561,"name":"wxOpenDataView","iconSign":"wx","height":828},
-            "nodeParent":2,
-            "label":"wxOpenDataView",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":46,
-            "child":[
-                ],
-            "$HIDDEN":true
         },
         {
             "x":15,

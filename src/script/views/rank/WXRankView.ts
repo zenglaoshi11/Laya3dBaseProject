@@ -30,19 +30,17 @@ export default class RankView extends BaseView {
     onAwake(): void {
         super.onAwake();
         this.closeBtn = this.owner.getChildByName("btnClose") as Laya.Image;
-        this.wxOpenDataView = this.owner.getChildByName("wxOpenDataView") as Laya.WXOpenDataViewer;
         let node = this.owner.getChildByName("content") as Laya.Image;
-        
         this.friendBtn = node.getChildByName("friendBtn") as Laya.Image;
         this.worldBtn = node.getChildByName("worldBtn") as Laya.Image;
         this.normalFriendRank = node.getChildByName("normalFriendRank") as Laya.Image;
         this.normalWorldRank = node.getChildByName("normalWorldRank") as Laya.Image;
-        
         this.selectFriendRank = this.normalFriendRank.getChildByName("selectFriendRank") as Laya.Image;
         this.selectWorldRank = this.normalWorldRank.getChildByName("selectWorldRank") as Laya.Image;
 
         node.y = node.y + this.offset.y/2;
-        this.wxOpenDataView.y = this.wxOpenDataView.y  + this.offset.y/2;
+
+
         if(PlatformMgr.subDomain){
             PlatformMgr.subDomain.setOpenView(this.wxOpenDataView);
         }
@@ -99,14 +97,11 @@ export default class RankView extends BaseView {
     }
 
     worldRankClick(): any {
-        this.wxOpenDataView.visible = false;
         this.selectFriendRank.visible = false;
         this.selectWorldRank.visible = true;
-        this.worldRankList.visible = true;
-        this.selfRankSprite.visible = true
-        if(PlatformMgr.subDomain){
-            PlatformMgr.subDomain.closeFriendRank();
-        }
+        // this.worldRankList.visible = true;
+        // this.selfRankSprite.visible = true
+        this.closeFriendRank();
         if(this.worldData){
             this.setWorldRankDta();
         }else{
@@ -115,14 +110,32 @@ export default class RankView extends BaseView {
     }
 
     friendRankClick(): any {
-        this.wxOpenDataView.visible = true;
         this.selectFriendRank.visible = true;
         this.selectWorldRank.visible = false;
         this.worldRankList.visible = false;
-        this.selfRankSprite.visible = false
+        this.selfRankSprite.visible = false;
         //打开子域排行榜 TODO
         if(PlatformMgr.subDomain){
+            if(!this.wxOpenDataView){
+                this.wxOpenDataView = new Laya.WXOpenDataViewer();
+                this.owner.addChild(this.wxOpenDataView);
+            }
+            this.wxOpenDataView.width = 561;
+            this.wxOpenDataView.height = 828;
+            this.wxOpenDataView.pos(95,279);
+            this.wxOpenDataView.y = this.wxOpenDataView.y  + this.offset.y/2;
+            PlatformMgr.subDomain.setOpenView(this.wxOpenDataView);
             PlatformMgr.subDomain.openFriendRank({_type:this._data._type});
+        }
+    }
+
+    closeFriendRank(){
+        if(PlatformMgr.subDomain){
+            if(this.wxOpenDataView){
+                this.wxOpenDataView.destroy();
+                this.wxOpenDataView = null;
+            }
+            PlatformMgr.subDomain.closeFriendRank();
         }
     }
 
@@ -132,6 +145,7 @@ export default class RankView extends BaseView {
         this.friendBtn.off(Laya.Event.CLICK, this, this.friendRankClick);
         super.removeEvent();
     }
+
     public openView(_data?:any){
         super.openView(_data);
         this.worldRankClick();
@@ -140,8 +154,7 @@ export default class RankView extends BaseView {
     public closeView(){
         this.worldData = null;
         if(PlatformMgr.subDomain){
-            console.log("关闭排行榜");
-            PlatformMgr.subDomain.closeFriendRank();
+            this.closeFriendRank();
         }
         super.closeView();
     }
