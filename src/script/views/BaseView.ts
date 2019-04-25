@@ -30,8 +30,8 @@ export default class BaseView extends Laya.Script {
 
         if(this.addMinProgram){
             MyUtils.autoScreenSize([this.addMinProgram]);
-            this._minX = Laya.stage.width / 2 - this.addMinProgram.width / 2;
-            this._maxX = Laya.stage.width / 2 + this.addMinProgram.width / 2;
+            this._minX = Laya.stage.width / 2 -20;
+            this._maxX = Laya.stage.width / 2 + 20;
         }
         if(PlatformMgr.ptAPI)
             this.offset = PlatformMgr.ptAPI.getOffsetOpenDomain();
