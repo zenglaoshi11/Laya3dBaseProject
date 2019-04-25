@@ -106,8 +106,7 @@ export default class GameOverEndless extends BaseView {
         this.openGameOver();
         this.score.value = data.score.toString();
 
-        if (1) {
-        // if (ConfigData.ctrlInfo.isWudian) {
+        if (ConfigData.ctrlInfo.isWudian) {
             let btnJumpY = 560;
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
             this.btnAnchor.y = randomY;
