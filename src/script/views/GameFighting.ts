@@ -28,6 +28,8 @@ export default class GameFighting extends BaseView {
     private gameOverLevel: Laya.Label;
     private btnBeyond: Laya.Label;
     private btnFight: Laya.Label;
+    private btnAddScore:Laya.Label;
+    private btnAddProgress:Laya.Label;
 
     onAwake() {
         super.onAwake();
@@ -60,6 +62,8 @@ export default class GameFighting extends BaseView {
         this.gameOverLevel = this.owner.getChildByName("Test").getChildByName("gameOverLevel") as Laya.Label;
         this.btnBeyond = this.owner.getChildByName("Test").getChildByName("beyond") as Laya.Label;
         this.btnFight = this.owner.getChildByName("Test").getChildByName("fight") as Laya.Label;
+        this.btnAddProgress = this.owner.getChildByName("Test").getChildByName("addProgress") as Laya.Label;
+        this.btnAddScore = this.owner.getChildByName("Test").getChildByName("addScore") as Laya.Label;
     }
 
     private FigerAnim(): void {
@@ -77,8 +81,8 @@ export default class GameFighting extends BaseView {
         }
         // console.log("getGameData:",GameMgr.instance.getGameData());
         // let isEndLess = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS;
-        let isEndLess = false;
-        this.score.visible = isEndLess
+        let isEndLess = true;
+        this.score.visible = isEndLess;
         this.progressNode.visible = !isEndLess;
     }
 
@@ -107,6 +111,9 @@ export default class GameFighting extends BaseView {
         this.btnBeyond.on(Laya.Event.CLICK, this, this.openSurpassOther);
         this.btnFight.on(Laya.Event.CLICK, this, this.openProvocationOther);
 
+        this.btnAddProgress.on(Laya.Event.CLICK,this,this.addProgress);
+        this.btnAddScore.on(Laya.Event.CLICK,this,this.addScore);
+
         EventMgr.instance.onEvent("updateScore", this, this.updataScore);
         EventMgr.instance.onEvent("updataProgress", this, this.updataProgress);
         EventMgr.instance.onEvent("updateLevel", this, this.updateLevel);
@@ -121,13 +128,34 @@ export default class GameFighting extends BaseView {
         this.btnBeyond.off(Laya.Event.CLICK, this, this.openSurpassOther);
         this.btnFight.off(Laya.Event.CLICK, this, this.openProvocationOther);
 
+        this.btnAddScore.off(Laya.Event.CLICK, this, this.addScore);
+        this.btnAddProgress.off(Laya.Event.CLICK, this, this.addProgress);
+
         EventMgr.instance.onOffEvent("updateScore", this, this.updataScore);
         EventMgr.instance.onOffEvent("updataProgress", this, this.updataProgress);
         EventMgr.instance.onOffEvent("updateLevel", this, this.updateLevel);
     }
 
+    private testScore = 0;
+    addScore(){
+        this.testScore++;
+        EventMgr.instance.emit("updateScore");
+        this.score.visible = true;
+        this.progressNode.visible = false;
+    }
+
+    private progressNum = 0;
+    addProgress(){
+        this.progressNum += 0.1;
+        EventMgr.instance.emit("updataProgress",this.progressNum);
+        this.score.visible = false;
+        this.progressNode.visible = true;
+    }
+
+
     updataScore() {
-        this.score.value = GameMgr.instance.getGameData().score.toString();
+        // this.score.value = GameMgr.instance.getGameData().score.toString();
+        this.score.value = this.testScore.toString();
     }
 
     updataProgress(num: number) {
@@ -194,7 +222,6 @@ export default class GameFighting extends BaseView {
             PlatformMgr.subDomain.closeSurpassOther();
         }
     }
-
 
     onDisable(): void {
         this.closeProvocationOther();

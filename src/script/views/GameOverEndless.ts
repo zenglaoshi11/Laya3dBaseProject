@@ -104,6 +104,11 @@ export default class GameOverEndless extends BaseView {
         }
         super.openView(data);
         this.openGameOver();
+        // this.score.value = GameMgr.instance.getGameData().score.toString();
+        this.score.value = "0";
+        if(ConfigData.ctrlInfo.isGoldeggs){
+            EventMgr.instance.emit("openGoldenEggView");
+        }
         this.score.value = data.score.toString();
 
         if (ConfigData.ctrlInfo.isWudian) {
@@ -120,7 +125,6 @@ export default class GameOverEndless extends BaseView {
             if(PlatformMgr.ptAdMgr)
                 PlatformMgr.ptAdMgr.showBannerAdClassicEndFast();
         }
-        
     }
 
     openGameOver(){
