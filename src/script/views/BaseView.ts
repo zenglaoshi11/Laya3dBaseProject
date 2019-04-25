@@ -75,6 +75,8 @@ export default class BaseView extends Laya.Script {
     }
 
     public closeView(_d?:any) {
+        if(!this.owner)
+            return;
         var _viewName:string = (this.owner as Laya.View).url;
         if(_d && _d.notDestroy){
             ViewMgr.instance.hideView(_viewName);

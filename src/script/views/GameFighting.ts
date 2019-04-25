@@ -166,8 +166,8 @@ export default class GameFighting extends BaseView {
     }
 
     //打开超越
-    // openSurpassOther(_type): void { //正式使用
-    openSurpassOther(event,_type): void { //仅供测试
+    openSurpassOther(_type): void {
+        _type = SORTTYPE.ENDLESS
         this.closeProvocationOther();
         if (!this.surpassOther) {
             this.surpassOther = new Laya.WXOpenDataViewer();
@@ -176,6 +176,7 @@ export default class GameFighting extends BaseView {
             this.surpassOther.height = 60;
             this.surpassOther.pos(570, 304);
         }
+        this.surpassOtherText.visible = true;
         PlatformMgr.subDomain.setOpenView(this.surpassOther);
         PlatformMgr.subDomain.openSurpassOther({
             _type: _type,
@@ -184,6 +185,7 @@ export default class GameFighting extends BaseView {
     }
 
     closeSurpassOther(): void {
+        this.surpassOtherText.visible = false;
         if (this.surpassOther) {
             this.surpassOther.destroy();
             this.surpassOther = null;
