@@ -97,6 +97,8 @@ export default class GameOverEndless extends BaseView {
         if(PlatformMgr.subDomain){
             // console.log("")
             this.wxOpenData.visible = true;
+            this.wxOpenData.width = 630;
+            this.wxOpenData.height = 286;
             PlatformMgr.subDomain.setOpenView(this.wxOpenData);
             PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
         }
