@@ -64,6 +64,8 @@ export default class MainViewLandscape extends BaseView {
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }
+        if(!ConfigData.ctrlInfo.mainAdMy)
+            return;
         Laya.timer.frameOnce(2,this,()=>{
             this.adPlane.init({
                 _cellWidth: 130,

@@ -19,7 +19,6 @@ export enum OPERATINGTYPE{ //游戏操作方式
 export default class ConfigData {
     public static mainBtnsType:number = 0;  //主页按钮排列方式使用哪种
     public static beginnerGuide:number = 0; //新手引导类型
-    public static mainAdMy:boolean;         //是否开启自己做的主页的广告条
 
     public static releasePlatform = "";//发布平台 wx fb
     public static myAppid = "wxbe9fe00281505169";
