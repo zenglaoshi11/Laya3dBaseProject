@@ -2,7 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":185,
+    "selecteID":146,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -158,46 +158,16 @@
         {
             "x":15,
             "type":"Text",
-            "searchKey":"Text",
-            "props":{"y":270,"x":574,"width":52,"text":"超越","height":26,"fontSize":26,"color":"#2B2B2B"},
+            "searchKey":"Text,surpassOtherText",
+            "props":{"y":270,"x":574,"width":52,"text":"超越","name":"surpassOtherText","height":26,"fontSize":26,"color":"#2B2B2B"},
             "nodeParent":2,
-            "label":"Text",
+            "label":"surpassOtherText",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":146,
             "child":[
                 ]
-        },
-        {
-            "x":15,
-            "type":"WXOpenDataViewer",
-            "searchKey":"WXOpenDataViewer,surpassOther",
-            "props":{"y":304,"x":570,"width":60,"name":"surpassOther","iconSign":"wx","height":60},
-            "nodeParent":2,
-            "label":"surpassOther",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":145,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"WXOpenDataViewer",
-            "searchKey":"WXOpenDataViewer,provocationOther",
-            "props":{"y":252,"x":0,"width":750,"name":"provocationOther","iconSign":"wx","height":62},
-            "nodeParent":2,
-            "label":"provocationOther",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":147,
-            "child":[
-                ],
-            "$HIDDEN":true
         },
         {
             "x":15,
@@ -214,7 +184,8 @@
             "hasChild":false,
             "compId":151,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,

@@ -18,7 +18,7 @@ export default class GameFighting extends BaseView {
     private progress: Laya.Image; //进度条
     private currLevelLab: Laya.Label;
     private nextLevelLab: Laya.Label;
-
+    private surpassOtherText:Laya.Label; //超越
     private mouseTouch: Laya.Image;
 
 
@@ -42,6 +42,10 @@ export default class GameFighting extends BaseView {
 
         this.nextLevelLab = this.progressNode.getChildByName("nextLevelLab") as Laya.Label;
         this.currLevelLab = this.progressNode.getChildByName("currLevelLab") as Laya.Label;
+
+        this.surpassOtherText = this.owner.getChildByName("surpassOtherText") as Laya.Label;
+
+        this.surpassOtherText.visible = false;
 
         this.score.visible = false;
         this.progressNode.visible = false;
@@ -129,7 +133,8 @@ export default class GameFighting extends BaseView {
     }
 
     //打开挑衅
-    openProvocationOther(_type): void {
+    // openProvocationOther(_type): void {  //正式使用
+    openProvocationOther(event,_type): void { //仅供测试
         this.closeSurpassOther();
         if (!this.provocationOther) {
             this.provocationOther = new Laya.WXOpenDataViewer();
@@ -139,7 +144,7 @@ export default class GameFighting extends BaseView {
             this.provocationOther.pos(0, 252);
         }
         PlatformMgr.subDomain.setOpenView(this.provocationOther);
-        PlatformMgr.subDomain.openProvocationOther(_type);
+        PlatformMgr.subDomain.openProvocationOther({_type:_type});
     }
 
     closeProvocationOther(): void {
@@ -153,7 +158,8 @@ export default class GameFighting extends BaseView {
     }
 
     //打开超越
-    openSurpassOther(_type): void {
+    // openSurpassOther(_type): void { //正式使用
+    openSurpassOther(event,_type): void { //仅供测试
         this.closeProvocationOther();
         if (!this.surpassOther) {
             this.surpassOther = new Laya.WXOpenDataViewer();
@@ -177,5 +183,12 @@ export default class GameFighting extends BaseView {
         if (PlatformMgr.subDomain) {
             PlatformMgr.subDomain.closeSurpassOther();
         }
+    }
+
+
+    onDisable(): void {
+        this.closeProvocationOther();
+        this.closeSurpassOther();
+        super.onDisable();
     }
 }

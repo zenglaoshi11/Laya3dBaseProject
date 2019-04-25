@@ -2,7 +2,7 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":28,
+    "selecteID":13,
     "searchKey":"Scene",
     "props":{"width":750,"sceneColor":"#7a7575","height":1334},
     "nodeParent":-1,
@@ -33,7 +33,7 @@
             "x":15,
             "type":"WXOpenDataViewer",
             "searchKey":"WXOpenDataViewer,goingSurpassOther",
-            "props":{"y":131,"x":0,"width":750,"name":"goingSurpassOther","iconSign":"wx","height":92,"anchorY":0.5,"anchorX":0},
+            "props":{"y":131,"x":0,"width":750,"visible":false,"name":"goingSurpassOther","iconSign":"wx","height":92,"anchorY":0.5,"anchorX":0},
             "nodeParent":2,
             "label":"goingSurpassOther",
             "isDirectory":false,
@@ -42,7 +42,7 @@
             "compId":13,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

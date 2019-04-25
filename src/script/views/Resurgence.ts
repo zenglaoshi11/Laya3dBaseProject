@@ -5,7 +5,7 @@ import EventMgr from "../mgrCommon/EventMgr";
 import MyUtils from "../tools/MyUtils";
 
 export default class Resurgence extends BaseView {
-    private goingSurpassOther;
+    private goingSurpassOther:Laya.WXOpenDataViewer;
     private btnAnchor: Laya.Image;
     private btnShare: Laya.Image;
     private btnVideo: Laya.Image;
@@ -23,8 +23,6 @@ export default class Resurgence extends BaseView {
     onAwake(): void {
         super.onAwake();
         this.endAngle = -90;
-        this.goingSurpassOther = this.owner.getChildByName("goingSurpassOther");
-        this.goingSurpassOther.visible = false;
         this.btnAnchor = this.owner.getChildByName("btnAnchor") as Laya.Image;
         this.btnShare = this.btnAnchor.getChildByName("shareBtn") as Laya.Image;
         this.btnVideo = this.btnAnchor.getChildByName("videoBtn") as Laya.Image;
@@ -35,8 +33,6 @@ export default class Resurgence extends BaseView {
         this.reviveCount = progressBg.getChildByName("reviveCount") as Laya.Label;
         this.btnAnchor.y = this.offset.y;
         this.isLoadAD = false;
-
-
     }
 
     addEvent() {
@@ -94,8 +90,14 @@ export default class Resurgence extends BaseView {
     }
 
     openGoingSurpassOther(_type): void {
-        this.goingSurpassOther.visible = true;
         if (PlatformMgr.subDomain) {
+            if(!this.goingSurpassOther){
+                this.goingSurpassOther = new Laya.WXOpenDataViewer();
+                this.owner.addChild(this.goingSurpassOther);
+            }
+            this.goingSurpassOther.pos(0,131);
+            this.goingSurpassOther.width = 750;
+            this.goingSurpassOther.height = 92;
             PlatformMgr.subDomain.setOpenView(this.goingSurpassOther);
             PlatformMgr.subDomain.openGoingSurpassOther(_type);
         }
@@ -104,7 +106,10 @@ export default class Resurgence extends BaseView {
     closeGoingSurpassOther(): void {
         if (PlatformMgr.subDomain) {
             PlatformMgr.subDomain.closeGoingSurpassOther();
-            console.log("关闭超越");
+            if(this.goingSurpassOther){
+                this.goingSurpassOther.destroy();
+                this.goingSurpassOther = null;
+            }
         }
     }
 
@@ -187,6 +192,7 @@ export default class Resurgence extends BaseView {
         });
         this.closeView();
         //打开结算界面
+        this.openOver();
     }
 
     //打开结算界面

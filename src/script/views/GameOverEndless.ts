@@ -90,6 +90,8 @@ export default class GameOverEndless extends BaseView {
         this.openGameOver();
         // this.score.value = GameMgr.instance.getGameData().score.toString();
         this.score.value = "0";
+
+        // if(ConfigData.ctrlInfo.)
     }
 
     openGameOver(){

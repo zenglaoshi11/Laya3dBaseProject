@@ -49,7 +49,7 @@ export default class HttpMgr {
 						isVideo: res.isVideo,
 						isWudian:res.isWudian, //误点开关
 						shareInfo: res.shareInfo,
-                    isBanner:res.is_banner,//banner广告控制
+                        isBanner:res.is_banner,//banner广告控制
                         adInfo: res.adInfo,
                         lateDelay:res.lateDelay,//误点延时
                     }
