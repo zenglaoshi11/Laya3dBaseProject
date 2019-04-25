@@ -192,8 +192,8 @@ export default class WXAdMgr{
         }   
         if (!this.bannerOther) {
             this.destroyBannerAdOther();
-            this.bannerOther = window["wx"].createBannerAd({ConfigData.bannerAdId[MyUtils.random(0,ConfigData.bannerAdId.length - 1)],
-                adUnitId: 
+            this.bannerOther = window["wx"].createBannerAd({
+                adUnitId: ConfigData.bannerAdId[MyUtils.random(0,ConfigData.bannerAdId.length - 1)],
                 style: {
                     left: 0,
                     top: screenH - 100,
