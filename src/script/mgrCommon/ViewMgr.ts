@@ -8,7 +8,7 @@ export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();
     private viewDic: any = {};
 
-    private events = ["goHome","openTip","openResurgence","openGameOver","openFighting","openRank","openGoldenEggView"];
+    private events = ["goHome","openTip","openResurgence","openGameOverLevel",,"openGameOverScore","openFighting","openRank","openGoldenEggView"];
 
     private constructor() {
     }
@@ -53,10 +53,19 @@ export default class ViewMgr {
     }
 
     //打开结算
-    private openGameOver(res){
-        // let isEndLess = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS;
+    private openGameOverScore(res){
+        let viewName =  "GameOverEndless.scene";
+        this.openView({
+            viewName: viewName,
+            closeAll: true,
+            data:res
+        });
+    }
+
+     //打开结算
+     private openGameOverLevel(res){
         let isEndLess = true;
-        let viewName =  isEndLess?"GameOverEndless.scene":"GameOverLevel.scene";
+        let viewName = "GameOverLevel.scene";
         this.openView({
             viewName: viewName,
             closeAll: true,

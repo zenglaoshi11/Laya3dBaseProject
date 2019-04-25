@@ -31,21 +31,6 @@
         },
         {
             "x":15,
-            "type":"WXOpenDataViewer",
-            "searchKey":"WXOpenDataViewer,goingSurpassOther",
-            "props":{"y":131,"x":0,"width":750,"visible":false,"name":"goingSurpassOther","iconSign":"wx","height":92,"anchorY":0.5,"anchorX":0},
-            "nodeParent":2,
-            "label":"goingSurpassOther",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":13,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,progressBg",
             "props":{"y":317,"x":229,"width":294,"skin":"game/bg_quan2.png","name":"progressBg","height":294},
@@ -161,7 +146,7 @@
                     "x":30,
                     "type":"Label",
                     "searchKey":"Label,skipBtn",
-                    "props":{"y":421,"x":-60,"underline":true,"text":"点击跳过","name":"skipBtn","fontSize":30,"font":"SimHei","color":"#ffffff"},
+                    "props":{"y":420,"x":-60,"underline":true,"text":"点击跳过","name":"skipBtn","fontSize":30,"font":"SimHei","color":"#ffffff"},
                     "nodeParent":12,
                     "label":"skipBtn",
                     "isDirectory":false,

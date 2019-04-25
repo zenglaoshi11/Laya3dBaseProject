@@ -18,7 +18,9 @@ export default class Resurgence extends BaseView {
     private goShareAdc: boolean = false; //分享或者看视频
 
 
-    constructor() { super(); }
+    constructor() { 
+        super(); 
+    }
 
     onAwake(): void {
         super.onAwake();
@@ -73,18 +75,22 @@ export default class Resurgence extends BaseView {
         this.reviveCount.text = "10";
         Laya.timer.loop(1000, this, this.countDown);
 
-        let btnJumpY = 560;
         this.btnVideo.visible = ConfigData.ctrlInfo.isVideo == 1;
         this.btnShare.visible = ConfigData.ctrlInfo.isShare == 1;
         if (ConfigData.ctrlInfo.isWudian) {
+            let btnJumpY = 560;
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
             let centerX = Laya.stage.width / 2;
             let randomX = MyUtils.random(centerX - 30, centerX + 30);
             this.btnJump.pos(randomX, randomY);
-            Laya.timer.once(700, this, () => {
-                Laya.Tween.to(this.btnJump, { x: centerX, y: 420 }, 500, Laya.Ease.backOut, null, 500);
+            Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
+                if(PlatformMgr.ptAdMgr)
+                    PlatformMgr.ptAdMgr.showBannerAdOtherFast();
+                Laya.Tween.to(this.btnJump, {y: 420 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
+            if(PlatformMgr.ptAdMgr)
+                PlatformMgr.ptAdMgr.showBannerAdOtherFast();
             this.btnJump.y = 340;
         }
     }
@@ -113,7 +119,16 @@ export default class Resurgence extends BaseView {
         }
     }
 
+    onEnable():void{
+        super.onEnable();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.showBannerAdOther(true);
+    }
+
     onDisable(): void {
+        super.onDisable();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.destroyBannerAdOther();
         this.closeGoingSurpassOther();
     }
 

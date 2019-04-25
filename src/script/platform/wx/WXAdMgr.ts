@@ -25,9 +25,9 @@ export default class WXAdMgr{
     public videoPlayedTimes: number;
 
 
-    private preBannerTime_Home: any;
-    private preBannerTime_Other: any;
-    private preBannerTime_ClassicEnd: any;
+    private preBannerTimeHome: any;
+    private preBannerTimeOther: any;
+    private preBannerTimeClassicEnd: any;
 
     /**
      *
@@ -44,9 +44,9 @@ export default class WXAdMgr{
             this.isInited = true;
             this.initVedioCom();
         }
-        this.preBannerTime_Home = Laya.timer.currTimer;
-        this.preBannerTime_Other = Laya.timer.currTimer;
-        this.preBannerTime_ClassicEnd = Laya.timer.currTimer;
+        this.preBannerTimeHome = Laya.timer.currTimer;
+        this.preBannerTimeOther = Laya.timer.currTimer;
+        this.preBannerTimeClassicEnd = Laya.timer.currTimer;
     }
 
     public initVedioCom() {
@@ -131,7 +131,7 @@ export default class WXAdMgr{
         let _width = Laya.stage.width / 2 - 140;
         let screenH = ConfigData.systemInfo.windowHeight;
         this.bannerHomeIsHide = false;
-        if(Laya.timer.currTimer - this.preBannerTime_Home > 30000){
+        if(Laya.timer.currTimer - this.preBannerTimeHome > 30000){
             if(this.bannerHome){
                 this.bannerHome.destroy();
                 this.bannerHome = null;
@@ -165,7 +165,7 @@ export default class WXAdMgr{
             //     }
             //     this.bannerHome.show();
             // })
-            this.preBannerTime_Home = Laya.timer.currTimer;
+            this.preBannerTimeHome = Laya.timer.currTimer;
         }
         if(onlyLoad){
             return;
@@ -175,7 +175,15 @@ export default class WXAdMgr{
         }
     }
 
-    public showBannerAdOther() {
+    public showBannerAdOtherFast() {
+        if (!this.bannerOther) {
+            this.showBannerAdOther();
+        }else{
+            this.bannerOther.show();
+        }
+    }
+
+    public showBannerAdOther(onlyLoad?:boolean) {
         if (!Laya.Browser.onMiniGame||!this.isInited) {
             return;
         }
@@ -184,7 +192,7 @@ export default class WXAdMgr{
         let _width = screenW;
         let screenH = ConfigData.systemInfo.windowHeight;
         this.bannerOtherIsHide = false;
-        if(Laya.timer.currTimer - this.preBannerTime_Other > 30000){
+        if(Laya.timer.currTimer - this.preBannerTimeOther > 30000){
             if(this.bannerOther){
                 this.bannerOther.destroy();
                 this.bannerOther = null;
@@ -212,15 +220,25 @@ export default class WXAdMgr{
             this.bannerOther.onError((res) => {
                 console.log("广告加载错误:", res);
             })
-            this.preBannerTime_Other = Laya.timer.currTimer;
+            this.preBannerTimeOther = Laya.timer.currTimer;
+        }
+        if(onlyLoad){
+            return;
         }
         if (this.bannerOther != undefined) {
             this.bannerOther.show();
         }
-        
     }
 
-    public showBannerAdClassicEnd() {
+    public showBannerAdClassicEndFast() {
+        if (!this.bannerClassicEnd) {
+            this.showBannerAdClassicEnd();
+        }else{
+            this.bannerClassicEnd.show();
+        }
+    }
+
+    public showBannerAdClassicEnd(onlyLoad?:boolean) {
         if (!Laya.Browser.onMiniGame||!this.isInited) {
             return;
         }
@@ -229,7 +247,7 @@ export default class WXAdMgr{
         let _width = screenW;
         let screenH = ConfigData.systemInfo.windowHeight;
         this.bannerClassicEndIsHide = false;
-        if(Laya.timer.currTimer - this.preBannerTime_Other > 30000){
+        if(Laya.timer.currTimer - this.preBannerTimeOther > 30000){
             if(this.bannerClassicEnd){
                 this.bannerClassicEnd.destroy();
                 this.bannerClassicEnd = null;
@@ -256,7 +274,10 @@ export default class WXAdMgr{
                     this.bannerClassicEnd.style.top = this.bannerClassicEnd.style.top - 25;
                 }
             })
-            this.preBannerTime_Other = Laya.timer.currTimer;
+            this.preBannerTimeOther = Laya.timer.currTimer;
+        }
+        if(onlyLoad){
+            return;
         }
         if (this.bannerClassicEnd != undefined) {
             this.bannerClassicEnd.show();
@@ -266,7 +287,7 @@ export default class WXAdMgr{
     public destroyBannerAdHome() {
         this.bannerHomeIsHide = true;
         if (this.bannerHome) {
-            this.preBannerTime_Home = 0;
+            this.preBannerTimeHome = 0;
             if(ConfigData.ctrlInfo.is_banner == 1){
                 this.bannerHome.destroy();
                 this.bannerHome = null;
@@ -279,7 +300,7 @@ export default class WXAdMgr{
     public destroyBannerAdOther() {
         this.bannerOtherIsHide = true;
         if (this.bannerOther) {
-            this.preBannerTime_Other = 0;
+            this.preBannerTimeOther = 0;
             if(ConfigData.ctrlInfo.is_banner == 1){
                 this.bannerOther.destroy();
                 this.bannerOther = null;
@@ -293,7 +314,7 @@ export default class WXAdMgr{
     public destroyBannerAdClassicEnd() {
         this.bannerClassicEndIsHide = true;
         if (this.bannerClassicEnd) {
-            this.preBannerTime_ClassicEnd = 0;
+            this.preBannerTimeClassicEnd = 0;
             if(ConfigData.ctrlInfo.is_banner == 1){
                 this.bannerClassicEnd.destroy();
                 this.bannerClassicEnd = null;

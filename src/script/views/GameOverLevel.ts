@@ -2,6 +2,7 @@ import BaseView from "./BaseView";
 import EventMgr from "../mgrCommon/EventMgr";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
 import ConfigData from "../models/ConfigData";
+import MyUtils from "../tools/MyUtils";
 
 export default class GameOverLevel extends BaseView {
     private btnNext:Laya.Image;
@@ -11,6 +12,7 @@ export default class GameOverLevel extends BaseView {
 
     private imgFail:Laya.Image;
     private imgPass:Laya.Image;
+    private btnAnchor:Laya.Image;
 
     private passNum:Laya.FontClip;
 
@@ -22,25 +24,25 @@ export default class GameOverLevel extends BaseView {
     onAwake(): void {
         super.onAwake();
 
-        let anchorDown = this.owner.getChildByName("anchorDown") as Laya.Image;
-        anchorDown.y = this.offset.y/2;
+        let content = this.owner.getChildByName("content") as Laya.Image;
+        let btnAnchor = content.getChildByName("btnAnchor") as Laya.Image;
+        this.btnAnchor = btnAnchor;
 
-        this.btnNext = anchorDown.getChildByName("btnNext") as Laya.Image;
-        this.btnHome = anchorDown.getChildByName("btnHome") as Laya.Image;
-        this.btnAgain = anchorDown.getChildByName("btnAgain") as Laya.Image;
-        this.btnFight = anchorDown.getChildByName("btnFight") as Laya.Image;
+        this.btnNext = btnAnchor.getChildByName("btnNext") as Laya.Image;
+        this.btnHome = btnAnchor.getChildByName("btnHome") as Laya.Image;
+        this.btnAgain = btnAnchor.getChildByName("btnAgain") as Laya.Image;
+        this.btnFight = btnAnchor.getChildByName("btnFight") as Laya.Image;
 
-        let anchorUp = this.owner.getChildByName("anchorUp") as Laya.Image;
 
-        this.passNum = anchorUp.getChildByName("passNum") as Laya.FontClip;
-        this.imgFail = anchorUp.getChildByName("imgFail") as Laya.Image;
-        this.imgPass = anchorUp.getChildByName("imgPass") as Laya.Image;
+        this.passNum = content.getChildByName("passNum") as Laya.FontClip;
+        this.imgFail = content.getChildByName("imgFail") as Laya.Image;
+        this.imgPass = content.getChildByName("imgPass") as Laya.Image;
 
         this.imgFail.visible = false;
         this.imgPass.visible = false;
 
 
-        this.adList = this.owner.getChildByName("listAd") as Laya.List;
+        this.adList = content.getChildByName("listAd") as Laya.List;
         this.adList.array = [];
         this.adList.renderHandler = new Laya.Handler(this, this.onRender);
         this.adList.vScrollBarSkin = "";
@@ -86,6 +88,18 @@ export default class GameOverLevel extends BaseView {
         this.btnFight.off(Laya.Event.CLICK,this,this.goShare);
         super.removeEvent();
     }
+    
+    onEnable():void{
+        super.onEnable();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.showBannerAdClassicEnd(true);
+    }
+
+    onDisable(): void {
+        super.onDisable();
+        if(PlatformMgr.ptAdMgr)
+            PlatformMgr.ptAdMgr.destroyBannerAdClassicEnd();
+    }
 
     openView(data?: any){
         super.openView(data);
@@ -106,7 +120,20 @@ export default class GameOverLevel extends BaseView {
         let length  = data.passNum.toString().length - 1;
         this.passNum.x = 246 + 26 * length;
         
-
+        if (ConfigData.ctrlInfo.isWudian) {
+            let btnJumpY = 560;
+            let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
+            this.btnAnchor.y = randomY;
+            Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
+                if(PlatformMgr.ptAdMgr)
+                    PlatformMgr.ptAdMgr.showBannerAdClassicEndFast();
+                Laya.Tween.to(this.btnAnchor, {y: 340 }, 500, Laya.Ease.backOut, null, 500);
+            });
+        } else {
+            this.btnAnchor.y = 340;
+            if(PlatformMgr.ptAdMgr)
+                PlatformMgr.ptAdMgr.showBannerAdClassicEndFast();
+        }
     }
 
     onRender(cell: Laya.Box, index: number): any {
