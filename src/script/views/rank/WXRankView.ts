@@ -139,6 +139,10 @@ export default class RankView extends BaseView {
 
     public closeView(){
         this.worldData = null;
+        if(PlatformMgr.subDomain){
+            console.log("关闭排行榜");
+            PlatformMgr.subDomain.closeFriendRank();
+        }
         super.closeView();
     }
 }

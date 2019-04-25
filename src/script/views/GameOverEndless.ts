@@ -21,10 +21,9 @@ export default class GameOverEndless extends BaseView {
     
     onAwake(){
         super.onAwake();
-        this.wxOpenData = this.owner.getChildByName("wxOpenData") as Laya.WXOpenDataViewer;
         let center = this.owner.getChildByName("center") as Laya.Image;
+        this.wxOpenData = center.getChildByName("wxOpenData") as Laya.WXOpenDataViewer;
         this.ADPlane = center.getChildByName("ADPlaneBG").getChildByName("ADPlane").getComponent(AdListLoop);
-
         let btnAnchor = center.getChildByName("btnAnchor") as Laya.Image;
         this.btnAgain = btnAnchor.getChildByName("btn_again") as Laya.Image;
         this.btnHome = btnAnchor.getChildByName("btn_home") as Laya.Image;
@@ -76,17 +75,37 @@ export default class GameOverEndless extends BaseView {
     
     openRank(){
          //打开排行榜
-        EventMgr.instance.emit("openRank",{_type:SORTTYPE.ENDLESS}); 
+        this.closeGameOver();
+        EventMgr.instance.emit("openRank",{
+            _type:SORTTYPE.ENDLESS,
+            callback:()=>{
+                console.log("openGameOver");
+                this.openGameOver();
+            }
+        }); 
     }
     
     openView(data?: any){
         super.openView(data);
         this.wxOpenData.visible = true;
+        this.openGameOver();
+        // this.score.value = GameMgr.instance.getGameData().score.toString();
+        this.score.value = "0";
+    }
+
+    openGameOver(){
         if(PlatformMgr.subDomain){
+            // console.log("")
+            this.wxOpenData.visible = true;
             PlatformMgr.subDomain.setOpenView(this.wxOpenData);
             PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
         }
-        // this.score.value = GameMgr.instance.getGameData().score.toString();
-        this.score.value = "0";
+    }
+
+    closeGameOver(){
+        this.wxOpenData.visible = false;
+        if(PlatformMgr.subDomain){
+            PlatformMgr.subDomain.closeGameOver(SORTTYPE.ENDLESS);
+        }
     }
 }

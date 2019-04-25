@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":32,
+    "selectedBox":11,
+    "selecteID":10,
     "searchKey":"View",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
@@ -96,16 +96,17 @@
                     "props":{"y":-238,"x":-315,"width":630,"skin":"rank/bg_item.png","sizeGrid":"9,9,11,11","height":288},
                     "nodeParent":19,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":11,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
-                            "props":{"y":-75,"x":0,"width":630,"skin":"rank/bg_rankTitle.png","sizeGrid":"12,11,17,8","height":82},
+                            "props":{"y":-75,"x":0,"width":631,"skin":"rank/bg_rankTitle.png","sizeGrid":"12,11,17,8","height":86},
                             "nodeParent":11,
                             "label":"Image",
                             "isDirectory":false,
@@ -156,14 +157,13 @@
                     "props":{"y":76,"x":-309,"width":626,"skin":"game/bg_adEndness.png","sizeGrid":"17,17,20,17","name":"ADPlaneBG","height":180},
                     "nodeParent":19,
                     "label":"ADPlaneBG",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":9,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image",
                             "props":{"y":0,"x":-6,"width":62,"skin":"game/img_adTitle.png","sizeGrid":"31,0,31,0","height":180},
@@ -178,7 +178,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,ADPlane",
                             "props":{"y":94,"x":341,"width":570,"sizeGrid":"17,17,20,17","name":"ADPlane","height":147,"anchorY":0.5,"anchorX":0.5},
@@ -191,7 +190,6 @@
                             "compId":41,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,bgMask",
                                     "props":{"y":0,"x":0,"width":555,"skin":"common/black_bg.png","renderType":"mask","name":"bgMask","height":147},
@@ -207,7 +205,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Script",
                                     "switchAble":true,
                                     "source":"src/script/views/AdListLoop.ts",
@@ -234,14 +231,13 @@
                     "props":{"y":0,"x":0,"name":"btnAnchor"},
                     "nodeParent":19,
                     "label":"btnAnchor",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":38,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,btn_again",
                             "props":{"y":336,"x":9,"skin":"common/btn_nomal.png","sizeGrid":"0,59,0,59","name":"btn_again","anchorY":0.5,"anchorX":0.5},
@@ -284,7 +280,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,btn_home",
                             "props":{"y":337,"x":-247,"skin":"game/btn_backHome.png","name":"btn_home","anchorY":0.5,"anchorX":0.5},
@@ -314,7 +309,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "searchKey":"Image,btn_fight",
                             "props":{"y":337,"x":252,"skin":"game/btn_fight.png","name":"btn_fight","anchorY":0.5,"anchorX":0.5},
@@ -344,6 +338,21 @@
                                 }]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"WXOpenDataViewer",
+                    "searchKey":"WXOpenDataViewer,wxOpenData",
+                    "props":{"y":-233,"x":-315,"width":630,"name":"wxOpenData","iconSign":"wx","height":286},
+                    "nodeParent":19,
+                    "label":"wxOpenData",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":32,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
@@ -363,21 +372,6 @@
             "compId":39,
             "child":[
                 ]
-        },
-        {
-            "x":15,
-            "type":"WXOpenDataViewer",
-            "searchKey":"WXOpenDataViewer,wxOpenData",
-            "props":{"y":435,"x":60,"width":630,"name":"wxOpenData","iconSign":"wx","height":286},
-            "nodeParent":2,
-            "label":"wxOpenData",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":32,
-            "child":[
-                ],
-            "$HIDDEN":false
         }],
     "animations":[
         {

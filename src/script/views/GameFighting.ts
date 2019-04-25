@@ -91,7 +91,6 @@ export default class GameFighting extends BaseView {
 
     openGameOver(){
         EventMgr.instance.emit("openGameOver");
-        this.closeView();
     }
 
     public addEvent() {

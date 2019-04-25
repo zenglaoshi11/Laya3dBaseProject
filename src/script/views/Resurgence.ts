@@ -104,7 +104,12 @@ export default class Resurgence extends BaseView {
     closeGoingSurpassOther(): void {
         if (PlatformMgr.subDomain) {
             PlatformMgr.subDomain.closeGoingSurpassOther();
+            console.log("关闭超越");
         }
+    }
+
+    onDisable(): void {
+        this.closeGoingSurpassOther();
     }
 
 
