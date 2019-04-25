@@ -135,6 +135,7 @@ export default class GameFighting extends BaseView {
 
     //打开挑衅
     openProvocationOther(_type): void {
+        _type = SORTTYPE.ENDLESS;
         this.provocationOther.visible = true;
         (this.owner as Laya.Scene).visible = true;
         PlatformMgr.subDomain.setOpenView(this.provocationOther);
@@ -148,6 +149,7 @@ export default class GameFighting extends BaseView {
 
     //打开超越
     openSurpassOther(_type): void {
+        _type = SORTTYPE.ENDLESS;
         this.surpassOther.visible = true;
         (this.owner as Laya.Scene).visible = true;
         PlatformMgr.subDomain.setOpenView(this.surpassOther);
