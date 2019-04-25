@@ -5,7 +5,7 @@ export default class GoldenEggView extends BaseView{
 	private clickCount:number = 0;
 	private progressNum:number;
 	private bar;
-	private hammerAnim;
+	private hammerAnim:Laya.Animation;
 
 	onAwake(){
 		this.clickCount = 0;
@@ -17,17 +17,13 @@ export default class GoldenEggView extends BaseView{
 				this.updataProgress();
 			}
 		});
-		
-		let anchorS = this.owner.getChildByName("anchorS") as Laya.Image;
-		let offsetY:number = 0;
-		if(PlatformMgr.ptAPI)
-			offsetY = PlatformMgr.ptAPI.getOffsetOpenDomain();
-		anchorS.y = anchorS.y + offsetY;
-		this.okBtn = anchorS.getChildByName("okBtn") as Laya.Image;
+		let anchor = this.owner.getChildByName("anchor") as Laya.Image;
+		anchor.y = anchor.y + this.offset.y;
+		this.okBtn = anchor.getChildByName("btn_Click") as Laya.Image;
 
 		this.closeBtn = this.owner.getChildByName("closeBtn") as Laya.Image;
 		this.bar = this.owner.getChildByName("bar") as Laya.Image;
-		this.hammerAnim = this.owner.getChildByName("img_hammer") as Laya.Image;
+		this.hammerAnim = this.owner["hammerAnim"] as Laya.Animation;
 	}
 
 	public addEvent() {

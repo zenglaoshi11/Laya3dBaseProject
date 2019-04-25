@@ -8,7 +8,7 @@ export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();
     private viewDic: any = {};
 
-    private events = ["goHome","openTip","openResurgence","openGameOver","openFighting","openRank"];
+    private events = ["goHome","openTip","openResurgence","openGameOver","openFighting","openRank","openGoldenEggView"];
 
     private constructor() {
     }
@@ -60,6 +60,15 @@ export default class ViewMgr {
         this.openView({
             viewName: viewName,
             closeAll: true,
+            data:res
+        });
+    }
+
+    //打开砸金蛋
+    private openGoldenEggView(res){
+        this.openView({
+            viewName: "GoldenEggView.scene",
+            closeAll: false,
             data:res
         });
     }
