@@ -7,8 +7,8 @@ import GameMgr from "../mgr3d/GameMgr";
 import EventMgr from "../mgrCommon/EventMgr";
 
 export default class GameFighting extends BaseView {
-    private surpassOther;
-    private provocationOther;
+    private surpassOther: Laya.WXOpenDataViewer;
+    private provocationOther: Laya.WXOpenDataViewer;
     private finger: Laya.Image;
     private dragBeginnerGuide: Laya.Image;
     private touchBeginnerGuide: Laya.Image;
@@ -16,17 +16,17 @@ export default class GameFighting extends BaseView {
     private score: Laya.FontClip;
     private progressNode: Laya.Image; //进度条的父节点
     private progress: Laya.Image; //进度条
-    private currLevelLab:Laya.Label;
-    private nextLevelLab:Laya.Label;
+    private currLevelLab: Laya.Label;
+    private nextLevelLab: Laya.Label;
 
     private mouseTouch: Laya.Image;
 
 
     //测试按钮
-    private btnResurgence:Laya.Label;
-    private btnGameOver:Laya.Label;
-    private btnBeyond:Laya.Label;
-    private btnFight:Laya.Label;
+    private btnResurgence: Laya.Label;
+    private btnGameOver: Laya.Label;
+    private btnBeyond: Laya.Label;
+    private btnFight: Laya.Label;
 
     onAwake() {
         super.onAwake();
@@ -43,16 +43,11 @@ export default class GameFighting extends BaseView {
         this.nextLevelLab = this.progressNode.getChildByName("nextLevelLab") as Laya.Label;
         this.currLevelLab = this.progressNode.getChildByName("currLevelLab") as Laya.Label;
 
-        this.surpassOther = this.owner.getChildByName("surpassOther");
-        this.provocationOther = this.owner.getChildByName("provocationOther");
         this.score.visible = false;
         this.progressNode.visible = false;
-        this.provocationOther.visible = false;
-        this.surpassOther.visible = false;
+
         this.dragBeginnerGuide.visible = false;
         this.touchBeginnerGuide.visible = false;
-        // Laya.stage.addChildAt(this.owner, 1);
-
 
         //测试
         this.btnResurgence = this.owner.getChildByName("Test").getChildByName("resurgence") as Laya.Label;
@@ -81,42 +76,42 @@ export default class GameFighting extends BaseView {
         this.progressNode.visible = !isEndLess;
     }
 
-    mouseTouchFun(){
+    mouseTouchFun() {
         this.dragBeginnerGuide.visible = false;
     }
 
-    openResurgence(){
+    openResurgence() {
         EventMgr.instance.emit("openResurgence");
     }
 
-    openGameOver(){
+    openGameOver() {
         EventMgr.instance.emit("openGameOver");
     }
 
     public addEvent() {
         super.addEvent();
-        this.mouseTouch.on(Laya.Event.CLICK,this,this.mouseTouchFun);
-        this.btnResurgence.on(Laya.Event.CLICK,this,this.openResurgence);
-        this.btnGameOver.on(Laya.Event.CLICK,this,this.openGameOver);
-        this.btnBeyond.on(Laya.Event.CLICK,this,this.openSurpassOther);
-        this.btnFight.on(Laya.Event.CLICK,this,this.openProvocationOther);
+        this.mouseTouch.on(Laya.Event.CLICK, this, this.mouseTouchFun);
+        this.btnResurgence.on(Laya.Event.CLICK, this, this.openResurgence);
+        this.btnGameOver.on(Laya.Event.CLICK, this, this.openGameOver);
+        this.btnBeyond.on(Laya.Event.CLICK, this, this.openSurpassOther);
+        this.btnFight.on(Laya.Event.CLICK, this, this.openProvocationOther);
 
-        EventMgr.instance.onEvent("updateScore",this,this.updataScore);
-        EventMgr.instance.onEvent("updataProgress",this,this.updataProgress);
-        EventMgr.instance.onEvent("updateLevel",this,this.updateLevel);
+        EventMgr.instance.onEvent("updateScore", this, this.updataScore);
+        EventMgr.instance.onEvent("updataProgress", this, this.updataProgress);
+        EventMgr.instance.onEvent("updateLevel", this, this.updateLevel);
     }
 
     public removeEvent() {
         super.removeEvent();
-        this.mouseTouch.off(Laya.Event.CLICK,this,this.mouseTouchFun);
-        this.btnResurgence.off(Laya.Event.CLICK,this,this.openResurgence);
-        this.btnGameOver.off(Laya.Event.CLICK,this,this.openGameOver);
-        this.btnBeyond.off(Laya.Event.CLICK,this,this.openSurpassOther);
-        this.btnFight.off(Laya.Event.CLICK,this,this.openProvocationOther);
+        this.mouseTouch.off(Laya.Event.CLICK, this, this.mouseTouchFun);
+        this.btnResurgence.off(Laya.Event.CLICK, this, this.openResurgence);
+        this.btnGameOver.off(Laya.Event.CLICK, this, this.openGameOver);
+        this.btnBeyond.off(Laya.Event.CLICK, this, this.openSurpassOther);
+        this.btnFight.off(Laya.Event.CLICK, this, this.openProvocationOther);
 
-        EventMgr.instance.onOffEvent("updateScore",this,this.updataScore);
-        EventMgr.instance.onOffEvent("updataProgress",this,this.updataProgress);
-        EventMgr.instance.onOffEvent("updateLevel",this,this.updateLevel);
+        EventMgr.instance.onOffEvent("updateScore", this, this.updataScore);
+        EventMgr.instance.onOffEvent("updataProgress", this, this.updataProgress);
+        EventMgr.instance.onOffEvent("updateLevel", this, this.updateLevel);
     }
 
     updataScore() {
@@ -128,28 +123,45 @@ export default class GameFighting extends BaseView {
         this.progress.width = num * 361;
     }
 
-    updateLevel(num:number){
+    updateLevel(num: number) {
         this.currLevelLab.text = num.toString();
         this.nextLevelLab.text = (num + 1).toString();
     }
 
     //打开挑衅
     openProvocationOther(_type): void {
-        this.provocationOther.visible = true;
-        (this.owner as Laya.Scene).visible = true;
+        this.closeSurpassOther();
+        if (!this.provocationOther) {
+            this.provocationOther = new Laya.WXOpenDataViewer();
+            this.owner.addChild(this.provocationOther);
+            this.provocationOther.width = 750;
+            this.provocationOther.height = 62;
+            this.provocationOther.pos(0, 252);
+        }
         PlatformMgr.subDomain.setOpenView(this.provocationOther);
         PlatformMgr.subDomain.openProvocationOther(_type);
     }
 
     closeProvocationOther(): void {
-        this.provocationOther.visible = false;
-        PlatformMgr.subDomain.closeProvocationOther();
+        if (this.provocationOther) {
+            this.provocationOther.destroy();
+            this.provocationOther = null;
+        }
+        if (PlatformMgr.subDomain) {
+            PlatformMgr.subDomain.closeProvocationOther();
+        }
     }
 
     //打开超越
     openSurpassOther(_type): void {
-        this.surpassOther.visible = true;
-        (this.owner as Laya.Scene).visible = true;
+        this.closeProvocationOther();
+        if (!this.surpassOther) {
+            this.surpassOther = new Laya.WXOpenDataViewer();
+            this.owner.addChild(this.surpassOther);
+            this.surpassOther.width = 60;
+            this.surpassOther.height = 60;
+            this.surpassOther.pos(570, 304);
+        }
         PlatformMgr.subDomain.setOpenView(this.surpassOther);
         PlatformMgr.subDomain.openSurpassOther({
             _type: _type,
@@ -158,7 +170,12 @@ export default class GameFighting extends BaseView {
     }
 
     closeSurpassOther(): void {
-        this.surpassOther.visible = false;
-        PlatformMgr.subDomain.closeSurpassOther();
+        if (this.surpassOther) {
+            this.surpassOther.destroy();
+            this.surpassOther = null;
+        }
+        if (PlatformMgr.subDomain) {
+            PlatformMgr.subDomain.closeSurpassOther();
+        }
     }
 }

@@ -14,6 +14,7 @@ export default class GameOverEndless extends BaseView {
     private btnFight:Laya.Image;
     private btnRank:Laya.Label;
     private score:Laya.FontClip;
+    private center:Laya.Image;
 
     private ADPlane:AdListLoop;
     
@@ -21,15 +22,15 @@ export default class GameOverEndless extends BaseView {
     
     onAwake(){
         super.onAwake();
-        let center = this.owner.getChildByName("center") as Laya.Image;
-        this.wxOpenData = center.getChildByName("wxOpenData") as Laya.WXOpenDataViewer;
-        this.ADPlane = center.getChildByName("ADPlaneBG").getChildByName("ADPlane").getComponent(AdListLoop);
-        let btnAnchor = center.getChildByName("btnAnchor") as Laya.Image;
+        this.center = this.owner.getChildByName("center") as Laya.Image;
+        // this.wxOpenData = center.getChildByName("wxOpenData") as Laya.WXOpenDataViewer;
+        this.ADPlane = this.center.getChildByName("ADPlaneBG").getChildByName("ADPlane").getComponent(AdListLoop);
+        let btnAnchor = this.center.getChildByName("btnAnchor") as Laya.Image;
         this.btnAgain = btnAnchor.getChildByName("btn_again") as Laya.Image;
         this.btnHome = btnAnchor.getChildByName("btn_home") as Laya.Image;
         this.btnFight = btnAnchor.getChildByName("btn_fight") as Laya.Image;
-        this.btnRank = center.getChildByName("lbl_rank") as Laya.Label;
-        this.score = center.getChildByName("clipScore") as Laya.FontClip;
+        this.btnRank = this.center.getChildByName("lbl_rank") as Laya.Label;
+        this.score = this.center.getChildByName("clipScore") as Laya.FontClip;
 
 
         this.ADPlane.start(ConfigData.getAdData(1003));
@@ -79,7 +80,6 @@ export default class GameOverEndless extends BaseView {
         EventMgr.instance.emit("openRank",{
             _type:SORTTYPE.ENDLESS,
             callback:()=>{
-                console.log("openGameOver");
                 this.openGameOver();
             }
         });
@@ -87,7 +87,6 @@ export default class GameOverEndless extends BaseView {
     
     openView(data?: any){
         super.openView(data);
-        this.wxOpenData.visible = true;
         this.openGameOver();
         // this.score.value = GameMgr.instance.getGameData().score.toString();
         this.score.value = "0";
@@ -95,18 +94,22 @@ export default class GameOverEndless extends BaseView {
 
     openGameOver(){
         if(PlatformMgr.subDomain){
-            // console.log("")
-            this.wxOpenData.visible = true;
+            this.wxOpenData = new Laya.WXOpenDataViewer();
             this.wxOpenData.width = 630;
             this.wxOpenData.height = 286;
+            this.center.addChild(this.wxOpenData);
+            this.wxOpenData.pos(-315,-233);
             PlatformMgr.subDomain.setOpenView(this.wxOpenData);
             PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
         }
     }
 
     closeGameOver(){
-        this.wxOpenData.visible = false;
         if(PlatformMgr.subDomain){
+            if(this.wxOpenData){
+                this.wxOpenData.destroy();
+                this.wxOpenData = null;
+            }
             PlatformMgr.subDomain.closeGameOver(SORTTYPE.ENDLESS);
         }
     }
