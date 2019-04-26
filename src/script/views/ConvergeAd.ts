@@ -33,13 +33,13 @@ export default class ConvergeAd extends BaseView {
     
     public addEvent() {
         super.addEvent();
-        this.okBtn.on(Laya.Event.CLICK, this, this.onClickHome);
+        this.okBtn.on(Laya.Event.CLICK, this, this.okClick);
         this.homeBtn.on(Laya.Event.CLICK, this, this.onClickHome);
     }
 
     public removeEvent() {
         super.removeEvent();
-        this.okBtn.off(Laya.Event.CLICK, this, this.onClickHome);
+        this.okBtn.off(Laya.Event.CLICK, this, this.okClick);
         this.homeBtn.off(Laya.Event.CLICK, this, this.onClickHome);
     }
 

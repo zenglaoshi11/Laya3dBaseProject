@@ -2,6 +2,13 @@ import HttpMgr from "./HttpMgr";
 import UserData from "../models/UserData";
 import ConfigData from "../models/ConfigData";
 
+// 0普通, 1复活, 2获取道具
+export enum SHARE_VIDEO_TYPE {
+    NORMAL = 0,  
+    RESURGENCE,
+    PROP
+}
+
 export default class StatisticsMgr {
     public static readonly instance: StatisticsMgr = new StatisticsMgr();
     private constructor() {

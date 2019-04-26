@@ -3,6 +3,7 @@ import ConfigData, { SORTTYPE } from "../models/ConfigData";
 import BaseView from "./BaseView";
 import EventMgr from "../mgrCommon/EventMgr";
 import MyUtils from "../tools/MyUtils";
+import { SHARE_VIDEO_TYPE } from "../mgrCommon/StatisticsMgr";
 
 export default class Resurgence extends BaseView {
     private goingSurpassOther:Laya.WXOpenDataViewer;
@@ -144,21 +145,26 @@ export default class Resurgence extends BaseView {
         if (PlatformMgr.ptAdMgr) {
             this.isLoadAD = true;
             this.goShareAdc = true;
-            PlatformMgr.ptAdMgr.showVideo(this, () => {
-                //玩家复活
-                this.isLoadAD = false;
-                this.goShareAdc = false;
-            },
-                () => {
+            PlatformMgr.ptAdMgr.showVideo({
+                _type:SHARE_VIDEO_TYPE.RESURGENCE,
+                caller:this, 
+                callBackSuc:() => {
+                    //玩家复活
+                    this.isLoadAD = false;
+                    this.goShareAdc = false;
+                },
+                callBackFail:() => {
                     EventMgr.instance.emit("openTip", "看完视频才能复活");
                     this.isLoadAD = false;
                     this.goShareAdc = false;
                 },
-                () => {
+                callBackErro:() => {
                     EventMgr.instance.emit("openTip", "今日视频次数已用完");
                     this.isLoadAD = false;
                     this.goShareAdc = false;
-                })
+                }
+            }
+        )
         } else {
             //直接复活
         }

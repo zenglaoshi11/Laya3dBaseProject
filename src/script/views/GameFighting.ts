@@ -3,7 +3,6 @@ import WXSubDomain from "../platform/wx/WXSubDomain";
 import BaseView from "./BaseView";
 import ConfigData, { OPERATINGTYPE, SORTTYPE } from "../models/ConfigData";
 import CurrGameData from "../models/CurrGameData";
-import GameMgr from "../mgr3d/GameMgr";
 import EventMgr from "../mgrCommon/EventMgr";
 
 export default class GameFighting extends BaseView {
@@ -83,8 +82,6 @@ export default class GameFighting extends BaseView {
             this.fingerStartTime = Laya.timer.currTimer;
             Laya.timer.frameLoop(1, this, this.FigerAnim);
         }
-        // console.log("getGameData:",GameMgr.instance.getGameData());
-        // let isEndLess = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS;
         let isEndLess = true;
         this.score.visible = true;
         this.progressNode.visible = !isEndLess;
@@ -158,7 +155,6 @@ export default class GameFighting extends BaseView {
 
 
     updataScore() {
-        // this.score.value = GameMgr.instance.getGameData().score.toString();
         this.score.value = this.testScore.toString();
     }
 
