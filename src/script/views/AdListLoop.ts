@@ -12,6 +12,7 @@ enum Direction {
 
 export default class AdListLoop extends Laya.Script {
 	public _cells: Array<any>;
+	private posY:number;
 	private _cellWidth: number;
 	private _spaceX: number;
 	private moveDirection: Direction;
@@ -49,14 +50,15 @@ export default class AdListLoop extends Laya.Script {
 		this.owner.removeChildren();
 		this._cells = [];
 		let isOffset = adInfos.length > 4 ? true : false;
+		this.posY = ((this.owner as Laya.Image).height - this._cellHeight )/2;
 		for (var i = 0; i < adInfos.length; i++) {
 			var adinfo = adInfos[i];
 			let image: Laya.Image = new Laya.Image();
 			this.owner.addChild(image);
 			if (isOffset) {
-				image.pos((i - 1) * (this._cellWidth + this._spaceX), 0);
+				image.pos((i - 1) * (this._cellWidth + this._spaceX), this.posY);
 			} else {
-				image.pos((i) * (this._cellWidth + this._spaceX), 0);
+				image.pos((i) * (this._cellWidth + this._spaceX), this.posY);
 			}
 			image.skin = adinfo.param;
 			image.width = this._cellWidth;
@@ -117,7 +119,7 @@ export default class AdListLoop extends Laya.Script {
 
 		for (var i = 0; i < this._cells.length; i++) {
 			let cell: Laya.Image = this._cells[i] as Laya.Image;
-			cell.pos(cell.x - 0.5, 0);
+			cell.pos(cell.x - 0.5, this.posY);
 		}
 		if ((this._cells[this._cells.length - 1] as Laya.Image).x > this.endPosX) {
 			this.endMoveToFrist();
@@ -131,14 +133,14 @@ export default class AdListLoop extends Laya.Script {
 	firstMoveToEnd() {
 		let currEndCell = (this._cells[this._cells.length - 1] as Laya.Image);
 		let cell = this._cells.shift() as Laya.Image;
-		cell.pos(currEndCell.x + this._cellWidth + this._spaceX, currEndCell.y);
+		cell.pos(currEndCell.x + this._cellWidth + this._spaceX,this.posY);
 		this._cells.push(cell);
 	}
 
 	endMoveToFrist() {
 		let currFristCell = (this._cells[0] as Laya.Image);
 		let cell = this._cells.pop() as Laya.Image;
-		let x = currFristCell.x - this._cellWidth - this._spaceX
+		let x = currFristCell.x - this._cellWidth - this._spaceX;
 		cell.pos(x, currFristCell.y);
 		this._cells.unshift(cell);
 	}
@@ -161,7 +163,7 @@ export default class AdListLoop extends Laya.Script {
 			//先移动
 			for (var j = 0; j < this._cells.length; j++) {
 				let cell: Laya.Image = this._cells[j] as Laya.Image;
-				cell.pos(cell.x + dis, cell.y);
+				cell.pos(cell.x + dis, this.posY);
 			}
 			if ((this._cells[this._cells.length - 1] as Laya.Image).x > this.endPosX) {
 				this.endMoveToFrist();

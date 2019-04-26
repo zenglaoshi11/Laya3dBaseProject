@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":93,
+    "selecteID":104,
     "searchKey":"Scene",
-    "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":1334,"bottom":0},
+    "props":{"y":0,"x":0,"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":104,
+    "maxID":105,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -27,7 +27,8 @@
             "hasChild":false,
             "compId":56,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -367,7 +368,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,ADPlane",
-            "props":{"y":0,"x":0,"skin":"mainview/bg_ad.png","right":0,"name":"ADPlane","left":0,"height":197,"bottom":10},
+            "props":{"x":0,"skin":"mainview/bg_ad.png","right":0,"name":"ADPlane","left":0,"height":197,"bottom":10},
             "nodeParent":2,
             "label":"ADPlane",
             "isOpen":true,
