@@ -23,7 +23,6 @@ export default class GameOverEndless extends BaseView {
     onAwake(){
         super.onAwake();
         this.content = this.owner.getChildByName("content") as Laya.Image;
-        // this.wxOpenData = content.getChildByName("wxOpenData") as Laya.WXOpenDataViewer;
         this.ADPlane = this.content.getChildByName("ADPlaneBG").getChildByName("ADPlane").getComponent(AdListLoop);
         let btnAnchor = this.content.getChildByName("btnAnchor") as Laya.Image;
         this.btnAgain = btnAnchor.getChildByName("btnAgain") as Laya.Image;
@@ -82,6 +81,7 @@ export default class GameOverEndless extends BaseView {
 
     onDisable(): void {
         super.onDisable();
+        this.closeGameOver();
         if(PlatformMgr.ptAdMgr)
             PlatformMgr.ptAdMgr.destroyBannerAdClassicEnd();
     }

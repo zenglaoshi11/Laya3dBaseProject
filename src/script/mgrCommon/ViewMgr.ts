@@ -7,7 +7,7 @@ export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();
     private viewDic: any = {};
 
-    private events = ["goHome","openTip","openResurgence","openGameOverLevel",,"openGameOverScore","openFighting","openRank","openGoldenEggView"];
+    private events = ["goHome","openTip","openResurgence","openGameOverLevel",,"openGameOverScore","openFighting","openRank","openGoldenEggView","openGameOver"];
 
     private constructor() {
     }
@@ -46,6 +46,17 @@ export default class ViewMgr {
     private openResurgence(res){
         this.openView({
             viewName: "Resurgence.scene",
+            closeAll: true,
+            data:res
+        });
+    }
+
+    private openGameOver(res){
+        // SORTTYPE.ENDLESS;
+        let isEndLess = true
+        let viewName =  isEndLess? "GameOverEndless.scene":"GameOverLevel.scene"
+        this.openView({
+            viewName: viewName,
             closeAll: true,
             data:res
         });
