@@ -8,6 +8,17 @@
     "uploadFile": 10000,
     "downloadFile": 10000
   },
+  "navigateToMiniProgramAppIdList":[
+    "wx34dce07d35ba6961",
+    "wx2576610a4ba65b58",
+    "wxf480aafb1e0efd5e",
+    "wxf21faa375e76b4a0",
+    "wx8f13c0e3c101585b",
+    "wxa4cec6de8342ec00",
+    "wx8b9a1b11bc6de98b",
+    "wxaf0a2dae76ecb4c1",
+    "wx0f9520efa5410e6e",
+    "wx9721aea3ba1993aa"],
   "subpackages":[
       {"name":"res3d","root":"res3d/Conventional/"},
       {"name":"res","root":"res/"}
