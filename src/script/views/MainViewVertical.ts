@@ -63,7 +63,10 @@ export default class MainViewVertical extends BaseView {
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }
-
+        if(!ConfigData.ctrlInfo.mainAdMy){
+            (this.owner.getChildByName("ADPlane") as Laya.View).visible = false;
+            return;
+        }
         Laya.timer.frameOnce(2,this,()=>{
             this.adPlane.init({
                 _cellWidth: 130,

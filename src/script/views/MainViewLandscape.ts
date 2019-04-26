@@ -53,7 +53,7 @@ export default class MainViewLandscape extends BaseView {
         
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
         this.adPlane = this.owner.getChildByName("ADPlane").getComponent(AdListLoop);
-
+        
         console.log("this.offset:",this.offset);
         this.btnInvite.y += this.offset.y;
         this.btnService.y += this.offset.y;
@@ -66,8 +66,10 @@ export default class MainViewLandscape extends BaseView {
         if(PlatformMgr.ptAdMgr){
             PlatformMgr.ptAdMgr.showBannerAdHome();
         }
-        if(!ConfigData.ctrlInfo.mainAdMy)
+        if(!ConfigData.ctrlInfo.mainAdMy){
+            (this.owner.getChildByName("ADPlane") as Laya.View).visible = false;
             return;
+        }
         Laya.timer.frameOnce(2,this,()=>{
             this.adPlane.init({
                 _cellWidth: 130,
