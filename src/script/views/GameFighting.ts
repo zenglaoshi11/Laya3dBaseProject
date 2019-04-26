@@ -39,7 +39,7 @@ export default class GameFighting extends BaseView {
         this.mouseTouch = this.owner.getChildByName("mouseTouch") as Laya.Image;
         this.finger = this.dragBeginnerGuide.getChildByName("finger") as Laya.Image;
 
-        this.score = this.owner.getChildByName("score_num") as Laya.FontClip;
+        this.score = this.owner.getChildByName("scoreNum") as Laya.FontClip;
         this.progressNode = this.owner.getChildByName("progress") as Laya.Image;
         this.progress = this.progressNode.getChildByName("progress") as Laya.Image;
 

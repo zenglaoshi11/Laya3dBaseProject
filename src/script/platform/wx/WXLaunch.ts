@@ -104,7 +104,9 @@ export default class WXLaunch extends Laya.Script {
             Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
         }
         SoundMgr.instance.playBGM();
-        PlatformMgr.ptAPI.setOpenDomainOffset();
+        if(PlatformMgr.ptAPI){
+            PlatformMgr.ptAPI.setOpenDomainOffset();
+        }
         // scene.addComponent(GameMgr);
         // Laya.stage.addChildAt(scene,0);
         EventMgr.instance.emit("goHome");

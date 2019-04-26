@@ -19,7 +19,7 @@ export default class GoldenEggView extends BaseView{
 		});
 		let anchor = this.owner.getChildByName("anchor") as Laya.Image;
 		anchor.y = anchor.y + this.offset.y;
-		this.okBtn = anchor.getChildByName("btn_Click") as Laya.Image;
+		this.okBtn = anchor.getChildByName("btnClick") as Laya.Image;
 
 		this.closeBtn = this.owner.getChildByName("closeBtn") as Laya.Image;
 		this.bar = this.owner.getChildByName("bar") as Laya.Image;

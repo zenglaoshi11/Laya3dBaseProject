@@ -35,7 +35,7 @@ export default class StorageMgr {
 
     public static setLocalVirbort(str:string){
         StorageMgr.setStorage({
-            ket:"virbort", 
+            key:"virbort", 
             val:str
         });
     }
@@ -46,7 +46,7 @@ export default class StorageMgr {
 
     public static setLocalSound(str:string){
         StorageMgr.setStorage({
-            ket:"sound", 
+            key:"sound", 
             val:str
         });
     }
