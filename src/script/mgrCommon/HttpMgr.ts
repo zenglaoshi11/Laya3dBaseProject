@@ -78,7 +78,7 @@ export default class HttpMgr {
     }
 
     public statisticsPost(_d){
-        this._http.requestStatistics(_d);
+        this._http.requestStatistics({data:_d});
     }
 
     public videoErrorCallback(){

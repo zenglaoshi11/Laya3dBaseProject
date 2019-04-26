@@ -4,6 +4,7 @@ import GameMgr from "../../mgr3d/GameMgr";
 import ViewMgr from "../../mgrCommon/ViewMgr";
 import MyUtils from "../../tools/MyUtils";
 import EventMgr from "../../mgrCommon/EventMgr";
+import PlatformMgr from "../../mgrCommon/PlatformMgr";
 
 export default class WXLaunch extends Laya.Script {
     private toProcess: number = 1;
@@ -14,6 +15,7 @@ export default class WXLaunch extends Laya.Script {
     private scene3dUrl:string = "res3d/Conventional/Eatitup.ls"
 
     onEnable(): void {
+        (this.owner as Laya.View).height = Laya.stage.height;
         var group: Laya.Node = this.owner.getChildByName("progressGroup");
         this.pro = group.getChildByName("progress") as Laya.Image;
         this.proLabel = group.getChildByName("proLab") as Laya.Label;
@@ -102,7 +104,7 @@ export default class WXLaunch extends Laya.Script {
             Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
         }
         SoundMgr.instance.playBGM();
-
+        PlatformMgr.ptAPI.setOpenDomainOffset();
         // scene.addComponent(GameMgr);
         // Laya.stage.addChildAt(scene,0);
         EventMgr.instance.emit("goHome");
