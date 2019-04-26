@@ -114,11 +114,15 @@ export default class GameOverLevel extends BaseView {
         this.imgFail.visible = !data.isPass;
         this.imgPass.visible = data.isPass;
 
+
+        this.btnNext.visible = data.isPass;
+        this.btnAgain.visible = !data.isPass;
+
         this.passNum.value = data.passNum.toString();
 
         //适配 是数字和“关”字居中
         let length  = data.passNum.toString().length - 1;
-        // this.passNum.x = 246 + 26 * length;
+        this.passNum.x = -52 + 26 * length;
         
         if (ConfigData.ctrlInfo.isWudian) {
             let btnJumpY = 560;

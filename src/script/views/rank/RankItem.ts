@@ -32,8 +32,8 @@ export default class RankItem extends Laya.Script {
         this.rankLab.text = itemData.index|| "未上榜";
         switch(itemData.index){
             case 1:
-            case 2:
-            case 3:
+            // case 2:
+            // case 3:
                 this.rankLab.text = "";
                 this.rankImg.skin = "rank/img_rank"+ itemData.index +".png";
                 this.rankImg.visible = true;

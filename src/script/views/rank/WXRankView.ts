@@ -99,8 +99,8 @@ export default class RankView extends BaseView {
     worldRankClick(): any {
         this.selectFriendRank.visible = false;
         this.selectWorldRank.visible = true;
-        // this.worldRankList.visible = true;
-        // this.selfRankSprite.visible = true
+        this.worldRankList.visible = true;
+        this.selfRankSprite.visible = true;
         this.closeFriendRank();
         if(this.worldData){
             this.setWorldRankDta();

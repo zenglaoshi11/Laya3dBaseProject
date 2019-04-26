@@ -34,8 +34,10 @@ export default class BaseView extends Laya.Script {
             this._minX = Laya.stage.width / 2 - 20;
             this._maxX = Laya.stage.width / 2 + 20;
         }
-        if(PlatformMgr.ptAPI)
+        if(PlatformMgr.ptAPI){
             this.offset = PlatformMgr.ptAPI.getOffsetOpenDomain();
+            console.log("1this.offset",this.offset);
+        }
     }
 
     onEnable(): void {
