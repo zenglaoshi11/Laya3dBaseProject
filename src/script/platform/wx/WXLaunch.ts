@@ -12,7 +12,7 @@ export default class WXLaunch extends Laya.Script {
     private proLabel: Laya.Label;
     private tipLable: Laya.Label;
     private pro: Laya.Image;
-    private scene3dUrl:string = "res3d/Conventional/Eatitup.ls"
+    private scene3dUrl:string = "res3d/LayaScene_BaseScene/Conventional/BaseScene.ls"
 
     onEnable(): void {
         (this.owner as Laya.View).height = Laya.stage.height;
@@ -92,8 +92,8 @@ export default class WXLaunch extends Laya.Script {
         );
         //语言文件
         ConfigData.languageData = Laya.Loader.getRes("res/json/" + ConfigData.language + ".json");
-        // Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
-        this.On3DResLoadComplete();
+        Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
+        // this.On3DResLoadComplete();
     }
 
     private On3DResLoadComplete(scene?: Laya.Scene3D) {
@@ -107,8 +107,8 @@ export default class WXLaunch extends Laya.Script {
         if(PlatformMgr.ptAPI){
             PlatformMgr.ptAPI.setOpenDomainOffset();
         }
-        // scene.addComponent(GameMgr);
-        // Laya.stage.addChildAt(scene,0);
+        scene.addComponent(GameMgr);
+        Laya.stage.addChildAt(scene,0);
         EventMgr.instance.emit("goHome");
     }
 
