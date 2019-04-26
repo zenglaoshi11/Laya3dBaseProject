@@ -24,7 +24,7 @@ export default class WXAPI {
         EventMgr.instance.once("getSystemParamListBack",this,()=>{
             this.showShareMenu();
         });
-        this.setOpenDomainOffset();
+        // this.setOpenDomainOffset();
 
         window["wx"].onShow((res) => {
             var shareTicket = res.shareTicket;

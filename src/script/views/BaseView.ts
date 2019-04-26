@@ -21,8 +21,9 @@ export default class BaseView extends Laya.Script {
     onAwake(): void {
         //删除时自动释放
         (this.owner as Laya.View).autoDestroyAtClosed = true;
-        this.addMinProgram = this.owner.getChildByName("addMinProgram") as Laya.Image;
+        (this.owner as Laya.View).height = Laya.stage.height;
 
+        this.addMinProgram = this.owner.getChildByName("addMinProgram") as Laya.Image;
         this.okBtn = this.owner.getChildByName("okBtn") as Laya.Image;
         this.closeBtn = this.owner.getChildByName("closeBtn") as Laya.Image;
         this.homeBtn = this.owner.getChildByName("homeBtn") as Laya.Image;
@@ -30,7 +31,7 @@ export default class BaseView extends Laya.Script {
 
         if(this.addMinProgram){
             MyUtils.autoScreenSize([this.addMinProgram]);
-            this._minX = Laya.stage.width / 2 -20;
+            this._minX = Laya.stage.width / 2 - 20;
             this._maxX = Laya.stage.width / 2 + 20;
         }
         if(PlatformMgr.ptAPI){
