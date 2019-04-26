@@ -21,7 +21,7 @@ export default class WXAPI {
     constructor() {
         this._launch = window["wx"].getLaunchOptionsSync();
         
-        EventMgr.instance.once("getSystemParamListBack",this,()=>{
+        EventMgr.instance.onOnceEvent("getSystemParamListBack",this,()=>{
             this.showShareMenu();
         });
         // this.setOpenDomainOffset();
