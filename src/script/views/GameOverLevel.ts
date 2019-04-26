@@ -123,7 +123,10 @@ export default class GameOverLevel extends BaseView {
         //适配 是数字和“关”字居中
         let length  = data.passNum.toString().length - 1;
         this.passNum.x = -52 + 26 * length;
-        
+        //上传分数
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.uploadRankDate({level:this.passNum});
+
         if (ConfigData.ctrlInfo.isWudian) {
             let btnJumpY = 560;
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);

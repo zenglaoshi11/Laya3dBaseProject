@@ -108,7 +108,9 @@ export default class GameOverEndless extends BaseView {
             EventMgr.instance.emit("openGoldenEggView");
         }
         this.score.value = data.score.toString();
-
+        //上传分数
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.uploadRankDate({score:this.score.value});
         if (ConfigData.ctrlInfo.isWudian) {
             let btnJumpY = 560;
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);

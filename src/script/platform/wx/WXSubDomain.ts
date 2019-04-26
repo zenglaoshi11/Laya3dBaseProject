@@ -76,4 +76,11 @@ export default class WXSubDomain {
         }
         this.wxOpenDataView.postMsg({ type: "closeProvocationOther" });
     }
+
+    upSelfScore(_d): void {
+        if (!Laya.Browser.onMiniGame || !this.wxOpenDataView) {
+            return;
+        }
+        this.wxOpenDataView.postMsg({ type: "upSelfScore" ,data:_d});
+    }
 }

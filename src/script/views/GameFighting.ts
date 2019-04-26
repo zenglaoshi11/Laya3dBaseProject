@@ -156,6 +156,8 @@ export default class GameFighting extends BaseView {
 
     updataScore() {
         this.score.value = this.testScore.toString();
+        if(PlatformMgr.subDomain)
+            PlatformMgr.subDomain.upSelfScore(this.score.value)
     }
 
     updataProgress(num: number) {
