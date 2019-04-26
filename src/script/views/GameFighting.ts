@@ -18,8 +18,9 @@ export default class GameFighting extends BaseView {
     private progress: Laya.Image; //进度条
     private currLevelLab: Laya.Label;
     private nextLevelLab: Laya.Label;
-    private surpassOtherText:Laya.Label; //超越
+    private surpassOtherText: Laya.Label; //超越
     private mouseTouch: Laya.Image;
+    private imgNextLevel: Laya.Image;
 
 
     //测试按钮
@@ -28,8 +29,8 @@ export default class GameFighting extends BaseView {
     private gameOverLevel: Laya.Label;
     private btnBeyond: Laya.Label;
     private btnFight: Laya.Label;
-    private btnAddScore:Laya.Label;
-    private btnAddProgress:Laya.Label;
+    private btnAddScore: Laya.Label;
+    private btnAddProgress: Laya.Label;
 
     onAwake() {
         super.onAwake();
@@ -47,6 +48,9 @@ export default class GameFighting extends BaseView {
         this.currLevelLab = this.progressNode.getChildByName("currLevelLab") as Laya.Label;
 
         this.surpassOtherText = this.owner.getChildByName("surpassOtherText") as Laya.Label;
+
+        this.imgNextLevel = this.progressNode.getChildByName("imgNextLevel") as Laya.Image;
+        this.imgNextLevel.skin = "mainview/img_nextLevel.png";
 
         this.surpassOtherText.visible = false;
 
@@ -82,7 +86,7 @@ export default class GameFighting extends BaseView {
         // console.log("getGameData:",GameMgr.instance.getGameData());
         // let isEndLess = GameMgr.instance.getGameData().sortType == SORTTYPE.ENDLESS;
         let isEndLess = true;
-        this.score.visible = isEndLess;
+        this.score.visible = true;
         this.progressNode.visible = !isEndLess;
     }
 
@@ -111,8 +115,8 @@ export default class GameFighting extends BaseView {
         this.btnBeyond.on(Laya.Event.CLICK, this, this.openSurpassOther);
         this.btnFight.on(Laya.Event.CLICK, this, this.openProvocationOther);
 
-        this.btnAddProgress.on(Laya.Event.CLICK,this,this.addProgress);
-        this.btnAddScore.on(Laya.Event.CLICK,this,this.addScore);
+        this.btnAddProgress.on(Laya.Event.CLICK, this, this.addProgress);
+        this.btnAddScore.on(Laya.Event.CLICK, this, this.addScore);
 
         EventMgr.instance.onEvent("updateScore", this, this.updataScore);
         EventMgr.instance.onEvent("updataProgress", this, this.updataProgress);
@@ -137,7 +141,7 @@ export default class GameFighting extends BaseView {
     }
 
     private testScore = 0;
-    addScore(){
+    addScore() {
         this.testScore++;
         EventMgr.instance.emit("updateScore");
         this.score.visible = true;
@@ -145,9 +149,9 @@ export default class GameFighting extends BaseView {
     }
 
     private progressNum = 0;
-    addProgress(){
+    addProgress() {
         this.progressNum += 0.1;
-        EventMgr.instance.emit("updataProgress",this.progressNum);
+        EventMgr.instance.emit("updataProgress", this.progressNum);
         this.score.visible = false;
         this.progressNode.visible = true;
     }
@@ -159,7 +163,12 @@ export default class GameFighting extends BaseView {
     }
 
     updataProgress(num: number) {
-        num = num > 1 ? 1 : num;
+        if (num >= 1) {
+            num = 1;
+            this.imgNextLevel.skin = "mainview/img_currentLevel.png";
+        } else {
+            this.imgNextLevel.skin = "mainview/img_nextLevel.png";
+        }
         this.progress.width = num * 361;
     }
 
@@ -170,7 +179,7 @@ export default class GameFighting extends BaseView {
 
     //打开挑衅
     // openProvocationOther(_type): void {  //正式使用
-    openProvocationOther(event,_type): void { //仅供测试
+    openProvocationOther(event, _type): void { //仅供测试
         this.closeSurpassOther();
         if (!this.provocationOther) {
             this.provocationOther = new Laya.WXOpenDataViewer();
@@ -180,7 +189,7 @@ export default class GameFighting extends BaseView {
             this.provocationOther.pos(0, 252);
         }
         PlatformMgr.subDomain.setOpenView(this.provocationOther);
-        PlatformMgr.subDomain.openProvocationOther({_type:_type});
+        PlatformMgr.subDomain.openProvocationOther({ _type: _type });
     }
 
     closeProvocationOther(): void {
