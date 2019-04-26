@@ -5,7 +5,6 @@ import AdListLoop from "./AdListLoop";
 import ViewMgr from "../mgrCommon/ViewMgr";
 import EventMgr from "../mgrCommon/EventMgr";
 import UserData from "../models/UserData";
-import GameMgr from "../mgr3d/GameMgr";
 import MyUtils from "../tools/MyUtils";
 
 export default class GameOverEndless extends BaseView {
@@ -104,7 +103,6 @@ export default class GameOverEndless extends BaseView {
         }
         super.openView(data);
         this.openGameOver();
-        // this.score.value = GameMgr.instance.getGameData().score.toString();
         this.score.value = "0";
         if(ConfigData.ctrlInfo.isGoldeggs){
             EventMgr.instance.emit("openGoldenEggView");

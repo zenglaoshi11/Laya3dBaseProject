@@ -6,7 +6,7 @@ export default class MyGameEvent {
 
     constructor() { 
         for (let index = 0; index < this.events.length; index++) {
-            EventMgr.instance.on(this.events[index],this,this[this.events[index]]);
+            EventMgr.instance.onEvent(this.events[index],this,this[this.events[index]]);
         } 
      }
     

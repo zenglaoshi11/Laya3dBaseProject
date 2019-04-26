@@ -2,7 +2,6 @@ import MyUtils from "../tools/MyUtils";
 import BaseView from "../views/BaseView";
 import EventMgr from "./EventMgr";
 import ConfigData, { MAINBTNSTYPE, SORTTYPE } from "../models/ConfigData";
-import GameMgr from "../mgr3d/GameMgr";
 
 export default class ViewMgr {
     public static readonly instance: ViewMgr = new ViewMgr();

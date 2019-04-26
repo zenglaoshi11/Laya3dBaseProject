@@ -29,6 +29,8 @@ export default class WXAdMgr{
     private preBannerTimeOther: any;
     private preBannerTimeClassicEnd: any;
 
+    private _type:number;//看视屏，目标类型 SHARE_VIDEO_TYPE 0普通, 1复活, 2获取道具
+
     /**
      *
      */
@@ -59,7 +61,6 @@ export default class WXAdMgr{
                 return;
             }
             this.rewardedVideoAd.onLoad(() => {
-                console.log("rewardedVideo onload");
                 self.hasAd = true;
             });
             this.rewardedVideoAd.onError(err => {
@@ -77,6 +78,7 @@ export default class WXAdMgr{
                 // 用户点击了【关闭广告】按钮
                 // 小于 2.1.0 的基础库版本，res 是一个 undefined
                 if (res && res.isEnded || res === undefined) {
+                    StatisticsMgr.instance.videoPlayOverAdStatistics(this._type);
                     // 正常播放结束，可以下发游戏奖励
                     self.videoPlayedTimes += 1;
                     if (self.callBackSuc != null) {
@@ -94,15 +96,17 @@ export default class WXAdMgr{
     }
 
 
-    public showVideo(caller: any, callBackSuc: Function, callBackFail: Function,callBackErro?:Function) {
+    public showVideo(_d:any) {
         if (!this.isInited) {
             return;
         }
         let self = this;
-        this.caller = caller;
-        this.callBackSuc = callBackSuc;
-        this.callBackFail = callBackFail;
-        this.callBackErro = callBackErro;
+        this._type = _d._type || 0;
+        this.caller = _d.caller;
+        this.callBackSuc = _d.callBackSuc;
+        this.callBackFail = _d.callBackFail;
+        this.callBackErro = _d.callBackErro;
+        StatisticsMgr.instance.clickVideoStatistics(this._type)
         if (this.hasAd) {
             this.hasAd = false;
             this.rewardedVideoAd.show();

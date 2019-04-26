@@ -92,21 +92,20 @@ export default class WXLaunch extends Laya.Script {
         );
         //语言文件
         ConfigData.languageData = Laya.Loader.getRes("res/json/" + ConfigData.language + ".json");
-        // Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
-        this.On3DResLoadComplete();
+        Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
     }
 
     private On3DResLoadComplete(scene?: Laya.Scene3D) {
         this.updateProgress(1);
         
         if (Laya.Browser.onMiniGame) {
-            console.log("透传到子域");
             Laya.MiniAdpter.sendAtlasToOpenDataContext("res/atlas/rank.atlas"); //使用接口将图集透传到子域
         }
         SoundMgr.instance.playBGM();
-        PlatformMgr.ptAPI.setOpenDomainOffset();
-        // scene.addComponent(GameMgr);
-        // Laya.stage.addChildAt(scene,0);
+        if(PlatformMgr.ptAPI)
+            PlatformMgr.ptAPI.setOpenDomainOffset();
+        scene.addComponent(GameMgr);
+        Laya.stage.addChildAt(scene,0);
         EventMgr.instance.emit("goHome");
     }
 
