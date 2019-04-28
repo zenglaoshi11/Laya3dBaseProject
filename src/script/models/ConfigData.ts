@@ -35,7 +35,8 @@ export default class ConfigData {
     // public static serverUrl: string = "https://xcx.biaocr.com/funny_frog/";
     public static serverUrl: string = "http://192.168.1.164:8080/funny_frog/";
     public static jsonVersionUrl: string = "https://p.doguane.cn/20190404/m_04171926352321.json";
-    public static statisticsUrl:string = "https://log.zuancr.com/"
+    // public static statisticsUrl:string = "https://log.zuancr.com/"
+    public static statisticsUrl:string = "http://192.168.1.164:8191/logPost"
 
     public static isCreateAuthorization:boolean = false; //是否创建了授权按钮
     public static repeatAuthorization:boolean = false; //是否创建了授权按钮

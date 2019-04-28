@@ -54,7 +54,6 @@ export default class MainViewLandscape extends BaseView {
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
         this.adPlane = this.owner.getChildByName("ADPlane").getComponent(AdListLoop);
         
-        console.log("this.offset:",this.offset);
         this.btnInvite.y += this.offset.y;
         this.btnService.y += this.offset.y;
         this.btnRank.y += this.offset.y;

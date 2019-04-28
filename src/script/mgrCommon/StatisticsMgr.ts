@@ -12,7 +12,6 @@ export enum SHARE_VIDEO_TYPE {
 export default class StatisticsMgr {
     public static readonly instance: StatisticsMgr = new StatisticsMgr();
     private httpsArr = [];
-    private goPosting:boolean = false;
 
     private constructor() {
     }
@@ -121,7 +120,11 @@ export default class StatisticsMgr {
             if(_d){
                 this.httpsArr[index].index = index;
                 _d.index = index;
+                _d.fail = null;
                 _d.callback = (res)=>{
+                    if(res.code != 0){
+                        return;
+                    }
                     for (let i = 0; i < this.httpsArr.length; i++) {
                         this.httpsArr[i].index = res.index;
                         this.httpsArr.splice(i,1);
