@@ -17,6 +17,10 @@ export enum OPERATINGTYPE{ //游戏操作方式
 }
 
 export default class ConfigData {
+    public static encryptDES:boolean = true; //是否加密通讯
+    public static encryptDESKey1:string = "qire1";
+    public static encryptDESKey2:string = "qire2";
+    public static encryptDESKey3:string = "qire3";
     public static mainBtnsType:number = 0;  //主页按钮排列方式使用哪种
     public static beginnerGuide:number = 0; //新手引导类型
 

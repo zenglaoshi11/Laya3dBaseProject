@@ -1,5 +1,6 @@
 import MyUtils from "../tools/MyUtils";
 import UserData from "../models/UserData";
+import ConfigData from "../models/ConfigData";
 
 export default class StorageMgr {
     
@@ -7,9 +8,13 @@ export default class StorageMgr {
         if (!Laya.Browser.onMiniGame) {
             return;
         }
+        let dataStr:string = JSON.stringify(_d.val);
+        if(window["strEnc"]){
+            dataStr = window["strEnc"](dataStr,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+        }
         wx.setStorage({
             key: _d.key,
-            data: JSON.stringify(_d.val),
+            data: dataStr,
             success: _d.success,
             fail: _d.fail,
             complete: _d.complete
@@ -22,6 +27,9 @@ export default class StorageMgr {
         }
         try {
             var value = wx.getStorageSync(_key);
+            if(window["strDec"]){
+                value = window["strDec"](value,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+            }
             if (value) {
                 return value
             }

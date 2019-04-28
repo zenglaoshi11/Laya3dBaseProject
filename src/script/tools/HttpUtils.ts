@@ -14,6 +14,11 @@ export default class HttpUtils {
             url = ConfigData.serverUrl + _d.url;
         }
         var completeFunc = (res) => {
+            if(res){
+                if(ConfigData.encryptDES && window["strDec"]){
+                    res = window["strDec"](res,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+                }
+            }
             if (_d.callback) {
                 // console.log("url:" + url +" res:" + JSON.stringify(res));
                 _d.callback(res);
@@ -22,6 +27,11 @@ export default class HttpUtils {
             _d = null;
         };
         var errorFunc = (res) => {
+            if(res){
+                if(ConfigData.encryptDES && window["strDec"]){
+                    res = window["strDec"](res,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+                }
+            }
             if (_d.fail)  {
                 _d.fail(res);
             }
@@ -35,7 +45,13 @@ export default class HttpUtils {
         var xhr: Laya.HttpRequest = new Laya.HttpRequest();
         xhr.once(Laya.Event.COMPLETE, this, completeFunc);
         xhr.once(Laya.Event.ERROR, this, errorFunc);
-        xhr.send(url, JSON.stringify(data), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
+        
+        let dataStr:string = JSON.stringify(data);
+        if(ConfigData.encryptDES && window["strEnc"]){
+            dataStr = window["strEnc"](dataStr,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+        }
+        xhr.send(url, "param=" + dataStr, meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
+        // xhr.send(url, JSON.stringify(data), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
     }
 
     public requestStatistics(_d) {
@@ -61,7 +77,11 @@ export default class HttpUtils {
         var xhr: Laya.HttpRequest = new Laya.HttpRequest();
         // xhr.once(Laya.Event.COMPLETE, this, completeDel);
         // xhr.once(Laya.Event.ERROR, this, errorDel);
-        xhr.send(url, "param=" + JSON.stringify(data), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
+        let dataStr:string = JSON.stringify(data);
+        if(ConfigData.encryptDES && window["strEnc"]){
+            dataStr = window["strEnc"](dataStr,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+        }
+        xhr.send(url, "param=" + dataStr, meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
     }
 
     //拿线上游戏的json配制
