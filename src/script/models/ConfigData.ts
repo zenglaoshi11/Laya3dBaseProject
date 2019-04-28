@@ -33,7 +33,7 @@ export default class ConfigData {
     public static version = "100";
     public static jsonVersion = "100";
     // public static serverUrl: string = "https://xcx.biaocr.com/funny_frog/";
-    public static serverUrl: string = "http://192.168.1.189:8080/funny_frog/";
+    public static serverUrl: string = "http://192.168.1.164:8080/funny_frog/";
     public static jsonVersionUrl: string = "https://p.doguane.cn/20190404/m_04171926352321.json";
     public static statisticsUrl:string = "https://log.zuancr.com/"
 
