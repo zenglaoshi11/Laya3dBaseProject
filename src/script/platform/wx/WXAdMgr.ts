@@ -65,7 +65,7 @@ export default class WXAdMgr{
             });
             this.rewardedVideoAd.onError(err => {
                 self.hasAd = false;
-                HttpMgr.instance.videoErrorCallback();
+                HttpMgr.instance.videoCallback();
                 if(this.callBackErro){
                     this.callBackErro();
                     return;

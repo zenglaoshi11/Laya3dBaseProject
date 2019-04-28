@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":8,
-    "selecteID":167,
+    "selectedBox":195,
+    "selecteID":162,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":192,
+    "maxID":196,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -88,66 +88,6 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":176,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"FontClip",
-                    "searchKey":"FontClip,passNum",
-                    "props":{"y":-480,"x":-52,"width":46,"visible":true,"value":"0","skin":"numberFonts/img_levelNumber.png","sheet":"0123456789","scaleY":1,"scaleX":1,"name":"passNum","height":54,"align":"right"},
-                    "nodeParent":8,
-                    "label":"passNum",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":15,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "searchKey":"Image,img_level",
-                            "props":{"y":0,"x":50,"width":46,"skin":"game/img_level.png","name":"img_level","height":58},
-                            "nodeParent":15,
-                            "label":"img_level",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":18,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,imgPass",
-                    "props":{"y":-371,"x":-200,"skin":"game/img_succes.png","name":"imgPass"},
-                    "nodeParent":8,
-                    "label":"imgPass",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":17,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image,imgFail",
-                    "props":{"y":-371,"x":-198,"skin":"game/img_fail.png","name":"imgFail"},
-                    "nodeParent":8,
-                    "label":"imgFail",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":162,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -292,6 +232,122 @@
                                 }]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,scorePanel",
+                    "props":{"name":"scorePanel"},
+                    "nodeParent":8,
+                    "label":"scorePanel",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":192,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "searchKey":"Label",
+                            "props":{"y":-505,"x":-57,"width":130,"text":"本次得分","height":32,"fontSize":34,"color":"#ffffff"},
+                            "nodeParent":192,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":193,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"FontClip",
+                            "searchKey":"FontClip,clipScore",
+                            "props":{"y":-445,"x":-67,"width":146,"value":"291","skin":"numberFonts/img_endnessNumber.png","sheet":"0123456789","name":"clipScore","height":76,"align":"center"},
+                            "nodeParent":192,
+                            "label":"clipScore",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":194,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,levelPanel",
+                    "props":{"name":"levelPanel"},
+                    "nodeParent":8,
+                    "label":"levelPanel",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":195,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"FontClip",
+                            "searchKey":"FontClip,passNum",
+                            "props":{"y":-480,"x":-52,"width":46,"visible":true,"value":"0","skin":"numberFonts/img_levelNumber.png","sheet":"0123456789","scaleY":1,"scaleX":1,"name":"passNum","height":54,"align":"right"},
+                            "nodeParent":195,
+                            "label":"passNum",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":15,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "searchKey":"Image,img_level",
+                                    "props":{"y":0,"x":50,"width":46,"skin":"game/img_level.png","name":"img_level","height":58},
+                                    "nodeParent":15,
+                                    "label":"img_level",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":18,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "searchKey":"Image,imgPass",
+                            "props":{"y":-371,"x":-200,"skin":"game/img_succes.png","name":"imgPass"},
+                            "nodeParent":195,
+                            "label":"imgPass",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":17,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "searchKey":"Image,imgFail",
+                            "props":{"y":-371,"x":-198,"skin":"game/img_fail.png","name":"imgFail"},
+                            "nodeParent":195,
+                            "label":"imgFail",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":162,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
                 }],
             "$HIDDEN":false
         }],

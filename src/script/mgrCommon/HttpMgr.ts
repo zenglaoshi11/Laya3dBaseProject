@@ -67,7 +67,7 @@ export default class HttpMgr {
             }
 		});
     }
-
+    //更新用户信息
     public updateUserInfo(){
         this._http.request({
             url: 'updateUserInfo.action', data: {
@@ -77,11 +77,13 @@ export default class HttpMgr {
             }});
     }
 
+    //统计
     public statisticsPost(_d){
         this._http.requestStatistics({data:_d});
     }
 
-    public videoErrorCallback(){
+    //用户观看视屏次数达到一定次数后会拉视屏失败 失败后开启分享复活
+    public videoCallback(){
         this._http.request({
             url: 'videoCallback.action', callback: (res) => {
                 if(res.code == 0){
@@ -90,6 +92,7 @@ export default class HttpMgr {
         }});
     }
 
+    //获取世界排行数据
     public getWorldRank(_d){
         this._http.request({
             url: 'getWorldRank.action',data: { page: 1, type: 1 }, callback: (res) => {

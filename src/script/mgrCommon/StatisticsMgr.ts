@@ -17,6 +17,7 @@ export default class StatisticsMgr {
     }
 
     public init(){
+        //每分钟检查一次是否有提交统计失败的，哪里有再提交一次，提交成功后删除这条统计数据
         Laya.timer.loop(1000 * 60,this,this.goPost);
     }
  
@@ -114,6 +115,7 @@ export default class StatisticsMgr {
         HttpMgr.instance.statisticsPost(_d);
     }
 
+    //每分钟检查一次是否有提交统计失败的，哪里有再提交一次，提交成功后删除这条统计数据
     goPost(){
         for (let index = 0; index < this.httpsArr.length; index++) {
             let _d = this.httpsArr[index];
