@@ -29,7 +29,7 @@ export default class RankItem extends Laya.Script {
     updateItem(itemData){
         this.owner.active = true;
         this.rankImg.visible = false;
-        this.rankLab.text = itemData.index|| "未上榜";
+        this.rankLab.text = itemData.index|| "-";
         switch(itemData.index){
             case 1:
             // case 2:

@@ -11,6 +11,7 @@ export default class ConvergeAd extends BaseView {
     private adList: Laya.List;
 
     onAwake(){
+        super.onAwake();
         MyUtils.autoScreenSize([this.homeBtn]);
 
         this.adList = this.owner.getChildByName("list") as Laya.List;
@@ -22,11 +23,6 @@ export default class ConvergeAd extends BaseView {
         if(Laya.stage.height > 1334){
             this.adList.y = 20 + (Laya.stage.height - 1334) / 2
         }
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.showBannerAdOther();
-    }
-
-    onDisable(){
         if(PlatformMgr.ptAdMgr)
             PlatformMgr.ptAdMgr.destoryAllBannerAd();
     }
@@ -68,6 +64,7 @@ export default class ConvergeAd extends BaseView {
     public okClick() {
         this.closeView();
         EventMgr.instance.emit("gameStart");
+        EventMgr.instance.emit("openFighting");
     }
 
     /**
