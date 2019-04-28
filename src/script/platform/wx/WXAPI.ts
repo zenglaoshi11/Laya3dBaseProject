@@ -62,9 +62,10 @@ export default class WXAPI {
             }
             Laya.timer.frameOnce(1,this,()=>{
                 //只在结束界面显示聚合广告页面
-                let gameOverView = ViewMgr.instance.getView("GameOver.scene");
+                let gameOverLevel = ViewMgr.instance.getView("GameOverLevel.scene");
+                let gameOverEndless = ViewMgr.instance.getView("GameOverEndless.scene");
                 let convergeAd = ViewMgr.instance.getView("ConvergeAd.scene");
-                if (!notShowAd && ConfigData.ctrlInfo.isConverge == 1 && gameOverView && !convergeAd) {
+                if (!notShowAd && ConfigData.ctrlInfo.isConverge == 1 && (gameOverLevel || gameOverEndless) && !convergeAd) {
                     ViewMgr.instance.openView({
                         viewName: "ConvergeAd.scene",
                         closeAll: false,
