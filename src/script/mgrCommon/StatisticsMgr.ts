@@ -11,7 +11,14 @@ export enum SHARE_VIDEO_TYPE {
 
 export default class StatisticsMgr {
     public static readonly instance: StatisticsMgr = new StatisticsMgr();
+    private httpsArr = [];
+    private goPosting:boolean = false;
+
     private constructor() {
+    }
+
+    public init(){
+        Laya.timer.loop(1000 * 60,this,this.goPost);
     }
  
     //登陆统计
@@ -97,6 +104,32 @@ export default class StatisticsMgr {
                 _d[key] = _data[key];
             }
         }
+        _d.fail = ()=>{
+            this.httpsArr.push(_d);
+        }
+        _d.callback = (res)=>{
+            if(res.code != 0){
+                this.httpsArr.push(_d);
+            }
+        }
         HttpMgr.instance.statisticsPost(_d);
+    }
+
+    goPost(){
+        for (let index = 0; index < this.httpsArr.length; index++) {
+            let _d = this.httpsArr[index];
+            if(_d){
+                this.httpsArr[index].index = index;
+                _d.index = index;
+                _d.callback = (res)=>{
+                    for (let i = 0; i < this.httpsArr.length; i++) {
+                        this.httpsArr[i].index = res.index;
+                        this.httpsArr.splice(i,1);
+                        break;
+                    }
+                }
+                HttpMgr.instance.statisticsPost(_d);
+            }
+        }
     }
 }

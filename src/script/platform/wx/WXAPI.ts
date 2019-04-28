@@ -218,7 +218,6 @@ export default class WXAPI {
         if (!_d || !_d.to_appid || !Laya.Browser.onMiniGame) {
             return;
         }
-        console.log("跳转",_d);
         StatisticsMgr.instance.navigateToMiniProgramStatistics(_d);
         window["wx"].navigateToMiniProgram({
             appId: _d.to_appid,
