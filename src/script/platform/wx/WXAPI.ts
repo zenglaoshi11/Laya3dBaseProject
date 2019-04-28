@@ -31,7 +31,7 @@ export default class WXAPI {
             var query = res.query || {};
             if (shareTicket != undefined && query.avatarUrlGroup
                 && query.nickNameGroup) {
-                //在这做群排行的弹框
+                //在这做群排行的弹框
             } else {
                 //分享回调
                 var _d: any = this.shareBackArgs || {};
