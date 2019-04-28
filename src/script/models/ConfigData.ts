@@ -69,7 +69,7 @@ export default class ConfigData {
     static setSound(str) {
         if (!str || str.length <= 0) {
             ConfigData.isSound = true;
-            StorageMgr.setLocalSound("")
+            StorageMgr.setLocalSound("");
         } else {
             StorageMgr.setLocalSound("1");
             ConfigData.isSound = false;
