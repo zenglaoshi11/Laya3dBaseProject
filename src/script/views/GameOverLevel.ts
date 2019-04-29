@@ -125,7 +125,7 @@ export default class GameOverLevel extends BaseView {
         //需要获取广告
         this.adList.array = this.adData;
         this.adList.refresh();
-
+        //得分模式，显示等分
         if(data._type == SORTTYPE.ENDLESS){
             this.scorePanel.visible = true;
             this.levePanel.visible = false;
