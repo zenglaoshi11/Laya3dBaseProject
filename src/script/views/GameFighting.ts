@@ -31,6 +31,8 @@ export default class GameFighting extends BaseView {
     private btnAddScore: Laya.Label;
     private btnAddProgress: Laya.Label;
 
+    private testStr:Laya.Text;
+
     onAwake() {
         super.onAwake();
 
@@ -50,6 +52,9 @@ export default class GameFighting extends BaseView {
 
         this.imgNextLevel = this.progressNode.getChildByName("imgNextLevel") as Laya.Image;
         this.imgNextLevel.skin = "mainview/img_nextLevel.png";
+
+        this.testStr = this.owner.getChildByName("testStr") as Laya.Text;
+        this.testStr.text = ConfigData.languageData.testStr;
 
         this.surpassOtherText.visible = false;
 

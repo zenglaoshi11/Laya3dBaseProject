@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":164,
-    "selecteID":168,
+    "selectedBox":2,
+    "selecteID":189,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#5d4948","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":189,
+    "maxID":190,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -396,6 +396,20 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "searchKey":"Label,testStr",
+            "props":{"y":432,"x":374,"valign":"middle","text":"test","name":"testStr","fontSize":36,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},
+            "nodeParent":2,
+            "label":"testStr",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":189,
+            "child":[
+                ]
         }],
     "animations":[
         {

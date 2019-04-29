@@ -91,7 +91,7 @@ export default class WXLaunch extends Laya.Script {
             Laya.Loader.getRes("res/json/config.json"),
         );
         //语言文件
-        ConfigData.languageData = Laya.Loader.getRes("res/json/" + ConfigData.language + ".json");
+        ConfigData.languageData = Laya.Loader.getRes("res/language/" + ConfigData.language + ".json");
         Laya.Scene3D.load(this.scene3dUrl, Laya.Handler.create(this, this.On3DResLoadComplete));
         // this.On3DResLoadComplete();
     }
