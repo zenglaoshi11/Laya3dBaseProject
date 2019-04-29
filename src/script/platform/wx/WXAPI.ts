@@ -112,6 +112,9 @@ export default class WXAPI {
                 _d.fail = _data.fail;
                 HttpMgr.instance.login(_d)
             },
+            fail(res){
+                //可以偿试重试，不重试一样游戏可以玩，只是数据没办法提交也属于正常流程
+            }
         })
     }
 
