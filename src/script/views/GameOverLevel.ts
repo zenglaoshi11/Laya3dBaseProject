@@ -77,9 +77,9 @@ export default class GameOverLevel extends BaseView {
                     EventMgr.instance.emit("openTip","分享失败");
                 }
             },
+            type:0
         };
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.shareAppMessage(_d,0);
+        PlatformMgr.callAPIMethodByProxy("shareAppMessage",_d);
     }
 
     addEvent(){
@@ -105,14 +105,12 @@ export default class GameOverLevel extends BaseView {
     
     onEnable():void{
         super.onEnable();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.showBannerAdClassicEnd(true);
+        PlatformMgr.callADMethodByProxy("showBannerAdClassicEnd",true);
     }
 
     onDisable(): void {
         super.onDisable();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.destroyBannerAdClassicEnd();
+        PlatformMgr.callADMethodByProxy("destroyBannerAdClassicEnd");
     }
 
     openView(data?: any){
@@ -132,6 +130,8 @@ export default class GameOverLevel extends BaseView {
             this.score = data.score;
             this.btnAgain.visible = true;
             this.btnNext.visible = false;
+            //上传分数
+            PlatformMgr.callAPIMethodByProxy("uploadRankDate",{score:data.score});
         }else{
             this.scorePanel.visible = false;
             this.levePanel.visible = true;
@@ -143,25 +143,21 @@ export default class GameOverLevel extends BaseView {
             //适配 是数字和“关”字居中
             let length  = data.passNum.toString().length - 1;
             this.passNum.x = -52 + 26 * length;
+            //上传分数
+            PlatformMgr.callAPIMethodByProxy("uploadRankDate",{level:data.passNum});
         }
-
-        //上传分数
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.uploadRankDate({level:this.passNum});
 
         if (ConfigData.ctrlInfo.isWudian) {
             let btnJumpY = 560;
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
             this.btnAnchor.y = randomY;
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
-                if(PlatformMgr.ptAdMgr)
-                    PlatformMgr.ptAdMgr.showBannerAdClassicEndFast();
+                PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
                 Laya.Tween.to(this.btnAnchor, {y: 340 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
             this.btnAnchor.y = 340;
-            if(PlatformMgr.ptAdMgr)
-                PlatformMgr.ptAdMgr.showBannerAdClassicEndFast();
+            PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
         }
     }
 
@@ -172,9 +168,7 @@ export default class GameOverLevel extends BaseView {
 
     onSelect(e:Laya.Event, index): void {
         //跳转到其他小游戏 
-        if(PlatformMgr.ptAPI){
-            PlatformMgr.ptAPI.navigateToMiniProgram(this.adData[index]);
-        }
+        PlatformMgr.callAPIMethodByProxy("navigateToMiniProgram",this.adData[index]);
     }
 
 

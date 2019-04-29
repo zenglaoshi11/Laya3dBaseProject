@@ -18,7 +18,7 @@ export default class Login extends Laya.Script{
 	loginFun() {
 		var self = this;
 		if (ConfigData.releasePlatform) {
-			PlatformMgr.ptAPI.doLogin({
+			PlatformMgr.callAPIMethodByProxy("doLogin",{
 				success:(_d)=>{
 					self.loginSuccess(_d);
 				},
@@ -54,13 +54,11 @@ export default class Login extends Laya.Script{
 			
 			//缓存用户信息到本地
 			StorageMgr.saveUserData();
-			if(PlatformMgr.ptAPI){
-				//上传排行数据
-				PlatformMgr.ptAPI.uploadRankDate({
-					level: data.level || 0,
-					score: data.score || 0,
-				});
-			}
+			//上传排行数据
+			PlatformMgr.callAPIMethodByProxy("uploadRankDate",{
+				level: data.level || 0,
+				score: data.score || 0,
+			});
 			//上传统计
 			StatisticsMgr.instance.loginStatisticsPost();
 		}

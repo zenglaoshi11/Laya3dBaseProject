@@ -40,11 +40,6 @@ export default class RankView extends BaseView {
 
         node.y = node.y + this.offset.y/2;
 
-
-        if(PlatformMgr.subDomain){
-            PlatformMgr.subDomain.setOpenView(this.wxOpenDataView);
-        }
-        
         this.worldRankList = node.getChildByName("worldRankList") as Laya.List;
         this.worldRankList.array = [];
         this.worldRankList.renderHandler = new Laya.Handler(this, this.onRender);
@@ -124,8 +119,8 @@ export default class RankView extends BaseView {
             this.wxOpenDataView.height = 828;
             this.wxOpenDataView.pos(95,279);
             this.wxOpenDataView.y = this.wxOpenDataView.y  + this.offset.y/2;
-            PlatformMgr.subDomain.setOpenView(this.wxOpenDataView);
-            PlatformMgr.subDomain.openFriendRank({_type:this._data._type});
+            PlatformMgr.callSubDomainMethodByProxy("setOpenView",this.wxOpenDataView);
+            PlatformMgr.callSubDomainMethodByProxy("openFriendRank",{_type:this._data._type});
         }
     }
 
@@ -135,7 +130,7 @@ export default class RankView extends BaseView {
                 this.wxOpenDataView.destroy();
                 this.wxOpenDataView = null;
             }
-            PlatformMgr.subDomain.closeFriendRank();
+            PlatformMgr.callSubDomainMethodByProxy("closeFriendRank");
         }
     }
 

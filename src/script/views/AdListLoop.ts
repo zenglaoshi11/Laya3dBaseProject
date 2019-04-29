@@ -95,8 +95,7 @@ export default class AdListLoop extends Laya.Script {
 			appid : adInfo.appid,
 			toLinks : adInfo.toLinks,
 		};
-		if(PlatformMgr.ptAPI)
-			PlatformMgr.ptAPI.navigateToMiniProgram(_d);
+		PlatformMgr.callAPIMethodByProxy("navigateToMiniProgram",_d);
 	}
 
 

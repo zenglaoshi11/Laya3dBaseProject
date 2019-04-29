@@ -52,9 +52,9 @@ export default class GameOverEndless extends BaseView {
                     EventMgr.instance.emit("openTip","分享失败");
                 }
             },
+            type:0
         };
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.shareAppMessage(_d,0);
+        PlatformMgr.callAPIMethodByProxy("shareAppMessage",_d);
     }
 
     addEvent(){
@@ -75,15 +75,13 @@ export default class GameOverEndless extends BaseView {
 
     onEnable():void{
         super.onEnable();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.showBannerAdClassicEnd(true);
+        PlatformMgr.callADMethodByProxy("showBannerAdClassicEnd",true);
     }
 
     onDisable(): void {
         super.onDisable();
         this.closeGameOver();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.destroyBannerAdClassicEnd();
+        PlatformMgr.callADMethodByProxy("destroyBannerAdClassicEnd");
     }
     
     openRank(){
@@ -109,21 +107,18 @@ export default class GameOverEndless extends BaseView {
         }
         this.score.value = data.score.toString();
         //上传分数
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.uploadRankDate({score:this.score.value});
+        PlatformMgr.callAPIMethodByProxy("uploadRankDate",{score:this.score.value});
         if (ConfigData.ctrlInfo.isWudian) {
             let btnJumpY = 560;
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
             this.btnAnchor.y = randomY;
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
-                if(PlatformMgr.ptAdMgr)
-                    PlatformMgr.ptAdMgr.showBannerAdClassicEndFast();
+                PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
                 Laya.Tween.to(this.btnAnchor, {y: 340 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
             this.btnAnchor.y = 340;
-            if(PlatformMgr.ptAdMgr)
-                PlatformMgr.ptAdMgr.showBannerAdClassicEndFast();
+            PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
         }
     }
 
@@ -134,8 +129,8 @@ export default class GameOverEndless extends BaseView {
             this.wxOpenData.height = 286;
             this.content.addChild(this.wxOpenData);
             this.wxOpenData.pos(-315,-233);
-            PlatformMgr.subDomain.setOpenView(this.wxOpenData);
-            PlatformMgr.subDomain.openGameOver(SORTTYPE.ENDLESS);
+            PlatformMgr.callSubDomainMethodByProxy("setOpenView",this.wxOpenData);
+            PlatformMgr.callSubDomainMethodByProxy("openGameOver",SORTTYPE.ENDLESS);
         }
     }
 

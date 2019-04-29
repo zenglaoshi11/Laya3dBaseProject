@@ -40,8 +40,7 @@ export default class GoldenEggView extends BaseView{
 
 	openView(_d){
 		super.openView(_d);
-		if(PlatformMgr.ptAdMgr)
-			PlatformMgr.ptAdMgr.loadBannerAdHome();
+		PlatformMgr.callADMethodByProxy("loadBannerAdHome");
 	}
 
 	btnClick():void{
@@ -71,8 +70,7 @@ export default class GoldenEggView extends BaseView{
 
 	close():void{
 		super.closeView();
-		if(PlatformMgr.ptAdMgr)
-			PlatformMgr.ptAdMgr.showBannerAdHome();
+		PlatformMgr.callADMethodByProxy("showBannerAdHome");
 	}
 
 }

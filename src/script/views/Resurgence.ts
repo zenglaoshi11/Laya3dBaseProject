@@ -85,13 +85,11 @@ export default class Resurgence extends BaseView {
             let randomX = MyUtils.random(centerX - 30, centerX + 30);
             this.btnJump.pos(randomX, randomY);
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
-                if(PlatformMgr.ptAdMgr)
-                    PlatformMgr.ptAdMgr.showBannerAdOtherFast();
+                PlatformMgr.callADMethodByProxy("showBannerAdOtherFast");
                 Laya.Tween.to(this.btnJump, {y: 420 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
-            if(PlatformMgr.ptAdMgr)
-                PlatformMgr.ptAdMgr.showBannerAdOtherFast();
+            PlatformMgr.callADMethodByProxy("showBannerAdOtherFast");
             this.btnJump.y = 340;
         }
     }
@@ -122,14 +120,12 @@ export default class Resurgence extends BaseView {
 
     onEnable():void{
         super.onEnable();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.showBannerAdOther(true);
+        PlatformMgr.callADMethodByProxy("showBannerAdOther",true);
     }
 
     onDisable(): void {
         super.onDisable();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.destroyBannerAdOther();
+        PlatformMgr.callADMethodByProxy("destroyBannerAdOther");
         this.closeGoingSurpassOther();
     }
 
@@ -145,7 +141,7 @@ export default class Resurgence extends BaseView {
         if (PlatformMgr.ptAdMgr) {
             this.isLoadAD = true;
             this.goShareAdc = true;
-            PlatformMgr.ptAdMgr.showVideo({
+            PlatformMgr.callADMethodByProxy("showVideo",{
                 _type:SHARE_VIDEO_TYPE.RESURGENCE,
                 caller:this, 
                 callBackSuc:() => {
@@ -163,8 +159,7 @@ export default class Resurgence extends BaseView {
                     this.isLoadAD = false;
                     this.goShareAdc = false;
                 }
-            }
-        )
+            });
         } else {
             //直接复活
         }
@@ -183,7 +178,7 @@ export default class Resurgence extends BaseView {
             this._isClick = null;
         });
         if (PlatformMgr.ptAPI) {
-            PlatformMgr.ptAPI.shareAppMessage({
+            PlatformMgr.callAPIMethodByProxy("shareAppMessage",{
                 caller: this,
                 shareBack: (res) => {
                     if (res.success) {
@@ -193,8 +188,9 @@ export default class Resurgence extends BaseView {
                         EventMgr.instance.emit("openTip", "需要成功分享才能复活");
                     }
                 },
-                args: {}
-            }, 1)
+                args: {},
+                type:1
+            })
         } else {
             //直接复活
         }

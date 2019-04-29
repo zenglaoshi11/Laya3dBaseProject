@@ -199,7 +199,7 @@ export default class WXAPI {
         } 
     }
     
-    public shareAppMessage(_d, type: number) {
+    public shareAppMessage(_d) {
         if (!Laya.Browser.onMiniGame) {
             return;
         }
@@ -209,7 +209,7 @@ export default class WXAPI {
         if (!ConfigData.getConfigData("shareInfo")) {
             return;
         }
-        StatisticsMgr.instance.shareStatistics(type);
+        StatisticsMgr.instance.shareStatistics(_d.type);
         let shareInfo = this.createShareInfo(_d);
         window["wx"].shareAppMessage(shareInfo);
     }

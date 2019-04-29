@@ -60,9 +60,35 @@ export default class MainViewVertical extends BaseView {
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
-        if(PlatformMgr.ptAdMgr){
-            PlatformMgr.ptAdMgr.showBannerAdHome();
-        }
+        PlatformMgr.callADMethodByProxy("showBannerAdHome");
+        let self = this;
+            Laya.timer.frameOnce(20, this, function () {
+                new Promise((resolve,reject) => {
+                    PlatformMgr.callAPIMethodByProxy("createAuthorizationButton",{
+                        x: self.btnStart.x,
+                        y: self.btnStart.y - this.offset.y,
+                        width: self.btnStart.width,
+                        isFull:true,
+                        height: self.btnStart.height,
+                        successBack: self[self.btnStart.name+"Func"],
+                        failBack:  self[self.btnStart.name+"Func"]
+                    });
+                    resolve(resolve);
+                }).then(()=>{
+                    let arr = [self.btnRank,self.btnService,self.btnInvite];
+                    for (let index = 0; index < arr.length; index++) {
+                        const btn = arr[index];
+                        PlatformMgr.callAPIMethodByProxy("createAuthorizationButton",{
+                            x: btn.x,
+                            y: btn.y - this.offset.y,
+                            width: btn.width,
+                            height: btn.height,
+                            successBack: self[btn.name+"Func"],
+                            failBack: self[btn.name+"Func"]
+                        });
+                    }
+                })
+            });
         if(!ConfigData.ctrlInfo.mainAdMy){
             (this.owner.getChildByName("ADPlane") as Laya.View).visible = false;
             return;
@@ -85,37 +111,6 @@ export default class MainViewVertical extends BaseView {
         this.btnService.on(Laya.Event.CLICK, this, this.btnServiceFunc);
         this.btnInvite.on(Laya.Event.CLICK, this, this.btnInviteFunc);
         this.btnStart.on(Laya.Event.CLICK, this, this.btnStartFunc);
-
-        if(PlatformMgr.ptAdMgr){
-            let self = this;
-            Laya.timer.frameOnce(20, this, function () {
-                new Promise((resolve,reject) => {
-                    PlatformMgr.ptAPI.createAuthorizationButton({
-                        x: self.btnStart.x,
-                        y: self.btnStart.y - this.offset.y,
-                        width: self.btnStart.width,
-                        isFull:true,
-                        height: self.btnStart.height,
-                        successBack: self[self.btnStart.name+"Func"],
-                        failBack:  self[self.btnStart.name+"Func"]
-                    });
-                    resolve(resolve);
-                }).then(()=>{
-                    let arr = [self.btnRank,self.btnService,self.btnInvite];
-                    for (let index = 0; index < arr.length; index++) {
-                        const btn = arr[index];
-                        PlatformMgr.ptAPI.createAuthorizationButton({
-                            x: btn.x,
-                            y: btn.y - this.offset.y,
-                            width: btn.width,
-                            height: btn.height,
-                            successBack: self[btn.name+"Func"],
-                            failBack: self[btn.name+"Func"]
-                        });
-                    }
-                })
-            });
-        }
     }
     
     private virbortBtnClick() {
@@ -154,9 +149,9 @@ export default class MainViewVertical extends BaseView {
                     EventMgr.instance.emit("openTip","分享失败");
                 }
             },
+            type:1
         };
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.shareAppMessage(_d,1);
+        PlatformMgr.callAPIMethodByProxy("shareAppMessage",_d);
     }
 
     private btnServiceFunc() {
@@ -167,8 +162,7 @@ export default class MainViewVertical extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.openCustomerServiceConversation();
+        PlatformMgr.callAPIMethodByProxy("openCustomerServiceConversation");
     }
 
     private btnRankFunc() {
@@ -186,10 +180,8 @@ export default class MainViewVertical extends BaseView {
         if (this._isClick) {
             return;
         }
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.destoryAuthorization();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.destoryAllBannerAd();
+        PlatformMgr.callAPIMethodByProxy("destoryAuthorization");
+        PlatformMgr.callADMethodByProxy("destoryAllBannerAd");
         this._isClick = true;
         Laya.timer.once(500, this, () => {
             this._isClick = null;

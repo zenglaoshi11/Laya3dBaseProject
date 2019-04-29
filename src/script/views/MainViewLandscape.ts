@@ -62,9 +62,24 @@ export default class MainViewLandscape extends BaseView {
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
 
-        if(PlatformMgr.ptAdMgr){
-            PlatformMgr.ptAdMgr.showBannerAdHome();
-        }
+        PlatformMgr.callADMethodByProxy("showBannerAdHome");
+        
+        let self = this;
+        Laya.timer.frameOnce(20, this, function () {
+            let arr = [self.btnStart,self.btnRank,self.btnService,self.btnInvite,self.btnCollect];
+            for (let index = 0; index < arr.length; index++) {
+                const btn = arr[index];
+                PlatformMgr.callAPIMethodByProxy("createAuthorizationButton",{
+                    x: btn.x,
+                    y: btn.y - this.offset.y,
+                    width: btn.width,
+                    height: btn.height,
+                    successBack: self[btn.name+"Func"],
+                    failBack: self[btn.name+"Func"]
+                });
+            }
+        });
+
         if(!ConfigData.ctrlInfo.mainAdMy){
             (this.owner.getChildByName("ADPlane") as Laya.View).visible = false;
             return;
@@ -90,24 +105,6 @@ export default class MainViewLandscape extends BaseView {
         this.btnCollect.on(Laya.Event.CLICK, this, this.btnCollectFunc);
 
         this.btnStart.on(Laya.Event.CLICK, this, this.btnStartFunc);
-
-        if(PlatformMgr.ptAdMgr){
-            let self = this;
-            Laya.timer.frameOnce(20, this, function () {
-                let arr = [self.btnStart,self.btnRank,self.btnService,self.btnInvite,self.btnCollect];
-                for (let index = 0; index < arr.length; index++) {
-                    const btn = arr[index];
-                    PlatformMgr.ptAPI.createAuthorizationButton({
-                        x: btn.x,
-                        y: btn.y - this.offset.y,
-                        width: btn.width,
-                        height: btn.height,
-                        successBack: self[btn.name+"Func"],
-                        failBack: self[btn.name+"Func"]
-                    });
-                }
-            });
-        }
     }
     
     private btnCollectFunc() {
@@ -155,9 +152,9 @@ export default class MainViewLandscape extends BaseView {
                     EventMgr.instance.emit("openTip","分享失败");
                 }
             },
+            type:0
         };
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.shareAppMessage(_d,0);
+        PlatformMgr.callAPIMethodByProxy("shareAppMessage",_d);
     }
 
     private btnServiceFunc() {
@@ -168,8 +165,7 @@ export default class MainViewLandscape extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.openCustomerServiceConversation();
+        PlatformMgr.callAPIMethodByProxy("openCustomerServiceConversation");
     }
 
     private btnRankFunc() {
@@ -187,10 +183,8 @@ export default class MainViewLandscape extends BaseView {
         if (this._isClick) {
             return;
         }
-        if(PlatformMgr.ptAPI)
-            PlatformMgr.ptAPI.destoryAuthorization();
-        if(PlatformMgr.ptAdMgr)
-            PlatformMgr.ptAdMgr.destoryAllBannerAd();
+        PlatformMgr.callAPIMethodByProxy(".destoryAuthorization");
+        PlatformMgr.callADMethodByProxy("destoryAllBannerAd");
         this._isClick = true;
         Laya.timer.once(500, this, () => {
             this._isClick = null;

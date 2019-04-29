@@ -156,8 +156,7 @@ export default class GameFighting extends BaseView {
 
     updataScore() {
         this.score.value = this.testScore.toString();
-        if(PlatformMgr.subDomain)
-            PlatformMgr.subDomain.upSelfScore(this.score.value)
+        PlatformMgr.callSubDomainMethodByProxy("upSelfScore",this.score.value);
     }
 
     updataProgress(num: number) {
@@ -186,8 +185,8 @@ export default class GameFighting extends BaseView {
             this.provocationOther.height = 62;
             this.provocationOther.pos(0, 252);
         }
-        PlatformMgr.subDomain.setOpenView(this.provocationOther);
-        PlatformMgr.subDomain.openProvocationOther({ _type: _type });
+        PlatformMgr.callSubDomainMethodByProxy("setOpenView",this.provocationOther);
+        PlatformMgr.callSubDomainMethodByProxy("openProvocationOther",{ _type: _type });
     }
 
     closeProvocationOther(): void {
@@ -195,9 +194,7 @@ export default class GameFighting extends BaseView {
             this.provocationOther.destroy();
             this.provocationOther = null;
         }
-        if (PlatformMgr.subDomain) {
-            PlatformMgr.subDomain.closeProvocationOther();
-        }
+        PlatformMgr.callSubDomainMethodByProxy("closeProvocationOther");
     }
 
     //打开超越
@@ -212,8 +209,8 @@ export default class GameFighting extends BaseView {
             this.surpassOther.pos(570, 304);
         }
         this.surpassOtherText.visible = true;
-        PlatformMgr.subDomain.setOpenView(this.surpassOther);
-        PlatformMgr.subDomain.openSurpassOther({
+        PlatformMgr.callSubDomainMethodByProxy("setOpenView",this.surpassOther);
+        PlatformMgr.callSubDomainMethodByProxy("openSurpassOther",{
             _type: _type,
             val: -1
         });
@@ -225,9 +222,7 @@ export default class GameFighting extends BaseView {
             this.surpassOther.destroy();
             this.surpassOther = null;
         }
-        if (PlatformMgr.subDomain) {
-            PlatformMgr.subDomain.closeSurpassOther();
-        }
+        PlatformMgr.callSubDomainMethodByProxy("closeSurpassOther");
     }
 
     onDisable(): void {

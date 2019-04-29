@@ -34,10 +34,7 @@ export default class BaseView extends Laya.Script {
             this._minX = Laya.stage.width / 2 - 20;
             this._maxX = Laya.stage.width / 2 + 20;
         }
-        if(PlatformMgr.ptAPI){
-            this.offset = PlatformMgr.ptAPI.getOffsetOpenDomain();
-            console.log("1this.offset",this.offset);
-        }
+        this.offset = PlatformMgr.callAPIMethodByProxy("getOffsetOpenDomain");
     }
 
     onEnable(): void {
@@ -87,8 +84,7 @@ export default class BaseView extends Laya.Script {
             ViewMgr.instance.closeView(_viewName);
         }
         if(_viewName == "Rank.scene"){
-            if(PlatformMgr.ptAPI)
-                PlatformMgr.ptAPI.setAuthorizationCheck(true);
+            PlatformMgr.callAPIMethodByProxy("setAuthorizationCheck",true);
         }
         if (this._data && this._data.callback) {
             this._data.callback(_d)
