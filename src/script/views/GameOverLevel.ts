@@ -1,7 +1,7 @@
 import BaseView from "./BaseView";
 import EventMgr from "../mgrCommon/EventMgr";
 import PlatformMgr from "../mgrCommon/PlatformMgr";
-import ConfigData from "../models/ConfigData";
+import ConfigData, { SORTTYPE } from "../models/ConfigData";
 import MyUtils from "../tools/MyUtils";
 
 export default class GameOverLevel extends BaseView {
@@ -14,6 +14,10 @@ export default class GameOverLevel extends BaseView {
     private imgPass:Laya.Image;
     private btnAnchor:Laya.Image;
 
+    private levePanel:Laya.Image;
+    private scorePanel:Laya.Image;
+
+    private score:Laya.FontClip;
     private passNum:Laya.FontClip;
 
     private adList:Laya.List;
@@ -34,13 +38,18 @@ export default class GameOverLevel extends BaseView {
         this.btnFight = btnAnchor.getChildByName("btnFight") as Laya.Image;
 
 
-        this.passNum = content.getChildByName("passNum") as Laya.FontClip;
-        this.imgFail = content.getChildByName("imgFail") as Laya.Image;
-        this.imgPass = content.getChildByName("imgPass") as Laya.Image;
-
+        let levePanel = content.getChildByName("levelPanel") as Laya.Image;
+        this.passNum = levePanel.getChildByName("passNum") as Laya.FontClip;
+        this.imgFail = levePanel.getChildByName("imgFail") as Laya.Image;
+        this.imgPass = levePanel.getChildByName("imgPass") as Laya.Image;
+        this.levePanel = levePanel;
+        
         this.imgFail.visible = false;
         this.imgPass.visible = false;
-
+        
+        let scorePanel = content.getChildByName("scorePanel") as Laya.Image;
+        this.scorePanel = scorePanel;
+        this.score = scorePanel.getChildByName("clipScore") as Laya.FontClip;
 
         this.adList = content.getChildByName("listAd") as Laya.List;
         this.adList.array = [];
@@ -50,8 +59,8 @@ export default class GameOverLevel extends BaseView {
     }
     
     goFighting(){
-        //再次挑战 TODO       
-        EventMgr.instance.emit("openFighting"); 
+        //再次挑战
+        EventMgr.instance.emit("openFighting",this._data);
         this.closeView();
     }
 
@@ -74,7 +83,7 @@ export default class GameOverLevel extends BaseView {
     }
 
     addEvent(){
-        this.btnNext.on(Laya.Event.CLICK,this,this.goFighting);
+        this.btnNext.on(Laya.Event.CLICK,this,this.nextLevelFunc);
         this.btnHome.on(Laya.Event.CLICK,this,this.goHome);
         this.btnAgain.on(Laya.Event.CLICK,this,this.goFighting);
         this.btnFight.on(Laya.Event.CLICK,this,this.goShare);
@@ -82,11 +91,16 @@ export default class GameOverLevel extends BaseView {
     }
 
     public removeEvent() {
-        this.btnNext.off(Laya.Event.CLICK,this,this.goFighting);
+        this.btnNext.off(Laya.Event.CLICK,this,this.nextLevelFunc);
         this.btnHome.off(Laya.Event.CLICK,this,this.goHome);
         this.btnAgain.off(Laya.Event.CLICK,this,this.goFighting);
         this.btnFight.off(Laya.Event.CLICK,this,this.goShare);
         super.removeEvent();
+    }
+
+    nextLevelFunc(){
+        //下一关
+        EventMgr.instance.emit("openFighting",this._data);
     }
     
     onEnable():void{
@@ -106,23 +120,31 @@ export default class GameOverLevel extends BaseView {
         data = data || {
             passNum:10,//当前的关卡数
             isPass:(Math.random() > 0.5),//是否通关
+            _type:(Math.random() > 0.5) ? SORTTYPE.ENDLESS : SORTTYPE.LEVEL,//得分模式 闯关模式
         }
         //需要获取广告
         this.adList.array = this.adData;
         this.adList.refresh();
 
-        this.imgFail.visible = !data.isPass;
-        this.imgPass.visible = data.isPass;
+        if(data._type == SORTTYPE.ENDLESS){
+            this.scorePanel.visible = true;
+            this.levePanel.visible = false;
+            this.score = data.score;
+            this.btnAgain.visible = true;
+            this.btnNext.visible = false;
+        }else{
+            this.scorePanel.visible = false;
+            this.levePanel.visible = true;
+            this.imgFail.visible = !data.isPass;
+            this.imgPass.visible = data.isPass;
+            this.btnNext.visible = data.isPass;
+            this.btnAgain.visible = !data.isPass;
+            this.passNum.value = data.passNum.toString();
+            //适配 是数字和“关”字居中
+            let length  = data.passNum.toString().length - 1;
+            this.passNum.x = -52 + 26 * length;
+        }
 
-
-        this.btnNext.visible = data.isPass;
-        this.btnAgain.visible = !data.isPass;
-
-        this.passNum.value = data.passNum.toString();
-
-        //适配 是数字和“关”字居中
-        let length  = data.passNum.toString().length - 1;
-        this.passNum.x = -52 + 26 * length;
         //上传分数
         if(PlatformMgr.ptAPI)
             PlatformMgr.ptAPI.uploadRankDate({level:this.passNum});

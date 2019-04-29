@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":195,
-    "selecteID":162,
+    "selectedBox":158,
+    "selecteID":5,
     "searchKey":"Scene",
     "props":{"width":750,"top":0,"sceneColor":"#ffffff","right":0,"left":0,"height":1334,"bottom":0},
     "nodeParent":-1,
-    "maxID":196,
+    "maxID":199,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -52,7 +52,7 @@
             "source":"src/script/views/GameOverLevel.ts",
             "searchKey":"Script,GameOverLevel",
             "removeAble":true,
-            "props":{"y":-1,"x":0},
+            "props":{"y":-2,"x":0},
             "nodeParent":2,
             "label":"GameOverLevel",
             "isDirectory":false,
@@ -96,16 +96,17 @@
                     "x":30,
                     "type":"Image",
                     "searchKey":"Image,btnAnchor",
-                    "props":{"y":560,"x":0,"name":"btnAnchor"},
+                    "props":{"y":561,"x":0,"name":"btnAnchor"},
                     "nodeParent":8,
                     "label":"btnAnchor",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":158,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,btnNext",
                             "props":{"x":0,"stateNum":"1","skin":"common/btn_nomal.png","name":"btnNext","anchorY":0.5,"anchorX":0.5},
@@ -134,6 +135,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,btnHome",
                             "props":{"x":-246,"stateNum":"1","skin":"game/btn_backHome.png","name":"btnHome","anchorY":0.5,"anchorX":0.5},
@@ -149,6 +151,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,btnAgain",
                             "props":{"stateNum":"1","skin":"common/btn_nomal.png","name":"btnAgain","anchorY":0.5,"anchorX":0.5},
@@ -173,9 +176,10 @@
                                     "child":[
                                         ]
                                 }],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "searchKey":"Button,btnFight",
                             "props":{"x":246,"stateNum":"1","skin":"game/btn_fight.png","name":"btnFight","anchorY":0.5,"anchorX":0.5},
@@ -195,7 +199,7 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,listAd",
-                    "props":{"width":580,"spaceY":14,"spaceX":14,"repeatY":2,"repeatX":3,"name":"listAd","height":382,"elasticEnabled":false,"centerY":0,"centerX":0},
+                    "props":{"width":580,"spaceY":14,"spaceX":14,"repeatY":2,"repeatX":3,"name":"listAd","height":382,"elasticEnabled":false,"centerY":1,"centerX":0},
                     "nodeParent":8,
                     "label":"listAd",
                     "isOpen":false,
@@ -237,16 +241,17 @@
                     "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,scorePanel",
-                    "props":{"name":"scorePanel"},
+                    "props":{"y":0,"x":0,"name":"scorePanel"},
                     "nodeParent":8,
                     "label":"scorePanel",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":192,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "searchKey":"Label",
                             "props":{"y":-505,"x":-57,"width":130,"text":"本次得分","height":32,"fontSize":34,"color":"#ffffff"},
@@ -261,6 +266,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"FontClip",
                             "searchKey":"FontClip,clipScore",
                             "props":{"y":-445,"x":-67,"width":146,"value":"291","skin":"numberFonts/img_endnessNumber.png","sheet":"0123456789","name":"clipScore","height":76,"align":"center"},
@@ -274,13 +280,14 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,levelPanel",
-                    "props":{"name":"levelPanel"},
+                    "props":{"y":1,"x":0,"name":"levelPanel"},
                     "nodeParent":8,
                     "label":"levelPanel",
                     "isOpen":true,
@@ -347,7 +354,8 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         }],
