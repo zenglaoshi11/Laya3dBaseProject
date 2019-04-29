@@ -34,7 +34,7 @@ export default class BaseView extends Laya.Script {
             this._minX = Laya.stage.width / 2 - 20;
             this._maxX = Laya.stage.width / 2 + 20;
         }
-        this.offset = PlatformMgr.callAPIMethodByProxy("getOffsetOpenDomain");
+        this.offset = PlatformMgr.callAPIMethodByProxy("getOffsetOpenDomain") || this.offset;
     }
 
     onEnable(): void {

@@ -171,8 +171,9 @@ export default class WXAPI {
         var imageUrl = sd[rand_t].img;
         var query = "invite_uid=" + (UserData.userId ? UserData.userId : "");
         query += "&cur_share_id=" + sd[rand_t].id;
-        query += "&avatarUrlGroup=" + (UserData.avatarUrl ? UserData.avatarUrl : "");
-        query += "&nickNameGroup=" + (UserData.nickName ? UserData.nickName : "");
+        //需要做群排行时打开，用于显示群排行的挑战对手
+        // query += "&avatarUrlGroup=" + (UserData.avatarUrl ? UserData.avatarUrl : "");
+        // query += "&nickNameGroup=" + (UserData.nickName ? UserData.nickName : "");
         query += "&channel=" + (UserData.channelId ? UserData.channelId : "");
         if (_d) {
             if (_d.id) {
