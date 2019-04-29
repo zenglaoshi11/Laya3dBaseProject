@@ -49,6 +49,7 @@ export default class RankView extends BaseView {
         this.selfRankITem = this.selfRankSprite.getComponent(RankItem)
 
         MyUtils.autoScreenSize([this.closeBtn]);
+        this.selfRankSprite.visible = false;
     }
 
     setMyRankInfo(){

@@ -52,6 +52,6 @@ export default class PlatformMgr extends Laya.Script {
         if(!PlatformMgr.subDomain || !PlatformMgr.subDomain[meth]){
             return
         }
-        return PlatformMgr.ptAPI[meth](arg);
+        return PlatformMgr.subDomain[meth](arg);
     }
 }

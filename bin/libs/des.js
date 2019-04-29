@@ -866,6 +866,10 @@ function generateKeys(keyByte){
  }
  return keys;  
 }
+
+window["strEnc"] = strEnc;
+window["strDec"] = strDec;
+
 //end-------------------------------------------------------------------------------------------------------------
 /*
 function test() {
