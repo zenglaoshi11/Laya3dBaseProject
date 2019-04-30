@@ -72,11 +72,14 @@ export default class ConvergeAd extends BaseView {
     private onClickItem(e: Laya.Event, index: number): void {
         if (e.type == Laya.Event.CLICK) {
             if ((e.target) instanceof Laya.Box) {
-                let obj = {
-                    path: this.adList.array[index].toLinks,
-                    appid: this.adList.array[index].appid,
+                let adInfo = this.adList.array[index];
+                var _d: any = {
+                    my_uuid: adInfo.position,
+                    to_appid: adInfo.appid,
+                    appid : adInfo.appid,
+                    toLinks : adInfo.toLinks,
                 };
-                PlatformMgr.callADMethodByProxy("navigateToMiniProgram",obj);
+                PlatformMgr.callAPIMethodByProxy("navigateToMiniProgram", _d);
             }
         }
     }

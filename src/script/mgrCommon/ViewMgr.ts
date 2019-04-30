@@ -20,6 +20,9 @@ export default class ViewMgr {
     
     private goHome(res){
         let viewName = ConfigData.mainBtnsType == MAINBTNSTYPE.LANDSCAPE ? "MainLandscape.scene" : "MainVertical.scene";
+        //用来测试，随机出现主页面
+        viewName = Math.random() > 0.5 ? "MainLandscape.scene" : "MainVertical.scene";
+        console.log(viewName,"viewNameviewNameviewName")
         this.openView({
             viewName: viewName,
             closeAll: true,

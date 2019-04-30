@@ -38,7 +38,11 @@ export default class StorageMgr {
     }
 
     public static getLocalVirbort():any{
-        return wx.getStorageSync("virbort");
+        let virbort:any = wx.getStorageSync("virbort");
+        if(virbort == "1"){
+            return false;
+        }
+        return true;
     }
 
     public static setLocalVirbort(str){
@@ -52,7 +56,11 @@ export default class StorageMgr {
     }
 
     public static getLocalSound():any{
-        return wx.getStorageSync("sound");
+        let sound:any = wx.getStorageSync("sound");
+        if(sound == "1"){
+            return false;
+        }
+        return true;
     }
 
     public static setLocalSound(str){
