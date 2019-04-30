@@ -87,10 +87,12 @@ export default class GameOverEndless extends BaseView {
     openRank(){
          //打开排行榜
         this.closeGameOver();
+        PlatformMgr.callADMethodByProxy("destroyBannerAdClassicEnd");
         EventMgr.instance.emit("openRank",{
             _type:SORTTYPE.ENDLESS,
             callback:()=>{
                 this.openGameOver();
+                PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
             }
         });
     }
@@ -114,21 +116,25 @@ export default class GameOverEndless extends BaseView {
             this.btnAnchor.y = randomY;
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
                 PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
-                Laya.Tween.to(this.btnAnchor, {y: 340 }, 500, Laya.Ease.backOut, null, 500);
+                Laya.Tween.to(this.btnAnchor, {y: 320 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
-            this.btnAnchor.y = 340;
+            this.btnAnchor.y = 320;
             PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
         }
     }
 
     openGameOver(){
         if(PlatformMgr.subDomain){
+            if(this.wxOpenData){
+                this.wxOpenData.destroy();
+                this.wxOpenData = null;
+            }
             this.wxOpenData = new Laya.WXOpenDataViewer();
             this.wxOpenData.width = 630;
             this.wxOpenData.height = 286;
             this.content.addChild(this.wxOpenData);
-            this.wxOpenData.pos(-315,-233);
+            this.wxOpenData.pos(-315,-234);
             PlatformMgr.callSubDomainMethodByProxy("setOpenView",this.wxOpenData);
             PlatformMgr.callSubDomainMethodByProxy("openGameOver",SORTTYPE.ENDLESS);
         }

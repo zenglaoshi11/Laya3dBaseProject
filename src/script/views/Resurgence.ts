@@ -81,16 +81,16 @@ export default class Resurgence extends BaseView {
         if (ConfigData.ctrlInfo.isWudian) {
             let btnJumpY = 560;
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
-            let centerX = Laya.stage.width / 2;
+            let centerX = 0;
             let randomX = MyUtils.random(centerX - 30, centerX + 30);
             this.btnJump.pos(randomX, randomY);
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
                 PlatformMgr.callADMethodByProxy("showBannerAdOtherFast");
-                Laya.Tween.to(this.btnJump, {y: 420 }, 500, Laya.Ease.backOut, null, 500);
+                Laya.Tween.to(this.btnJump, {y: 320 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
             PlatformMgr.callADMethodByProxy("showBannerAdOtherFast");
-            this.btnJump.y = 340;
+            this.btnJump.y = 320;
         }
     }
 
@@ -173,6 +173,7 @@ export default class Resurgence extends BaseView {
         if (this.isLoadAD) {
             return;
         }
+        this.goShareAdc = true;
         this._isClick = true;
         Laya.timer.once(500, this, () => {
             this._isClick = null;
@@ -180,10 +181,11 @@ export default class Resurgence extends BaseView {
         if (PlatformMgr.ptAPI) {
             PlatformMgr.callAPIMethodByProxy("shareAppMessage",{
                 caller: this,
-                shareBack: (res) => {
+                callback: (res) => {
+                    this.goShareAdc = false;
                     if (res.success) {
                         //复活
-
+                        
                     } else {
                         EventMgr.instance.emit("openTip", "需要成功分享才能复活");
                     }

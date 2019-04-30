@@ -85,6 +85,7 @@ P 124C5146 bg_fight.png
 P 2A149C25 bg_gosuperpass.png
 P 302D02D7 bg_item.png
 P 4BBCB823 bg_myItem.png
+P 2B7131AD bg_myself.png
 P 8387C22E bg_rankTitle.png
 P 0C9897D5 img_default_avatar.png
 P B89AEC05 img_friend.png
@@ -96,4 +97,3 @@ P 4AE9CBB3 img_rank3.png
 P 1000A8F7 img_superpass.png
 P F739C63F img_world.png
 P 7E31E18F img_world_select.png
-P 2306E1AE myself_bg.png

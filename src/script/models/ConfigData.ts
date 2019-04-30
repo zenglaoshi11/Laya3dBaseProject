@@ -32,9 +32,10 @@ export default class ConfigData {
 
     public static version = "100";
     public static jsonVersion = "100";
-    public static serverUrl: string = "http://http://47.99.178.155:8080/funny_frog/";
+    public static serverUrl: string = "http://47.99.178.155:8080/funny_frog/";
+    // public static serverUrl: string = "http://192.168.1.164:8080/funny_frog/";
     public static jsonVersionUrl: string = "https://p.doguane.cn/20190404/m_04171926352321.json";
-    public static statisticsUrl:string = "tj.zuancr.com"
+    public static statisticsUrl:string = "https://tj.zuancr.com"
 
     public static isCreateAuthorization:boolean = false; //是否创建了授权按钮
     public static repeatAuthorization:boolean = false; //是否创建了授权按钮

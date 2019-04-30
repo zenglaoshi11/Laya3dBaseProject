@@ -30,6 +30,7 @@ export default class BaseView extends Laya.Script {
         this.shareBtn = this.owner.getChildByName("shareBtn") as Laya.Image;
 
         if(this.addMinProgram){
+            this.addMinProgram.anchorY = 0.3;
             MyUtils.autoScreenSize([this.addMinProgram]);
             this._minX = Laya.stage.width / 2 - 20;
             this._maxX = Laya.stage.width / 2 + 20;

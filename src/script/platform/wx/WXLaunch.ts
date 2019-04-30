@@ -12,7 +12,7 @@ export default class WXLaunch extends Laya.Script {
     private proLabel: Laya.Label;
     private tipLable: Laya.Label;
     private pro: Laya.Image;
-    private scene3dUrl:string = "res3d/LayaScene_BaseScene/Conventional/BaseScene.ls"
+    private scene3dUrl:string = "res3d/Conventional/BaseScene.ls"
 
     onEnable(): void {
         (this.owner as Laya.View).height = Laya.stage.height;

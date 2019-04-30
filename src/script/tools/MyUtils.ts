@@ -54,18 +54,13 @@ export default class MyUtils {
             return
         }
         let info = ConfigData.systemInfo;
-        let Y = 60;
-        if (info.statusBarHeight < 20) { //18
-            Y += 10;
-        }
-        else if (info.statusBarHeight >= 30) { //44
-            Y += 60;
-        }
-        else if (info.statusBarHeight > 20 && info.statusBarHeight < 30) { //27
-            Y += 74;
+        let _y = 20;
+        if (info.statusBarHeight == 20) { 
+        }else if (info.statusBarHeight == 44) { //27
+            _y += 70;
         }
         node.forEach(e => { // 20  
-            e.y = Y;
+            e.y = _y + e.height/2;
         })
     }
 

@@ -54,6 +54,7 @@ export default class GameOverLevel extends BaseView {
         this.adList = content.getChildByName("listAd") as Laya.List;
         this.adList.array = [];
         this.adList.renderHandler = new Laya.Handler(this, this.onRender);
+        this.adList.mouseHandler = new Laya.Handler(this, this.onClickItem);
         this.adList.vScrollBarSkin = "";
         this.adData = ConfigData.getAdData(1005);
     }
@@ -153,10 +154,10 @@ export default class GameOverLevel extends BaseView {
             this.btnAnchor.y = randomY;
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
                 PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
-                Laya.Tween.to(this.btnAnchor, {y: 340 }, 500, Laya.Ease.backOut, null, 500);
+                Laya.Tween.to(this.btnAnchor, {y: 320 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
-            this.btnAnchor.y = 340;
+            this.btnAnchor.y = 320;
             PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
         }
     }
@@ -166,9 +167,20 @@ export default class GameOverLevel extends BaseView {
         img.skin = this.adData[index].param;
     }
 
-    onSelect(e:Laya.Event, index): void {
-        //跳转到其他小游戏 
-        PlatformMgr.callAPIMethodByProxy("navigateToMiniProgram",this.adData[index]);
+    onClickItem(e:Laya.Event, index): void {
+        if (e.type == Laya.Event.CLICK) {
+            if ((e.target) instanceof Laya.Box) {
+                //跳转到其他小游戏 
+                let adInfo = this.adData[index];
+                var _d: any = {
+                    my_uuid: adInfo.position,
+                    to_appid: adInfo.appid,
+                    appid : adInfo.appid,
+                    toLinks : adInfo.toLinks,
+                };
+                PlatformMgr.callAPIMethodByProxy("navigateToMiniProgram",_d);
+            }
+        }
     }
 
 

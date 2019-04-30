@@ -37,25 +37,31 @@ export default class StorageMgr {
         }
     }
 
-    public static getLocalVirbort(){
-        return MyUtils.isNull(StorageMgr.getStorage("virbort"));
+    public static getLocalVirbort():any{
+        return wx.getStorageSync("virbort");
     }
 
-    public static setLocalVirbort(str:string){
-        StorageMgr.setStorage({
+    public static setLocalVirbort(str){
+        wx.setStorage({
             key:"virbort", 
-            val:str
+            success: null,
+            fail: null,
+            complete: null,
+            data: str
         });
     }
 
-    public static getLocalSound(){
-        return MyUtils.isNull(StorageMgr.getStorage("sound"));
+    public static getLocalSound():any{
+        return wx.getStorageSync("sound");
     }
 
-    public static setLocalSound(str:string){
-        StorageMgr.setStorage({
-            key:"sound", 
-            val:str
+    public static setLocalSound(str){
+        wx.setStorage({
+            key:"sound",
+            success: null,
+            fail: null,
+            complete: null,
+            data: str
         });
     }
 
