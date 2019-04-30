@@ -65,7 +65,7 @@ export default class WXAPI {
                 let gameOverLevel = ViewMgr.instance.getView("GameOverLevel.scene");
                 let gameOverEndless = ViewMgr.instance.getView("GameOverEndless.scene");
                 let convergeAd = ViewMgr.instance.getView("ConvergeAd.scene");
-                if (!notShowAd && ConfigData.ctrlInfo.isConverge == 1 && (gameOverLevel || gameOverEndless) && !convergeAd) {
+                if (!notShowAd && (gameOverLevel || gameOverEndless) && !convergeAd) {
                     ViewMgr.instance.openView({
                         viewName: "ConvergeAd.scene",
                         closeAll: false,

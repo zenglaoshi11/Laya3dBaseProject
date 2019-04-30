@@ -44,7 +44,6 @@ export default class HttpMgr {
 			url: 'getSystemParamList.action', data: { nowVersion: ConfigData.version }, callback: (res) => {
 				if (res.code == 0) {
 					ConfigData.ctrlInfo = {
-						isConverge: res.isConverge, //聚合开关
 						isShare: res.fuhuoControl,
 						isWudian:res.positionControl, //误点开关
 						shareInfo: res.shareInfo,
