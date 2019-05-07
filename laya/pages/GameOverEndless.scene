@@ -117,7 +117,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -218,11 +218,12 @@
                                     "hasChild":false,
                                     "compId":44,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -261,7 +262,8 @@
                                     "hasChild":false,
                                     "compId":5,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 },
                                 {
                                     "type":"Script",
@@ -277,8 +279,10 @@
                                     "hasChild":false,
                                     "compId":45,
                                     "child":[
-                                        ]
-                                }]
+                                        ],
+                                    "$HIDDEN":false
+                                }],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -307,8 +311,10 @@
                                     "hasChild":false,
                                     "compId":46,
                                     "child":[
-                                        ]
-                                }]
+                                        ],
+                                    "$HIDDEN":false
+                                }],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -337,10 +343,12 @@
                                     "hasChild":false,
                                     "compId":47,
                                     "child":[
-                                        ]
-                                }]
+                                        ],
+                                    "$HIDDEN":false
+                                }],
+                            "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
@@ -359,7 +367,8 @@
             "hasChild":false,
             "compId":39,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {
@@ -369,5 +378,6 @@
             "id":1,
             "frameRate":24,
             "action":0
-        }]
+        }],
+    "$HIDDEN":false
 }

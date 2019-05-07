@@ -222,6 +222,7 @@ export default class WXAPI {
         if (!_d || !_d.to_appid || !Laya.Browser.onMiniGame) {
             return;
         }
+        this.shareBackArgs["notShowAd"] = _d.notShowAd;
         StatisticsMgr.instance.navigateToMiniProgramStatistics(_d);
         window["wx"].navigateToMiniProgram({
             appId: _d.to_appid,

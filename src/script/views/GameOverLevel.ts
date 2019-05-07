@@ -180,6 +180,7 @@ export default class GameOverLevel extends BaseView {
                     to_appid: adInfo.appid,
                     appid : adInfo.appid,
                     toLinks : adInfo.toLinks,
+                    notShowAd:true,
                 };
                 PlatformMgr.callAPIMethodByProxy("navigateToMiniProgram",_d);
             }
