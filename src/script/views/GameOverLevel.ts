@@ -56,7 +56,10 @@ export default class GameOverLevel extends BaseView {
         this.adList.renderHandler = new Laya.Handler(this, this.onRender);
         this.adList.mouseHandler = new Laya.Handler(this, this.onClickItem);
         this.adList.vScrollBarSkin = "";
-        this.adData = ConfigData.getAdData(1005);
+        this.adData = ConfigData.getAdData(1003);
+        if(this.adData.length >6){
+            this.adData.length = 6;
+        }
     }
     
     goFighting(){
