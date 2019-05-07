@@ -53,7 +53,7 @@ export default class HttpUtils {
         if(ConfigData.encryptDES && window["strEnc"]){
             dataStr = window["strEnc"](dataStr,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
         }
-        xhr.send(url, "param=" + dataStr, meth, "text", ["Content-Type", "application/x-www-form-urlencoded"]);
+        xhr.send(url, "param=" + encodeURIComponent(dataStr), meth, "text", ["Content-Type", "application/x-www-form-urlencoded"]);
         // xhr.send(url, JSON.stringify(data), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
     }
 
