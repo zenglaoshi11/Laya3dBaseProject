@@ -1,14 +1,11 @@
 import ConfigData from "../models/ConfigData";
 import WXAPI from "../platform/wx/WXAPI";
 import FBAPI from "../platform/fb/FBAPI";
-import WXAdMgr from "../platform/wx/WXADMgr";
 import WXSubDomain from "../platform/wx/WXSubDomain";
-import AndroidAPI from "../platform/\bandroid/AndroidAPI";
-import AndroidAdMgr from "../platform/\bandroid/AndroidAdMgr";
+import AndroidAPI from "../platform/android/AndroidAPI";
 
 export default class PlatformMgr extends Laya.Script {
     public static ptAPI;
-    public static ptAdMgr;
     public static subDomain;
 
     private constructor() {
@@ -20,19 +17,16 @@ export default class PlatformMgr extends Laya.Script {
         switch(ConfigData.releasePlatform){
             case "wx":
                 PlatformMgr.ptAPI = new WXAPI();
-                PlatformMgr.ptAdMgr = new WXAdMgr;
                 PlatformMgr.subDomain = new WXSubDomain();
                 break;
             case "fb":
                 //new fb的管理类
-                // this.ptAPI = new FBAPI();
-                // this.ptAdMgr = new FBAdMgr;
                 break;
             case "android":
-                    PlatformMgr.ptAPI = new AndroidAPI();
-                    PlatformMgr.ptAdMgr = new AndroidAdMgr;
-                    PlatformMgr.subDomain = null;
-                break;
+                PlatformMgr.ptAPI = new AndroidAPI();
+                window["Android2JS"] = PlatformMgr.ptAPI;
+                PlatformMgr.subDomain = null;
+            break;
         }
     }
 
@@ -44,13 +38,6 @@ export default class PlatformMgr extends Laya.Script {
         return PlatformMgr.ptAPI[meth](arg);
     }
 
-    //通过代理调用广告相关
-    public static callADMethodByProxy(meth:string,arg?:any){
-        if(!PlatformMgr.ptAdMgr || !PlatformMgr.ptAdMgr[meth]){
-            return
-        }
-        return PlatformMgr.ptAdMgr[meth](arg);
-    }
 
     //通过代理调用子域相关
     /*
