@@ -3,6 +3,8 @@ import WXAPI from "../platform/wx/WXAPI";
 import FBAPI from "../platform/fb/FBAPI";
 import WXAdMgr from "../platform/wx/WXADMgr";
 import WXSubDomain from "../platform/wx/WXSubDomain";
+import AndroidAPI from "../platform/\bandroid/AndroidAPI";
+import AndroidAdMgr from "../platform/\bandroid/AndroidAdMgr";
 
 export default class PlatformMgr extends Laya.Script {
     public static ptAPI;
@@ -25,6 +27,11 @@ export default class PlatformMgr extends Laya.Script {
                 //new fb的管理类
                 // this.ptAPI = new FBAPI();
                 // this.ptAdMgr = new FBAdMgr;
+                break;
+            case "android":
+                    PlatformMgr.ptAPI = new AndroidAPI();
+                    PlatformMgr.ptAdMgr = new AndroidAdMgr;
+                    PlatformMgr.subDomain = null;
                 break;
         }
     }

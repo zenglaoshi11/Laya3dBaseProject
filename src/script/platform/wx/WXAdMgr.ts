@@ -17,7 +17,7 @@ export default class WXAdMgr{
     private rewardedVideoAd: any;
     private hasAd: boolean = false;
 
-    private caller: any;
+    private myCaller: any;
     private callBackSuc: Function;
     private callBackFail: Function;
     private callBackErro:Function;
@@ -51,6 +51,13 @@ export default class WXAdMgr{
         this.preBannerTimeClassicEnd = Laya.timer.currTimer;
     }
 
+    private cleanVideoCall(){
+        this.myCaller = null;
+        this.callBackSuc = null;
+        this.callBackFail = null;
+        this.callBackErro = null;
+    }
+                
     public initVedioCom() {
         let self = this;
         if (this.isInited) {
@@ -71,8 +78,9 @@ export default class WXAdMgr{
                     return;
                 }
                 if (self.callBackSuc != null) {
-                    self.callBackSuc(self.caller);
+                    self.callBackSuc();
                 }
+                this.cleanVideoCall();
             });
             this.rewardedVideoAd.onClose(res => {
                 // 用户点击了【关闭广告】按钮
@@ -82,15 +90,15 @@ export default class WXAdMgr{
                     // 正常播放结束，可以下发游戏奖励
                     self.videoPlayedTimes += 1;
                     if (self.callBackSuc != null) {
-                        self.callBackSuc(self.caller);
+                        self.callBackSuc();
                     }
-                }
-                else {
+                }else {
                     // 播放中途退出，不下发游戏奖励
                     if (self.callBackFail != null) {
-                        self.callBackFail(self.caller);
+                        self.callBackFail();
                     }
                 }
+                this.cleanVideoCall();
             });
         }
     }
@@ -102,11 +110,11 @@ export default class WXAdMgr{
         }
         let self = this;
         this._type = _d._type || 0;
-        this.caller = _d.caller;
+        this.myCaller = _d.caller;
         this.callBackSuc = _d.callBackSuc;
         this.callBackFail = _d.callBackFail;
         this.callBackErro = _d.callBackErro;
-        StatisticsMgr.instance.clickVideoStatistics(this._type)
+        StatisticsMgr.instance.clickVideoStatistics(this._type);
         if (this.hasAd) {
             this.hasAd = false;
             this.rewardedVideoAd.show();
