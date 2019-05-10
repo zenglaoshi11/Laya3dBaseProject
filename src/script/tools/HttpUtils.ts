@@ -15,11 +15,17 @@ export default class HttpUtils {
         }
         var completeFunc = (res) => {
             if(res){
-                if(ConfigData.encryptDES && window["strDec"]){
-                    res = window["strDec"](res,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+                if(!res.data){
+                    res = JSON.parse(res);
+                }
+                if(res.data){
+                    res = res.data;
+                    if(ConfigData.encryptDES && window["strDec"]){
+                        res = window["strDec"](res,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+                    }
+                    res = JSON.parse(res);
                 }
             }
-            res = JSON.parse(res);
             console.log(res,"res")
             if (_d.callback) {
                 // console.log("url:" + url +" res:" + JSON.stringify(res));
@@ -53,7 +59,7 @@ export default class HttpUtils {
         if(ConfigData.encryptDES && window["strEnc"]){
             dataStr = window["strEnc"](dataStr,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
         }
-        xhr.send(url, "param=" + encodeURIComponent(dataStr), meth, "text", ["Content-Type", "application/x-www-form-urlencoded"]);
+        xhr.send(url, "param=" + encodeURIComponent(dataStr), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
         // xhr.send(url, JSON.stringify(data), meth, "json", ["Content-Type", "application/x-www-form-urlencoded"]);
     }
 

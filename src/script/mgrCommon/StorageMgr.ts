@@ -5,12 +5,14 @@ import ConfigData from "../models/ConfigData";
 export default class StorageMgr {
     
     static setStorage(_d) {
-        if (!Laya.Browser.onMiniGame) {
-            return;
-        }
+        
         let dataStr:string = JSON.stringify(_d.val);
         if(window["strEnc"]){
             dataStr = window["strEnc"](dataStr,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
+        }
+        if (!Laya.Browser.onMiniGame) {
+            localStorage.setItem(_d.key,dataStr);
+            return;
         }
         wx.setStorage({
             key: _d.key,
@@ -22,23 +24,28 @@ export default class StorageMgr {
     }
 
     static getStorage(_key): any {
-        if (!Laya.Browser.onMiniGame) {
-            return;
-        }
+        var value = null;
         try {
-            var value = wx.getStorageSync(_key);
+            if (!Laya.Browser.onMiniGame) {
+                value = localStorage.getItem(_key);
+            }else{
+                value = wx.getStorageSync(_key);
+            }
             if(window["strDec"]){
                 value = window["strDec"](value,ConfigData.encryptDESKey1,ConfigData.encryptDESKey2,ConfigData.encryptDESKey3);
             }
-            if (value) {
-                return value
-            }
         } catch (e) {
         }
+        return value;
     }
 
     public static getLocalVirbort():any{
-        let virbort:any = wx.getStorageSync("virbort");
+        let virbort:any;
+        if (!Laya.Browser.onMiniGame) {
+            virbort = localStorage.getItem("virbort");
+        }else{
+            virbort = wx.getStorageSync("virbort");
+        }
         if(virbort == "1"){
             return false;
         }
@@ -46,6 +53,10 @@ export default class StorageMgr {
     }
 
     public static setLocalVirbort(str){
+        if (!Laya.Browser.onMiniGame) {
+            localStorage.setItem("virbort",str);
+            return;
+        }
         wx.setStorage({
             key:"virbort", 
             success: null,
@@ -56,7 +67,12 @@ export default class StorageMgr {
     }
 
     public static getLocalSound():any{
-        let sound:any = wx.getStorageSync("sound");
+        let sound:any;
+        if (!Laya.Browser.onMiniGame) {
+            sound = localStorage.getItem("sound");
+        }else{
+            sound = wx.getStorageSync("sound");
+        }
         if(sound == "1"){
             return false;
         }
@@ -64,6 +80,10 @@ export default class StorageMgr {
     }
 
     public static setLocalSound(str){
+        if (!Laya.Browser.onMiniGame) {
+            localStorage.setItem("sound",str);
+            return;
+        }
         wx.setStorage({
             key:"sound",
             success: null,
