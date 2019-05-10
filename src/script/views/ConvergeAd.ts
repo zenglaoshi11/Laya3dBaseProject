@@ -23,7 +23,7 @@ export default class ConvergeAd extends BaseView {
         if(Laya.stage.height > 1334){
             this.adList.y = 20 + (Laya.stage.height - 1334) / 2
         }
-        PlatformMgr.callADMethodByProxy("destoryAllBannerAd");
+        PlatformMgr.callAPIMethodByProxy("destoryAllBannerAd");
     }
     
     public addEvent() {

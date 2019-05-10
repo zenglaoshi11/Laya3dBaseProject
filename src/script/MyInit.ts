@@ -1,7 +1,6 @@
 import PlatformMgr from "./mgrCommon/PlatformMgr";
 import ConfigData from "./models/ConfigData";
 import StorageMgr from "./mgrCommon/StorageMgr";
-import WXAdMgr from "./platform/wx/WXADMgr";
 import Login from "./Login";
 import ViewMgr from "./mgrCommon/ViewMgr";
 import StatisticsMgr from "./mgrCommon/StatisticsMgr";

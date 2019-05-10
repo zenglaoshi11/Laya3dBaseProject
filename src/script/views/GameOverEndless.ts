@@ -75,24 +75,24 @@ export default class GameOverEndless extends BaseView {
 
     onEnable():void{
         super.onEnable();
-        PlatformMgr.callADMethodByProxy("showBannerAdClassicEnd",true);
+        PlatformMgr.callAPIMethodByProxy("showBannerAdClassicEnd",true);
     }
 
     onDisable(): void {
         super.onDisable();
         this.closeGameOver();
-        PlatformMgr.callADMethodByProxy("destroyBannerAdClassicEnd");
+        PlatformMgr.callAPIMethodByProxy("destroyBannerAdClassicEnd");
     }
     
     openRank(){
          //打开排行榜
         this.closeGameOver();
-        PlatformMgr.callADMethodByProxy("destroyBannerAdClassicEnd");
+        PlatformMgr.callAPIMethodByProxy("destroyBannerAdClassicEnd");
         EventMgr.instance.emit("openRank",{
             _type:SORTTYPE.ENDLESS,
             callback:()=>{
                 this.openGameOver();
-                PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
+                PlatformMgr.callAPIMethodByProxy("showBannerAdClassicEndFast");
             }
         });
     }
@@ -115,12 +115,12 @@ export default class GameOverEndless extends BaseView {
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
             this.btnAnchor.y = randomY;
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
-                PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
+                PlatformMgr.callAPIMethodByProxy("showBannerAdClassicEndFast");
                 Laya.Tween.to(this.btnAnchor, {y: 320 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
             this.btnAnchor.y = 320;
-            PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
+            PlatformMgr.callAPIMethodByProxy("showBannerAdClassicEndFast");
         }
     }
 

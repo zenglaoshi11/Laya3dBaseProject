@@ -109,12 +109,12 @@ export default class GameOverLevel extends BaseView {
     
     onEnable():void{
         super.onEnable();
-        PlatformMgr.callADMethodByProxy("showBannerAdClassicEnd",true);
+        PlatformMgr.callAPIMethodByProxy("showBannerAdClassicEnd",true);
     }
 
     onDisable(): void {
         super.onDisable();
-        PlatformMgr.callADMethodByProxy("destroyBannerAdClassicEnd");
+        PlatformMgr.callAPIMethodByProxy("destroyBannerAdClassicEnd");
     }
 
     openView(data?: any){
@@ -156,12 +156,12 @@ export default class GameOverLevel extends BaseView {
             let randomY = MyUtils.random(btnJumpY, btnJumpY + 30);
             this.btnAnchor.y = randomY;
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
-                PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
+                PlatformMgr.callAPIMethodByProxy("showBannerAdClassicEndFast");
                 Laya.Tween.to(this.btnAnchor, {y: 320 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
             this.btnAnchor.y = 320;
-            PlatformMgr.callADMethodByProxy("showBannerAdClassicEndFast");
+            PlatformMgr.callAPIMethodByProxy("showBannerAdClassicEndFast");
         }
     }
 

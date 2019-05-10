@@ -60,7 +60,7 @@ export default class MainViewVertical extends BaseView {
         this.btnStart = this.owner.getChildByName("btnStart") as Laya.Button;
 
         MyUtils.autoScreenSize([this.btnSound,this.btnVirbort]);
-        PlatformMgr.callADMethodByProxy("showBannerAdHome");
+        PlatformMgr.callAPIMethodByProxy("showBannerAdHome");
         let self = this;
             Laya.timer.frameOnce(20, this, function () {
                 new Promise((resolve,reject) => {
@@ -181,7 +181,7 @@ export default class MainViewVertical extends BaseView {
             return;
         }
         PlatformMgr.callAPIMethodByProxy("destoryAuthorization");
-        PlatformMgr.callADMethodByProxy("destoryAllBannerAd");
+        PlatformMgr.callAPIMethodByProxy("destoryAllBannerAd");
         this._isClick = true;
         Laya.timer.once(500, this, () => {
             this._isClick = null;

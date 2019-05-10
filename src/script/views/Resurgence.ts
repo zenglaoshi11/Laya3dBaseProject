@@ -85,11 +85,11 @@ export default class Resurgence extends BaseView {
             let randomX = MyUtils.random(centerX - 30, centerX + 30);
             this.btnJump.pos(randomX, randomY);
             Laya.timer.once(ConfigData.ctrlInfo.lateDelay, this, () => {
-                PlatformMgr.callADMethodByProxy("showBannerAdOtherFast");
+                PlatformMgr.callAPIMethodByProxy("showBannerAdOtherFast");
                 Laya.Tween.to(this.btnJump, {y: 320 }, 500, Laya.Ease.backOut, null, 500);
             });
         } else {
-            PlatformMgr.callADMethodByProxy("showBannerAdOtherFast");
+            PlatformMgr.callAPIMethodByProxy("showBannerAdOtherFast");
             this.btnJump.y = 320;
         }
     }
@@ -120,12 +120,12 @@ export default class Resurgence extends BaseView {
 
     onEnable():void{
         super.onEnable();
-        PlatformMgr.callADMethodByProxy("showBannerAdOther",true);
+        PlatformMgr.callAPIMethodByProxy("showBannerAdOther",true);
     }
 
     onDisable(): void {
         super.onDisable();
-        PlatformMgr.callADMethodByProxy("destroyBannerAdOther");
+        PlatformMgr.callAPIMethodByProxy("destroyBannerAdOther");
         this.closeGoingSurpassOther();
     }
 
@@ -138,10 +138,10 @@ export default class Resurgence extends BaseView {
         Laya.timer.once(500, this, () => {
             this._isClick = null;
         });
-        if (PlatformMgr.ptAdMgr) {
+        if (PlatformMgr.ptAPI) {
             this.isLoadAD = true;
             this.goShareAdc = true;
-            PlatformMgr.callADMethodByProxy("showVideo",{
+            PlatformMgr.callAPIMethodByProxy("showVideo",{
                 _type:SHARE_VIDEO_TYPE.RESURGENCE,
                 caller:this, 
                 callBackSuc:() => {
