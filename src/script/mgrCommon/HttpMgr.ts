@@ -12,6 +12,7 @@ export default class HttpMgr {
     }
     //登陆
     public login(_d:any): void {
+        _d.platform = window.navigator.platform;//添加一个平台参数
         this._http.request({
             url: 'userLogin.action', data: _d, callback: (res) => {
                 if (res.code == 0) {
@@ -41,7 +42,10 @@ export default class HttpMgr {
     //开关配制
     public getSystemConfig(): void {
         this._http.request({
-			url: 'getSystemParamList.action', data: { nowVersion: ConfigData.version }, callback: (res) => {
+			url: 'getSystemParamList.action', data: { 
+                nowVersion: ConfigData.version,
+                platform : window.navigator.platform
+            }, callback: (res) => {
 				if (res.code == 0) {
 					ConfigData.ctrlInfo = {
 						isShare: res.fuhuoControl,

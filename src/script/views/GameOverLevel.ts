@@ -22,6 +22,7 @@ export default class GameOverLevel extends BaseView {
 
     private adList:Laya.List;
     private adData:any[];
+    private adDataRandom:any[];
 
     constructor() { super(); }
     
@@ -36,7 +37,6 @@ export default class GameOverLevel extends BaseView {
         this.btnHome = btnAnchor.getChildByName("btnHome") as Laya.Image;
         this.btnAgain = btnAnchor.getChildByName("btnAgain") as Laya.Image;
         this.btnFight = btnAnchor.getChildByName("btnFight") as Laya.Image;
-
 
         let levePanel = content.getChildByName("levelPanel") as Laya.Image;
         this.passNum = levePanel.getChildByName("passNum") as Laya.FontClip;
@@ -58,6 +58,7 @@ export default class GameOverLevel extends BaseView {
         this.adList.vScrollBarSkin = "";
         this.adData = ConfigData.getAdData(1003);
         if(this.adData.length >6){
+            this.adDataRandom = this.adData.slice(6,this.adData.length);
             this.adData.length = 6;
         }
     }
@@ -173,6 +174,9 @@ export default class GameOverLevel extends BaseView {
     onClickItem(e:Laya.Event, index): void {
         if (e.type == Laya.Event.CLICK) {
             if ((e.target) instanceof Laya.Box) {
+                let cell:Laya.Box = e.target;
+                
+
                 //跳转到其他小游戏 
                 let adInfo = this.adData[index];
                 var _d: any = {
@@ -182,6 +186,12 @@ export default class GameOverLevel extends BaseView {
                     toLinks : adInfo.toLinks,
                     notShowAd:true,
                 };
+                if(this.adDataRandom.length > 0){ //点击后主换6个之后的
+                    let img = cell.getChildAt(0) as Laya.Image;
+                    this.adDataRandom.push(adInfo);
+                    this.adData[index] = this.adDataRandom.shift();
+                    img.skin = this.adData[index].param;
+                }
                 PlatformMgr.callAPIMethodByProxy("navigateToMiniProgram",_d);
             }
         }
